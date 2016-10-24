@@ -32,3 +32,11 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+# Cordova
+/src/cordova/platforms
+/src/cordova/www
+/src/cordova/node_modules
+/src/cordova/plugins
+/src/cordova/app/app
+/src/cordova/app/assets
