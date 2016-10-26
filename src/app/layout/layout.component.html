@@ -1,0 +1,27 @@
+<div class="full-size">
+
+	<div class="table-layout">
+
+		<div class="table-cell">
+			<seed-sidenav>
+				<seed-menu menu="vertical">
+					<!--<ng-content select="seed-menu"></ng-content>-->
+				</seed-menu>
+			</seed-sidenav>
+		</div>
+
+		<div class="table-cell">
+
+			<seed-navbar>
+				<seed-menu menu="horizontal">
+					<ng-content select="seed-menu"></ng-content>
+				</seed-menu>
+			</seed-navbar>
+
+			<main class="full-size">
+				<ng-content></ng-content>
+			</main>
+
+		</div>
+	</div>
+</div>

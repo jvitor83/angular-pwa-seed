@@ -1,0 +1,12 @@
+<div class="full-height bg-primary" [class.sidenav-open]="isOpen" >
+
+	<a (click)="isOpen = !isOpen">
+		<i class="fa fa-bars fa-3x" style="color: white;" aria-hidden="true"></i>
+	</a>
+	<seed-menu>
+		<ng-content select="seed-menu">
+
+		</ng-content>
+	</seed-menu>
+
+</div>
