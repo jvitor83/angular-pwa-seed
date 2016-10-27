@@ -59,7 +59,7 @@ Be the easiest, simplest, fastest and performative way to create a **Hybrid Appl
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE (5.XX): [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-
+- Install Global Dependencies: `npm install --global angular-cli cordova typescript`
 
 ## Starting
 
@@ -67,9 +67,6 @@ Be the easiest, simplest, fastest and performative way to create a **Hybrid Appl
 # Clone this repository
 git clone https://github.com/jvitor83/angular-seed-cli-admin
 cd angular-seed-cli-admin
-
-# Install global dependencies
-npm install --global angular-cli cordova typescript
 
 # Install the project's dependencies
 npm install
