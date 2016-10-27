@@ -89,13 +89,13 @@ So, the steps are:
 > **[VSCode:](https://code.visualstudio.com/)** **Running on Web:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> then <kbd>F5</kbd>
 
 
+**Requirements:**
 
-Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
-> _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
+> Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
+> > _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
+> > _- Ex: To compile windows, must have Visual Studio and be on windows to run._
 
-> _- Ex: To compile windows, must have Visual Studio and be on windows to run._
-
-See the links below to know how to install each.
+> See the links below to know how to install each.
 
 
 **You could use some custom npm scripts/commands to install/run:**
