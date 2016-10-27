@@ -1,31 +1,104 @@
-# AngularSeedCli
+# Angular(2) Seed CLI Admin (Template)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.18.
+[![Join the chat at https://gitter.im/angular-seed-cli-admin/Lobby](https://badges.gitter.im/angular-seed-cli-admin/Lobby.svg)](https://gitter.im/angular-seed-cli-admin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Dependency Status](https://david-dm.org/jvitor83/angular-seed-cli-admin.svg)](https://david-dm.org/jvitor83/angular-seed-cli-admin)
+[![devDependency Status](https://david-dm.org/jvitor83/angular-seed-cli-admin/dev-status.svg)](https://david-dm.org/jvitor83/angular-seed-cli-admin#info=devDependencies)
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+**Multiplatform** Angular 2 project (_Web_, _Mobile_ and _Desktop_) with a **[admin template (CoreUI)](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template)** applied.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Goal
 
-## Running unit tests
+Be the easiest, simplest, fastest and performative way to create a **Hybrid Application** using Angular 2.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Secondary goal
+> Try to reach the maximum performance possible in a hybrid mobile application using:
+> - [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
+> - [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Applicability study
+> - Simple layout (without complex animations/effects) - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to Github Pages
+## Features
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+- Multiplatform (Web, Mobile, Desktop) [Cordova](https://cordova.apache.org/docs/en/latest/guide/support/index.html)
+- Layout out-of-box ([CoreUI](http://coreui.io/)/[Boostrap](http://getbootstrap.com/))
+- [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
+- [Angular CLI generator](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services) 
 
-## Further help
 
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Technologies
+
+- [Angular 2](http://angular.io/)
+- [Angular CLI](https://cli.angular.io/)
+- [Cordova](https://cordova.apache.org/)
+- [CoreUI](http://coreui.io/)
+- [Boostrap](http://getbootstrap.com/)
+- [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
+
+
+
+## TODOs
+
+- [x] Test Web
+- [x] Test Browser (Cordova)
+- [x] Test Windows (Cordova)
+- [x] Test Android (Cordova)
+- [ ] Test iOS (Cordova)
+- [ ] Test OSx (Cordova)
+- [ ] Test Ubuntu (Cordova)
+- [ ] Test others dev environment (Non Windows)
+
+
+## Requirements
+
+- **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+- **NODE**: Have installed or Install NODE (5.XX): [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
+
+
+## Starting
+
+```bash
+# Clone this repository
+git clone https://github.com/jvitor83/angular-seed-hybrid-admin
+cd angular-seed-hybrid-admin
+
+# Install global dependencies
+npm install --global angular-cli cordova typescript
+
+# Install the project's dependencies
+npm install
+```
+
+
+## Running
+
+| PLATFORM       | REQUIREMENTS/*GUIDE (Tools, Sdk, etc)*                                                        | INSTALL                   | RUN                     |
+|----------------|-----------------------------------------------------------------------------------------------|---------------------------|-------------------------|
+| Web            |                                                                                               |                           | `npm run start`         |
+| Android        | [Platform Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) | `npm run install.android` | `npm run start.android` |
+| IOS            | [Platform Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html)     | `npm run install.ios`     | `npm run start.ios`     |
+| Windows        | [Platform Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/win8/index.html)    | `npm run install.windows` | `npm run start.windows` |
+| OSx            | [Platform Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/osx/index.html)     | `npm run install.osx`     | `npm run start.osx`     |
+| Ubuntu (Linux) | [Platform Guide](http://cordova.apache.org/docs/en/latest/guide/platforms/ubuntu/index.html)  | `npm run install.ubuntu`  | `npm run start.ubuntu`  |
+| Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
+
+
+## Structure
+
+```
+├── src                             <- source code of the application
+│   ├── app                         <- angular components
+```
+
+More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template/tree/master/Angular2_CLI_Starter)
+
+
+# License
+
+MIT
