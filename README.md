@@ -89,7 +89,7 @@ So, the steps are:
 > See the links below to know how to install each.
 
 
-**You could use some custom scripts:**
+**You could use some custom scripts to install/run:**
 
 
 | PLATFORM       | REQUIREMENTS/*GUIDE (Tools, Sdk, etc)*                                                        | INSTALL                   | RUN                     |
