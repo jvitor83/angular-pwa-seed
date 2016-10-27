@@ -79,6 +79,7 @@ You could use **[Angular-CLI commands](https://github.com/angular/angular-cli#us
 > Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
 
 So, the steps are:
+
 | Web              | Cordova                                                                               |
 |------------------|---------------------------------------------------------------------------------------|
 | - Run `ng serve` | - Compile the App `ng build`                                                          |
@@ -88,12 +89,13 @@ So, the steps are:
 > **[VSCode:](https://code.visualstudio.com/)** **Running on Web:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> then <kbd>F5</kbd>
 
 
-> Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
-> > _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
-> >
-> > _- Ex: To compile windows, must have Visual Studio and be on windows to run._
 
-> See the links below to know how to install each.
+Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
+> _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
+
+> _- Ex: To compile windows, must have Visual Studio and be on windows to run._
+
+See the links below to know how to install each.
 
 
 **You could use some custom npm scripts/commands to install/run:**
