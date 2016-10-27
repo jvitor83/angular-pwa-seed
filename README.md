@@ -79,9 +79,11 @@ You could use [Angular-CLI commands](https://github.com/angular/angular-cli#usag
 > Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
 
 So, the steps are:
-- Compile the App `ng build`
-- Install your desired platform `cordova platform add android` _(or none in case of web only)_
-- Run your desired platform `cordova run android`
+| Web              | Cordova                                                                               |
+|------------------|---------------------------------------------------------------------------------------|
+| - Run `ng serve` | - Compile the App `ng build`                                                          |
+|                  | - Install your desired platform **(one time only)** `cordova platform add android --save` |
+|                  | - Run your desired platform `cordova run android`                                     |
 
 > Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
 > > - Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device.
@@ -104,6 +106,16 @@ So, the steps are:
 | Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
 
 
+## Structure
+
+```
+├── src                             <- source code of the application
+│   ├── app                         <- angular components
+```
+
+More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template/tree/master/Angular2_CLI_Starter)
+
+
 ## AddOns
 
 ### VSCode
@@ -114,15 +126,6 @@ Recommended extensions:
 - [Angular2 Files](https://marketplace.visualstudio.com/items?itemName=alexiv.vscode-angular2-files)
 - [vsc-angular-cli](https://marketplace.visualstudio.com/items?itemName=web-dave.vsc-angular-cli)
 
-
-## Structure
-
-```
-├── src                             <- source code of the application
-│   ├── app                         <- angular components
-```
-
-More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template/tree/master/Angular2_CLI_Starter)
 
 
 > ## TL;DR;
