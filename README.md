@@ -93,6 +93,7 @@ So, the steps are:
 
 > Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
 > > _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
+
 > > _- Ex: To compile windows, must have Visual Studio and be on windows to run._
 
 > See the links below to know how to install each.
