@@ -58,7 +58,7 @@ Be the easiest, simplest, fastest and performative way to create a **Hybrid Appl
 ## Requirements
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
-- **NODE**: Have installed or Install NODE (5.XX): [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
+- **NODE**: Have installed or Install NODE **(5.XX)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
 - Install Global Dependencies: `npm install --global angular-cli cordova typescript`
 
 ## Starting
