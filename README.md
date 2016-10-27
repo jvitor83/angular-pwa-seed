@@ -117,8 +117,3 @@ More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://git
 > ```bash
 > git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && npm run install.android && npm run start.android
 > ```
-
-
-# License
-
-MIT
