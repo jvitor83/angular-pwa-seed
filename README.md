@@ -76,6 +76,7 @@ npm install
 ## Running
 
 You could use [Angular-CLI commands](https://github.com/angular/angular-cli#usage) to get it running on web (`ng serve`) and [Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app) to get it running at others platforms (`cordova platform add android && cordova run android`).
+> Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
 
 So, the steps are:
 - Compile the App `ng build`
