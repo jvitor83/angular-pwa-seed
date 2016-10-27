@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
+import { async, inject } from '@angular/core/testing';
 import { AuthGuardService } from './auth-guard.service';
 
 describe('Service: AuthGuard', () => {
   beforeEach(() => {
-    addProviders([AuthGuardService]);
+    //addProviders([AuthGuardService]);
   });
 
   it('should ...',
