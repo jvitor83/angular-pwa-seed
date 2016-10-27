@@ -78,6 +78,17 @@ npm install
 
 ## Running
 
+You could use Angular-CLI commands to get it running on web (`ng serve`) and Cordova commands to get it running at others platforms (`cordova platform add android && cordova run android`).
+
+So, the steps are:
+- Compile the App `ng build`
+- Install your desired platform `cordova platform add android` _(or none in case of web only)_
+- Run your desired platform `cordova run android`
+
+
+**You could use some custom scripts:**
+
+
 | PLATFORM       | REQUIREMENTS/*GUIDE (Tools, Sdk, etc)*                                                        | INSTALL                   | RUN                     |
 |----------------|-----------------------------------------------------------------------------------------------|---------------------------|-------------------------|
 | Web            |                                                                                               |                           | `npm run start`         |
@@ -97,6 +108,15 @@ npm install
 ```
 
 More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template/tree/master/Angular2_CLI_Starter)
+
+
+> ## TL;DR;
+> 
+> _Just want to see this running on android!_
+> On shell/cmd run this:
+> ```bash
+> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && npm run install.android && npm run start.android
+> ```
 
 
 # License
