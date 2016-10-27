@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>oidc-client test</title>
+    </head>
+    <body>
+        <div>
+            <a href="/">back to sample</a>
+        </div>
+        <pre id='out'></pre>
+        <script src='scripts/oidc-client.min.js'></script>
+        <script>
+            //Oidc.Log.logger = console;
+            //Oidc.Log.logLevel = Oidc.Log.INFO;
+            var mgr = new Oidc.UserManager();
+            mgr.signinRedirectCallback().then(function(user) {
+                console.log("signin response success", user);
+                window.history.go(-2);
+            }).catch(function(err) {
+                console.log("error");
+                console.log(err);
+                //log(err);
+            });
+        </script>
+    </body>
+</html>
