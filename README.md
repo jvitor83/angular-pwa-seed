@@ -75,7 +75,7 @@ npm install
 
 ## Running
 
-You could use [Angular-CLI commands](https://github.com/angular/angular-cli#usage) to get it running on web (`ng serve`) and [Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app) to get it running at others platforms (`cordova platform add android && cordova run android`).
+You could use **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`) and **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
 > Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
 
 So, the steps are:
@@ -85,9 +85,13 @@ So, the steps are:
 |                  | - Install your desired platform **(one time only)** `cordova platform add android --save` |
 |                  | - Run your desired platform `cordova run android`                                     |
 
+> **[VSCode:](https://code.visualstudio.com/)** **Running on Web:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> then <kbd>F5</kbd>
+
+
 > Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
-> > - Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device.
-> > - Ex: To compile windows, must have Visual Studio and be on windows to run.
+> > _- Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device._
+> >
+> > _- Ex: To compile windows, must have Visual Studio and be on windows to run._
 
 > See the links below to know how to install each.
 
