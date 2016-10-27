@@ -65,8 +65,8 @@ Be the easiest, simplest, fastest and performative way to create a **Hybrid Appl
 
 ```bash
 # Clone this repository
-git clone https://github.com/jvitor83/angular-seed-hybrid-admin
-cd angular-seed-hybrid-admin
+git clone https://github.com/jvitor83/angular-seed-cli-admin
+cd angular-seed-cli-admin
 
 # Install global dependencies
 npm install --global angular-cli cordova typescript
