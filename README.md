@@ -99,7 +99,7 @@ So, the steps are:
 > See the links below to know how to install each.
 
 
-**You could use some custom npm scripts/commands to install/run:**
+**You could use some custom npm scripts/commands to install/run the platform:**
 
 
 | PLATFORM       | REQUIREMENTS/*GUIDE (Tools, Sdk, etc)*                                                        | INSTALL                   | RUN                     |
