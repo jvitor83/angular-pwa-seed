@@ -82,6 +82,12 @@ So, the steps are:
 - Install your desired platform `cordova platform add android` _(or none in case of web only)_
 - Run your desired platform `cordova run android`
 
+> Each platform has your specific requirements (SDK, Tools, environment) to compile/run.
+> > - Ex: To compile/run android, must have Android Studio or Android SDK installed and a emulator or device.
+> > - Ex: To compile windows, must have Visual Studio and be on windows to run.
+
+> See the links below to know how to install each.
+
 
 **You could use some custom scripts:**
 
