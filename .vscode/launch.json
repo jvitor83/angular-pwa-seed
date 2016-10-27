@@ -1,0 +1,140 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch localhost with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5555",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}",
+            "sourceMapPathOverrides": {
+                "webpack:///C:*":"C:/*"
+            },
+            "runtimeArgs": [
+                "--remote-debugging-port=9222", //Open in port 9222 (standard chrome debug port)
+                "--user-data-dir=${workspaceRoot}\\ChromeDebugger-UserData\\", //Can be any directory. Makes chrome load in a different directory so that it opens in a new instance.
+                //"--user-data-dir=${env.LOCALAPPDATA}\\Google\\Chrome\\User Data\\", //CHROME DEFAULT
+                "--new-window", //Open in new window
+                "--disable-session-crashed-bubble",
+                "--disable-infobars"
+            ]
+	    },
+        {
+            "name": "Run Android on emulator",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "android",
+            "target": "emulator",
+            "port": 9222,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "ionicLiveReload": false
+        },
+        {
+            "name": "Run Android on device",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "android",
+            "target": "device",
+            "port": 9222,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "ionicLiveReload": false
+        },
+        {
+            "name": "Run iOS on device",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "ios",
+            "target": "device",
+            "port": 9220,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "ionicLiveReload": false
+        },
+        {
+            "name": "Attach to running android on device",
+            "type": "cordova",
+            "request": "attach",
+            "platform": "android",
+            "target": "device",
+            "port": 9222,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Attach to running iOS on device",
+            "type": "cordova",
+            "request": "attach",
+            "platform": "ios",
+            "target": "device",
+            "port": 9220,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Run iOS on simulator",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "ios",
+            "target": "emulator",
+            "port": 9220,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "ionicLiveReload": false
+        },
+        {
+            "name": "Attach to running android on emulator",
+            "type": "cordova",
+            "request": "attach",
+            "platform": "android",
+            "target": "emulator",
+            "port": 9222,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Attach to running iOS on simulator",
+            "type": "cordova",
+            "request": "attach",
+            "platform": "ios",
+            "target": "emulator",
+            "port": 9220,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Serve to the browser (ionic serve)",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "serve",
+            "cwd": "${workspaceRoot}",
+            "devServerAddress": "localhost",
+            "sourceMaps": true,
+            "ionicLiveReload": true
+        },
+        {
+            "name": "Simulate Android in browser",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "android",
+            "target": "chrome",
+            "simulatePort": 8000,
+            "livereload": true,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Simulate iOS in browser",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "ios",
+            "target": "chrome",
+            "simulatePort": 8000,
+            "livereload": true,
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}"
+        }
+    ]
+}
