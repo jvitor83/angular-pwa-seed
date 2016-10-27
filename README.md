@@ -104,6 +104,17 @@ So, the steps are:
 | Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
 
 
+## AddOns
+
+### VSCode
+
+Recommended extensions:
+- [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Angular2 Files](https://marketplace.visualstudio.com/items?itemName=alexiv.vscode-angular2-files)
+- [vsc-angular-cli](https://marketplace.visualstudio.com/items?itemName=web-dave.vsc-angular-cli)
+
+
 ## Structure
 
 ```

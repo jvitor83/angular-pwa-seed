@@ -36,3 +36,6 @@ Thumbs.db
 # Cordova
 /platforms
 /plugins
+
+#VSCode Chrome Debugger Extension (launch.json configuration)
+/ChromeDebugger-UserData

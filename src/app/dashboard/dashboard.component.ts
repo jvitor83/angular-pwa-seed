@@ -6,9 +6,11 @@ import { Router }               from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-    constructor( ) { }
+    constructor( ) {
+        console.debug('DashboardComponent constructor');
+     }
 
     ngOnInit(): void {
-        
+        console.debug('DashboardComponent ngOnInit');
     }
 }
