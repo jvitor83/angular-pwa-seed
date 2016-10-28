@@ -18,10 +18,10 @@ Be the easiest, simplest, fastest and performative way to create a **Hybrid Appl
 
 > ### Secondary goal
 > Try to reach the maximum performance possible in a hybrid mobile application using:
-> - [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
-> - [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
-> - [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Applicability study
-> - Simple layout (without complex animations/effects) - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+> - [ ] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
+> - [ ] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [ ] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Applicability study
+> - [x] Simple layout (without complex animations/effects) - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
 
 ## Features
