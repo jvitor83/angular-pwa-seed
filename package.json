@@ -11,6 +11,7 @@
     "e2e": "protractor",
     "build.watch": "ng build -w",
     "serve.browser": "cordova emulate browser -- --port=5555",
+    "cordova.livesync": "cordova run -- --live-reload",
     "serve": "cordova serve 5555",
     "postinstall": "cordova prepare",
     "start.cordova": "ng build && cordova serve",

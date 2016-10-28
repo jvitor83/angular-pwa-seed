@@ -25,4 +25,6 @@
     </platform>
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <engine name="android" spec="~6.0.0" />
+    <engine name="browser" spec="~4.1.0" />
+    <plugin name="cordova-plugin-browsersync" spec="https://github.com/FDIM/cordova-plugin-browsersync" />
 </widget>
