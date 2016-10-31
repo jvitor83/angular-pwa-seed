@@ -11,6 +11,17 @@
 **Multiplatform** Angular 2 project (_Web_, _Mobile_ and _Desktop_) with a **[admin template (CoreUI)](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template)** applied.
 
 
+
+> ## **TL;DR** _(Too long; Didn't Read)_
+> 
+> _Just want to see this running on browser and android (if have the emulator already configured)!_
+> 
+> After install the [Requirements](#Requirements), on shell/cmd run this _(on windows)_:
+> ```bash
+> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && npm run install.android > nul && start cmd.exe @cmd /k "npm run build.watch" && start cmd.exe @cmd /k "npm run cordova.livesync"
+> ```
+
+
 ## Goal
 
 Be the easiest, simplest, fastest and performative way to create a **Hybrid Application** using Angular 2.
@@ -113,6 +124,14 @@ So, the steps are:
 | Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
 
 
+### LiveSync Multiplatform
+
+You could run multiple instances in different platforms (Browser, Android and iOS only) at same time using:
+- Open shell then run `npm run build.watch`
+- Open another shell then run `npm run cordova.livesync`
+
+
+
 ## Structure
 
 ```
@@ -135,11 +154,3 @@ Recommended extensions:
 - [TypeScript Importer](https://marketplace.visualstudio.com/items?itemName=pmneo.tsimporter)
 
 
-
-> ## TL;DR;
-> 
-> _Just want to see this running on android!_
-> On shell/cmd run this:
-> ```bash
-> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && npm run install.android && npm run start.android
-> ```
