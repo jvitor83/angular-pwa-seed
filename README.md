@@ -16,7 +16,7 @@
 > 
 > _Just want to see this running on browser and android (if have the emulator already configured)!_
 > 
-> After install the [Requirements](#Requirements), on shell/cmd run this _(on windows)_:
+> After install the [Requirements](https://github.com/jvitor83/angular-seed-cli-admin#requirements), on shell/cmd run this _(on windows)_:
 > ```bash
 > git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && npm run install.android > nul && start cmd.exe @cmd /k "npm run build.watch" && start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
