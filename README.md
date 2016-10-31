@@ -18,7 +18,7 @@
 > 
 > After install the [Requirements](https://github.com/jvitor83/angular-seed-cli-admin#requirements), on shell/cmd run this _(on windows)_:
 > ```bash
-> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && start cmd.exe @cmd /k "npm run build.watch" && npm run install.android && start cmd.exe @cmd /k "npm run cordova.livesync"
+> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && start cmd.exe @cmd /k "npm run build.watch" && ping 127.0.0.1 -n 40 > nul && npm run install.android > nul && start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
