@@ -108,7 +108,7 @@ So, the steps are:
 
 > > _- Ex: To compile windows, must have Visual Studio and be on windows to run._
 
-> See the links below to know how to install each.
+> See the links below to know how to install each requirement.
 
 
 **You could use some custom npm scripts/commands to install/run the platform:**
