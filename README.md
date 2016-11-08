@@ -12,13 +12,13 @@
 
 
 
-> ## **TL;DR** _(Too long; Didn't Read)_
+> ## **TL;DR** _(Too Long; Didn't Read)_
 > 
 > _Just want to see this running on browser and android (if have the emulator already configured)!_
 > 
-> After install the [Requirements](https://github.com/jvitor83/angular-seed-cli-admin#requirements), on shell/cmd run this _(on windows)_:
+> On shell/cmd run this _(on windows)_:
 > ```bash
-> git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && start cmd.exe @cmd /k "npm run build.watch" && ping 127.0.0.1 -n 40 > nul && npm run install.android > nul && start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g angular-cli cordova typescript & git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i && start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & npm run install.android > nul & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
@@ -70,7 +70,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid 
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE **(5.XX)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- Install Global Dependencies: `npm install --global angular-cli cordova typescript`
+- **Install Global Dependencies**: `npm install --global angular-cli cordova typescript`
 
 ## Starting
 
@@ -128,7 +128,7 @@ So, the steps are:
 
 You could run multiple instances in different platforms (Browser, Android and iOS only) at same time using:
 - Open shell then run `npm run build.watch`
-- Open another shell then run `npm run cordova.livesync`
+- Open **another** shell then run `npm run cordova.livesync`
 
 
 
@@ -150,7 +150,7 @@ Recommended extensions:
 - [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 - [Angular2 Files](https://marketplace.visualstudio.com/items?itemName=alexiv.vscode-angular2-files)
-- [vsc-angular-cli](https://marketplace.visualstudio.com/items?itemName=web-dave.vsc-angular-cli)
 - [TypeScript Importer](https://marketplace.visualstudio.com/items?itemName=pmneo.tsimporter)
+- [vsc-angular-cli](https://marketplace.visualstudio.com/items?itemName=web-dave.vsc-angular-cli)
 
 
