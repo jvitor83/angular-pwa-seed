@@ -149,8 +149,6 @@ More details at: [Angular CLI](https://cli.angular.io/) and [CoreUI](https://git
 Recommended extensions:
 - [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-- [Angular2 Files](https://marketplace.visualstudio.com/items?itemName=alexiv.vscode-angular2-files)
+- [AngularDoc for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode)
 - [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
-- [vsc-angular-cli](https://marketplace.visualstudio.com/items?itemName=web-dave.vsc-angular-cli)
-
 
