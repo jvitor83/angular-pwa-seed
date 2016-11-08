@@ -40,7 +40,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid 
 - Multiplatform (Web, Mobile, Desktop) [Cordova](https://cordova.apache.org/docs/en/latest/guide/support/index.html)
 - Layout out-of-box ([CoreUI](http://coreui.io/)/[Boostrap](http://getbootstrap.com/))
 - [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
-- [Angular CLI generator](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services) 
+- VSCode Integration ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools))
+- Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
 
 
 ## Technologies
