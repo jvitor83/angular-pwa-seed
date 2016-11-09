@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   authentication: {
-    authority: 'https://auth0.com/',
+    authority: 'http://idp-teste.tjmt.jus.br',
     client_id: '2380',
     redirect_uri: 'http://localhost:5555/callback.html',
     post_logout_redirect_uri: 'http://localhost:5555/',

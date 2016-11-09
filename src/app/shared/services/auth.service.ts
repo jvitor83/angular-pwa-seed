@@ -32,8 +32,8 @@ export class AuthService {
     if (isCordova != null && isCordova) {
       console.log('Applying cordova pattern!');
 
-      authentication.redirect_uri = 'https://localhost/oidc';
-      authentication.silent_redirect_uri = 'https://localhost/oidc';
+      // authentication.redirect_uri = 'https://localhost/oidc';
+      // authentication.silent_redirect_uri = 'https://localhost/oidc';
 
       (<any>authentication).popupNavigator = new (<any>Oidc).CordovaPopupNavigator();
       (<any>authentication).iframeNavigator = new (<any>Oidc).CordovaIFrameNavigator();

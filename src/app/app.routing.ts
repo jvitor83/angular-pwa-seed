@@ -1,6 +1,6 @@
 import { NgModule }                 from '@angular/core';
 import { Routes,
-         RouterModule }             from '@angular/router';
+         RouterModule, PreloadAllModules }             from '@angular/router';
 
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -47,7 +47,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [ RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }) ],
     exports: [ RouterModule ],
     providers: [ AuthGuardService, AuthService ]
 })

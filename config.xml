@@ -26,4 +26,12 @@
     <engine name="browser" spec="~4.1.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <plugin name="cordova-plugin-browsersync" spec="https://github.com/jvitor83/cordova-plugin-browsersync" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="~2.2.0">
+        <variable name="XWALK_VERSION" value="22+" />
+        <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+        <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+        <variable name="XWALK_MODE" value="embedded" />
+        <variable name="XWALK_MULTIPLEAPK" value="true" />
+    </plugin>
+    <plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" spec="https://github.com/mrjoes/cordova-plugin-inappbrowserxwalk#patch-1" />
 </widget>
