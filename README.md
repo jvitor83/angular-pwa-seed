@@ -18,7 +18,7 @@
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & IF DEFINED ANDROID_HOME npm run install.android & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-seed-cli-admin && cd angular-seed-cli-admin && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
