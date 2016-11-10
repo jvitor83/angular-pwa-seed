@@ -31,7 +31,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid 
 > Try to reach the maximum performance possible in a hybrid mobile application using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
 > - [ ] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
-> - [x] [Angular 2 Lazy Loading Modules with PreLoadingStrategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
+> - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
 > - [ ] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Applicability study [Angular 2 Mobile](http://mobile.angular.io/)
 > - [x] Simple layout (without complex animations/effects) - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
