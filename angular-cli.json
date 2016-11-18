@@ -12,7 +12,8 @@
         "favicon.ico",
         "callback.html",
         "silentrefreshframe.html",
-        "scripts"
+        "scripts",
+        "offline.html"
       ],
       "index": "index.html",
       "main": "main.ts",

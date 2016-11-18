@@ -9,14 +9,45 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#4e8ef7">
+    <meta name="msapplication-TileImage" content="assets/img/ms-icon-144x144.png">
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <meta name="mobile-web-app-capable" content="yes">
     <script type="text/javascript" src="cordova.js"></script>
+
+    <link rel="manifest" href="scripts/manifest.json">
+    <meta name="theme-color" content="#4e8ef7">
 
     <title>CoreUI - Open Source Bootstrap Admin Template</title>
 
     <!-- Icons -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/simple-line-icons.css" rel="stylesheet">
+
+      <!-- un-comment this code to enable service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('scripts/service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>
 
 </head>
 
