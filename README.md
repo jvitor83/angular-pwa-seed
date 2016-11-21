@@ -24,7 +24,7 @@
 
 ## Goal
 
-Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid Application** using Angular 2. [(PWA in future)](https://developers.google.com/web/#progressive-web-apps)
+Be the easiest, simplest, fastest and performative way to create a **Web(PWA)/Hybrid Application** using Angular 2.
 
 
 > ### Secondary goal
