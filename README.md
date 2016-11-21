@@ -30,9 +30,9 @@ Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid 
 > ### Secondary goal
 > Try to reach the maximum performance possible in a hybrid mobile application using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
-> - [ ] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 > - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
-> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Applicability study [Angular 2 Mobile](http://mobile.angular.io/)
+> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline features applied - See [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
 > - [x] Simple layout (without complex animations/effects) - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
 
@@ -73,6 +73,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web/Hybrid 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE **(5.XX)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
 - **Install Global Dependencies**: `npm install --global angular-cli cordova typescript`
+- **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
 
