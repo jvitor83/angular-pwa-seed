@@ -4,6 +4,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Dependency Status](https://david-dm.org/jvitor83/angular-seed-cli-admin.svg)](https://david-dm.org/jvitor83/angular-seed-cli-admin)
 [![devDependency Status](https://david-dm.org/jvitor83/angular-seed-cli-admin/dev-status.svg)](https://david-dm.org/jvitor83/angular-seed-cli-admin#info=devDependencies)
+[![DONATE](https://pledgie.com/campaigns/32766.png?skin_name=chrome)](https://pledgie.com/campaigns/32766)
 
 
 ## Description
