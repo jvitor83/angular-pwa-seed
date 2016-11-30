@@ -13,7 +13,8 @@
         "callback.html",
         "silentrefreshframe.html",
         "scripts",
-        "offline.html"
+        "offline.html",
+        "service-worker.js"
       ],
       "index": "index.html",
       "main": "main.ts",

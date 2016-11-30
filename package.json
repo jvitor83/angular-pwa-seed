@@ -1,6 +1,6 @@
 {
   "name": "angular-seed-cli-admin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -9,9 +9,10 @@
     "test": "./node_modules/.bin/ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "build.dev": "./node_modules/.bin/ng build --dev",
-    "build.prod": "./node_modules/.bin/ng build --prod",
-    "build.prod.aot": "./node_modules/.bin/ng build --prod --aot",
+    "sw": "sw-precache --root=www --config=sw-precache-config.js",
+    "build.dev": "./node_modules/.bin/ng build --dev && npm run sw",
+    "build.prod": "./node_modules/.bin/ng build --prod && npm run sw",
+    "build.prod.aot": "./node_modules/.bin/ng build --prod --aot && npm run sw",
     "build.watch": "./node_modules/.bin/ng build -w",
     "serve.browser": "cordova emulate browser -- --port=5555",
     "cordova.livesync": "cordova run -- --live-reload",
@@ -62,7 +63,7 @@
     "@angular/compiler-cli": "2.2.1",
     "@types/jasmine": "2.5.37",
     "@types/node": "6.0.46",
-    "angular-cli": "^1.0.0-beta.20-4",
+    "angular-cli": "1.0.0-beta.20-4",
     "codelyzer": "1.0.0-beta.1",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
@@ -72,6 +73,7 @@
     "karma-jasmine": "1.0.2",
     "karma-remap-istanbul": "0.2.1",
     "protractor": "4.0.9",
+    "sw-precache": "^4.2.3",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
     "typescript": "~2.0.3"
