@@ -13,8 +13,8 @@
         "callback.html",
         "silentrefreshframe.html",
         "scripts",
-        "offline.html",
-        "service-worker.js"
+        "service-worker.js",
+        "web.config"
       ],
       "index": "index.html",
       "main": "main.ts",

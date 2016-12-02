@@ -1,9 +1,9 @@
 import { NgModule }                     from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
 import { CommonModule, LocationStrategy,
-         HashLocationStrategy }         from '@angular/common';
-import { FormsModule } from '@angular/forms'
-import { HttpModule } from '@angular/http'
+         HashLocationStrategy/*, PathLocationStrategy*/ }         from '@angular/common';
+import { FormsModule }                  from '@angular/forms';
+import { HttpModule }                   from '@angular/http';
 
 import { AppComponent }                 from './app.component';
 import { Ng2BootstrapModule }           from 'ng2-bootstrap/ng2-bootstrap';
@@ -23,7 +23,7 @@ import { AppRoutingModule }             from './app.routing';
 import { UnauthorizedModule } from './unauthorized/unauthorized.module';
 import { ProtectedModule } from './protected/protected.module';
 
-//Layouts
+// Layouts
 import { FullLayoutComponent }          from './layouts/full-layout.component';
 
 @NgModule({
@@ -50,7 +50,8 @@ import { FullLayoutComponent }          from './layouts/full-layout.component';
     providers: [
         {
             provide: LocationStrategy,
-            useClass: HashLocationStrategy,
+            useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
+            // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
         },
         AuthService,
         AuthGuardService

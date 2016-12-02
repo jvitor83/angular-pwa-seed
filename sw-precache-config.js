@@ -1,6 +1,6 @@
 module.exports = {
   navigateFallback: '/index.html',
-  stripPrefix: 'www',
+  stripPrefix: 'www/',
   root: 'www/',
   ignoreUrlParametersMatching: [/./],
   handleFetch: true,
