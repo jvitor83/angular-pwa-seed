@@ -46,6 +46,12 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)/Hy
 - Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
 
 
+
+## Sample
+
+A sample is available at: https://angular-seed-cli-admin.azurewebsites.net
+
+
 ## Technologies
 
 - [Angular 2](http://angular.io/)
