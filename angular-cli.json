@@ -23,7 +23,8 @@
       "prefix": "seed",
       "mobile": false,
       "styles": [
-        "scss/style.scss"
+        "theme/variables.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/chart.js/dist/Chart.bundle.min.js",
