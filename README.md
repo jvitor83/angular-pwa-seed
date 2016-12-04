@@ -12,6 +12,10 @@
 **Multiplatform** Angular 2 project (_Web_, _Mobile_ and _Desktop_) with a **[admin template (CoreUI)](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template)** applied.
 
 
+## Sample
+
+A sample is available at: https://angular-seed-cli-admin.azurewebsites.net
+
 
 > ## **TL;DR** _(Too Long; Didn't Read)_
 > 
@@ -44,12 +48,6 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)/Hy
 - [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
 - VSCode Integration ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools))
 - Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
-
-
-
-## Sample
-
-A sample is available at: https://angular-seed-cli-admin.azurewebsites.net
 
 
 ## Technologies
