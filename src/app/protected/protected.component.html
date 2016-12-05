@@ -1,0 +1,11 @@
+<div>
+  This is a protected page
+</div>
+<div *ngIf="loggedIn">
+  User: {{name}}
+  AccessToken: {{accessToken}}
+</div>
+<br>
+<div>
+  To go back click <a (click)="goback()">here</a>.
+</div>

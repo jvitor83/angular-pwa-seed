@@ -8,12 +8,18 @@
 
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <button routerLinkActive="active" [routerLink]="['/dashboard']" ion-item (click)="closeMenu()">
+        Dashboard
+      </button>
+      <button routerLinkActive="active" [routerLink]="['/protected']" ion-item (click)="closeMenu()">
+        Protected
       </button>
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>-->
+<ion-content #content swipeBackEnabled="false">
+    <router-outlet></router-outlet>
+</ion-content>
