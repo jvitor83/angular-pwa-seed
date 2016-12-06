@@ -33,7 +33,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 
 > ### Secondary goal
-> Enable to create an installable application and reach the maximum performance possible in a hybrid mobile application using:
+> Enable to create an installable application and reach the maximum performance possible in a hybrid application using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
 > - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 > - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
