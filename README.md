@@ -29,11 +29,11 @@ A sample is available at: https://angular-seed-cli-admin.azurewebsites.net
 
 ## Goal
 
-Be the easiest, simplest, fastest and performative way to create a **Web(PWA)/Hybrid Application** using Angular 2.
+Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** using Angular 2.
 
 
 > ### Secondary goal
-> Try to reach the maximum performance possible in a hybrid mobile application using:
+> Enable to create an installable application and reach the maximum performance possible in a hybrid mobile application using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
 > - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 > - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
