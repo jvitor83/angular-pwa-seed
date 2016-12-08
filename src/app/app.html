@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button icon-only menuToggle>
+    <button ion-button icon-only menuToggle="left">
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-menu side="left" [content]="content">
+<ion-menu side="left" type="push" [content]="content">
 
   <ion-header>
     <ion-toolbar>
@@ -37,7 +37,7 @@
 
 </ion-menu>
 
-<ion-menu #rightMenu side="right" [content]="content">
+<ion-menu side="right" [content]="content">
   <ion-item>
     UserInfoComponent
   </ion-item>
@@ -46,6 +46,6 @@
   </ion-item>
 </ion-menu>
 
-<ion-content #content swipeBackEnabled="false">
+<ion-content class="has-header" #content swipeBackEnabled="false">
   <router-outlet></router-outlet>
 </ion-content>
