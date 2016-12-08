@@ -10,6 +10,7 @@
     "test": "./node_modules/.bin/ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
+    "sw": "./node_modules/.bin/sw-precache --verbose --root=www --config=sw-precache-config.js",
     "pwa.manifest": "cd src && \"./../node_modules/.bin/pwa-manifest\" --name=\"AngularSeedCliAdmin\" --short_name=\"AngularSeed\" --background_color=#4e8ef7 --theme_color=#4e8ef7 ./ ./assets/pwa/ --start_url=../index.html --display=standalone --orientation=any --direction=portrait --icons=./assets/icon.png",
     "resources": "./node_modules/.bin/ionic resources && npm run resources.copy && npm run pwa.manifest",
     "resources.copy": "./node_modules/.bin/cpx \"resources/**/*\" src/assets",
