@@ -9,11 +9,11 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 
 
 export const routes: Routes = [
-    // {
-    //     path: '',
-    //     redirectTo: 'dashboard',
-    //     pathMatch: 'full',
-    // },
+    {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+    },
     // {
     //     path: 'unauthorized',
     //     component: UnauthorizedComponent

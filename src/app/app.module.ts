@@ -20,10 +20,7 @@ import { ProtectedModule } from './protected/protected.module';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    MyApp
   ],
   imports: [
     AppRoutingModule,
@@ -36,10 +33,7 @@ import { ProtectedModule } from './protected/protected.module';
   bootstrap: [IonicApp],
   //bootstrap: [MyApp],
   entryComponents: [
-    MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    MyApp
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
