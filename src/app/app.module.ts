@@ -1,13 +1,15 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import {
-  CommonModule, LocationStrategy,
-  HashLocationStrategy
-} from '@angular/common';
+import { BrowserModule }                from '@angular/platform-browser';
+import { CommonModule, LocationStrategy,
+         HashLocationStrategy/*, PathLocationStrategy*/ }         from '@angular/common';
+import { FormsModule }                  from '@angular/forms';
+import { HttpModule }                   from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { MyApp } from './app.component';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+
+import { Ng2BootstrapModule }           from 'ng2-bootstrap/ng2-bootstrap';
+import { ChartsModule }                 from 'ng2-charts/ng2-charts';
 
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -23,7 +25,13 @@ import { ProtectedModule } from './protected/protected.module';
     MyApp
   ],
   imports: [
+    HttpModule,
+    FormsModule,
+    BrowserModule,
+    CommonModule,
     AppRoutingModule,
+    Ng2BootstrapModule,
+    ChartsModule,
 
     IonicModule.forRoot(MyApp),
 

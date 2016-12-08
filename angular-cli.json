@@ -14,7 +14,8 @@
         "silentrefreshframe.html",
         "scripts",
         "service-worker.js",
-        "web.config"
+        "web.config",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
