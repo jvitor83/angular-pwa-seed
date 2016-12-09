@@ -29,7 +29,7 @@
     "ionic:serve": "./node_modules/.bin/ionic-app-scripts serve",
     "ionic.serve": "ionic serve --port 5555 --all",
     "ionic.livesync": "npm run ionic.serve -- --lab",
-    "start.ionic": "npm run build && npm run ionic.serve",
+    "start.ionic": "npm run ionic.serve",
     "start.windows": "npm run build && cordova run windows",
     "install.windows": "ionic platform rm windows & ionic platform add windows",
     "start.ubuntu": "npm run build && cordova run --device",

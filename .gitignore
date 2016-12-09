@@ -3,6 +3,7 @@
 # compiled output
 /www
 /tmp
+/res
 
 # dependencies
 /node_modules
