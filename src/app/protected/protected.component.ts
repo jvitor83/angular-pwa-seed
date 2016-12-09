@@ -5,8 +5,7 @@ import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-protected',
-  templateUrl: 'protected.component.html',
-  styleUrls: ['protected.component.scss']
+  templateUrl: 'protected.component.html'
 })
 export class ProtectedComponent implements OnInit {
 

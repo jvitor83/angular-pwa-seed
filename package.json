@@ -25,7 +25,8 @@
     "cordova.livesync": "cordova run -- --live-reload",
     "cordova.serve": "cordova serve 5555",
     "start.cordova": "npm run build && cordova serve",
-
+    "ionic:build": "./node_modules/.bin/ionic-app-scripts build",
+    "ionic:serve": "./node_modules/.bin/ionic-app-scripts serve",
     "ionic.serve": "ionic serve --port 5555 --all",
     "ionic.livesync": "npm run ionic.serve -- --lab",
     "start.ionic": "npm run build && npm run ionic.serve",
@@ -74,7 +75,7 @@
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "2.2.1",
+    "@angular/compiler-cli": "2.1.1",
     "@ionic/app-scripts": "0.0.45",
     "@types/jasmine": "2.5.37",
     "@types/node": "6.0.46",

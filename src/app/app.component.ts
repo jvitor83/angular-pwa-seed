@@ -10,8 +10,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 @Component({
   templateUrl: 'app.html',
-  selector: 'ion-app',
-  encapsulation: ViewEncapsulation.None
+  selector: 'ion-app'
 })
 export class MyApp {
 
