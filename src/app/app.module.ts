@@ -1,3 +1,4 @@
+import { HeaderModule } from './header/header.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
 import { CommonModule, LocationStrategy,
@@ -35,6 +36,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     ChartsModule,
 
     IonicModule.forRoot(MyApp),
+
+    HeaderModule,
 
     DashboardModule,
     ProtectedModule,
