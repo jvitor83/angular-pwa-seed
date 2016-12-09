@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
@@ -10,7 +10,8 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 @Component({
   templateUrl: 'app.html',
-  selector: 'ion-app'
+  selector: 'ion-app',
+  encapsulation: ViewEncapsulation.None
 })
 export class MyApp {
 

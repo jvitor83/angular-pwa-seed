@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app.routing';
 
 import { UnauthorizedModule } from './unauthorized/unauthorized.module';
 import { ProtectedModule } from './protected/protected.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,15 @@ import { ProtectedModule } from './protected/protected.module';
 
     IonicModule.forRoot(MyApp),
 
+    DashboardModule,
     ProtectedModule,
     UnauthorizedModule
   ],
   bootstrap: [IonicApp],
   //bootstrap: [MyApp],
-  entryComponents: [
-    MyApp
-  ],
+  // entryComponents: [
+  //   MyApp
+  // ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
