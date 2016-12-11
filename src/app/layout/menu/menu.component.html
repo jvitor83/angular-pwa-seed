@@ -1,0 +1,42 @@
+<ion-menu #leftMenu side="left" type="push" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button routerLinkActive="active" [routerLink]="['/dashboard']" ion-item>
+        Dashboard
+      </button>
+      <button routerLinkActive="active" [routerLink]="['/protected']" ion-item>
+        Protected
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu #rightMenu side="right" [content]="content">
+  <ion-item>
+    UserInfoComponent
+  </ion-item>
+  <ion-item>
+    SystemInfoComponent
+  </ion-item>
+</ion-menu>
+
+
+
+
+<ion-content #content>
+
+
+  <ng-content>
+
+
+  </ng-content>
+
+</ion-content>

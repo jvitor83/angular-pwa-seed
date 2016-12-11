@@ -1,4 +1,4 @@
-import { HeaderModule } from './../header/header.module';
+import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';
 import { CommonModule }                 from '@angular/common';
 
@@ -10,7 +10,7 @@ import { ProtectedComponent }       from './protected.component';
     imports: [
         CommonModule,
         ProtectedRoutingModule,
-        HeaderModule
+        LayoutModule
     ],
     declarations: [ ProtectedComponent ],
     exports: [ProtectedRoutingModule, ProtectedComponent]

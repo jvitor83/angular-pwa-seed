@@ -1,4 +1,3 @@
-import { HeaderModule } from './header/header.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
 import { CommonModule, LocationStrategy,
@@ -22,6 +21,8 @@ import { UnauthorizedModule } from './unauthorized/unauthorized.module';
 import { ProtectedModule } from './protected/protected.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
+import { LayoutModule } from './layout/layout.module';
+
 @NgModule({
   declarations: [
     MyApp
@@ -37,7 +38,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
     IonicModule.forRoot(MyApp),
 
-    HeaderModule,
+    LayoutModule,
 
     DashboardModule,
     ProtectedModule,

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
@@ -9,8 +9,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 
 @Component({
-  templateUrl: 'app.html',
-  selector: 'ion-app'
+  templateUrl: 'app.html'
 })
 export class MyApp {
 
@@ -32,8 +31,9 @@ export class MyApp {
 
   closeMenu() {
     // close the menu when clicking a link from the menu
-    this.menu.close();
+    //this.menu.close();
     // navigate to the new page if it is not the current page
     //this.nav.setRoot(page.component);
   }
+
 }

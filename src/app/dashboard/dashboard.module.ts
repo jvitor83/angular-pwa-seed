@@ -1,4 +1,4 @@
-import { HeaderModule } from './../header/header.module';
+import { LayoutModule } from './../layout/layout.module';
 import { CommonModule } from '@angular/common';
 import { NgModule }                 from '@angular/core';
 import { ChartsModule }             from 'ng2-charts/ng2-charts';
@@ -15,7 +15,7 @@ import { IonicModule } from 'ionic-angular';
         DashboardRoutingModule,
         IonicModule,
         ChartsModule,
-        HeaderModule
+        LayoutModule
     ],
     declarations: [ DashboardComponent ]
 })

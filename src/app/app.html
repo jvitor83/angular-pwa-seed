@@ -1,36 +1,5 @@
+<seed-layout>
+  <router-outlet>
 
-
-
-<ion-menu side="left" type="push" [content]="content">
-
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button routerLinkActive="active" [routerLink]="['/dashboard']" ion-item (click)="closeMenu()">
-        Dashboard
-      </button>
-      <button routerLinkActive="active" [routerLink]="['/protected']" ion-item (click)="closeMenu()">
-        Protected
-      </button>
-    </ion-list>
-  </ion-content>
-
-</ion-menu>
-
-<ion-menu side="right" [content]="content">
-  <ion-item>
-    UserInfoComponent
-  </ion-item>
-  <ion-item>
-    SystemInfoComponent
-  </ion-item>
-</ion-menu>
-
-<ion-content padding #content swipeBackEnabled="false">
-  <router-outlet></router-outlet>
-</ion-content>
+  </router-outlet>
+</seed-layout>
