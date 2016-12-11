@@ -1,3 +1,4 @@
+import { MenuController } from 'ionic-angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public menu: MenuController) { }
 
   ngOnInit() {
+  }
+
+  toggleMenu(menuId: string) {
+     console.log(menuId);
+    let menuToToggle = this.menu.get(menuId);
+    menuToToggle = menuToToggle.enable(true);
+    menuToToggle.toggle();
   }
 
 }

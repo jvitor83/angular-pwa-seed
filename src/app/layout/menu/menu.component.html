@@ -1,4 +1,4 @@
-<ion-menu #leftMenu side="left" type="push" [content]="content">
+<ion-menu id="leftMenu" #leftMenu side="left" type="push" [content]="content" (ionOpen)="setContentFullWidth()" (ionClose)="setContentFullWidth()">
 
   <ion-header>
     <ion-toolbar>
@@ -19,7 +19,7 @@
 
 </ion-menu>
 
-<ion-menu #rightMenu side="right" [content]="content">
+<ion-menu id="rightMenu" #rightMenu side="right" [content]="emptyElement">
   <ion-item>
     UserInfoComponent
   </ion-item>
@@ -29,9 +29,9 @@
 </ion-menu>
 
 
+<div #emptyElement></div>
 
-
-<ion-content #content>
+<ion-content #content [style.width.px]="width()">
 
 
   <ng-content>
