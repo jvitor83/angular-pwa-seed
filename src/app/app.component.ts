@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
@@ -15,7 +15,8 @@ export class MyApp {
 
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
+    public application: ApplicationRef
   ) {
     this.initializeApp();
   }
@@ -26,6 +27,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+      this.platform.onResize(() => {
+        this.application.tick();
+      });
     });
   }
 
