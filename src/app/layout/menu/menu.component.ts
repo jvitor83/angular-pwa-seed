@@ -1,5 +1,5 @@
-import { Platform, MenuController } from 'ionic-angular';
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef } from '@angular/core';
+import { Platform, MenuController, IonicModule } from 'ionic-angular';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'seed-menu',
@@ -12,11 +12,53 @@ export class MenuComponent implements OnInit, AfterViewInit {
     public platform: Platform,
     public menu: MenuController,
     public renderer: Renderer,
-    public application: ApplicationRef) { }
+    public application: ApplicationRef
+    ) { }
 
   width() {
-    if (this.platform.is('core')) {
-      return this.platform.width() - this.menu.get('leftMenu').width();
+
+    let isDesktop = this.platform.is('core');
+    if (isDesktop) {
+
+
+      let leftMenu = this.menu.get('leftMenu');
+      let rightMenu = this.menu.get('rightMenu');
+
+      if (leftMenu.isOpen && (!rightMenu.isOpen)) {
+        console.log('leftMenu.isOpen && (!rightMenu.isOpen)');
+        leftMenu.enable(true);
+        this.renderer.setElementClass(this.content.nativeElement, 'menu-content-open', false);
+        return this.platform.width() - leftMenu.width();
+      // } else if (rightMenu.isOpen && (!leftMenu.isOpen)) {
+      //   console.log('rightMenu.isOpen && (!leftMenu.isOpen)');
+      //   this.renderer.setElementClass(this.content.nativeElement, 'menu-content-open', false);
+      //   this.renderer.setElementStyle(this.content.nativeElement, 'transform', 'translateX(-' + rightMenu.width() + 'px)');
+      //   return this.platform.width() - rightMenu.width();
+      } else if (leftMenu.isOpen && rightMenu.isOpen) {
+        leftMenu.enable(false);
+      //   console.log('leftMenu.isOpen && rightMenu.isOpen');
+      //   this.renderer.setElementClass(this.content.nativeElement, 'menu-content-open', false);
+      //   this.renderer.setElementStyle(this.content.nativeElement, 'transform', 'translateX(' + (leftMenu.width() + rightMenu.width()) + 'px)');
+      //   return this.platform.width() - (leftMenu.width() + rightMenu.width());
+      } else {
+        this.platform.width();
+      }
+
+
+
+      // let offset = 0;
+      // if (this.menu.get('leftMenu').isOpen) {
+      //   offset = offset + this.menu.get('leftMenu').width();
+      // }
+      // if (this.menu.get('rightMenu').isOpen) {
+      //   this.renderer.setElementStyle(this.content.nativeElement, 'transform', 'translateX(-' + offset + 'px)');
+      //   offset = offset + this.menu.get('rightMenu').width();
+      // }
+
+
+      // return this.platform.width() - offset;
+
+
     } else {
       return this.platform.width();
     }
@@ -26,21 +68,20 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.application.tick();
   }
 
-  @ViewChild('emptyElement') emptyElement: ElementRef;
 
-  @ViewChild('content') content: ElementRef;
 
-  emptyElementContent: any;
-  emptyElementBackdrop: any;
+  @ViewChild('content', { read: ElementRef }) content: ElementRef;
 
-  contentElementContent: any;
-  contentElementBackdrop: any;
+  @ViewChild('leftMenu', { read: ElementRef }) leftMenu: ElementRef;
 
-  emptyContent: any;
+  @ViewChild('rightMenu', { read: ElementRef }) rightMenu: ElementRef;
+
 
   ngOnInit() {
 
   }
+
+  canClickOutsideMenu: boolean;
 
   ngAfterViewInit() {
 
@@ -50,8 +91,30 @@ export class MenuComponent implements OnInit, AfterViewInit {
         let leftMenu = this.menu.get('leftMenu');
         leftMenu.open();
 
-        //leftMenu.getBackdropElement().style.pointerEvents = 'none';
-        leftMenu.getContentElement().style.pointerEvents = 'none';
+        let drop = function (ev: UIEvent) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          //this._menuCtrl.close();
+
+          return true;
+        };
+
+        leftMenu.onBackdropClick = drop;
+        //leftMenu.backdrop = null;
+
+
+
+
+        // let rightMenu = this.menu.get('rightMenu');
+        // rightMenu.onBackdropClick = drop;
+        //rightMenu.open();
+
+
+
+
+
+
+        //leftMenu.getContentElement().style.pointerEvents = 'none';
         //leftMenu.enable(false);
         //this.menu.unregister(leftMenu);
         // leftMenu.swipeEnabled = false;

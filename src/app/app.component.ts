@@ -9,7 +9,8 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  styleUrls: ['app.scss']
 })
 export class MyApp {
 

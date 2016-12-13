@@ -46,9 +46,9 @@ import { LayoutModule } from './layout/layout.module';
   ],
   bootstrap: [IonicApp],
   //bootstrap: [MyApp],
-  // entryComponents: [
-  //   MyApp
-  // ],
+  entryComponents: [
+    MyApp
+  ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
