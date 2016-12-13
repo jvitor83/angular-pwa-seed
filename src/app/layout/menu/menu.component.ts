@@ -3,8 +3,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, Appl
 
 @Component({
   selector: 'seed-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  templateUrl: 'menu.component.html'
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
