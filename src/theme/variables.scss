@@ -11,7 +11,7 @@
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 $text-color:        #000;
-$background-color:  #fff;
+$background-color:  #eaeaea;
 
 
 // Named Color Variables
@@ -24,7 +24,7 @@ $background-color:  #fff;
 
 $colors: (
   primary:    #387ef5,
-  secondary:  #32db64,
+  secondary:  #a2c4ff,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
@@ -32,24 +32,39 @@ $colors: (
 );
 
 
+
+$toolbar-background:         #263238;
+$toolbar-border-color:       #222;
+$toolbar-text-color:         $text-color;
+$toolbar-inactive-color:     #8c8c8c;
+
+$menu-background: lighten( desaturate( $toolbar-background, 20% ) , 60% );
+
+$list-text-color:            $text-color;
+$list-background-color:      $menu-background;
+$list-border-color:          #000;
+
+
+
+
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$menu-ios-background: $menu-background;
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$menu-md-background: $menu-background;
 
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
+$menu-wp-background: $menu-background;
 
 
 
@@ -60,7 +75,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "../../node_modules/ionic-angular/themes/ionic.theme.default";
+@import "../../node_modules/ionic-angular/themes/ionic.theme.dark";
 
 
 // Ionicons
