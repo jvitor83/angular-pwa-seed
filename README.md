@@ -35,7 +35,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > ### Secondary goal
 > Allow to create an installable application and reach the maximum performance possible in a hybrid application using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
-> - [ ] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 > - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
 > - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline features applied - See [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
 > - [x] Simple layout (without complex animations/effects) based on Ionic - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
