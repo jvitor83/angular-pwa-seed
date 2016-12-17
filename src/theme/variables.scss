@@ -32,13 +32,14 @@ $colors: (
 );
 
 
+$theme-color: #621E0C;
 
-$toolbar-background:         #263238;
+$toolbar-background:         $theme-color;
 $toolbar-border-color:       #222;
 $toolbar-text-color:         $text-color;
 $toolbar-inactive-color:     #8c8c8c;
 
-$menu-background: lighten( desaturate( $toolbar-background, 20% ) , 60% );
+$menu-background: lighten( desaturate( $toolbar-background, 40% ) , 60% );
 
 $list-text-color:            $text-color;
 $list-background-color:      $menu-background;
