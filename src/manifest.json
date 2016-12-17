@@ -1,6 +1,6 @@
 {
-	"name": "AngularSeedCliAdmin",
-	"short_name": "AngularSeed",
+	"name": "AngularIonicSeed",
+	"short_name": "AngularIonic",
 	"icons": [
 		{
 			"src": "assets\\pwa\\icon-72x72.png",
@@ -46,7 +46,7 @@
 	"start_url": "../index.html",
 	"display": "standalone",
 	"orientation": "any",
-	"background_color": "#263238",
-	"theme_color": "#263238",
+	"background_color": "#621E0C",
+	"theme_color": "#621E0C",
 	"direction": "portrait"
 }

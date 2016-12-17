@@ -20,7 +20,7 @@
     "config.theme": "npm run config.theme:title & npm run config.theme:color",
     "config.theme:title": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<title\\b[^>]*>)[^<>]*(<\/title>)\" \"<title>npm_package_config_name</title>\" src/index.html",
     "config.theme:color": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"^\\$theme-color:\\s*(.*);$\" \"$theme-color: npm_package_config_color;\" src/theme/variables.scss",
-    "resources": "./node_modules/.bin/ionic resources && npm run resources.copy && npm run pwa.manifest",
+    "resources": "./node_modules/.bin/ionic resources && npm run resources.copy && npm run pwa.manifest && npm run config.theme",
     "resources.copy": "./node_modules/.bin/cpx \"resources/**/*\" src/assets",
     "build": "./node_modules/.bin/ng build",
     "build.watch": "npm run build -- -w",
