@@ -7,3 +7,7 @@ body{
 ion-menu ion-content {
   background-color: transparent !important;
 }
+
+.scroll-content {
+  overflow-y: inherit !important;
+}

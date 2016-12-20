@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { UserinfoComponent } from './header/userinfo/userinfo.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { MenuComponent } from './menu/menu.component';
     IonicModule,
     RouterModule
   ],
-  declarations: [LayoutComponent, HeaderComponent, MenuComponent],
+  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent],
   exports: [LayoutComponent, HeaderComponent, MenuComponent]
 })
 export class LayoutModule { }
