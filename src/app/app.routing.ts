@@ -25,7 +25,7 @@ export const routes: Routes = [
     // },
     {
         path: '',
-        component: MyApp,
+        //component: MyApp,
         data: {
             title: 'Home'
         },
