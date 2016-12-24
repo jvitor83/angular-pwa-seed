@@ -1,4 +1,3 @@
-
 <ion-navbar>
   <button ion-button icon-only menuToggle="leftMenu" (click)="toggleMenu('leftMenu')">
       <ion-icon name="menu"></ion-icon>
@@ -6,16 +5,21 @@
 
   <ion-title>AngularIonicSeed</ion-title>
 
+<!--<button mobile-hidden ion-button>
+        <ion-icon name="search"></ion-icon>
+        Search
+    </button>-->
 
-  <ion-buttons end>
-    <button ion-button (click)="presentPopover($event)">
+<ion-buttons end>
+
+    <button mobile-hidden ion-button (click)="presentPopover($event)">
         <ion-icon name="person"></ion-icon>
         {{name}}
       </button>
     <button ion-button icon-only menuToggle="rightMenu" (click)="toggleMenu('rightMenu')">
         <ion-icon name="more"></ion-icon>
       </button>
-  </ion-buttons>
+
+</ion-buttons>
 
 </ion-navbar>
-

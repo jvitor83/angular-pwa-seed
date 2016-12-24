@@ -33,11 +33,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 
 > ### Secondary goal
-> Allow to create an installable application and reach the maximum performance possible in a hybrid application using:
+> Allow to create an installable application _(and **reach the maximum performance possible** in this hybrid application)_ using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
-> - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
-> - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
-> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline features applied - See [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
 > - [x] Simple layout (without complex animations/effects) based on Ionic - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
 
@@ -48,6 +45,12 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
 - VSCode Integration ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools))
 - Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
+
+> ### Performance features
+> - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
+> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_ - Watch [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
+
 
 
 ## Technologies

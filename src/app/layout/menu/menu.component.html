@@ -1,4 +1,5 @@
-<ion-menu id="leftMenu" #leftMenu side="left" type="push" [content]="content" (ionDrag)="setContentFullWidth()" (ionOpen)="setContentFullWidth()" (ionClose)="setContentFullWidth()">
+<ion-menu id="leftMenu" #leftMenu side="left" [content]="content" (ionDrag)="setContentFullWidth()" (ionOpen)="setContentFullWidth()"
+  (ionClose)="setContentFullWidth()">
 
   <ion-header>
     <ion-toolbar>
@@ -8,18 +9,14 @@
 
   <ion-content>
     <ion-list>
-      <button routerLinkActive="active" [routerLink]="['/dashboard']" ion-item>
-        <ion-icon name="analytics"></ion-icon> Dashboard
-      </button>
-      <button routerLinkActive="active" [routerLink]="['/protected']" ion-item>
-        Protected
-      </button>
+      <ng-content select="[menu-items]"></ng-content>
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
-<ion-menu id="rightMenu" #rightMenu side="right" type="overlay" [content]="content" (ionDrag)="setContentFullWidth()" (ionOpen)="setContentFullWidth()" (ionClose)="setContentFullWidth()">
+<ion-menu id="rightMenu" #rightMenu side="right" [content]="content" (ionDrag)="setContentFullWidth()" (ionOpen)="setContentFullWidth()"
+  (ionClose)="setContentFullWidth()">
   <ion-item>
     UserInfoComponent
   </ion-item>
@@ -29,16 +26,22 @@
 </ion-menu>
 
 
-<div #leftMenuContentElement ></div>
+<div #leftMenuContentElement></div>
 
-<div #rightMenuContentElement ></div>
+<div #rightMenuContentElement></div>
 
 <ion-content #content [style.width.px]="width()">
 
+  <seed-header>
+  </seed-header>
 
-  <ng-content>
+  <div padding>
+
+    <ng-content>
 
 
-  </ng-content>
+    </ng-content>
+
+  </div>
 
 </ion-content>

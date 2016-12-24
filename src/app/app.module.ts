@@ -1,3 +1,4 @@
+import { MobileHiddenDirective } from './shared/directives/mobile-hidden.directive';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
 import { CommonModule, LocationStrategy,

@@ -1,3 +1,11 @@
 <seed-menu>
+  <div menu-items>
+    <a routerLinkActive="active" [routerLink]="['/dashboard']" ion-item>
+      <ion-icon name="analytics"></ion-icon> Dashboard
+    </a>
+    <a routerLinkActive="active" [routerLink]="['/protected']" ion-item>
+        Protected
+      </a>
+  </div>
   <ng-content></ng-content>
 </seed-menu>

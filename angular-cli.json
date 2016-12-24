@@ -24,6 +24,7 @@
       "prefix": "seed",
       "mobile": false,
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "theme/variables.scss",
         "styles.scss"
       ],
