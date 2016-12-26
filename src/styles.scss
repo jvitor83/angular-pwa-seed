@@ -15,3 +15,9 @@ ion-menu ion-content {
 .bar-button-menutoggle{
   display: inline-block;
 }
+
+@media all and (max-width: 768px) {
+   [mobile-hidden] {
+        display: none;
+    }
+}
