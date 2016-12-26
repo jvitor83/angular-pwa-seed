@@ -16,8 +16,23 @@ ion-menu ion-content {
   display: inline-block;
 }
 
+/*
 @media all and (max-width: 768px) {
    [mobile-hidden] {
+        display: none;
+    }
+}
+*/
+
+
+@media all and (max-width: 768px) {
+   [visible="desktop"] {
+        display: none;
+    }
+}
+
+@media all and (min-width: 767px) {
+   [visible="mobile"] {
         display: none;
     }
 }
