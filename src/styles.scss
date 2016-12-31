@@ -16,6 +16,11 @@ ion-menu ion-content {
   display: inline-block;
 }
 
+.label{
+  color: black;
+  font-size: 15px;
+}
+
 /*
 @media all and (max-width: 768px) {
    [mobile-hidden] {
@@ -39,22 +44,22 @@ ion-menu ion-content {
 */
 
 @media (max-width: 767px) {
-  .hidden-xs {
+  [invisible-to="mobile"] {
     display: none !important;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .hidden-sm {
+  [invisible-to="tablet"] {
     display: none !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  .hidden-md {
+  [invisible-to="notebook"] {
     display: none !important;
   }
 }
 @media (min-width: 1200px) {
-  .hidden-lg {
+  [invisible-to="desktop"] {
     display: none !important;
   }
 }

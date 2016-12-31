@@ -58,6 +58,6 @@
   </platform>
   <engine name="browser" spec="~4.1.0"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
-  <preference name="SplashScreen" value="resources\splash.png"/>
+  <preference name="SplashScreen" value="assets\splash.png"/>
   <preference name="SplashScreenDelay" value="3000"/>
 </widget>

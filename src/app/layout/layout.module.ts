@@ -1,4 +1,3 @@
-import { MobileHiddenDirective } from './../shared/directives/mobile-hidden.directive';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { IonicModule } from 'ionic-angular';
@@ -14,7 +13,7 @@ import { UserinfoComponent } from './header/userinfo/userinfo.component';
     IonicModule,
     RouterModule
   ],
-  declarations: [MobileHiddenDirective, LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent],
+  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent],
   exports: [LayoutComponent, HeaderComponent, MenuComponent]
 })
 export class LayoutModule { }

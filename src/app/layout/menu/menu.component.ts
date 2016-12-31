@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Platform, MenuController, IonicModule } from 'ionic-angular';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit } from '@angular/core';
 
@@ -11,9 +12,18 @@ export class MenuComponent implements OnInit, AfterViewInit {
     public platform: Platform,
     public menu: MenuController,
     public renderer: Renderer,
-    public application: ApplicationRef
+    public application: ApplicationRef,
+    public router: Router
   ) {
 
+    router.events.subscribe((val) => {
+      // see also
+      if (!platform.is('core')) {
+        if (menu.isOpen()) {
+          menu.close();
+        }
+      }
+    });
 
     this.platform.ready().then(() => {
 

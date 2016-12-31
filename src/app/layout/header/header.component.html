@@ -3,7 +3,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-  <ion-title>AngularIonicSeed</ion-title>
+  <ion-title>AngularSeedCliAdmin</ion-title>
 
 <!--<button mobile-hidden ion-button>
         <ion-icon name="search"></ion-icon>
@@ -12,7 +12,7 @@
 
 <ion-buttons end>
 
-    <button visible="desktop" ion-button (click)="presentPopover($event)">
+    <button invisible-to="mobile" ion-button (click)="presentPopover($event)">
         <ion-icon name="person"></ion-icon>
         {{name}}
       </button>

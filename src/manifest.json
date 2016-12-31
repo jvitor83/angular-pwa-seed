@@ -1,6 +1,6 @@
 {
-	"name": "AngularIonicSeed",
-	"short_name": "AngularIonic",
+	"name": "AngularSeedCliAdmin",
+	"short_name": "AngularSeedC",
 	"icons": [
 		{
 			"src": "assets\\pwa\\icon-72x72.png",
