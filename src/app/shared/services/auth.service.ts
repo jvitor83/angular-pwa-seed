@@ -1,3 +1,4 @@
+import { Platform } from 'ionic-angular';
 import { Injectable, EventEmitter, ApplicationRef } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
@@ -14,15 +15,19 @@ export class AuthService {
 
   authHeaders: Headers;
 
-  private static isCordova(): boolean {
+  private static isCordova(platform?: Platform): boolean {
     try {
       let isCordova = !!((<any>window).cordova);
-      return isCordova;
+      let isDesktop = false;
+      if (platform != null) {
+        isDesktop = platform.is('core');
+      }
+      return isCordova && (!isDesktop);
     } catch (e) { return false; }
   }
 
 
-  constructor(private http: Http, private application: ApplicationRef) {
+  constructor(private http: Http, private application: ApplicationRef, public platform: Platform) {
 
     let authentication: Oidc.UserManagerSettings = environment.authentication;
 

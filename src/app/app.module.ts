@@ -1,61 +1,63 @@
-import { NgModule }                     from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
 import { CommonModule, LocationStrategy,
          HashLocationStrategy/*, PathLocationStrategy*/ }         from '@angular/common';
 import { FormsModule }                  from '@angular/forms';
 import { HttpModule }                   from '@angular/http';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
-import { AppComponent }                 from './app.component';
+import { MyApp } from './app.component';
+
 import { Ng2BootstrapModule }           from 'ng2-bootstrap/ng2-bootstrap';
-import { NAV_DROPDOWN_DIRECTIVES }      from './shared/nav-dropdown.directive';
-
 import { ChartsModule }                 from 'ng2-charts/ng2-charts';
-import { SIDEBAR_TOGGLE_DIRECTIVES }    from './shared/sidebar.directive';
-import { AsideToggleDirective }         from './shared/aside.directive';
-import { BreadcrumbsComponent }         from './shared/breadcrumb.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
 // Routing Module
-import { AppRoutingModule }             from './app.routing';
+import { AppRoutingModule } from './app.routing';
 
 import { UnauthorizedModule } from './unauthorized/unauthorized.module';
 import { ProtectedModule } from './protected/protected.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
-// Layouts
-import { FullLayoutComponent }          from './layouts/full-layout.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
-    imports: [
-        HttpModule,
-        FormsModule,
-        BrowserModule,
-        CommonModule,
-        AppRoutingModule,
-        Ng2BootstrapModule,
-        ChartsModule,
+  declarations: [
+    MyApp
+  ],
+  imports: [
+    HttpModule,
+    FormsModule,
+    BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    Ng2BootstrapModule,
+    ChartsModule,
 
-        ProtectedModule,
-        UnauthorizedModule
-    ],
-    declarations: [
-        AppComponent,
-        FullLayoutComponent,
-        NAV_DROPDOWN_DIRECTIVES,
-        BreadcrumbsComponent,
-        SIDEBAR_TOGGLE_DIRECTIVES,
-        AsideToggleDirective
-    ],
-    providers: [
-        {
-            provide: LocationStrategy,
-            useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
-            // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
-        },
-        AuthService,
-        AuthGuardService
-    ],
-    bootstrap: [ AppComponent ]
+    IonicModule.forRoot(MyApp),
+
+    LayoutModule,
+
+    DashboardModule,
+    ProtectedModule,
+    UnauthorizedModule
+  ],
+  bootstrap: [IonicApp],
+  //bootstrap: [MyApp],
+  entryComponents: [
+    MyApp
+  ],
+  providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
+      // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
+    },
+    AuthService,
+    AuthGuardService
+  ]
 })
 export class AppModule { }

@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+  background-color: #eaeaea;
+}
+
+ion-menu ion-content {
+  background-color: transparent !important;
+}
+
+.scroll-content {
+  overflow-y: inherit !important;
+}
+
+.bar-button-menutoggle{
+  display: inline-block;
+}
+
+.label{
+  color: black;
+  font-size: 15px;
+}
+
+/*
+@media all and (max-width: 768px) {
+   [mobile-hidden] {
+        display: none;
+    }
+}
+*/
+
+/*
+@media all and (max-width: 768px) {
+   [visible="desktop"] {
+        display: none;
+    }
+}
+
+@media all and (min-width: 767px) {
+   [visible="mobile"] {
+        display: none;
+    }
+}
+*/
+
+@media (max-width: 767px) {
+  [invisible-to="mobile"] {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  [invisible-to="tablet"] {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  [invisible-to="notebook"] {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  [invisible-to="desktop"] {
+    display: none !important;
+  }
+}

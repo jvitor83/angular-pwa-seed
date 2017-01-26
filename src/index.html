@@ -5,67 +5,37 @@
     <base href="./" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <meta name="description" content="AngularSeedCliAdmin">
+    <meta name="author" content="João Vitor Paes de Barros do Carmo">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src  'self'  'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <!--<meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src &apos;self&apos;  &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; *; style-src  &apos;self&apos; &apos;unsafe-inline&apos; *">-->
 
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#4e8ef7">
-    <meta name="msapplication-TileImage" content="assets/img/ms-icon-144x144.png">
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
 
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <meta name="mobile-web-app-capable" content="yes">
     <script type="text/javascript" src="cordova.js"></script>
 
-    <link rel="manifest" href="scripts/manifest.json">
-    <meta name="theme-color" content="#4e8ef7">
+    <link rel="manifest" href="manifest.json">
+    <script src="scripts/manup.min.js"></script>
+    <!--<meta name="theme-color" content="#263238">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#263238">-->
 
-    <title>CoreUI - Open Source Bootstrap Admin Template</title>
 
-    <!-- Icons -->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/simple-line-icons.css" rel="stylesheet">
+    <title>AngularSeedCliAdmin</title>
 
-      <!-- un-comment this code to enable service worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('service worker installed'))
-        .catch(err => console.log('Error', err));
-    }
-  </script>
+    <!-- REMOVE this code to DISABLE service worker (cache/offline) -->
+    <!--<sw />-->
 
 </head>
 
-<!-- BODY options, add following classes to body to change options
-    1. 'compact-nav'     	  - Switch sidebar to minified version (width 50px)
-    2. 'sidebar-nav'		  - Navigation on the left
-        2.1. 'sidebar-off-canvas'	- Off-Canvas
-            2.1.1 'sidebar-off-canvas-push'	- Off-Canvas which move content
-            2.1.2 'sidebar-off-canvas-with-shadow'	- Add shadow to body elements
-    3. 'fixed-nav'			  - Fixed navigation
-    4. 'navbar-fixed'		  - Fixed navbar
-    5. 'footer-fixed'		  - Fixed navbar
--->
 
-<body class="navbar-fixed sidebar-nav fixed-nav">
-    <!-- App Loading... -->
+<body>
+    <ion-app><!-- App Loading... --></ion-app>
 </body>
 
 </html>

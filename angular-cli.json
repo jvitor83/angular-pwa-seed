@@ -14,7 +14,8 @@
         "silentrefreshframe.html",
         "scripts",
         "service-worker.js",
-        "web.config"
+        "web.config",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -23,7 +24,9 @@
       "prefix": "seed",
       "mobile": false,
       "styles": [
-        "scss/style.scss"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "theme/variables.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/chart.js/dist/Chart.bundle.min.js",

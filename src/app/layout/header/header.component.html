@@ -1,0 +1,25 @@
+<ion-navbar>
+  <button ion-button icon-only menuToggle="leftMenu" (click)="toggleMenu('leftMenu')">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+  <ion-title>AngularSeedCliAdmin</ion-title>
+
+<!--<button mobile-hidden ion-button>
+        <ion-icon name="search"></ion-icon>
+        Search
+    </button>-->
+
+<ion-buttons end>
+
+    <button invisible-to="mobile" ion-button (click)="presentPopover($event)">
+        <ion-icon name="person"></ion-icon>
+        {{name}}
+      </button>
+    <button ion-button icon-only menuToggle="rightMenu" (click)="toggleMenu('rightMenu')">
+        <ion-icon name="more"></ion-icon>
+      </button>
+
+</ion-buttons>
+
+</ion-navbar>

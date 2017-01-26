@@ -1,3 +1,4 @@
+import { MyApp } from './app.component';
 import { NgModule }                 from '@angular/core';
 import { Routes,
          RouterModule, PreloadAllModules }             from '@angular/router';
@@ -5,8 +6,7 @@ import { Routes,
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
-//Layouts
-import { FullLayoutComponent }      from './layouts/full-layout.component';
+
 
 export const routes: Routes = [
     {
@@ -25,7 +25,7 @@ export const routes: Routes = [
     // },
     {
         path: '',
-        component: FullLayoutComponent,
+        //component: MyApp,
         data: {
             title: 'Home'
         },

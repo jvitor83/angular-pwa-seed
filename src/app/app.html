@@ -1,0 +1,17 @@
+<seed-layout>
+
+  <!-- Link to routes -->
+  <div menu-items>
+    <a routerLinkActive="active" [routerLink]="['/dashboard']" ion-item>
+      <ion-icon name="analytics"></ion-icon> Dashboard
+    </a>
+    <a routerLinkActive="active" [routerLink]="['/protected']" ion-item>
+        Protected
+      </a>
+  </div>
+
+
+  <router-outlet></router-outlet>
+
+
+</seed-layout>

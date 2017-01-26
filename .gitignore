@@ -3,10 +3,12 @@
 # compiled output
 /www
 /tmp
+/res
 
 # dependencies
 /node_modules
 /bower_components
+/.tmp
 
 # IDEs and editors
 /.idea
