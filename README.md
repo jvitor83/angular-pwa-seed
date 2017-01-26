@@ -87,8 +87,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 ```bash
 # Clone this repository
-git clone https://github.com/jvitor83/angular-seed-cli-admin
-cd angular-seed-cli-admin
+git clone https://github.com/jvitor83/angular-ionic-seed
+cd angular-ionic-seed
 
 # Install the project's dependencies
 npm install
