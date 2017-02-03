@@ -99,7 +99,7 @@
     "codelyzer": "1.0.0-beta.1",
     "cordova": "6.4.0",
     "cpx": "1.5.0",
-    "cross-conf-env": "^1.0.7",
+    "cross-conf-env": "1.0.7",
     "ionic": "2.1.14",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
