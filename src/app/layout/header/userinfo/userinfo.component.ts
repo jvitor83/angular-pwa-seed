@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'seed-userinfo',
-  templateUrl: 'userinfo.component.html',
-  styleUrls: ['userinfo.component.scss']
+  templateUrl: 'userinfo.component.html'
 })
 export class UserinfoComponent implements OnInit {
 
