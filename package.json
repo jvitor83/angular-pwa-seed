@@ -1,6 +1,6 @@
 {
   "name": "angular-seed-cli-admin",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "angular-cli": {},
   "config": {
@@ -95,7 +95,7 @@
     "@ionic/app-scripts": "0.0.45",
     "@types/jasmine": "2.5.37",
     "@types/node": "6.0.46",
-    "angular-cli": "1.0.0-beta.20-4",
+    "angular-cli": "1.0.0-beta.19-3",
     "codelyzer": "1.0.0-beta.1",
     "cordova": "6.4.0",
     "cpx": "1.5.0",
