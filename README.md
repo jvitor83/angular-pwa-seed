@@ -1,20 +1,20 @@
-# Angular(2) Ionic(2) Seed(Template)
+# Angular(2) PWA Seed (Template)
 
-[![Join the chat at https://gitter.im/angular-ionic-seed/Lobby](https://badges.gitter.im/angular-ionic-seed/Lobby.svg)](https://gitter.im/angular-ionic-seed/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/angular-pwa-seed/Lobby](https://badges.gitter.im/angular-pwa-seed/Lobby.svg)](https://gitter.im/angular-pwa-seed/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Dependency Status](https://david-dm.org/jvitor83/angular-ionic-seed.svg)](https://david-dm.org/jvitor83/angular-ionic-seed)
-[![devDependency Status](https://david-dm.org/jvitor83/angular-ionic-seed/dev-status.svg)](https://david-dm.org/jvitor83/angular-ionic-seed#info=devDependencies)
+[![Dependency Status](https://david-dm.org/jvitor83/angular-pwa-seed.svg)](https://david-dm.org/jvitor83/angular-pwa-seed)
+[![devDependency Status](https://david-dm.org/jvitor83/angular-pwa-seed/dev-status.svg)](https://david-dm.org/jvitor83/angular-pwa-seed#info=devDependencies)
 [![DONATE](https://pledgie.com/campaigns/32766.png?skin_name=chrome)](https://pledgie.com/campaigns/32766)
 
 
 ## Description
 
-**Multiplatform** Angular 2 project (_Web_, _Mobile_ and _Desktop_) with **[Ionic 2](http://ionicframework.com/)** applied.
+**Multiplatform** Angular 2 project (_Web/PWA_, _Mobile_ and _Desktop_) with **[Ionic 2](http://ionicframework.com/)** applied.
 
 
 ## Sample
 
-A sample is available at: https://angular-ionic-seed.azurewebsites.net
+A sample is available at: https://angular-pwa-seed.netlify.com
 
 
 > ## **TL;DR** _(Too Long; Didn't Read)_
@@ -23,7 +23,7 @@ A sample is available at: https://angular-ionic-seed.azurewebsites.net
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-ionic-seed && cd angular-ionic-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
@@ -87,8 +87,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 ```bash
 # Clone this repository
-git clone https://github.com/jvitor83/angular-ionic-seed
-cd angular-ionic-seed
+git clone https://github.com/jvitor83/angular-pwa-seed
+cd angular-pwa-seed
 
 # Install the project's dependencies
 npm install
