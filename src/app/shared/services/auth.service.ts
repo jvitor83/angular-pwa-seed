@@ -34,7 +34,7 @@ export class AuthService {
     let isCordova = AuthService.isCordova();
     console.debug('isCordova');
     console.debug(<any>isCordova);
-    if (isCordova != null && isCordova) {
+    if (isCordova != null && isCordova && platform.is('mobileweb') === false) {
       console.log('Applying cordova pattern!');
 
       // authentication.redirect_uri = 'https://localhost/oidc';
