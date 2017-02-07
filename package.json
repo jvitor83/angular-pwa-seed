@@ -37,7 +37,7 @@
     "prepublish.prod.exp": "npm run resources",
     "publish.prod.exp": "npm run resources && npm run build.prod.exp",
     "postpublish.prod.exp": "npm run sw.update && npm run sw.insert",
-    "postinstall": "mkdir www & cordova prepare",
+    "postinstall": "mkdir www & cordova prepare & exit 0",
     "cordova.livesync": "cordova run -- --live-reload",
     "cordova.serve": "cordova serve 5555",
     "start.cordova": "npm run build && cordova serve",
