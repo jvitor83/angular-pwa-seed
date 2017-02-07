@@ -63,7 +63,7 @@
     "start.browser": "npm run build && cordova run browser -- --port=5555",
     "install.browser": "cordova platform rm browser & cordova platform add browser --save",
     "serve.browser": "cordova emulate browser -- --port=5555",
-    "publish.prod.browser": "npm run publish.prod && cordova build browser --release"
+    "publish.prod.browser": "npm run publish.prod && npm run install.browser && cordova build browser --release"
   },
   "private": false,
   "dependencies": {
