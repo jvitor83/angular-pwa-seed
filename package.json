@@ -62,7 +62,8 @@
     "install.android": "ionic platform rm android & ionic platform add android",
     "start.browser": "npm run build && cordova run browser -- --port=5555",
     "install.browser": "cordova platform rm browser & cordova platform add browser --save",
-    "serve.browser": "cordova emulate browser -- --port=5555"
+    "serve.browser": "cordova emulate browser -- --port=5555",
+    "publish.prod.browser": "npm run publish.prod && cordova build browser --release"
   },
   "private": false,
   "dependencies": {
