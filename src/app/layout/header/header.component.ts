@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'seed-header',
-  templateUrl: 'header.component.html'
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
 

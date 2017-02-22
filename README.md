@@ -23,7 +23,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g @angular/cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
@@ -49,7 +49,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > ### Performance features
 > - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
 > - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
-> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_ - Watch [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
+> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_
 
 
 
@@ -63,24 +63,11 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
 
 
-
-## TODOs
-
-- [x] Test Web
-- [x] Test Browser (Cordova)
-- [x] Test Windows (Cordova)
-- [x] Test Android (Cordova)
-- [ ] Test iOS (Cordova)
-- [ ] Test OSx (Cordova)
-- [ ] Test Ubuntu (Cordova)
-- [ ] Test others dev environment (Non Windows)
-
-
 ## Requirements
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
-- **NODE**: Have installed or Install NODE **(5.XX)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- **Install Global Dependencies**: `npm install --global angular-cli cordova typescript`
+- **NODE**: Have installed or Install NODE **(6.X.X)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
+- **Install Global Dependencies**: `npm install --global @angular/cli cordova typescript`
 - **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
@@ -97,8 +84,12 @@ npm install
 
 ## Running
 
-You could use **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`) and **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
-> Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
+You could use:
+- **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`)
+and/or
+- **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
+
+> _Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`._
 
 So, the steps are:
 
@@ -135,11 +126,12 @@ So, the steps are:
 | Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
 
 
-### LiveSync Multiplatform
+### Multiplatform
 
-You could run multiple instances in different platforms (Browser, Android and iOS only) at same time using:
+You can try multiple platform at same time using:
 - Open shell then run `npm run build.watch`
-- Open **another** shell then run `npm run cordova.livesync`
+- Open **another** shell then run `npm run ionic.livesync`
+> _If you want to see it in a emulator (non-web), then run `npm run cordova.livesync`_
 
 
 

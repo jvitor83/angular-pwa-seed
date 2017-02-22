@@ -5,7 +5,7 @@ import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-unauthorized',
-  templateUrl: 'unauthorized.component.html'
+  templateUrl: './unauthorized.component.html'
 })
 export class UnauthorizedComponent implements OnInit {
 

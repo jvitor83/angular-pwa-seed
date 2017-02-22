@@ -4,7 +4,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, Appl
 
 @Component({
   selector: 'seed-menu',
-  templateUrl: 'menu.component.html'
+  templateUrl: './menu.component.html'
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
@@ -36,12 +36,13 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
         let drop = function (ev: UIEvent) {
           ev.preventDefault();
-          ev.stopPropagation();
+          //ev.stopPropagation();
           //this._menuCtrl.close();
 
           return true;
         };
 
+        
         leftMenu.onBackdropClick = drop;
         //leftMenu.backdrop = null;
 
