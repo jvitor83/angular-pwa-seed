@@ -1,5 +1,5 @@
 <ion-navbar>
-  <button ion-button icon-only menuToggle="leftMenu" (click)="toggleMenu('leftMenu')">
+    <button ion-button icon-only menuToggle="leftMenu">
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -12,11 +12,11 @@
 
 <ion-buttons end>
 
-    <button invisible-to="mobile" ion-button (click)="presentPopover($event)">
+    <!--<button invisible-to="mobile" ion-button (click)="presentPopover($event)">
         <ion-icon name="person"></ion-icon>
         {{name}}
-      </button>
-    <button ion-button icon-only menuToggle="rightMenu" (click)="toggleMenu('rightMenu')">
+      </button>-->
+    <button ion-button icon-only menuToggle="rightMenu">
         <ion-icon name="more"></ion-icon>
       </button>
 

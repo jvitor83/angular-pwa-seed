@@ -15,24 +15,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleMenu(menuId: string) {
-     console.log(menuId);
-    let menuToToggle = this.menu.get(menuId);
-    menuToToggle = menuToToggle.enable(true);
-    menuToToggle.toggle();
-  }
-
   get name(){
     return 'Anonimous';
   }
 
-presentPopover(ev) {
+// presentPopover(ev) {
 
-    let popover = this.popoverCtrl.create(UserinfoComponent);
+//     let popover = this.popoverCtrl.create(UserinfoComponent);
 
-    popover.present({
-      ev: ev
-    });
-  }
+//     popover.present({
+//       ev: ev
+//     });
+//   }
 
 }
