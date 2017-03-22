@@ -65,8 +65,6 @@ ion-menu ion-content {
 }
 
 
-@media (min-width: 768px) {
-  .split-pane-side {//[side=left]
-      max-width: 270px !important; 
-  }
+.split-pane-visible > .split-pane-side {//[side=left]
+    max-width: 270px !important; 
 }
