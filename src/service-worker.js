@@ -1,5 +1,6 @@
 // tick this to make the cache invalidate and update
-const CACHE_VERSION = '0.0.7';
+//CACHE_VERSION Will be added at build time.
+//const CACHE_VERSION = '';
 const CURRENT_CACHES = {
   'read-through': 'read-through-cache-v' + CACHE_VERSION
 };
