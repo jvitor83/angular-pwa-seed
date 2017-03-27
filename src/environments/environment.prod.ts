@@ -21,5 +21,15 @@ export const environment = {
 
     filterProtocolClaims: true,
     loadUserInfo: true,
+
+    metadata: {
+      "issuer": "https://accounts.google.com",
+      "authorization_endpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+      "token_endpoint": "https://www.googleapis.com/oauth2/v4/token",
+      "userinfo_endpoint": "https://www.googleapis.com/oauth2/v3/userinfo",
+      "revocation_endpoint": "https://accounts.google.com/o/oauth2/revoke",
+      "jwks_uri": "https://www.googleapis.com/oauth2/v3/certs",
+    }
+    
   }
 };
