@@ -12,7 +12,7 @@ export const environment = {
     client_secret: '2F88K5gbFOUhUuhSl7Z-XbD9',
     redirect_uri: 'https://angular-pwa-seed.netlify.com/callback.html',
     post_logout_redirect_uri: 'https://angular-pwa-seed.netlify.com/',
-    response_type: 'token id_token',
+    response_type: 'code id_token token',
     scope: 'openid profile',
 
     silent_redirect_uri: 'https://angular-pwa-seed.netlify.com/silentrefreshframe.html',
