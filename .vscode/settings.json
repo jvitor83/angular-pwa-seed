@@ -11,7 +11,6 @@
         "node_modules/**/*": true
     }
 ,
-"typescript.tsdk": "./node_modules/typescript/lib",
 "angulardoc.repoId": "06230efc-c885-4a09-86b4-765379786a5f",
 "angulardoc.directoryFilter": [
     "!typings",
