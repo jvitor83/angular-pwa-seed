@@ -82,9 +82,10 @@ export class AuthService {
   }
 
   getUser() {
-    this.mgr.getUser().then((user) => {
+    return this.mgr.getUser().then((user) => {
       console.log("got user", user);
       this.userLoadededEvent.emit(user);
+      return user;
     }).catch(function (err) {
       console.log(err);
     });
@@ -103,6 +104,7 @@ export class AuthService {
     let isCordova = AuthService.isCordova();
     console.log('startSigninMainWindow isCordova');
     console.log(isCordova);
+
     if (isCordova != null && isCordova) {
       this.mgr.signinPopup({ data: 'some data' }).then((user) => {
         console.log("signinPopup done");
