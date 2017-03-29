@@ -35,17 +35,21 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
 
   whenSplitPaneShow() {
+    if (this.platform.is('mobileweb')) {
+      return false;
+     }
+
 
     let whenShow = true;
     // if (this.platform.width() <= 768) {
     //   whenShow = false;
     //   //this.menu.close('leftMenu');
     // } else {
-      if (this.menuService.isFixed) {
-        whenShow = true;
-      } else {
-        whenShow = false;
-      }
+    if (this.menuService.isFixed) {
+      whenShow = true;
+    } else {
+      whenShow = false;
+    }
     // }
     return whenShow;
 
