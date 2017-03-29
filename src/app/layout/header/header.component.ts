@@ -1,31 +1,41 @@
 import { UserinfoComponent } from './userinfo/userinfo.component';
-import { MenuController, PopoverController } from 'ionic-angular';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { PopoverController } from 'ionic-angular';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { MenuService } from 'app/shared/services/menu.service';
 
 @Component({
   selector: 'seed-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
-  constructor(public menu: MenuController, private popoverCtrl: PopoverController) { }
+  constructor(public menuService: MenuService, private popoverCtrl: PopoverController) { }
 
-  @ViewChild('content', { read: ElementRef }) content: ElementRef;
+  //@ViewChild('content', { read: ElementRef }) content: ElementRef;
+  //@ViewChild('splitPaneLeftMenu', { read: ElementRef }) content: ElementRef;
 
   ngOnInit() {
+
   }
 
-  get name(){
+  ngAfterViewInit() {
+  }
+
+  toggleMenu() {
+    this.menuService.toggleMenu();
+  }
+
+  get name() {
     return 'Anonimous';
   }
 
-// presentPopover(ev) {
+  // presentPopover(ev) {
 
-//     let popover = this.popoverCtrl.create(UserinfoComponent);
+  //     let popover = this.popoverCtrl.create(UserinfoComponent);
 
-//     popover.present({
-//       ev: ev
-//     });
-//   }
+  //     popover.present({
+  //       ev: ev
+  //     });
+  //   }
 
 }

@@ -1,3 +1,4 @@
+import { MenuService } from 'app/shared/services/menu.service';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { IonicModule } from 'ionic-angular';
@@ -14,6 +15,7 @@ import { UserinfoComponent } from './header/userinfo/userinfo.component';
     RouterModule
   ],
   declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent],
+  providers: [MenuService],
   exports: [LayoutComponent, HeaderComponent, MenuComponent]
 })
 export class LayoutModule { }

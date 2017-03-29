@@ -17,8 +17,13 @@
     "typeRoots": [
       "../node_modules/@types"
     ],
+    "types": [],
     "paths": {
       "ionic-angular": ["../node_modules/ionic-angular"]
-    }
+    },
+    "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
   }
 }

@@ -1,9 +1,14 @@
-<ion-split-pane when="md">
-  <ion-menu id="leftMenu" side="left" [content]="content"> 
+<ion-split-pane #splitPaneLeftMenu [when]="whenSplitPaneShow()">
+  <ion-menu id="leftMenu" side="left" [content]="content">
 
     <ion-header>
       <ion-toolbar>
         <ion-title>Pages</ion-title>
+        <span>
+          <a invisible-to="mobile" (click)="fixMenu()">
+            <span class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
+          </a>
+        </span>
       </ion-toolbar>
     </ion-header>
 
@@ -17,8 +22,8 @@
 
 
 
-  <ion-split-pane  when="(min-width: 1440px)">
-    <ion-content main #content >
+  <ion-split-pane when="(min-width: 1440px)">
+    <ion-content main #content>
 
       <seed-header>
       </seed-header>

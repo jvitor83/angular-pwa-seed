@@ -10,12 +10,12 @@ export const environment = {
     authority: 'https://accounts.google.com',
     client_id: '929544282709-8mkof7adolh13fnualb2f4f176mjd2ot.apps.googleusercontent.com',
     client_secret: '2F88K5gbFOUhUuhSl7Z-XbD9',
-    redirect_uri: 'https://angular-pwa-seed.netlify.com/callback.html',
-    post_logout_redirect_uri: 'https://angular-pwa-seed.netlify.com',
+    redirect_uri: 'http://localhost:5555/callback.html',
+    post_logout_redirect_uri: 'http://localhost:5555',
     response_type: 'code id_token token',
     scope: 'openid profile',
 
-    silent_redirect_uri: 'https://angular-pwa-seed.netlify.com/silentrefresh.html',
+    silent_redirect_uri: 'http://localhost:5555/silentrefresh.html',
     automaticSilentRenew: true,
     //silentRequestTimeout:10000,
 

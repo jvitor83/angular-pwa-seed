@@ -68,3 +68,11 @@ ion-menu ion-content {
 .split-pane-visible > .split-pane-side {//[side=left]
     max-width: 270px !important; 
 }
+
+ion-title {
+  display: inline-block;
+}
+
+#leftMenu > div > ion-header > ion-toolbar > div.toolbar-content.toolbar-content-md > ion-title {
+  width: 80%;
+}
