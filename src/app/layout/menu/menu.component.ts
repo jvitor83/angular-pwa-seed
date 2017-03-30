@@ -1,11 +1,23 @@
 import { Router } from '@angular/router';
 import { Platform, MenuController, IonicModule, SplitPane } from 'ionic-angular';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MenuService } from 'app/shared/services/menu.service';
 
 @Component({
   selector: 'seed-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
+  animations: [
+    trigger('menuState', [
+      state('fixed', style({
+        transformOrigin: 'center', transform: 'rotate(-10deg)'
+      })),
+      state('unfixed', style({
+        transformOrigin: 'center', transform: 'rotate(10deg)'
+      })),
+      transition('fixed <=> unfixed', animate('50ms ease-in'))
+    ])
+  ]
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
@@ -26,11 +38,6 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    // this.platform.resize.subscribe(() => {
-    //   if (this.platform.width() <= 768) {
-    //     this.application.tick();
-    //   }
-    // });
   }
 
 
@@ -39,44 +46,19 @@ export class MenuComponent implements OnInit, AfterViewInit {
       return false;
      }
 
-
     let whenShow = true;
-    // if (this.platform.width() <= 768) {
-    //   whenShow = false;
-    //   //this.menu.close('leftMenu');
-    // } else {
     if (this.menuService.isFixed) {
       whenShow = true;
     } else {
       whenShow = false;
     }
-    // }
     return whenShow;
 
-
-
-    // if (this.menuService.isFixed) {
-    //   return 'md';
-    // } else {
-    //   return 'xs';
-    // }
-
-
-    // console.log(this.platform.width());
-    // if (this.platform.width() <= 768) {
-    //   return 'md';
-    // } else {
-    //   return 'xs';
-    // }
   }
 
-  // if (this.menuService.isFixed) {
-  //   if (this.platform.width() <= 768) {
-  //     return 'md';
-  //   }
-  // }
-  // return 'xs';
-  //   }
+  get menuState() {
+    if (this.menuService.isFixed) { return 'fixed'; } else { return 'unfixed'; }
+  }
 
 
   ngAfterViewInit() {

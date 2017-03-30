@@ -6,7 +6,7 @@
         <ion-title>Pages</ion-title>
         <span>
           <a invisible-to="mobile" (click)="fixMenu()">
-            <span class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
+            <span [@menuState]="menuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
           </a>
         </span>
       </ion-toolbar>
