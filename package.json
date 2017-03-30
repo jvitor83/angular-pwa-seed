@@ -59,6 +59,7 @@
     "install.browser": "npm run cordova -- platform rm browser & npm run cordova -- platform add browser --save",
     "serve.browser": "npm run cordova -- emulate browser -- --port=5555",
     "publish.prod.browser": "npm run publish.prod && npm run install.browser && npm run cordova -- build browser --release",
+    "precordova": "mkdir www & exit 0",
     "cordova": "./node_modules/.bin/cordova",
     "ionic": "./node_modules/.bin/ionic",
     "ng": "ng"

@@ -42,7 +42,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
 
   whenSplitPaneShow() {
-    if (this.platform.is('mobileweb')) {
+    if (this.platform.width() < 768) {
       return false;
      }
 
