@@ -1,6 +1,6 @@
 {
-	"name": "AngularSeedCliAdmin",
-	"short_name": "AngularSeedC",
+	"name": "AngularPwaSeed",
+	"short_name": "AngularPwaSeed",
 	"icons": [
 		{
 			"src": "assets\\pwa\\icon-72x72.png",

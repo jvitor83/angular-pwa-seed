@@ -54,7 +54,7 @@ ion-menu ion-content {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  [invisible-to="notebook"] {
+  [invisible-to="laptop"] {
     display: none !important;
   }
 }
@@ -62,4 +62,17 @@ ion-menu ion-content {
   [invisible-to="desktop"] {
     display: none !important;
   }
+}
+
+
+.split-pane-visible > .split-pane-side {//[side=left]
+    max-width: 270px !important; 
+}
+
+ion-title {
+  display: inline-block;
+}
+
+#leftMenu > div > ion-header > ion-toolbar > div.toolbar-content.toolbar-content-md > ion-title {
+  width: 80%;
 }

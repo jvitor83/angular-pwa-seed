@@ -1,4 +1,4 @@
-# Angular(2) PWA Seed (Template)
+# Angular PWA Seed (Template)
 
 [![Join the chat at https://gitter.im/angular-pwa-seed/Lobby](https://badges.gitter.im/angular-pwa-seed/Lobby.svg)](https://gitter.im/angular-pwa-seed/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
@@ -9,7 +9,7 @@
 
 ## Description
 
-**Multiplatform** Angular 2 project (_Web/PWA_, _Mobile_ and _Desktop_) with **[Ionic 2](http://ionicframework.com/)** applied.
+**Multiplatform** Angular project (_Web/PWA_, _Mobile_ and _Desktop_) with **[Ionic](http://ionicframework.com/)** applied.
 
 
 ## Sample
@@ -23,13 +23,13 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g angular-cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g @angular/cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
 ## Goal
 
-Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** using Angular 2.
+Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** using Angular.
 
 
 > ### Secondary goal
@@ -41,46 +41,33 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 ## Features
 
 - Multiplatform (Web, Mobile, Desktop) [Cordova](https://cordova.apache.org/docs/en/latest/guide/support/index.html)
-- Layout out-of-box (Mobile Friendly) ([Ionic 2](http://ionicframework.com/)/[Boostrap](http://getbootstrap.com/))
+- Layout out-of-box (Mobile Friendly) ([Ionic](http://ionicframework.com/)/[Boostrap](http://getbootstrap.com/))
 - [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
 - VSCode Integration ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools))
 - Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
 
 > ### Performance features
-> - [x] [Angular 2 Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
-> - [x] [Angular 2 Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
-> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_ - Watch [Angular 2 Mobile](http://mobile.angular.io/) in future for more.
+> - [x] [Angular Ahead-Of-Time Compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+> - [x] [Angular Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
+> - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_
 
 
 
 ## Technologies
 
-- [Angular 2](http://angular.io/)
+- [Angular](http://angular.io/)
 - [Angular CLI](https://cli.angular.io/)
-- [Ionic 2](http://ionicframework.com/)
+- [Ionic](http://ionicframework.com/)
 - [Cordova](https://cordova.apache.org/)
 - [Boostrap](http://getbootstrap.com/)
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
 
 
-
-## TODOs
-
-- [x] Test Web
-- [x] Test Browser (Cordova)
-- [x] Test Windows (Cordova)
-- [x] Test Android (Cordova)
-- [ ] Test iOS (Cordova)
-- [ ] Test OSx (Cordova)
-- [ ] Test Ubuntu (Cordova)
-- [ ] Test others dev environment (Non Windows)
-
-
 ## Requirements
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
-- **NODE**: Have installed or Install NODE **(5.XX)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- **Install Global Dependencies**: `npm install --global angular-cli cordova typescript`
+- **NODE**: Have installed or Install NODE **(6.X.X)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
+- **Install Global Dependencies**: `npm install --global @angular/cli cordova ionic@beta typescript`
 - **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
@@ -92,13 +79,20 @@ cd angular-pwa-seed
 
 # Install the project's dependencies
 npm install
+
+# (Optionally) Start the project
+npm run start
 ```
 
 
 ## Running
 
-You could use **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`) and **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
-> Only remember to **first build the angular** `ng build` **then run the cordova** `cordova run android`.
+You could use:
+- **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`)
+and/or
+- **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
+
+> _Only remember to **first build the angular** `ng build` , **then run the cordova** `cordova run android`._
 
 So, the steps are:
 
@@ -135,11 +129,12 @@ So, the steps are:
 | Browser        |                                                                                               | `npm run install.browser` | `npm run start.browser` |
 
 
-### LiveSync Multiplatform
+### Multiplatform
 
-You could run multiple instances in different platforms (Browser, Android and iOS only) at same time using:
+You can try multiple platform at same time using:
 - Open shell then run `npm run build.watch`
-- Open **another** shell then run `npm run cordova.livesync`
+- Open **another** shell then run `npm run ionic.livesync`
+> _If you want to see it in a emulator (non-web), then run `npm run cordova.livesync`_
 
 
 
@@ -158,8 +153,11 @@ More details at: [Angular CLI](https://cli.angular.io/) and [Ionic 2](http://ion
 ### VSCode
 
 Recommended extensions:
-- [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 - [AngularDoc for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode)
 - [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
-
+- [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)
+- [Angular Snippets](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2)
+- [Ionic 2 Snippets](https://marketplace.visualstudio.com/items?itemName=oudZy.ionic2-snippets)
+- [Ionic 2 Commands](https://marketplace.visualstudio.com/items?itemName=jgw9617.ionic2-vscode)
+- [Bootstrap 3 Snippets](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets) or [Bootstrap 4 Snippets](https://marketplace.visualstudio.com/items?itemName=thekalinga.bootstrap4-vscode)

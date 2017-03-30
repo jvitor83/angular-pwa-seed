@@ -1,10 +1,10 @@
-import { AngularSeedCliPage } from './app.po';
+import { SamplePage } from './app.po';
 
-describe('angular-seed-cli App', function() {
-  let page: AngularSeedCliPage;
+describe('sample App', () => {
+  let page: SamplePage;
 
   beforeEach(() => {
-    page = new AngularSeedCliPage();
+    page = new SamplePage();
   });
 
   it('should display message saying app works', () => {

@@ -1,7 +1,7 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "version": "1.0.0-beta.20-4",
-    "name": "angular-seed-cli-admin"
+    "name": "angular-pwa-seed"
   },
   "apps": [
     {
@@ -19,10 +19,11 @@
       ],
       "index": "index.html",
       "main": "main.ts",
+      "polyfills": "polyfills.ts",
       "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "seed",
-      "mobile": false,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "theme/variables.scss",
@@ -32,21 +33,28 @@
         "../node_modules/chart.js/dist/Chart.bundle.min.js",
         "../node_modules/chart.js/dist/Chart.min.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
   ],
-  "addons": [
-  ],
-  "packages": [],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
     }
   },
+  "lint": [
+    {
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
+    },
+    {
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
+    }
+  ],
   "test": {
     "karma": {
       "config": "./karma.conf.js"
@@ -54,18 +62,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
-    "spec": {
-      "class": false,
-      "component": true,
-      "directive": true,
-      "module": false,
-      "pipe": true,
-      "service": true
-    }
+    "component": {}
   }
 }

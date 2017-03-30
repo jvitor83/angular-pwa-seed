@@ -13,7 +13,7 @@ import { IonicModule } from 'ionic-angular';
     imports: [
         CommonModule,
         DashboardRoutingModule,
-        IonicModule,
+        //IonicModule,
         ChartsModule,
         LayoutModule
     ],

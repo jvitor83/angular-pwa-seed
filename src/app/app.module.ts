@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule, LocationStrategy,
          HashLocationStrategy/*, PathLocationStrategy*/ }         from '@angular/common';
 import { FormsModule }                  from '@angular/forms';
@@ -31,6 +32,7 @@ import { LayoutModule } from './layout/layout.module';
     HttpModule,
     FormsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
     Ng2BootstrapModule,
