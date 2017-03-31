@@ -12,6 +12,8 @@
 **Multiplatform** Angular project (_Web/PWA_, _Mobile_ and _Desktop_) with **[Ionic](http://ionicframework.com/)** applied.
 
 
+
+
 ## Sample
 
 A sample is available at: https://angular-pwa-seed.netlify.com
@@ -51,6 +53,20 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - [x] [Angular Lazy Loading Modules with PreloadAllModules Strategy](https://vsavkin.com/angular-router-preloading-modules-ba3c75e424cb)
 > - [x] [Progressive Web App _Features_](https://developers.google.com/web/#progressive-web-apps) - Manifest and Offline _(for faster loading)_
 
+
+> ### Developer Features
+> _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router is the **Angular Router** and **not the Ionic's NavController**._
+> - **Fast start** - Just by giving the name, color theme and icon.
+> > Change the **config** section at `package.json`, create your icon at `resources/icon.png`, then run `npm run resources`
+> - **Debugging** - Can debug just by Building and Running
+> > At VSCode, build with "<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>" then Run with "<kbd>F5</kbd>"
+> - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
+> > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
+> - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
+> > Authentication/Authorization options is already setted. Just need to choose your Identity Provider and change the config.
+> - **Components you choose** - It already has **Ionic** and **Bootstrap** installed, but you can include any other you want.
+> > - Add **PrimeNG** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
+> > - Add **KendoUI** components using this [guide](http://www.telerik.com/kendo-angular-ui/getting-started/)
 
 
 ## Technologies
