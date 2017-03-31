@@ -23,7 +23,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g @angular/cli cordova typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g @angular/cli cordova ionic@beta typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
 > ```
 
 
@@ -145,7 +145,7 @@ You can try multiple platform at same time using:
 │   ├── app                         <- angular components
 ```
 
-More details at: [Angular CLI](https://cli.angular.io/) and [Ionic 2](http://ionicframework.com/docs/v2/components/)
+More details at: [Angular CLI](https://cli.angular.io/) and [Ionic](http://ionicframework.com/docs/v2/components/)
 
 
 ## AddOns
