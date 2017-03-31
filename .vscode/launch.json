@@ -7,9 +7,9 @@
             "request": "launch",
             "url": "http://localhost:5555",
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/src",
+            "webRoot": "${workspaceRoot}",
             "sourceMapPathOverrides": {
-                "webpack:///C:*":"C:/*"
+                "webpack:///./*":"${workspaceRoot}/*"
             },
             "runtimeArgs": [
                 "--remote-debugging-port=9222", //Open in port 9222 (standard chrome debug port)
