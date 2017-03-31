@@ -56,6 +56,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 > ### Developer Features
 > _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router is the **Angular Router** and **not the Ionic's NavController**._
+> - **PWA Already** - Manifest and ServiceWorker already configured (just need to host in HTTPS).
+> > The service-worker (offline) is updated at each publish `npm run publish.prod`, so no worry about updating the cache version.
 > - **Fast start** - Just by giving the name, color theme and icon.
 > > Change the **config** section at `package.json`, create your icon at `resources/icon.png`, then run `npm run resources`
 > - **Debugging** - Can debug just by Building and Running
@@ -63,7 +65,9 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
-> > Authentication/Authorization options is already setted. Just need to choose your Identity Provider and change the config.
+> > Authentication options is already setted (with google). Just choose your Identity Provider and change the config.
+> - **Fast development** - Use the Angular CLI commands to generate your components/pages.
+> > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 > - **Components you choose** - It already has **Ionic** and **Bootstrap** installed, but you can include any other you want.
 > > - Add **PrimeNG** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
 > > - Add **KendoUI** components using this [guide](http://www.telerik.com/kendo-angular-ui/getting-started/)
