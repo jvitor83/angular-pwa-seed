@@ -76,3 +76,22 @@ ion-title {
 #leftMenu > div > ion-header > ion-toolbar > div.toolbar-content.toolbar-content-md > ion-title {
   width: 80%;
 }
+
+
+//Animation on page change (replace with https://github.com/angular/angular/issues/9845#issuecomment-235799008, once is solved)
+#appcontent * {
+  animation-duration: 500ms;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+
+to {
+  opacity: 1;
+}
+}
