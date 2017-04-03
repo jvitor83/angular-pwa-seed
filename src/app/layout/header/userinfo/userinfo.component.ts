@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { AuthService } from './../../../shared/services/auth.service';
 import { PopoverController, Platform } from 'ionic-angular';
@@ -13,7 +14,7 @@ export class UserinfoComponent implements OnInit {
   @Input()
   public summary = false;
 
-  constructor(private platform: Platform, private authService: AuthService, private popoverCtrl: PopoverController) { }
+  constructor(private platform: Platform, private authService: AuthService, private popoverCtrl: PopoverController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,7 @@ export class UserinfoComponent implements OnInit {
 
   logout() {
     this.authService.startSignoutMainWindow();
+    this.router.navigate(['']);
   }
 
   login() {
