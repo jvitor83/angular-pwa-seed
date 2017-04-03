@@ -35,6 +35,7 @@ export class UserinfoComponent implements OnInit {
   }
 
   login() {
+    localStorage.removeItem(location.host + ':callback');
     this.authService.startSigninMainWindow();
   }
 
