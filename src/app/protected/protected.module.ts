@@ -1,3 +1,4 @@
+import { IonicModule } from 'ionic-angular';
 import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';
 import { CommonModule }                 from '@angular/common';
@@ -10,6 +11,7 @@ import { ProtectedComponent }       from './protected.component';
     imports: [
         CommonModule,
         ProtectedRoutingModule,
+        IonicModule,
         LayoutModule
     ],
     declarations: [ ProtectedComponent ],

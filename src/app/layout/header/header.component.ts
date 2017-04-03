@@ -1,5 +1,5 @@
 import { UserinfoComponent } from './userinfo/userinfo.component';
-import { PopoverController } from 'ionic-angular';
+import { PopoverController, Platform } from 'ionic-angular';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { MenuService } from 'app/shared/services/menu.service';
 
@@ -9,7 +9,7 @@ import { MenuService } from 'app/shared/services/menu.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  constructor(public menuService: MenuService, private popoverCtrl: PopoverController) { }
+  constructor(public menuService: MenuService, private platform: Platform, private popoverCtrl: PopoverController) { }
 
   //@ViewChild('content', { read: ElementRef }) content: ElementRef;
   //@ViewChild('splitPaneLeftMenu', { read: ElementRef }) content: ElementRef;
@@ -29,13 +29,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     return 'Anonimous';
   }
 
-  // presentPopover(ev) {
+  get canShowUserComponentInHeader() {
+    if (this.platform.width() >= 1440) { return true; } else { return false; }
+  }
 
-  //     let popover = this.popoverCtrl.create(UserinfoComponent);
 
-  //     popover.present({
-  //       ev: ev
-  //     });
-  //   }
 
 }

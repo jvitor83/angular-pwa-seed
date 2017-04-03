@@ -1,3 +1,10 @@
-<p>
-  userinfo works!
-</p>
+<div>
+  <span><ion-icon name="person"></ion-icon></span>
+  <div>{{name}}</div>
+  <div *ngIf="isLoggedIn; else loginBlock">
+    <button ion-button small color="secondary" (click)="logout()">Logout</button>
+  </div>
+  <ng-template #loginBlock>
+    <button ion-button small color="primary" (click)="login()">Login</button>
+  </ng-template>
+</div> 

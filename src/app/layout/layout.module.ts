@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserinfoComponent } from './header/userinfo/userinfo.component';
+import { SysteminfoComponent } from './header/systeminfo/systeminfo.component';
+import { EnterpriseinfoComponent } from './header/enterpriseinfo/enterpriseinfo.component';
 
 @NgModule({
   imports: [
@@ -14,8 +16,9 @@ import { UserinfoComponent } from './header/userinfo/userinfo.component';
     IonicModule,
     RouterModule
   ],
-  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent],
+  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent],
   providers: [MenuService],
-  exports: [LayoutComponent, HeaderComponent, MenuComponent]
+  exports: [LayoutComponent, HeaderComponent, MenuComponent],
+  entryComponents: [UserinfoComponent]
 })
 export class LayoutModule { }

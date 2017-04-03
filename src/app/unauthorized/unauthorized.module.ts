@@ -1,3 +1,4 @@
+import { IonicModule } from 'ionic-angular';
 import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';
 
@@ -7,7 +8,8 @@ import { UnauthorizedComponent }       from './unauthorized.component';
 @NgModule({
     imports: [
         UnauthorizedRoutingModule,
-        LayoutModule
+        LayoutModule,
+        IonicModule
     ],
     declarations: [ UnauthorizedComponent ],
     exports: [UnauthorizedRoutingModule, UnauthorizedComponent]

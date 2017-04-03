@@ -40,12 +40,17 @@
     </ion-content>
 
     <ion-menu id="rightMenu" side="right" [content]="content">
+      
       <ion-item>
-        UserInfoComponent
+        <seed-userinfo></seed-userinfo>
       </ion-item>
       <ion-item>
-        SystemInfoComponent
+        <seed-systeminfo></seed-systeminfo>
       </ion-item>
+      <ion-item>
+        <seed-enterpriseinfo></seed-enterpriseinfo>
+      </ion-item>
+
     </ion-menu>
 
   </ion-split-pane>

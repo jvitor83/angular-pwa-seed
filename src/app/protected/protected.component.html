@@ -1,17 +1,20 @@
-
-
 <div>
 
-<div>
-  This is a protected page
-</div>
-<div *ngIf="loggedIn">
-  User: {{name}}
-  AccessToken: {{accessToken}}
-</div>
-<br>
-<div>
-  To go back click <a (click)="goback()">here</a>.
-</div>
+  <div>
+    <b>This is a protected page!</b>
+  </div>
+  <br />
+  <div *ngIf="loggedIn">
+    <div>
+      User: {{name}}
+    </div>
+    <div>
+    AccessToken: {{accessToken}}
+    </div>
+  </div>
+  <br>
+  <span>
+    To go back click <button small ion-button color="light" (click)="goback()">here</button>
+  </span>
 
 </div>
