@@ -6,7 +6,7 @@
   "config": {
     "name": "AngularPwaSeed",
     "shortname": "AngularPwaSeed",
-    "color": "#621E0C"
+    "color": "#0f3a54"
   },
   "scripts": {
     "start": "npm run ng -- serve --port 5555",
