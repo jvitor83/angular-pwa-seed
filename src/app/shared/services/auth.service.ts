@@ -107,6 +107,8 @@ export class AuthService {
     console.log('startSigninMainWindow isCordova');
     console.log(isCordova);
 
+    this.mgr.clearStaleState();
+
     if (isCordova != null && isCordova) {
       this.mgr.signinPopup({ data: 'some data' }).then((user) => {
         console.log("signinPopup done");

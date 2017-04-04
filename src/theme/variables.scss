@@ -22,8 +22,10 @@ $background-color:  #eaeaea;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+$theme-color: #0f3a54;
+
 $colors: (
-  primary:    #387ef5,
+  primary:    $theme-color,
   secondary:  #a2c4ff,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -32,14 +34,14 @@ $colors: (
 );
 
 
-$theme-color: #621E0C;
+
 
 $toolbar-background:         $theme-color;
 $toolbar-border-color:       #222;
 $toolbar-text-color:         $text-color;
 $toolbar-inactive-color:     #8c8c8c;
 
-$menu-background: lighten( desaturate( $toolbar-background, 40% ) , 60% );
+$menu-background: lighten( desaturate( $toolbar-background, 40% ) , 65% );
 
 $list-text-color:            $text-color;
 $list-background-color:      $menu-background;
