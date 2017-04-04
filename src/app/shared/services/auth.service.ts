@@ -47,6 +47,7 @@ export class AuthService {
     this.mgr = new Oidc.UserManager(authentication);
 
     this.mgr.events.addUserLoaded((e) => {
+      this.currentUser = e;
       this.application.tick();
     });
 
@@ -70,6 +71,7 @@ export class AuthService {
         console.log("user unloaded");
       }
       this.loggedIn = false;
+      this.currentUser = null;
     });
 
   }

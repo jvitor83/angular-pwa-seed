@@ -11,9 +11,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserinfoComponent implements OnInit {
 
-  @Input()
-  public summary = false;
-
   constructor(private platform: Platform, private authService: AuthService, private popoverCtrl: PopoverController, private router: Router) { }
 
   ngOnInit() {
@@ -25,6 +22,19 @@ export class UserinfoComponent implements OnInit {
     } else {
       return 'Anonimous';
     }
+  }
+
+
+  static isUser(user: Oidc.User | void): user is Oidc.User {
+    return (<Oidc.User>user) !== undefined;
+  }
+
+  get image() {
+    let imageUrl: Array<string> = this.authService.currentUser && this.authService.currentUser.profile && this.authService.currentUser.profile.picture || null;
+    if (imageUrl != null && imageUrl.length > 0) {
+      return imageUrl[0];
+    }
+    return null;
   }
 
   get isLoggedIn() {
@@ -41,12 +51,4 @@ export class UserinfoComponent implements OnInit {
     this.authService.startSigninMainWindow();
   }
 
-  presentPopover(ev) {
-
-    let popover = this.popoverCtrl.create(UserinfoComponent);
-
-    popover.present({
-      ev: ev
-    });
-  }
 }
