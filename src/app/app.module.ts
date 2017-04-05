@@ -18,10 +18,6 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 // Routing Module
 import { AppRoutingModule } from './app.routing';
 
-import { UnauthorizedModule } from './unauthorized/unauthorized.module';
-import { ProtectedModule } from './protected/protected.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-
 import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
