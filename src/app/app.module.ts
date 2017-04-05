@@ -9,8 +9,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-import { Ng2BootstrapModule }           from 'ng2-bootstrap/ng2-bootstrap';
-import { ChartsModule }                 from 'ng2-charts/ng2-charts';
+import { Ng2BootstrapModule }           from 'ng2-bootstrap';
+import { ChartsModule }                 from 'ng2-charts';
 
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -40,11 +40,7 @@ import { LayoutModule } from './layout/layout.module';
 
     IonicModule.forRoot(MyApp),
 
-    LayoutModule,
-
-    DashboardModule,
-    ProtectedModule,
-    UnauthorizedModule
+    LayoutModule
   ],
   bootstrap: [IonicApp],
   //bootstrap: [MyApp],
