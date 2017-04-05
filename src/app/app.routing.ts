@@ -1,7 +1,6 @@
 import { MyApp } from './app.component';
-import { NgModule }                 from '@angular/core';
-import { Routes,
-         RouterModule, PreloadAllModules }             from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -14,18 +13,8 @@ export const routes: Routes = [
         redirectTo: 'dashboard',
         pathMatch: 'full',
     },
-    // {
-    //     path: 'unauthorized',
-    //     component: UnauthorizedComponent
-    // },
-    // {
-    //     path: 'protected',
-    //     component: ProtectedComponent,
-    //     canActivate:[AuthGuardService]
-    // },
     {
         path: '',
-        //component: MyApp,
         data: {
             title: 'Home'
         },
@@ -47,8 +36,8 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }) ],
-    exports: [ RouterModule ],
-    providers: [ AuthGuardService, AuthService ]
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+    exports: [RouterModule],
+    providers: [AuthGuardService, AuthService]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

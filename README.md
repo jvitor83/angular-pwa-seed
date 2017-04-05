@@ -55,11 +55,11 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 
 > ### Developer Features
-> _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router is the **Angular Router** and **not the Ionic's NavController**._
+> _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router used is the **[Angular Router](https://angular.io/docs/ts/latest/guide/router.html)** and **not the [Ionic's NavController](https://ionicframework.com/docs/api/navigation/NavController/)**._
 > - **PWA Already** - Manifest and ServiceWorker already configured (just need to host in HTTPS).
 > > The service-worker (offline) is updated at each publish `npm run publish.prod`, so no worry about updating the cache version.
 > - **Fast start** - Just by giving the name, color theme and icon.
-> > Change the **config** section at `package.json`, create your icon at `resources/icon.png`, then run `npm run resources`
+> > Change the **config** section at `package.json`, create your icon at `resources/icon.png` _(for app)_ and `assets/logo.png` _(for enterprise)_, then run `npm run resources`
 > - **Debugging** - Can debug just by Building and Running
 > > At VSCode, build with "<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>" then Run with "<kbd>F5</kbd>"
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
@@ -68,9 +68,9 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > > Authentication options is already setted (with google). Just choose your Identity Provider and change the config.
 > - **Fast development** - Use the Angular CLI commands to generate your components/pages.
 > > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
-> - **Components you choose** - It already has **Ionic** and **Bootstrap** installed, but you can include any other you want.
-> > - Add **PrimeNG** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
-> > - Add **KendoUI** components using this [guide](http://www.telerik.com/kendo-angular-ui/getting-started/)
+> - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
+> > - Add **[PrimeNG](http://www.primefaces.org/primeng/)** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
+> > - Add **[KendoUI](http://www.telerik.com/kendo-angular-ui/components/)** components using this [guide](http://www.telerik.com/kendo-angular-ui/getting-started/)
 
 
 ## Technologies
@@ -174,6 +174,7 @@ More details at: [Angular CLI](https://cli.angular.io/) and [Ionic](http://ionic
 
 Recommended extensions:
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Angular Language Services](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 - [AngularDoc for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode)
 - [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
 - [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools)

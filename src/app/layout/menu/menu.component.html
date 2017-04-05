@@ -7,7 +7,7 @@
         <span>
           <a invisible-to="mobile" (click)="fixMenu()">
             <span [@menuState]="menuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
-          </a>
+        </a>
         </span>
       </ion-toolbar>
     </ion-header>
@@ -28,19 +28,25 @@
       <seed-header>
       </seed-header>
 
-      <div id="appcontent" padding>
+      <div id="appcontent">
 
-        <ng-content>
+        <!-- Breadcrumb -->
+        <breadcrumbs></breadcrumbs>
+
+        <div padding>
 
 
-        </ng-content>
 
+          <ng-content>
+          </ng-content>
+
+        </div>
       </div>
 
     </ion-content>
 
     <ion-menu id="rightMenu" side="right" [content]="content">
-      
+
       <ion-item>
         <seed-userinfo></seed-userinfo>
       </ion-item>

@@ -1,3 +1,4 @@
+import { BreadcrumbsComponent } from './../shared/components/breadcrumb.component';
 import { MenuService } from 'app/shared/services/menu.service';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
@@ -16,7 +17,7 @@ import { EnterpriseinfoComponent } from './header/enterpriseinfo/enterpriseinfo.
     IonicModule,
     RouterModule
   ],
-  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent],
+  declarations: [LayoutComponent, HeaderComponent, MenuComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent, BreadcrumbsComponent],
   providers: [MenuService],
   exports: [LayoutComponent, HeaderComponent, MenuComponent],
   entryComponents: [UserinfoComponent]
