@@ -1,14 +1,18 @@
 import { MenuController, SplitPane } from 'ionic-angular';
 import { Injectable, ElementRef, ApplicationRef } from '@angular/core';
 
-@Injectable()
-export class MenuService {
+
+abstract class MenuService {
 
   public isFixed = true;
 
-  public splitPaneLeftMenu: SplitPane = null;
+  public abstract menuSide: 'left' | 'right';
 
-  constructor(private menuController: MenuController, private app: ApplicationRef) { }
+  private get menuSideName() {
+    return this.menuSide + 'Menu';
+  }
+
+  constructor(public menuController: MenuController) { }
 
   pinToggleMenu() {
     this.isFixed = !this.isFixed;
@@ -17,7 +21,27 @@ export class MenuService {
 
   toggleMenu() {
     this.isFixed = false;
-    this.menuController.toggle('leftMenu');
+    this.menuController.toggle(this.menuSideName);
   }
 
+}
+
+
+
+@Injectable()
+export class LeftMenuService extends MenuService {
+  public menuSide: 'left' | 'right' = 'left';
+
+  constructor(public menuController: MenuController) {
+    super(menuController);
+  }
+}
+
+@Injectable()
+export class RightMenuService extends MenuService {
+  public menuSide: 'left' | 'right' = 'right';
+
+  constructor(public menuController: MenuController) {
+    super(menuController);
+  }
 }

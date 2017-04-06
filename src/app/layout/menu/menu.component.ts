@@ -1,14 +1,24 @@
+import { LeftMenuService, RightMenuService } from './../../shared/services/menu.service';
 import { Router } from '@angular/router';
 import { Platform, MenuController, IonicModule, SplitPane } from 'ionic-angular';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { MenuService } from 'app/shared/services/menu.service';
 
 @Component({
   selector: 'seed-menu',
   templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss'],
   animations: [
-    trigger('menuState', [
+    trigger('leftMenuState', [
+      state('fixed', style({
+        transformOrigin: 'center', transform: 'rotate(-10deg)'
+      })),
+      state('unfixed', style({
+        transformOrigin: 'center', transform: 'rotate(10deg)'
+      })),
+      transition('fixed <=> unfixed', animate('50ms ease-in'))
+    ]),
+    trigger('rightMenuState', [
       state('fixed', style({
         transformOrigin: 'center', transform: 'rotate(-10deg)'
       })),
@@ -21,8 +31,6 @@ import { MenuService } from 'app/shared/services/menu.service';
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('splitPaneLeftMenu')
-  private splitPaneLeftMenu: SplitPane;
 
   constructor(
     public platform: Platform,
@@ -30,7 +38,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
     public renderer: Renderer,
     public application: ApplicationRef,
     public router: Router,
-    public menuService: MenuService
+    public leftMenuService: LeftMenuService,
+    public rightMenuService: RightMenuService
   ) {
 
 
@@ -41,13 +50,13 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
 
-  whenSplitPaneShow() {
-    if (this.platform.width() < 768) {
+  whenSplitPaneShow(width: number) {
+    if (this.platform.width() < width) {
       return false;
      }
 
     let whenShow = true;
-    if (this.menuService.isFixed) {
+    if (this.leftMenuService.isFixed) {
       whenShow = true;
     } else {
       whenShow = false;
@@ -56,22 +65,46 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   }
 
-  get menuState() {
-    if (this.menuService.isFixed) { return 'fixed'; } else { return 'unfixed'; }
+
+  whenRightSplitPaneShow(width: number) {
+    if (this.platform.width() < width) {
+      return false;
+     }
+
+    let whenShow = true;
+    if (this.rightMenuService.isFixed) {
+      whenShow = true;
+    } else {
+      whenShow = false;
+    }
+    return whenShow;
+
+  }
+
+
+
+  get leftMenuState() {
+    if (this.leftMenuService.isFixed) { return 'fixed'; } else { return 'unfixed'; }
+  }
+
+  get rightMenuState() {
+    if (this.rightMenuService.isFixed) { return 'fixed'; } else { return 'unfixed'; }
   }
 
 
   ngAfterViewInit() {
-    let splm = this.splitPaneLeftMenu;
-    this.menuService.splitPaneLeftMenu = splm;
   }
 
   fixMenu() {
-    this.menuService.pinToggleMenu();
+    this.leftMenuService.pinToggleMenu();
+  }
+
+  fixRightMenu() {
+    this.rightMenuService.pinToggleMenu();
   }
 
   toggleMenu() {
-    this.menuService.toggleMenu();
+    this.leftMenuService.toggleMenu();
   }
 
 }

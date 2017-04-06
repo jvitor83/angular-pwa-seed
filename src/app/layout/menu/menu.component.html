@@ -1,4 +1,4 @@
-<ion-split-pane #splitPaneLeftMenu [when]="whenSplitPaneShow()">
+<ion-split-pane #splitPaneLeftMenu [when]="whenSplitPaneShow(768)">
   <ion-menu id="leftMenu" side="left" [content]="content">
 
     <ion-header>
@@ -6,7 +6,7 @@
         <ion-title>Pages</ion-title>
         <span>
           <a invisible-to="mobile" (click)="fixMenu()">
-            <span [@menuState]="menuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
+            <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
         </a>
         </span>
       </ion-toolbar>
@@ -22,7 +22,7 @@
 
 
 
-  <ion-split-pane when="(min-width: 1440px)">
+  <ion-split-pane [when]="whenRightSplitPaneShow(768)"><!-- when="(min-width: 1440px)" -->
     <ion-content main #content>
 
       <seed-header>
@@ -46,6 +46,20 @@
     </ion-content>
 
     <ion-menu id="rightMenu" side="right" [content]="content">
+
+      
+        <ion-toolbar>
+          <span>
+            <a invisible-to="mobile" (click)="fixRightMenu()">
+              <span [@rightMenuState]="rightMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
+          </a>
+          </span>
+
+          <ion-title>Pages</ion-title>
+
+        </ion-toolbar>
+      
+
 
       <ion-item>
         <seed-userinfo></seed-userinfo>
