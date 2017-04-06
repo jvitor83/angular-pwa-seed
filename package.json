@@ -18,6 +18,7 @@
     "pwa.manifest": "cd src && \"./../node_modules/.bin/cross-conf-env\" pwa-manifest --name=\"npm_package_config_name\" --short_name=\"npm_package_config_shortname\" --background_color=\"npm_package_config_color\" --theme_color=\"npm_package_config_color\" ./ ./assets/pwa/ --start_url=../index.html --display=standalone --orientation=any --direction=portrait --icons=./assets/icon.png",
     "sw.insert": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<!--<sw\\s*\\/>-->)\" \"<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('service-worker.js').then(() => console.log('service worker installed')).catch(err => console.log('Error', err)); }</script>\" www/index.html",
     "sw.update": "node sw-build.js",
+    "sw": "./node_modules/.bin/sw-precache --verbose --root=www --config=sw-precache-config.js",
     "config.theme": "npm run config.theme:title && npm run config.theme:toolbar && npm run config.theme:color",
     "config.theme:toolbar": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<title\\b[^>]*>)[^<>]*(</title>)\" \"<title>npm_package_config_name</title>\" src/index.html",
     "config.theme:title": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<ion-title\\b[^>]*>)[^<>]*(</ion-title>)\" \"<ion-title>npm_package_config_name</ion-title>\" src/app/layout/header/header.component.html",
@@ -125,7 +126,7 @@
     "protractor": "~5.1.0",
     "pwa-manifest-cli": "^1.1.2",
     "replace": "^0.3.0",
-    "sw-precache": "^4.2.3",
+    "sw-precache": "5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.2"
