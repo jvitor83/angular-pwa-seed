@@ -66,17 +66,28 @@ ion-menu ion-content {
 
 
 .split-pane-visible > .split-pane-side {//[side=left]
-    max-width: 270px !important; 
+    max-width: 270px !important;
 }
 
 ion-title {
   display: inline-block;
 }
 
-#leftMenu > div > ion-header > ion-toolbar > div.toolbar-content.toolbar-content-md > ion-title {
-  width: 80%;
+#leftMenu > div > ion-header > ion-toolbar > div.toolbar-content > ion-title {
+
 }
 
+ion-menu {
+  z-index: 999999 !important;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
 
 //Animation on page change (replace with https://github.com/angular/angular/issues/9845#issuecomment-235799008, once is solved)
 #appcontent * {

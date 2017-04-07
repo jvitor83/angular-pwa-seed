@@ -5,7 +5,7 @@
       <ion-toolbar>
         <ion-title>Pages</ion-title>
         <span>
-          <a invisible-to="mobile" (click)="fixMenu()">
+          <a class="right" invisible-to="mobile" (click)="fixMenu()">
             <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
         </a>
         </span>
@@ -47,10 +47,10 @@
 
     <ion-menu id="rightMenu" side="right" [content]="content">
 
-      
+
         <ion-toolbar>
           <span>
-            <a invisible-to="mobile" (click)="fixRightMenu()">
+            <a class="left" invisible-to="mobile" (click)="fixRightMenu()">
               <span [@rightMenuState]="rightMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
           </a>
           </span>
@@ -58,7 +58,7 @@
           <ion-title>Pages</ion-title>
 
         </ion-toolbar>
-      
+
 
 
       <ion-item>
