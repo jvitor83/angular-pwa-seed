@@ -1,5 +1,5 @@
 import { Router, NavigationEnd } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
@@ -18,7 +18,8 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public application: ApplicationRef,
-    public router: Router
+    public router: Router,
+    private zone: NgZone
   ) {
     this.initializeApp();
   }
@@ -29,9 +30,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
-      // this.platform.resize.asObservable().subscribe(() => {
-      //   this.application.tick();
-      // });
+      this.platform.resize.asObservable().subscribe((event) => {
+        this.zone.run(() => {
+          this.application.tick();
+        });
+      });
 
       this.router.events.map(event => event instanceof NavigationEnd).subscribe(() => this.menu.close());
     });
