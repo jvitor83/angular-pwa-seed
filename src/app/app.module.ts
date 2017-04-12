@@ -19,6 +19,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AppRoutingModule } from './app.routing';
 
 import { LayoutModule } from './layout/layout.module';
+import { Network } from "@ionic-native/network";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,9 @@ import { LayoutModule } from './layout/layout.module';
       useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
+
+    Network,
+
     AuthService,
     AuthGuardService
   ]

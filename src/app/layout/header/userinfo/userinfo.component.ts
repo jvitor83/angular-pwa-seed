@@ -1,8 +1,10 @@
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { AuthService } from './../../../shared/services/auth.service';
-import { PopoverController, Platform } from 'ionic-angular';
+import { PopoverController, Platform, ToastController } from 'ionic-angular';
 import { Component, OnInit, Input } from '@angular/core';
+import { Network } from '@ionic-native/network';
+
 
 @Component({
   selector: 'seed-userinfo',
@@ -11,7 +13,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserinfoComponent implements OnInit {
 
-  constructor(private platform: Platform, private authService: AuthService, private popoverCtrl: PopoverController, private router: Router) { }
+  constructor(private platform: Platform, private authService: AuthService, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
+
+  }
 
   ngOnInit() {
   }
@@ -47,8 +51,16 @@ export class UserinfoComponent implements OnInit {
   }
 
   login() {
-    localStorage.removeItem(location.host + ':callback');
-    this.authService.startSigninMainWindow();
+    var networkState = this.network.type;
+    if (networkState !== 'none') {
+      localStorage.removeItem(location.host + ':callback');
+      this.authService.startSigninMainWindow();
+    } else {
+      this.toastCtrl.create({
+        message: 'Impossible to Login without Internet connection!',
+        duration: 3000
+      }).present();
+    }
   }
 
 }
