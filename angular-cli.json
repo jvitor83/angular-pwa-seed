@@ -24,6 +24,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "seed",
+      "serviceWorker": true,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "theme/variables.scss",
@@ -62,6 +63,7 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {
+    }
   }
 }

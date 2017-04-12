@@ -9,7 +9,7 @@
 
 ## Description
 
-**Multiplatform** Angular project (_Web/PWA_, _Mobile_ and _Desktop_) with **[Ionic](http://ionicframework.com/)** applied.
+**Multiplatform** [Angular](http://angular.io) project _([Web/PWA](https://developers.google.com/web/progressive-web-apps/), [Mobile and Desktop](https://cordova.apache.org/docs/en/latest/guide/support/index.html))_ with [Ionic](http://ionicframework.com/) applied.
 
 
 
@@ -170,9 +170,9 @@ More details at: [Angular CLI](https://cli.angular.io/) and [Ionic](http://ionic
 
 ## AddOns
 
-### VSCode
+### IDE:
 
-Recommended extensions:
+#### [![VS Code](https://image.ibb.co/gqDcMQ/VSCode.png)](https://code.visualstudio.com/) - Recommended extensions:
 - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 - [Angular Language Services](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 - [AngularDoc for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode)
@@ -182,3 +182,7 @@ Recommended extensions:
 - [Ionic 2 Snippets](https://marketplace.visualstudio.com/items?itemName=oudZy.ionic2-snippets)
 - [Ionic 2 Commands](https://marketplace.visualstudio.com/items?itemName=jgw9617.ionic2-vscode)
 - [Bootstrap 3 Snippets](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets) or [Bootstrap 4 Snippets](https://marketplace.visualstudio.com/items?itemName=thekalinga.bootstrap4-vscode)
+
+### Testing:
+
+[![BrowserStack](https://image.ibb.co/hKLrgQ/rsz_2browserstack_logo_600x315.png)](https://www.browserstack.com) - Testing against multiple browsers/platforms

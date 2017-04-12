@@ -1,0 +1,14 @@
+{
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "/": {
+        "prefix": false
+      }
+    }
+  },
+  "push": {
+    "showNotifications": true,
+    "backgroundOnly": false
+  }
+}
