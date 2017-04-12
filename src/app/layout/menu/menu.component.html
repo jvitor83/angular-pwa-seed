@@ -22,7 +22,8 @@
 
 
 
-  <ion-split-pane [when]="whenRightSplitPaneShow(768)"><!-- when="(min-width: 1440px)" -->
+  <ion-split-pane [when]="whenRightSplitPaneShow(768)">
+    <!-- when="(min-width: 1440px)" -->
     <ion-content main #content>
 
       <seed-header>
@@ -47,7 +48,7 @@
 
     <ion-menu id="rightMenu" side="right" [content]="content">
 
-
+      <ion-header>
         <ion-toolbar>
           <span>
             <a class="left" invisible-to="mobile" (click)="fixRightMenu()">
@@ -55,21 +56,24 @@
           </a>
           </span>
 
-          <ion-title>Pages</ion-title>
+          <ion-title>Info/Settings</ion-title>
 
         </ion-toolbar>
+      </ion-header>
 
-
-
-      <ion-item>
-        <seed-userinfo></seed-userinfo>
-      </ion-item>
-      <ion-item>
-        <seed-systeminfo></seed-systeminfo>
-      </ion-item>
-      <ion-item>
-        <seed-enterpriseinfo></seed-enterpriseinfo>
-      </ion-item>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <seed-userinfo></seed-userinfo>
+          </ion-item>
+          <ion-item>
+            <seed-systeminfo></seed-systeminfo>
+          </ion-item>
+          <ion-item>
+            <seed-enterpriseinfo></seed-enterpriseinfo>
+          </ion-item>
+        </ion-list>
+      </ion-content>
 
     </ion-menu>
 

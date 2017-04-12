@@ -9,7 +9,7 @@ ion-menu ion-content {
 }
 
 .scroll-content {
-  overflow-y: inherit !important;
+  overflow-y: auto !important;
 }
 
 .bar-button-menutoggle{
@@ -66,16 +66,14 @@ ion-menu ion-content {
 
 
 .split-pane-visible > .split-pane-side {//[side=left]
-    max-width: 270px !important;
+    max-width: 250px !important;
+    min-width: 250px !important;
 }
 
 ion-title {
   display: inline-block;
 }
 
-#leftMenu > div > ion-header > ion-toolbar > div.toolbar-content > ion-title {
-
-}
 
 ion-menu {
   z-index: 999999 !important;
