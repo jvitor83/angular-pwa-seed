@@ -9,7 +9,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-import { Ng2BootstrapModule }           from 'ng2-bootstrap';
+import { Ng2BootstrapModule }           from 'ngx-bootstrap';
 import { ChartsModule }                 from 'ng2-charts';
 
 import { AuthService } from './shared/services/auth.service';

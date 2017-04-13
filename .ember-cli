@@ -1,6 +1,0 @@
-{
-  "port": 5555,
-  "liveReload": true,
-  "host": "0.0.0.0",
-  "live-reload-port": 5578
-}
