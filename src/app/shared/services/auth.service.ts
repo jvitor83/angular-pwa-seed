@@ -103,7 +103,7 @@ export class AuthService {
   }
 
   startSigninMainWindow() {
-    let isCordova = AuthService.isCordova();
+    let isCordova = AuthService.isCordova(this.platform);
     console.log('startSigninMainWindow isCordova');
     console.log(isCordova);
 
