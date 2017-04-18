@@ -61,7 +61,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Fast start** - Just by giving the name, color theme and icon.
 > > Change the **config** section at `package.json`, create your icon at `resources/icon.png` _(for app)_ and `assets/logo.png` _(for enterprise)_, then run `npm run resources`
 > - **Debugging** - Can debug just by Building and Running
-> > At VSCode, build with "<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>" then Run with "<kbd>F5</kbd>"
+> > At VSCode, Run (debugging) pressing just "<kbd>F5</kbd>"
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
@@ -122,7 +122,7 @@ So, the steps are:
 |                  | - Install your desired platform **(one time only)** `cordova platform add android --save` |
 |                  | - Run your desired platform `cordova run android`                                     |
 
-> **[VSCode:](https://code.visualstudio.com/)** **Running on Web:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> then <kbd>F5</kbd>
+> **[VSCode:](https://code.visualstudio.com/)** **Running on Web:** Just press <kbd>F5</kbd>
 
 
 **Requirements:**
