@@ -152,7 +152,7 @@ So, the steps are:
 ### Multiplatform
 
 You can try multiple platform at same time using:
-- Open shell then run `npm run start.ionic`
+- Open shell then run `npm run start.mobile`
 > _If you want to see it in a non-web emulator, then run `npm run start.cordova`_
 
 
