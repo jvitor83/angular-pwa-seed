@@ -38,7 +38,7 @@
     "postinstall": "mkdir www & npm run cordova -- prepare & exit 0",
     "cordova.livesync": "npm run cordova -- run -- --live-reload",
     "cordova.serve": "npm run cordova -- serve 5555",
-    "start.cordova": "npm run build && npm run cordova -- serve",
+    "start.cordova": "npm run concurrently -- --kill-others \"npm run build.watch\" \"npm run wait && npm run cordova.livesync\"",
     "ionic:build-original": "./node_modules/.bin/ionic-app-scripts build",
     "ionic:serve-original": "./node_modules/.bin/ionic-app-scripts serve",
     "ionic.serve": "npm run ionic -- serve --port 5555 --all --nogulp",

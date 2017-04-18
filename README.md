@@ -25,7 +25,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g @angular/cli cordova ionic@beta typescript && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & start cmd.exe @cmd /k "npm run build.watch" & ping 127.0.0.1 -n 30 > nul & (IF DEFINED ANDROID_HOME npm run install.android) & start cmd.exe @cmd /k "npm run cordova.livesync"
+> npm i -g @angular/cli cordova ionic@beta typescript sleep-ms concurrently && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
 > ```
 
 
@@ -35,7 +35,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 
 > ### Secondary goal
-> Allow to create an installable application _(and **reach the maximum performance possible** in this hybrid application)_ using:
+> Allow optionally to create an installable application _(and **reach the maximum performance possible** in this hybrid application)_ using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
 > - [x] Simple layout (without complex animations/effects) based on Ionic - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
@@ -87,7 +87,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE **(6.X.X)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- **Install Global Dependencies**: `npm install --global @angular/cli cordova ionic@beta typescript`
+- **Install Global Dependencies**: `npm install --global @angular/cli cordova ionic@beta typescript sleep-ms concurrently`
 - **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
@@ -152,9 +152,8 @@ So, the steps are:
 ### Multiplatform
 
 You can try multiple platform at same time using:
-- Open shell then run `npm run build.watch`
-- Open **another** shell then run `npm run ionic.livesync`
-> _If you want to see it in a emulator (non-web), then run `npm run cordova.livesync`_
+- Open shell then run `npm run start.ionic`
+> _If you want to see it in a non-web emulator, then run `npm run start.cordova`_
 
 
 
