@@ -35,7 +35,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 
 > ### Secondary goal
-> Allow optionally to create an installable application _(and **reach the maximum performance possible** in this hybrid application)_ using:
+> Allow _optionally_ to create an installable application _(and **reach the maximum performance possible**)_ using:
 > - [x] [Crosswalk WebView](https://crosswalk-project.org/documentation/cordova.html)
 > - [x] Simple layout (without complex animations/effects) based on Ionic - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 
@@ -56,17 +56,17 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 > ### Developer Features
 > _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router used is the **[Angular Router](https://angular.io/docs/ts/latest/guide/router.html)** and **not the [Ionic's NavController](https://ionicframework.com/docs/api/navigation/NavController/)**._
-> - **PWA Already** - Manifest and ServiceWorker already configured (just need to host in HTTPS).
+> - **PWA Already** - Manifest and ServiceWorker already configured (just need to host in HTTPS to get [A2HS](https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/)).
 > > The service-worker (offline) is updated at each publish `npm run publish.prod`, so no worry about updating the cache version.
 > - **Fast start** - Just by giving the name, color theme and icon.
 > > Change the **config** section at `package.json`, create your icon at `resources/icon.png` _(for app)_ and `assets/logo.png` _(for enterprise)_, then run `npm run resources`
-> - **Debugging** - Can debug just by Building and Running
-> > At VSCode, Run (debugging) pressing just "<kbd>F5</kbd>"
+> - **Debugging** - Can debug easily
+> > At VSCode, Run (debugging) just by pressing "<kbd>F5</kbd>"
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
 > > Authentication options is already setted (with google). Just choose your Identity Provider and change the config.
-> - **Fast development** - Use the Angular CLI commands to generate your components/pages.
+> - **Fast development** - Use the Angular CLI commands or [AngularDoc VSCode Extension](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode) to generate your components/pages.
 > > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 > - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
 > > - Add **[PrimeNG](http://www.primefaces.org/primeng/)** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
@@ -111,12 +111,11 @@ You could use:
 - **[Angular-CLI commands](https://github.com/angular/angular-cli#usage)** to get it running on web (`ng serve`)
 and/or
 - **[Cordova commands](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app)** to get it running at others platforms (`cordova platform add android && cordova run android`).
-
 > _Only remember to **first build the angular** `ng build` , **then run the cordova** `cordova run android`._
 
 So, the steps are:
 
-| Web              | Cordova                                                                               |
+| Web              | Other Platforms (Cordova)                                                             |
 |------------------|---------------------------------------------------------------------------------------|
 | - Run `ng serve` | - Compile the App `ng build`                                                          |
 |                  | - Install your desired platform **(one time only)** `cordova platform add android --save` |
