@@ -1,0 +1,13 @@
+
+version: '2'
+
+services:
+  angular-pwa-seed:
+    image: angular-pwa-seed:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5555:5555

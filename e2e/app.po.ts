@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class SamplePage {
+export class MyAngularAppPage {
   navigateTo() {
     return browser.get('/');
   }
