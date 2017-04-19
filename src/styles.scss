@@ -75,11 +75,11 @@ ion-title {
 }
 
 /* Fix for Safari on Tablets/Desktops */
-_::-webkit-full-page-media, _:future, :root {
-  ion-split-pane > ion-split-pane > ion-content > .scroll-content {  
-    position: relative !important;
-  }
-}
+// _::-webkit-full-page-media, _:future, :root {
+//   ion-split-pane > ion-split-pane > ion-content > .scroll-content {  
+//     position: relative !important;
+//   }
+// }
 
 
 ion-menu {
