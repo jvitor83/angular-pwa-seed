@@ -1,16 +1,11 @@
 import { Platform, MenuController } from 'ionic-angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'seed-layout',
-  templateUrl: './layout.component.html'
+  template: `no layout type configured`
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-
-  }
+  @Input() type: 'menu' | 'tab' = 'menu';
 
 }
