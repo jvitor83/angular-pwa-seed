@@ -12,6 +12,10 @@ ion-menu ion-content {
   overflow-y: auto !important;
 }
 
+.toolbar-title {
+  overflow: inherit;
+}
+
 // .bar-button-menutoggle{
 //   display: inline-block;
 // }
