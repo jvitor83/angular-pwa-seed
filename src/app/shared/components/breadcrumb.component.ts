@@ -22,7 +22,8 @@ import 'rxjs/add/operator/filter';
 styles: [`
     ol {
         list-style-type: none;
-        display: flex;
+        display: -webkit-inline-flex;
+        display: inline-flex;
         padding: 0px;
     }
     li {

@@ -1,29 +1,13 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "",
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "es2016",
-      "dom"
-    ],
-    "mapRoot": "./",
+    "outDir": "../out-tsc/app",
     "module": "es2015",
-    "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
-    "sourceMap": true,
-    "target": "es5",
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
-    "types": [],
-    "paths": {
-      "ionic-angular": ["../node_modules/ionic-angular"]
-    },
-    "exclude": [
+    "baseUrl": "",
+    "types": []
+  },
+  "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ]
-  }
 }
