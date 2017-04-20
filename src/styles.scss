@@ -84,6 +84,10 @@ _::-webkit-full-page-media, _:future, :root {
     position: relative !important;
   }
 }
+/* Fix for IPad Air 2 */
+.split-pane-visible {
+  display: -webkit-flex;
+}
 
 
 ion-menu {
