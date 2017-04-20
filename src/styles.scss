@@ -85,7 +85,7 @@ _::-webkit-full-page-media, _:future, :root {
   }
 }
 /* Fix for IPad Air 2 */
-.split-pane-visible {
+.split-pane-visible>ion-split-pane.split-pane-main, .split-pane-visible>ion-split-pane.split-pane-side {
   display: -webkit-flex;
 }
 
