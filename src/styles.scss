@@ -12,9 +12,13 @@ ion-menu ion-content {
   overflow-y: auto !important;
 }
 
-.bar-button-menutoggle{
-  display: inline-block;
+.toolbar-title {
+  overflow: inherit;
 }
+
+// .bar-button-menutoggle{
+//   display: inline-block;
+// }
 
 .label{
   color: black;
@@ -76,9 +80,13 @@ ion-title {
 
 /* Fix for Safari on Tablets/Desktops */
 _::-webkit-full-page-media, _:future, :root {
-  ion-split-pane > ion-split-pane > ion-content > .scroll-content {  
+  ion-split-pane > ion-split-pane > ion-content > .scroll-content {
     position: relative !important;
   }
+}
+/* Fix for IPad Air 2 */
+.split-pane-visible>.split-pane-visible {
+  display: -webkit-flex !important;
 }
 
 
