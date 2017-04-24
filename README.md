@@ -43,7 +43,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 ## Features
 
 - Multiplatform (Web, Mobile, Desktop) [Cordova](https://cordova.apache.org/docs/en/latest/guide/support/index.html)
-- Layout out-of-box (Mobile Friendly) ([Ionic](http://ionicframework.com/)/[Boostrap](http://getbootstrap.com/))
+- Multiples layouts out-of-box (Menu,Tab,Blank) ([Ionic](http://ionicframework.com/)/[Boostrap](http://getbootstrap.com/))
 - [Authentication/Authorization (OpenID/OAuth2)](https://github.com/IdentityModel/oidc-client-js/wiki)
 - VSCode Integration ([Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools))
 - Angular CLI project ([Generator commands](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services))
@@ -58,6 +58,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > _This Seed use Ionic to get the visual experience from each device/platform, be mobile friendly and performative. But it uses Ionic only at UI Components and Theming, the Router used is the **[Angular Router](https://angular.io/docs/ts/latest/guide/router.html)** and **not the [Ionic's NavController](https://ionicframework.com/docs/api/navigation/NavController/)**._
 > - **PWA Already** - Manifest and ServiceWorker already configured (just need to host in HTTPS to get [A2HS](https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/)).
 > > The service-worker (offline) is updated at each publish `npm run publish.prod`, so no worry about updating the cache version.
+> - **Multiple Layouts** - Choose between Menu, Tab and Blank Layouts
+> > At `app.html` in `<seed-layout type="menu">`, choose your desired layout type
 > - **Fast start** - Just by giving the name, color theme and icon.
 > > Change the **config** section at `package.json`, create your icon at `resources/icon.png` _(for app)_ and `assets/logo.png` _(for enterprise)_, then run `npm run resources`
 > - **Debugging** - Can debug easily

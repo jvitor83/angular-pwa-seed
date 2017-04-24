@@ -1,21 +1,15 @@
-
 <br />
-  <ion-list [hidden]="true">
+<div>
+  <ng-content select="[seed-menu-items]"></ng-content>
+</div>
+<br /> lista nova abaixo
+<ion-tabs tabsPlacement="top">
+  <div *ngFor="let menuItem of menuItems; let i = index;">
+    <ion-tab tabTitle="{{menuItem.title}}"></ion-tab>
+  </div>
+</ion-tabs>
 
-  </ion-list>
-<br />
-  lista nova abaixo
-  <ion-tabs tabsPlacement="top">
-    <!--<ion-tab [tabTitle]="Titulo"></ion-tab>-->
-    <ng-content select="[seed-menu-items]"></ng-content>
-  <!--<div *ngFor="let item of items; let i = index;">
-
-
-  </div>-->
-  </ion-tabs>
-
-
-
+<br />Abaixo nao
 <ng-content>
 
 </ng-content>

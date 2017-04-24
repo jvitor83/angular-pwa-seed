@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Directive, Input, ContentChildren, QueryList, ViewChild, AfterViewInit, AfterContentInit, forwardRef, ViewChildren, ViewContainerRef, ElementRef, Renderer } from '@angular/core';
 import { List, Item, Tabs, Tab } from 'ionic-angular';
-import { IonItem } from "../ion-item.directive";
+import { MenuItemComponent } from "../../shared/components/menu-item/menu-item.component";
 
 
 @Component({
@@ -9,18 +9,26 @@ import { IonItem } from "../ion-item.directive";
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss']
 })
-export class TabComponent implements AfterViewInit {
+export class TabComponent implements AfterContentInit {
+  ngAfterContentInit(): void {
+
+    console.log('this.menuItems.length');
+    console.log(this.menuItems.length);
+  }
+
 
   protected items: Iterable<Item>;
 
-  @ViewChild(forwardRef(() => Tabs)) tabs: Tabs;
+  @ContentChildren(forwardRef(() => MenuItemComponent), { descendants: true }) menuItems: QueryList<MenuItemComponent>;
+  //@ViewChild(forwardRef(() => Tabs)) tabs: Tabs;
 
   ngAfterViewInit() {
-    console.log('this.tabs');
-    console.log(this.tabs);
+    // console.log('this.tabs');
+    // console.log(this.tabs);
 
 
-    this.tabs.setElementClass('tab-button', true);
+    // this.tabs.setElementClass('tab-button', true);
+
 
 
     //this.tabs.forEach((tab) => tab.setElementClass('tab-button', true));
