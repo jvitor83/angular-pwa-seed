@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "./theme/theme";
+
 body{
   background-color: #eaeaea;
 }
@@ -89,6 +91,24 @@ _::-webkit-full-page-media, _:future, :root {
   display: -webkit-flex !important;
 }
 
+
+[layout-tabs] {
+  position: absolute;
+  display: inline-block;
+  left: inherit;
+  max-width: inherit !important;
+  background-color: $theme-color !important;
+}
+[layout-tabs] > .tabbar {
+  width: auto !important;
+}
+[layout-tabs] .tabbar > a {
+  min-width: 125px !important;
+  background-color: $background-color;
+}
+[layout-tab]  .content {
+  background-color: transparent !important;
+}
 
 ion-menu {
   z-index: 999999 !important;

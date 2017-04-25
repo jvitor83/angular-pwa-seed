@@ -11,18 +11,23 @@ export class TabNone { }
   selector: 'seed-layout [type="tab"]',
   template:
   `
-    <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="true"></seed-header>
+    <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="true">
+      <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" tabsPlacement="top">
+        <ion-tab [root]="dummyTab" layout-tab *ngFor="let menuItem of menuItems; let i = index;" (ionSelect)="navigateTo(menuItem.link)" tabTitle="{{menuItem.title}}" tabIcon="{{menuItem.icon}}"></ion-tab>
+      </ion-tabs>
+    </seed-header>
 
     <div [hidden]="true">
       <ng-content select="[menu-items]"></ng-content>
     </div>
 
-    <ion-content main #content>
-      <ion-toolbar>
+    <ion-toolbar [hidden]="!showToolbarTab">
       <ion-tabs tabsLayout="icon-top" tabsPlacement="top">
         <ion-tab [root]="dummyTab" *ngFor="let menuItem of menuItems; let i = index;" (ionSelect)="navigateTo(menuItem.link)" tabTitle="{{menuItem.title}}" tabIcon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
-      </ion-toolbar>
+    </ion-toolbar>
+
+    <ion-content main #content>
       <div padding>
         <ng-content></ng-content>
       </div>
@@ -30,11 +35,25 @@ export class TabNone { }
   `,
 })
 export class LayoutTabComponent extends LayoutComponent {
+
+  @Input() showMenuItemsAtHeader?: boolean = true;
+
   protected dummyTab;
 
   @ContentChildren(MenuItemComponent) menuItems: QueryList<MenuItemComponent>;
 
-  constructor(private router: Router) {
+  get showToolbarTab() {
+    if (this.showMenuItemsAtHeader == true) {
+      if (this.platform.width() < 768) {
+        return true;
+      }
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  constructor(private router: Router, public platform: Platform) {
     super();
     this.dummyTab = TabNone;
   }

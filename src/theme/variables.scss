@@ -2,16 +2,13 @@
 // http://ionicframework.com/docs/v2/theming/
 @import "../../node_modules/ionic-angular/themes/ionic.globals";
 
-
+@import "./theme";
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
-
-$text-color:        #000;
-$background-color:  #eaeaea;
 
 
 // Named Color Variables
@@ -21,9 +18,6 @@ $background-color:  #eaeaea;
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-
-$theme-color: #0f3a54;
-$secondary-color : lighten( desaturate( $theme-color, 40% ) , 65% );
 
 $colors: (
   primary:    $theme-color,
@@ -49,7 +43,7 @@ $list-background-color:      $menu-background;
 $list-border-color:          #000;
 
 .tabbar {
-  background-color: $secondary-color !important;
+  background-color: transparent !important;
 }
 
 
