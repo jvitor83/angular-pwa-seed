@@ -1,16 +1,9 @@
 import { Platform, MenuController } from 'ionic-angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'seed-layout',
-  templateUrl: './layout.component.html'
+  selector: 'seed-layout [type="blank"]',
+  template: `<ng-content></ng-content>`
 })
-export class LayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
-
+export class LayoutComponent {
 }

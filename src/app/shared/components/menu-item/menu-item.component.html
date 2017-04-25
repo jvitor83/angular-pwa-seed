@@ -1,0 +1,7 @@
+<a routerLinkActive="active" (click)="navigateTo(link)" ion-item>
+  <div *ngIf="!!icon">
+    <ion-icon name="{{icon}}"></ion-icon>
+  </div>
+  <label *ngIf="!!title">{{title}}</label>
+  <ng-content></ng-content>
+</a>

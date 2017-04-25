@@ -20,10 +20,12 @@ import { AppRoutingModule } from './app.routing';
 
 import { LayoutModule } from './layout/layout.module';
 import { Network } from "@ionic-native/network";
+import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    MenuItemComponent
   ],
   imports: [
     HttpModule,

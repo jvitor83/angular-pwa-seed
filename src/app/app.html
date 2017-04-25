@@ -1,13 +1,9 @@
-<seed-layout>
+<seed-layout type="menu">
 
   <!-- Link to routes -->
   <div menu-items>
-    <a routerLinkActive="active" [routerLink]="['/dashboard']" ion-item>
-      <ion-icon name="analytics"></ion-icon> Dashboard
-    </a>
-    <a routerLinkActive="active" [routerLink]="['/protected']" ion-item>
-        Protected
-      </a>
+    <seed-menu-item link="['/dashboard']" title="Dashboard" icon="analytics"></seed-menu-item>
+    <seed-menu-item link="['/protected']" title="Protected"></seed-menu-item>
   </div>
 
 

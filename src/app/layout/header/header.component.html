@@ -1,14 +1,19 @@
 <ion-navbar>
-  <button ion-button icon-only (click)="toggleMenu()" menuToggle="leftMenu">
+  <button *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="leftMenu">
       <ion-icon name="menu"></ion-icon>
     </button>
 
+  <span padding>
+  <img src="assets/icon.png" height="35" width="35" />
   <ion-title>AngularPwaSeed</ion-title>
+  </span>
 
   <!--<button mobile-hidden ion-button>
         <ion-icon name="search"></ion-icon>
         Search
     </button>-->
+
+    <ng-content></ng-content>
 
   <ion-buttons end>
 
@@ -20,7 +25,7 @@
       </button>-->
 
 
-    <button ion-button icon-only (click)="toggleRightMenu()" menuToggle="rightMenu">
+    <button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="rightMenu">
         <ion-icon name="more"></ion-icon>
       </button>
 
