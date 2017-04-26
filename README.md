@@ -95,9 +95,20 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 ## Starting
 
 ```bash
-# Clone this repository
-git clone https://github.com/jvitor83/angular-pwa-seed
-cd angular-pwa-seed
+# Clone this repo giving your new project name
+git clone https://github.com/jvitor83/angular-pwa-seed.git [your-project-name]
+
+cd [your-project-name]
+
+# Set your origin repository (can be later if wanted to)
+git remote set-url origin [your-project-git-repo]
+
+# Add this repository as upstream (to keep updated)
+git remote add upstream https://github.com/jvitor83/angular-pwa-seed.git
+
+# Execute those always when want to get the latest updates from the seed
+git fetch upstream
+git merge upstream/master
 
 # Install the project's dependencies
 npm install
