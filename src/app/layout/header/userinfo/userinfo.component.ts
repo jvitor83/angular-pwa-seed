@@ -46,7 +46,7 @@ export class UserinfoComponent implements OnInit {
   }
 
   logout() {
-    this.authService.startSignoutMainWindow();
+    this.authService.logout();
     this.router.navigate(['']);
   }
 
@@ -54,7 +54,7 @@ export class UserinfoComponent implements OnInit {
     var networkState = this.network.type;
     if (networkState !== 'none') {
       localStorage.removeItem(location.host + ':callback');
-      this.authService.startSigninMainWindow();
+      this.authService.login();
     } else {
       this.toastCtrl.create({
         message: 'Impossible to Login without Internet connection!',

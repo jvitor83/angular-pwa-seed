@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 
 import { AuthService } from '../shared/services/auth.service';
 import { Network } from '@ionic-native/network';
-import { ToastController } from "ionic-angular";
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'app-unauthorized',
@@ -11,16 +11,16 @@ import { ToastController } from "ionic-angular";
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor(private authService: AuthService, private location:Location, private network: Network, public toastCtrl: ToastController) { }
+  constructor(private authService: AuthService, private location: Location, private network: Network, public toastCtrl: ToastController) { }
 
   ngOnInit() {
   }
   Login() {
 
-    var networkState = this.network.type;
+    const networkState = this.network.type;
     if (networkState !== 'none') {
 
-      this.authService.startSigninMainWindow();
+      this.authService.login();
     } else {
       this.toastCtrl.create({
         message: 'Impossible to Login without Internet connection!',
@@ -29,7 +29,7 @@ export class UnauthorizedComponent implements OnInit {
     }
 
   }
-  goback(){
+  goback() {
     this.location.back();
   }
 }

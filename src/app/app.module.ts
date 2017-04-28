@@ -19,7 +19,9 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 import { AppRoutingModule } from './app.routing';
 
 import { LayoutModule } from './layout/layout.module';
-import { Network } from "@ionic-native/network";
+import { Network } from '@ionic-native/network';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 
 @NgModule({
@@ -42,7 +44,6 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
     LayoutModule
   ],
   bootstrap: [IonicApp],
-  //bootstrap: [MyApp],
   entryComponents: [
     MyApp
   ],
@@ -55,6 +56,8 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
     },
 
     Network,
+    StatusBar,
+    SplashScreen,
 
     AuthService,
     AuthGuardService

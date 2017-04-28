@@ -2,37 +2,84 @@
 <html>
 
 <head>
-    <base href="./" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
+  <base href="./" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
 
-    <meta name="description" content="AngularPwaSeed">
-    <meta name="author" content="João Vitor Paes de Barros do Carmo">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
-    <meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src  'self'  'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
-    <!--<meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src &apos;self&apos;  &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; *; style-src  &apos;self&apos; &apos;unsafe-inline&apos; *">-->
+  <meta name="description" content="AngularPwaSeed">
+  <meta name="author" content="João Vitor Paes de Barros do Carmo">
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
+  <meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src  'self'  'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+  <!--<meta http-equiv="Content-Security-Policy" content="img-src data: *; default-src 'self' *; script-src &apos;self&apos;  &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; *; style-src  &apos;self&apos; &apos;unsafe-inline&apos; *">-->
 
-    <!--<link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">-->
+  <!--<link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">-->
 
 
-    <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
 
-    <link rel="manifest" href="manifest.json">
-    <script src="scripts/manup.min.js"></script>
-    <!--<meta name="theme-color" content="#263238">
+  <link rel="manifest" href="manifest.json">
+  <script src="scripts/manup.min.js"></script>
+
+  <link rel="apple-touch-startup-image" href="assets/ios/splash/Default~iphone.png">
+
+  <link rel="stylesheet" type="text/css" href="scripts/addtohomescreen.css">
+  <script src="scripts/addtohomescreen.js"></script>
+
+
+
+  <!--<meta name="theme-color" content="#263238">
     <meta name="apple-mobile-web-app-status-bar-style" content="#263238">-->
 
 
-    <title>AngularPwaSeed</title>
+  <title>AngularPwaSeed</title>
 
 </head>
 
 
 <body>
-    <ion-app><!-- App Loading... --></ion-app>
+
+  <script>
+    // http://cubiq.org/add-to-home-screen
+    addToHomescreen({
+      appID: 'org.cubiq.addtohome',		// local storage name (no need to change)
+      fontSize: 15,				// base font size, used to properly resize the popup based on viewport scale factor
+      debug: false,				// override browser checks
+      logging: false,				// log reasons for showing or not showing to js console; defaults to true when debug is true
+      modal: false,				// prevent further actions until the message is closed
+      mandatory: false,			// you can't proceed if you don't add the app to the homescreen
+      autostart: true,			// show the message automatically
+      skipFirstVisit: false,		// show only to returning visitors (ie: skip the first time you visit)
+      startDelay: 1,				// display the message after that many seconds from page load
+      lifespan: 15,				// life of the message in seconds
+      displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)
+      maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)
+      icon: true,					// add touch icon to the message
+      message: '',				// the message can be customized
+      validLocation: [],			// list of pages where the message will be shown (array of regexes)
+      onInit: null,				// executed on instance creation
+      onShow: null,				// executed when the message is shown
+      onRemove: null,				// executed when the message is removed
+      onAdd: null,				// when the application is launched the first time from the homescreen (guesstimate)
+      onPrivate: null,			// executed if user is in private mode
+      privateModeOverride: false,	// show the message even in private mode (very rude)
+      detectHomescreen: false		// try to detect if the site has been added to the homescreen (false | true | 'hash' | 'queryString' | 'smartURL')
+    });
+  </script>
+
+  <ion-app>
+    <!-- App Loading... -->
+  </ion-app>
+
+  <noscript>
+
+    <h4 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica;">
+      Sorry, JavaScript needs to be enabled in order to run this application.
+    </h4>
+  </noscript>
+
 </body>
 
 </html>

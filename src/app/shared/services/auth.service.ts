@@ -102,7 +102,7 @@ export class AuthService {
     });
   }
 
-  startSigninMainWindow() {
+  login() {
     let isCordova = AuthService.isCordova(this.platform);
     console.log('startSigninMainWindow isCordova');
     console.log(isCordova);
@@ -137,15 +137,15 @@ export class AuthService {
     }
   }
 
-  endSigninMainWindow() {
-    this.mgr.signinRedirectCallback().then(function (user) {
-      console.log("signed in", user);
-    }).catch(function (err) {
-      console.log(err);
-    });
-  }
+  // endSigninMainWindow() {
+  //   this.mgr.signinRedirectCallback().then(function (user) {
+  //     console.log("signed in", user);
+  //   }).catch(function (err) {
+  //     console.log(err);
+  //   });
+  // }
 
-  startSignoutMainWindow() {
+  logout() {
     this.mgr.signoutRedirect().then(function (resp) {
       console.log("signed out", resp);
       setTimeout(5000, () => {
@@ -157,13 +157,13 @@ export class AuthService {
     });
   };
 
-  endSignoutMainWindow() {
-    this.mgr.signoutRedirectCallback().then(function (resp) {
-      console.log("signed out", resp);
-    }).catch(function (err) {
-      console.log(err);
-    });
-  };
+  // endSignoutMainWindow() {
+  //   this.mgr.signoutRedirectCallback().then(function (resp) {
+  //     console.log("signed out", resp);
+  //   }).catch(function (err) {
+  //     console.log(err);
+  //   });
+  // };
   /**
    * Example of how you can make auth request using angulars http methods.
    * @param options if options are not supplied the default content type is application/json
