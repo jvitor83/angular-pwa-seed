@@ -95,6 +95,9 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 ## Starting
 
 ```bash
+# Install global dependencies
+ npm install --global @angular/cli cordova ionic@beta typescript sleep-ms concurrently
+
 # Clone this repo giving your new project name
 git clone https://github.com/jvitor83/angular-pwa-seed.git [your-project-name]
 
