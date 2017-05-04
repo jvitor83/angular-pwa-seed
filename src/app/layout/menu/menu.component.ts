@@ -46,6 +46,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
+    // Default is not fixed for the RightMenu
+    this.rightMenuService.pinToggleMenu();
   }
 
 

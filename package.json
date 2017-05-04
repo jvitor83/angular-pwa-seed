@@ -23,7 +23,7 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "ng e2e",
-    "pwa.manifest": "cd src && \"./../node_modules/.bin/cross-conf-env\" pwa-manifest --name=\"npm_package_config_name\" --short_name=\"npm_package_config_shortname\" --background_color=\"npm_package_config_color\" --theme_color=\"npm_package_config_color\" ./ ./assets/pwa/ --start_url=../index.html --display=standalone --orientation=any --direction=portrait --icons=./assets/icon.png",
+    "pwa.manifest": "cd src && \"./../node_modules/.bin/cross-conf-env\" pwa-manifest --name=\"npm_package_config_name\" --short_name=\"npm_package_config_shortname\" --background_color=\"npm_package_config_color\" --theme_color=\"npm_package_config_color\" ./ ./assets/pwa/ --start_url=./index.html --display=standalone --orientation=any --direction=portrait --icons=./assets/icon.png",
     "config.theme": "npm run config.theme:title && npm run config.theme:toolbar && npm run config.theme:color",
     "config.theme:toolbar": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<title\\b[^>]*>)[^<>]*(</title>)\" \"<title>npm_package_config_name</title>\" src/index.html",
     "config.theme:title": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<ion-title\\b[^>]*>)[^<>]*(</ion-title>)\" \"<ion-title>npm_package_config_name</ion-title>\" src/app/layout/header/header.component.html",
