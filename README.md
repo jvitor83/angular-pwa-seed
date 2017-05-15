@@ -29,6 +29,11 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > ```
 
 
+## Preview
+
+[![GIF](./preview.gif)](https://angular-pwa-seed.netlify.com)
+
+
 ## Goal
 
 Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** using Angular.
