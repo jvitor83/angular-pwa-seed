@@ -48,6 +48,7 @@ export class AuthService {
 
     this.mgr.events.addUserLoaded((e) => {
       this.currentUser = e;
+      this._setAuthHeaders(this.currentUser);
       this.application.tick();
     });
 
@@ -57,6 +58,7 @@ export class AuthService {
           this.loggedIn = true;
           console.log(this.loggedIn);
           this.currentUser = user;
+          this._setAuthHeaders(this.currentUser);
           this.userLoadededEvent.emit(user);
         }
         else {
