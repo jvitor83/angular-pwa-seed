@@ -121,6 +121,9 @@ git merge upstream/master
 # Install the project's dependencies
 npm install
 
+# (Optionally) Configure your project name, short_name and color at `package.json` and replace `./resources/icon.png` with the one of your project (must have 512x512)
+npm run resources
+
 # (Optionally) Start the project
 npm run start
 ```

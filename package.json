@@ -28,7 +28,7 @@
     "config.theme": "npm run config.theme:title && npm run config.theme:toolbar && npm run config.theme:color",
     "config.theme:toolbar": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<title\\b[^>]*>)[^<>]*(</title>)\" \"<title>npm_package_config_name</title>\" src/index.html",
     "config.theme:title": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"(<ion-title\\b[^>]*>)[^<>]*(</ion-title>)\" \"<ion-title>npm_package_config_name</ion-title>\" src/app/layout/header/header.component.html",
-    "config.theme:color": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"^\\$theme-color:\\s*(.*);$\" \"$theme-color: npm_package_config_color;\" src/theme/variables.scss",
+    "config.theme:color": "./node_modules/.bin/cross-conf-env \"./node_modules/.bin/replace\" \"^\\$theme-color:\\s*(.*);$\" \"$theme-color: npm_package_config_color;\" src/theme/theme.scss",
     "resources": "./node_modules/.bin/ionic resources && npm run resources.copy && npm run pwa.manifest && npm run config.theme",
     "resources.copy": "./node_modules/.bin/cpx \"resources/**/*\" src/assets",
     "build": "npm run ng -- build",
