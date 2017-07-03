@@ -3,7 +3,7 @@ import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from 'ionic-angular';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Network } from '@ionic-native/network';
-import { AUTH_SERVICE, BaseAuthService2, IAuthenticated } from "../../../shared/services/base-auth.service";
+import { AUTH_SERVICE, BaseAuthService } from "../../../shared/services/base-auth.service";
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
 
@@ -16,7 +16,7 @@ import { Subscriber } from "rxjs/Subscriber";
 })
 export class UserinfoComponent implements OnInit {
 
-  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService2<any>, private platform: Platform, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
+  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private platform: Platform, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
 
   }
 
@@ -25,7 +25,7 @@ export class UserinfoComponent implements OnInit {
   isLoggedIn;
 
   ngOnInit() {
-    this.authService.principal.subscribe(authenticated => {
+    this.authService.auth.subscribe(authenticated => {
       if (authenticated && authenticated.isAuthenticated) {
         this.name = authenticated.identity.user.name;
         this.image = authenticated.identity.user.pictureUri;

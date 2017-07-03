@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 
 import { Network } from '@ionic-native/network';
 import { ToastController } from 'ionic-angular';
-import { AUTH_SERVICE, NewBaseAuthService, IAuthenticated } from "../shared/services/base-auth.service";
+import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
 
 @Component({
   selector: 'app-unauthorized',
@@ -11,7 +11,7 @@ import { AUTH_SERVICE, NewBaseAuthService, IAuthenticated } from "../shared/serv
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor(@Inject(AUTH_SERVICE) private authService: NewBaseAuthService<any>, private location: Location, private network: Network, public toastCtrl: ToastController) { }
+  constructor(@Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private location: Location, private network: Network, public toastCtrl: ToastController) { }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { BaseAuthService2, AUTH_SERVICE, NewBaseAuthService, OAuthAuthenticated, IAuthenticated } from "../shared/services/base-auth.service";
+import { BaseAuthService, AUTH_SERVICE } from "../shared/services/base-auth.service";
 import { Observable } from "rxjs/Observable";
 
 
@@ -22,10 +22,10 @@ export class ProtectedComponent implements OnInit {
   
   
 
-  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService2<any>, private location: Location) { }
+  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private location: Location) { }
 
   ngOnInit() {
-    this.authService.principal.subscribe(principal => {
+    this.authService.auth.subscribe(principal => {
         this.name = principal.identity.user.name;
         this.loggedIn = principal.isAuthenticated;
         this.accessToken = principal.identity.token;

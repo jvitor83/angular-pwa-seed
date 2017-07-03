@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Rx';
 
 import * as Oidc from 'oidc-client';
 import { environment } from '../../../environments/environment';
-import { BaseAuthService2,Principal2, BaseAuthService, NewBaseAuthService, Auth, NewUser, NewSystem, Identity, OpenIDAuthenticated, OpenIDAuthService } from './base-auth.service';
+import { BaseAuthService, Auth, Identity } from './base-auth.service';
 
 @Injectable()
-export class OidcAuthService extends BaseAuthService2<Oidc.User> {
+export class OidcAuthService extends BaseAuthService<Oidc.User> {
   // user: () => Promise<Oidc.User> = () =>{
   //   return this.getUser();
   // }
@@ -29,26 +29,6 @@ export class OidcAuthService extends BaseAuthService2<Oidc.User> {
     return identity;
   }
 
-
-  // public get user(): Oidc.User | Promise<Oidc.User> | Observable<Oidc.User> {
-  //   return this.getUser();
-  // }
-  // public identityFactory(user: Oidc.User): Identity | Promise<Identity> {
-  //   const identity: Identity = {
-  //     user: {
-  //       id: user.profile.sub || null,
-  //       name: user.profile.name || null,
-  //       email: user.profile.email || null,
-  //       pictureUri: user.profile.picture[0] || null
-  //     },
-  //     system: {
-  //       id: user.profile.client_id || null
-  //     },
-  //     token: user.access_token || null
-  //   };
-
-  //   return identity;
-  // }
 
   mgr: Oidc.UserManager = null;
   userLoadededEvent: EventEmitter<Oidc.User> = new EventEmitter<Oidc.User>();

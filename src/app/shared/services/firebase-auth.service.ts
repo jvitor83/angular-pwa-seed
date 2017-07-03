@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BaseAuthService2, Principal2, NewBaseAuthService, Identity, Auth, OpenIDAuthService, OpenIDPayload, OpenIDUser, OpenIDAuthenticated, Authenticated } from "app/shared/services/base-auth.service";
+import { BaseAuthService, Identity, Auth } from "app/shared/services/base-auth.service";
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { environment } from '../../../environments/environment';
 import { Observable } from "rxjs/Observable";
 
 @Injectable()
-export class FirebaseAuthService extends BaseAuthService2<firebase.User> {
+export class FirebaseAuthService extends BaseAuthService<firebase.User> {
 
   public identityFactory(user: firebase.User): Identity {
     const identity: Identity = {

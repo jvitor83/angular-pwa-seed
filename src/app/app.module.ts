@@ -1,16 +1,18 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule }                from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule, LocationStrategy,
-         HashLocationStrategy/*, PathLocationStrategy*/ }         from '@angular/common';
-import { FormsModule }                  from '@angular/forms';
-import { HttpModule }                   from '@angular/http';
+import {
+  CommonModule, LocationStrategy,
+  HashLocationStrategy/*, PathLocationStrategy*/
+} from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-import { Ng2BootstrapModule }           from 'ngx-bootstrap';
-import { ChartsModule }                 from 'ng2-charts';
+import { Ng2BootstrapModule } from 'ngx-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 import { environment } from '../environments/environment';
 
@@ -31,6 +33,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AUTH_SERVICE } from "app/shared/services/base-auth.service";
+import { httpFactory } from "app/shared/services/intercepted-http.service";
 
 
 @NgModule({
@@ -67,11 +70,16 @@ import { AUTH_SERVICE } from "app/shared/services/base-auth.service";
       useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
+    {
+      provide: Http,
+      useFactory: httpFactory,
+      deps: [XHRBackend, RequestOptions ]
+    },
 
     Network,
     StatusBar,
     SplashScreen,
-    
+
     //{ provide: AUTH_SERVICE, useClass: OidcAuthService }, //If want to use an OpenID/OAuth2 Auth Provider (generically)
     { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
 
