@@ -12,7 +12,14 @@ import { MyApp } from './app.component';
 import { Ng2BootstrapModule }           from 'ngx-bootstrap';
 import { ChartsModule }                 from 'ng2-charts';
 
-import { AuthService } from './shared/services/auth.service';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth, AngularFireAuthModule } from "angularfire2/auth";
+import { FirebaseAuthService } from './shared/services/firebase-auth.service';
+
+import { OidcAuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
 // Routing Module
@@ -23,6 +30,8 @@ import { Network } from '@ionic-native/network';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
+import { AUTH_SERVICE } from "app/shared/services/base-auth.service";
+
 
 @NgModule({
   declarations: [
@@ -41,6 +50,10 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
 
     IonicModule.forRoot(MyApp),
 
+    AngularFireModule.initializeApp(environment.firebase), //Keep this if you use Firebase, otherwise comment/remove it
+    AngularFireDatabaseModule, //Keep this if you use Firebase, otherwise comment/remove it
+    AngularFireAuthModule, //Keep this if you use Firebase, otherwise comment/remove it
+
     LayoutModule
   ],
   bootstrap: [IonicApp],
@@ -58,8 +71,13 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
     Network,
     StatusBar,
     SplashScreen,
+    
+    //{ provide: AUTH_SERVICE, useClass: OidcAuthService }, //If want to use an OpenID/OAuth2 Auth Provider (generically)
+    { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
 
-    AuthService,
+    AngularFireAuth, AngularFireDatabase, //Keep this if you use Firebase, otherwise comment/remove it
+
+
     AuthGuardService
   ]
 })

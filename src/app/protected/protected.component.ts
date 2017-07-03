@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
+import { BaseAuthService2, AUTH_SERVICE, NewBaseAuthService, OAuthAuthenticated, IAuthenticated } from "../shared/services/base-auth.service";
+import { Observable } from "rxjs/Observable";
 
-import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: './app-protected',
@@ -9,17 +10,28 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class ProtectedComponent implements OnInit {
 
-  get name() { return this.authService.currentUser.profile.name };
+  // get name(): Observable<string> {
+  //   return this.authService.authenticated.flatMap(r => r.user.name);
+  //   //return authenticated.getValue().user.name;
+  // }
 
-  get loggedIn() { return this.authService.loggedIn };
+  loggedIn;
+  name;
 
-  get accessToken() { return this.authService.currentUser.access_token };
+  accessToken;
+  
+  
 
-  constructor(private location:Location, private authService: AuthService) { }
+  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService2<any>, private location: Location) { }
 
   ngOnInit() {
+    this.authService.principal.subscribe(principal => {
+        this.name = principal.identity.user.name;
+        this.loggedIn = principal.isAuthenticated;
+        this.accessToken = principal.identity.token;
+    });
   }
-  goback(){
+  goback() {
     this.location.back();
   }
 
