@@ -72,7 +72,9 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
-> > Authentication options is already setted (with google). Just choose your Identity Provider and change the config.
+> - **Flexibe authentication/authorization** - Authentication options is already setted (with google). Just choose your Identity Provider and change the `environment.ts` config.
+> > Another option is to use `FirebaseAuthService` already implemented/configured just by using `{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }` at `providers` in `app.module.ts` (instead of `OidcAuthService`).
+> > You can easily implement your own Authentication Service just by extending the `BaseAuthService<any>` at `base-auth.service.ts`. An sample of this approach are at `firebase-auth.service.ts`
 > - **Fast development** - Use the Angular CLI commands or [AngularDoc VSCode Extension](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode) to generate your components/pages.
 > > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 > - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
@@ -87,6 +89,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [Ionic](http://ionicframework.com/)
 - [Cordova](https://cordova.apache.org/)
 - [Boostrap](http://getbootstrap.com/)
+- [Firebase](https://firebase.google.com/)
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
 
 
