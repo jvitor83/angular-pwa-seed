@@ -44,9 +44,12 @@ export class InterceptedHttp extends Http {
     if (options.headers == null) {
       options.headers = new Headers();
     }
-    options.headers.append('Content-Type', 'application/json');
 
-    if(this.authService.auth.value.isAuthenticated){
+    if (!options.headers.has('Content-Type')) {
+      options.headers.append('Content-Type', 'application/json');
+    }
+
+    if (this.authService && this.authService.auth.value.isAuthenticated) {
       options.headers.append('Authorization', 'Bearer ' + this.authService.auth.value.identity.token);
     }
 
@@ -56,7 +59,7 @@ export class InterceptedHttp extends Http {
 
 
 
-export function httpFactory (
+export function httpFactory(
   xhrBackend: XHRBackend,
   requestOptions: RequestOptions,
   authenticationStateService: BaseAuthService<any>

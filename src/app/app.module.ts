@@ -73,7 +73,7 @@ import { httpFactory } from "app/shared/services/intercepted-http.service";
     {
       provide: Http,
       useFactory: httpFactory,
-      deps: [XHRBackend, RequestOptions ]
+      deps: [XHRBackend, RequestOptions, AUTH_SERVICE]
     },
 
     Network,
