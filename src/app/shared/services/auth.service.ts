@@ -5,9 +5,31 @@ import { Observable } from 'rxjs/Rx';
 
 import * as Oidc from 'oidc-client';
 import { environment } from '../../../environments/environment';
+import { BaseAuthService, Auth, Identity } from './base-auth.service';
 
 @Injectable()
-export class AuthService {
+export class OidcAuthService extends BaseAuthService<Oidc.User> {
+  // user: () => Promise<Oidc.User> = () =>{
+  //   return this.getUser();
+  // }
+  public identityFactory(user: Oidc.User): Identity {
+
+      const identity: Identity = {
+      user: {
+        id: user.profile.sub || null,
+        name: user.profile.name || null,
+        email: user.profile.email || null,
+        pictureUri: user.profile.picture[0] || null
+      },
+      system: {
+        id: user.profile.client_id || null
+      },
+      token: user.access_token || null
+    };
+    return identity;
+  }
+
+
   mgr: Oidc.UserManager = null;
   userLoadededEvent: EventEmitter<Oidc.User> = new EventEmitter<Oidc.User>();
   currentUser: Oidc.User;
@@ -27,11 +49,15 @@ export class AuthService {
   }
 
 
-  constructor(private http: Http, private application: ApplicationRef, public platform: Platform) {
+  constructor(private application: ApplicationRef, public platform: Platform) {
 
+    super();
     let authentication: Oidc.UserManagerSettings = environment.authentication;
 
-    let isCordova = AuthService.isCordova();
+    
+    localStorage.setItem(location.host + ':environment.authentication', JSON.stringify(environment.authentication));
+
+    let isCordova = OidcAuthService.isCordova();
     console.debug('isCordova');
     console.debug(<any>isCordova);
     if (isCordova != null && isCordova && platform.is('mobileweb') === false) {
@@ -48,7 +74,6 @@ export class AuthService {
 
     this.mgr.events.addUserLoaded((e) => {
       this.currentUser = e;
-      this._setAuthHeaders(this.currentUser);
       this.application.tick();
     });
 
@@ -58,8 +83,35 @@ export class AuthService {
           this.loggedIn = true;
           console.log(this.loggedIn);
           this.currentUser = user;
-          this._setAuthHeaders(this.currentUser);
           this.userLoadededEvent.emit(user);
+
+          this.loadUser(user);
+          // const principal = new Principal2(user, this.identityFactory);
+          // this.principal.next(principal);
+          //this.user = user;
+          // const auth = new Auth<Oidc.User>(
+          //   user,
+          //   (info) => {
+          //     const identity: Identity = {
+          //       user: {
+          //         id: info.profile.sub || null,
+          //         name: info.profile.name || null,
+          //         email: info.profile.email || null,
+          //         pictureUri: info.profile.picture[0] || null
+          //       },
+          //       system: {
+          //         id: info.profile.client_id || null
+          //       },
+          //       token: info.access_token || null
+          //     };
+
+          //     return identity;
+          //   }
+          // );
+          // this.auth.next(auth);
+          // let payload = Object.assign({}, user, user.profile);
+          // let authenticated = new OpenIDAuthenticated(payload);
+          // this.auth.next(authenticated);
         }
         else {
           this.loggedIn = false;
@@ -105,39 +157,61 @@ export class AuthService {
   }
 
   login() {
-    let isCordova = AuthService.isCordova(this.platform);
+    let isCordova = OidcAuthService.isCordova(this.platform);
     console.log('startSigninMainWindow isCordova');
     console.log(isCordova);
 
     this.mgr.clearStaleState();
 
+    let promise: Promise<Oidc.User> = null;
     if (isCordova != null && isCordova) {
-      this.mgr.signinPopup({ data: 'some data' }).then((user) => {
-        console.log("signinPopup done");
-        console.log(user);
-
-        console.log('this.userLoadededEvent.emit(user);');
-        this.userLoadededEvent.emit(user);
-        //console.log('this.mgr.signinPopupCallback().then(function () {');
-        // this.mgr.signinPopupCallback().then(function () {
-        //   console.log("signinPopupCallback done");
-        // }).catch(function (err) {
-        //   console.log(err);
-        // });
-        this.mgr.events.load(user);
-        this.currentUser = user;
-        this.loggedIn = true;
-      }).catch(function (err) {
-        console.log(err);
-      });
+      promise = this.mgr.signinPopup();
     } else {
-      this.mgr.signinRedirect({ data: 'some data' }).then(function () {
-        console.log("signinRedirect done");
-      }).catch(function (err) {
-        console.log(err);
-      });
+      promise = this.mgr.signinRedirect();
     }
+    return promise;
   }
+
+  // authenticate(): Promise<OpenIDAuthenticated> {
+  //   let isCordova = OidcAuthService.isCordova(this.platform);
+  //   console.log('startSigninMainWindow isCordova');
+  //   console.log(isCordova);
+
+  //   this.mgr.clearStaleState();
+
+  //   let promise: Promise<Oidc.User> = null;
+  //   if (isCordova != null && isCordova) {
+  //     promise = this.mgr.signinPopup();
+  //   } else {
+  //     promise = this.mgr.signinRedirect();
+  //   }
+  //   let promiseTransform = promise.then(user => {
+  //     return new OpenIDAuthenticated(user as any);
+  //   });
+  //   return promiseTransform;
+  // }
+
+  /*
+  .then((user) => {
+          console.log("signinPopup done");
+          console.log(user);
+   
+          console.log('this.userLoadededEvent.emit(user);');
+          this.userLoadededEvent.emit(user);
+          //console.log('this.mgr.signinPopupCallback().then(function () {');
+          // this.mgr.signinPopupCallback().then(function () {
+          //   console.log("signinPopupCallback done");
+          // }).catch(function (err) {
+          //   console.log(err);
+          // });
+          this.mgr.events.load(user);
+          this.currentUser = user;
+          this.loggedIn = true;
+        }).catch(function (err) {
+          console.log(err);
+        });
+   */
+
 
   // endSigninMainWindow() {
   //   this.mgr.signinRedirectCallback().then(function (user) {
@@ -147,17 +221,23 @@ export class AuthService {
   //   });
   // }
 
-  logout() {
-    this.mgr.signoutRedirect().then(function (resp) {
-      console.log("signed out", resp);
-      setTimeout(5000, () => {
-        console.log("testing to see if fired...");
 
-      })
+  logout() {
+    //this.principal.next(null);
+    super.logout();
+    return this.mgr.signoutRedirect().then(function (resp) {
+      console.log("signed out", resp);
     }).catch(function (err) {
       console.log(err);
     });
   };
+  // unauthenticate() {
+  //   return this.mgr.signoutRedirect().then(function (resp) {
+  //     console.log("signed out", resp);
+  //   }).catch(function (err) {
+  //     console.log(err);
+  //   });
+  // };
 
   // endSignoutMainWindow() {
   //   this.mgr.signoutRedirectCallback().then(function (resp) {
@@ -166,80 +246,5 @@ export class AuthService {
   //     console.log(err);
   //   });
   // };
-  /**
-   * Example of how you can make auth request using angulars http methods.
-   * @param options if options are not supplied the default content type is application/json
-   */
-  AuthGet(url: string, options?: RequestOptions): Observable<Response> {
-
-    if (options) {
-      options = this._setRequestOptions(options);
-    }
-    else {
-      options = this._setRequestOptions();
-    }
-    return this.http.get(url, options);
-  }
-  /**
-   * @param options if options are not supplied the default content type is application/json
-   */
-  AuthPut(url: string, data: any, options?: RequestOptions): Observable<Response> {
-
-    let body = JSON.stringify(data);
-
-    if (options) {
-      options = this._setRequestOptions(options);
-    }
-    else {
-      options = this._setRequestOptions();
-    }
-    return this.http.put(url, body, options);
-  }
-  /**
-   * @param options if options are not supplied the default content type is application/json
-   */
-  AuthDelete(url: string, options?: RequestOptions): Observable<Response> {
-
-    if (options) {
-      options = this._setRequestOptions(options);
-    }
-    else {
-      options = this._setRequestOptions();
-    }
-    return this.http.delete(url, options);
-  }
-  /**
-   * @param options if options are not supplied the default content type is application/json
-   */
-  AuthPost(url: string, data: any, options?: RequestOptions): Observable<Response> {
-
-    let body = JSON.stringify(data);
-
-    if (options) {
-      options = this._setRequestOptions(options);
-    }
-    else {
-      options = this._setRequestOptions();
-    }
-    return this.http.post(url, body, options);
-  }
-
-
-  private _setAuthHeaders(user: any) {
-    this.authHeaders = new Headers();
-    this.authHeaders.append('Authorization', user.token_type + " " + user.access_token);
-    this.authHeaders.append('Content-Type', 'application/json');
-  }
-  private _setRequestOptions(options?: RequestOptions) {
-
-    if (options) {
-      options.headers.append(this.authHeaders.keys[0], this.authHeaders.values[0]);
-    }
-    else {
-      options = new RequestOptions({ headers: this.authHeaders, body: "" });
-    }
-
-    return options;
-  }
-
+  
 }

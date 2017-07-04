@@ -1,4 +1,4 @@
-# Angular PWA Seed (Template)
+# Angular PWA Seed
 
 [![Join the chat at https://gitter.im/angular-pwa-seed/Lobby](https://badges.gitter.im/angular-pwa-seed/Lobby.svg)](https://gitter.im/angular-pwa-seed/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
@@ -72,7 +72,12 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
-> > Authentication options is already setted (with google). Just choose your Identity Provider and change the config.
+> - **Flexibe authentication/authorization** - Authentication options is already setted (with google). Just choose your Identity Provider and change the `environment.ts` config.
+> > Another option is to use `FirebaseAuthService` already implemented/configured just by using `{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }` at `providers` in `app.module.ts` (instead of `OidcAuthService`).
+> > 
+> > You can easily implement your own Authentication Service just by extending the `BaseAuthService<any>` at `base-auth.service.ts`. An sample of this approach is at `firebase-auth.service.ts`
+> >
+> > You can use the `@Inject(AUTH_SERVICE) private authService: BaseAuthService<any>` at your service/component constructor to get user infos at `this.authService.auth.value.identity.user.name` or by subscribing to it `this.authService.auth.subscribe(auth => this.name = auth.identity.user.name);`
 > - **Fast development** - Use the Angular CLI commands or [AngularDoc VSCode Extension](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode) to generate your components/pages.
 > > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 > - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
@@ -87,6 +92,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [Ionic](http://ionicframework.com/)
 - [Cordova](https://cordova.apache.org/)
 - [Boostrap](http://getbootstrap.com/)
+- [Firebase](https://firebase.google.com/)
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
 
 

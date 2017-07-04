@@ -31,5 +31,13 @@ export const environment = {
       jwks_uri: 'https://www.googleapis.com/oauth2/v3/certs',
     }
 
+  },
+  firebase: {
+    apiKey: "AIzaSyD6KmBFYg79TvPmow-gJwtnQv6M-LaTDPc",
+    authDomain: "newagent-9a87c.firebaseapp.com",
+    databaseURL: "https://newagent-9a87c.firebaseio.com",
+    projectId: "newagent-9a87c",
+    storageBucket: "newagent-9a87c.appspot.com",
+    messagingSenderId: "555549514252"
   }
 };
