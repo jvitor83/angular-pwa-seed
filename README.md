@@ -74,7 +74,10 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
 > - **Flexibe authentication/authorization** - Authentication options is already setted (with google). Just choose your Identity Provider and change the `environment.ts` config.
 > > Another option is to use `FirebaseAuthService` already implemented/configured just by using `{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }` at `providers` in `app.module.ts` (instead of `OidcAuthService`).
-> > You can easily implement your own Authentication Service just by extending the `BaseAuthService<any>` at `base-auth.service.ts`. An sample of this approach are at `firebase-auth.service.ts`
+> > 
+> > You can easily implement your own Authentication Service just by extending the `BaseAuthService<any>` at `base-auth.service.ts`. An sample of this approach is at `firebase-auth.service.ts`
+> >
+> > You can use the `@Inject(AUTH_SERVICE) private authService: BaseAuthService<any>` at your service/component constructor to get user infos at `this.authService.auth.value.identity.user.name` or by subscribing to it `this.authService.auth.subscribe(auth => this.name = auth.identity.user.name);`
 > - **Fast development** - Use the Angular CLI commands or [AngularDoc VSCode Extension](https://marketplace.visualstudio.com/items?itemName=AngularDoc.angulardoc-vscode) to generate your components/pages.
 > > Ex: `ng g component new-cmp`. More info at [Angular CLI](https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services)
 > - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
