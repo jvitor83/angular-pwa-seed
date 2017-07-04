@@ -26,15 +26,9 @@ export class UserinfoComponent implements OnInit {
 
   ngOnInit() {
     this.authService.auth.subscribe(authenticated => {
-      if (authenticated && authenticated.isAuthenticated) {
-        this.name = authenticated.identity.user.name;
-        this.image = authenticated.identity.user.pictureUri;
-        this.isLoggedIn = true;
-      }else{
-        this.name = 'Anonimous';
-        this.image = null;
-        this.isLoggedIn = false;
-      }
+      this.name = authenticated.identity.user.name;
+      this.image = authenticated.identity.user.pictureUri;
+      this.isLoggedIn = authenticated.isAuthenticated;
     });
     //this.authService.isAuthenticated.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
   }
