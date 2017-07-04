@@ -16,10 +16,10 @@ import { ChartsModule } from 'ng2-charts';
 
 import { environment } from '../environments/environment';
 
-import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth, AngularFireAuthModule } from "angularfire2/auth";
-import { FirebaseAuthService } from './shared/services/firebase-auth.service';
+// import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
+// import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+// import { AngularFireAuth, AngularFireAuthModule } from "angularfire2/auth";
+// import { FirebaseAuthService } from './shared/services/firebase-auth.service';
 
 import { OidcAuthService } from './shared/services/auth.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -53,9 +53,9 @@ import { httpFactory } from "app/shared/services/intercepted-http.service";
 
     IonicModule.forRoot(MyApp),
 
-    AngularFireModule.initializeApp(environment.firebase), //Keep this if you use Firebase, otherwise comment/remove it
-    AngularFireDatabaseModule, //Keep this if you use Firebase, otherwise comment/remove it
-    AngularFireAuthModule, //Keep this if you use Firebase, otherwise comment/remove it
+    // AngularFireModule.initializeApp(environment.firebase), //Keep this if you use Firebase, otherwise comment/remove it
+    // AngularFireDatabaseModule, //Keep this if you use Firebase, otherwise comment/remove it
+    // AngularFireAuthModule, //Keep this if you use Firebase, otherwise comment/remove it
 
     LayoutModule
   ],
@@ -70,21 +70,21 @@ import { httpFactory } from "app/shared/services/intercepted-http.service";
       useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
-    {
-      provide: Http,
-      useFactory: httpFactory,
-      deps: [XHRBackend, RequestOptions, AUTH_SERVICE]
-    },
 
     Network,
     StatusBar,
     SplashScreen,
 
-    //{ provide: AUTH_SERVICE, useClass: OidcAuthService }, //If want to use an OpenID/OAuth2 Auth Provider (generically)
-    { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
+    { provide: AUTH_SERVICE, useClass: OidcAuthService }, //If want to use an OpenID/OAuth2 Auth Provider (generically)
+    //{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
 
-    AngularFireAuth, AngularFireDatabase, //Keep this if you use Firebase, otherwise comment/remove it
+    //AngularFireAuth, AngularFireDatabase, //Keep this if you use Firebase, otherwise comment/remove it
 
+    {
+      provide: Http,
+      useFactory: httpFactory,
+      deps: [XHRBackend, RequestOptions, AUTH_SERVICE]
+    },
 
     AuthGuardService
   ]
