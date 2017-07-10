@@ -41,7 +41,7 @@
     "prepublish.prod": "npm run resources",
     "publish.prod": "npm run build.prod",
     "prepublish.prod.exp": "npm run resources",
-    "publish.prod.exp": "npm run resources && npm run build.prod.exp",
+    "publish.prod.exp": "npm run build.prod.exp",
     "preinstall": "npm rebuild node-sass",
     "postinstall": "npm run concurrently -- \"echo 1\" \"npm run cordova.prepare\" -s first",
     "cordova.prepare": "npm run cordova -- prepare --verbose",
