@@ -19,7 +19,7 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
         id: user.profile.sub || null,
         name: user.profile.name || null,
         email: user.profile.email || null,
-        pictureUri: user.profile.picture[0] || null
+        pictureUri: user.profile.picture && user.profile.picture[0] || null
       },
       system: {
         id: user.profile.client_id || null
