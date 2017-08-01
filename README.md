@@ -4,6 +4,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Dependency Status](https://david-dm.org/jvitor83/angular-pwa-seed.svg)](https://david-dm.org/jvitor83/angular-pwa-seed)
 [![devDependency Status](https://david-dm.org/jvitor83/angular-pwa-seed/dev-status.svg)](https://david-dm.org/jvitor83/angular-pwa-seed#info=devDependencies)
+[![Lines of Code](https://tokei.rs/b1/github/jvitor83/angular-pwa-seed?style=flat-square)](https://github.com/jvitor83/angular-pwa-seed)
 [![DONATE](https://pledgie.com/campaigns/32766.png?skin_name=chrome)](https://pledgie.com/campaigns/32766)
 
 
@@ -25,7 +26,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g @angular/cli cordova ionic@beta typescript sleep-ms concurrently && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm i & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
+> npm i -g yarn && yarn global add @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && yarn install & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
 > ```
 
 
@@ -100,14 +101,17 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE **(6.X.X)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- **Install Global Dependencies**: `npm install --global @angular/cli cordova ionic@beta typescript sleep-ms concurrently`
+- **Install Global Dependencies**: `npm install --global yarn @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp`
 - **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
 
 ```bash
+# Install yarn
+npm install --global yarn
+
 # Install global dependencies
-npm install --global @angular/cli cordova ionic@beta typescript sleep-ms concurrently
+yarn global add @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp
 
 # Clone this repo giving your new project name
 git clone https://github.com/jvitor83/angular-pwa-seed.git [your-project-name]
@@ -125,7 +129,7 @@ git fetch upstream
 git merge upstream/master
 
 # Install the project's dependencies
-npm install
+yarn install
 
 # (Optionally) Configure your project name, short_name and color at `package.json` and replace `./resources/icon.png` with the one of your project (must have 512x512)
 npm run resources
