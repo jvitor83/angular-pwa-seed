@@ -7,7 +7,7 @@ COPY package.json /usr/src/app/package.json
 COPY config.xml /usr/src/app/config.xml
 RUN npm config set registry ${registry}
 RUN yarn config set registry ${registry}
-RUN npm install -g @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp
+RUN npm install -g --unsafe-perm @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp
 RUN cd /usr/src/app && yarn install
 WORKDIR /usr/src/app
 COPY . /usr/src/app
