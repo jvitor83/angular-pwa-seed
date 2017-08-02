@@ -1,22 +1,23 @@
 import { LayoutModule } from './../layout/layout.module';
 import { CommonModule } from '@angular/common';
-import { NgModule }                 from '@angular/core';
-import { ChartsModule }             from 'ng2-charts/ng2-charts';
+import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
-import { DashboardComponent }       from './dashboard.component';
-import { DashboardRoutingModule }   from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
-import { IonicModule } from 'ionic-angular';
+import { IonicModule, IonicPageModule } from 'ionic-angular';
 
 @NgModule({
     imports: [
         CommonModule,
         DashboardRoutingModule,
-        //IonicModule,
+        //IonicModule.forRoot(DashboardComponent),
         ChartsModule,
         LayoutModule
     ],
-    declarations: [ DashboardComponent ]
+    declarations: [DashboardComponent],
+    exports: [DashboardComponent]
 })
-export class DashboardModule { }
+export class DashboardComponentModule { }

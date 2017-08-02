@@ -1,7 +1,7 @@
 import { Injectable, Inject, Injector } from "@angular/core";
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers, XHRBackend } from "@angular/http";
 import { Observable } from "rxjs/Rx";
-import { BaseAuthService, AUTH_SERVICE } from "app/shared/services/base-auth.service";
+import { BaseAuthService, AUTH_SERVICE } from "./base-auth.service";
 
 @Injectable()
 export class InterceptedHttp extends Http {

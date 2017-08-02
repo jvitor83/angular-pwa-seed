@@ -3,8 +3,7 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: 'seed-menu-item',
-  templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss']
+  templateUrl: './menu-item.component.html'
 })
 export class MenuItemComponent implements OnInit {
 
