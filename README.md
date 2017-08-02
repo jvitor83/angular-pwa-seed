@@ -26,7 +26,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g yarn && yarn global add @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && yarn install & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
+> npm i -g yarn @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && yarn install & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
 > ```
 
 
@@ -107,11 +107,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 ## Starting
 
 ```bash
-# Install yarn
-npm install --global yarn
-
 # Install global dependencies
-yarn global add @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp
+npm install --global yarn @angular/cli cordova@6.5.0 ionic typescript sleep-ms concurrently mkdirp
 
 # Clone this repo giving your new project name
 git clone https://github.com/jvitor83/angular-pwa-seed.git [your-project-name]
