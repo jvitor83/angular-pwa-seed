@@ -49,7 +49,7 @@ export class InterceptedHttp extends Http {
       options.headers.append('Content-Type', 'application/json');
     }
 
-    if (this.authService && this.authService.auth.value.isAuthenticated) {
+    if (this.authService && this.authService.auth && this.authService.auth.value && this.authService.auth.value.isAuthenticated) {
       options.headers.append('Authorization', 'Bearer ' + this.authService.auth.value.identity.token);
     }
 
