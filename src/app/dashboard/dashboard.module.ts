@@ -17,7 +17,6 @@ import { IonicModule, IonicPageModule } from 'ionic-angular';
         ChartsModule,
         LayoutModule
     ],
-    declarations: [DashboardComponent],
-    exports: [DashboardComponent]
+    declarations: [DashboardComponent]
 })
-export class DashboardComponentModule { }
+export class DashboardModule { }
