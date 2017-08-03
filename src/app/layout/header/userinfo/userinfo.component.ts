@@ -12,7 +12,17 @@ import { Subscriber } from "rxjs/Subscriber";
 @Component({
   selector: 'seed-userinfo',
   templateUrl: './userinfo.component.html',
-  styleUrls: ['./userinfo.component.scss']
+  styles: [`
+  ion-icon { 
+    font-size: 100px; 
+    color : white; 
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+p {
+    word-wrap: break-word;
+}
+  `]
 })
 export class UserinfoComponent implements OnInit {
 

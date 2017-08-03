@@ -1,7 +1,7 @@
+import { BaseAuthService, AUTH_SERVICE } from './base-auth.service';
 import { Injectable, Inject } from '@angular/core';
 import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Location } from '@angular/common';
-import { BaseAuthService, AUTH_SERVICE } from "app/shared/services/base-auth.service";
 
 
 @Injectable()
