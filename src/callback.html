@@ -38,9 +38,10 @@
         }).catch(function (err) {
             console.log("error");
             console.log(err);
+            mgr.signinRedirect();
             //log(err);
             //alert('ERROR: '+ err);
-            location.assign('./');
+            //location.assign('./');
         });
     </script>
 </body>
