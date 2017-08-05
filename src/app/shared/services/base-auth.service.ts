@@ -89,7 +89,7 @@ export abstract class BaseAuthService<T> {
 
     private _auth: BehaviorSubject<Auth<T>> = new BehaviorSubject<Auth<T>>(null);
     public get auth(): Observable<Auth<T>> & { value: Auth<T> } {
-        const retorno = <Observable<Auth<T>> & { value: Auth<T> }>this._auth.asObservable();
+        const retorno = <Observable<Auth<T>> & { value: Auth<T> }>this._auth;
         return retorno;
     }
     public abstract login();
