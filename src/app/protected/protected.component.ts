@@ -5,8 +5,9 @@ import { Observable } from "rxjs/Observable";
 
 
 @Component({
+  moduleId: module.id,
   selector: './app-protected',
-  templateUrl: 'protected.component.html'
+  templateUrl: './protected.component.html'
 })
 export class ProtectedComponent implements OnInit {
 

@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { LayoutComponent } from "./layout.component";
 
 @Component({
+  moduleId: module.id,
   selector: 'seed-layout [type="menu"]',
   template:
   `

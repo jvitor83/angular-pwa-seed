@@ -4,10 +4,14 @@ import { LayoutComponent } from "./layout.component";
 import { MenuItemComponent } from "../shared/components/menu-item/menu-item.component";
 import { Router } from "@angular/router";
 
-@Component({ template: `<ion-content></ion-content>` })
+@Component({
+  moduleId: module.id,
+  template: `<ion-content></ion-content>` 
+})
 export class TabNone { }
 
 @Component({
+  moduleId: module.id,
   selector: 'seed-layout [type="tab"]',
   template:
   `

@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
 
 @Component({
+  moduleId: module.id,
   selector: 'app-unauthorized',
   templateUrl: './unauthorized.component.html'
 })

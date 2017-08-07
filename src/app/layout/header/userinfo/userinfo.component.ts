@@ -10,6 +10,7 @@ import { Subscriber } from "rxjs/Subscriber";
 
 
 @Component({
+  moduleId: module.id,
   selector: 'seed-userinfo',
   templateUrl: './userinfo.component.html',
   styles: [`

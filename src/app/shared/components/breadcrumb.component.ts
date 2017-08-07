@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 @Component({
+    moduleId: module.id,
     selector: 'breadcrumbs',
     template: `
     <ion-toolbar class="breadcrumbbar">

@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, AfterCo
 
 
 @Component({
+  moduleId: module.id,
   selector: 'seed-header',
   templateUrl: './header.component.html'
 })

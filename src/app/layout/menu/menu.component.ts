@@ -5,6 +5,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, Appl
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
+  moduleId: module.id,
   selector: 'seed-menu',
   templateUrl: './menu.component.html',
   animations: [

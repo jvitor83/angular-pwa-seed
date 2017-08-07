@@ -11,7 +11,8 @@ import { routerTransition } from "app/fade.animations";
 
 
 @Component({
-  templateUrl: 'app.html',
+  moduleId: module.id,
+  templateUrl: './app.html',
   animations: [ routerTransition ]
 })
 export class MyApp {

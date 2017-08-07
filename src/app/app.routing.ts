@@ -22,15 +22,15 @@ export const routes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+                loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             {
                 path: 'protected',
-                loadChildren: 'app/protected/protected.module#ProtectedModule'
+                loadChildren: './protected/protected.module#ProtectedModule'
             },
             {
                 path: 'unauthorized',
-                loadChildren: 'app/unauthorized/unauthorized.module#UnauthorizedModule'
+                loadChildren: './unauthorized/unauthorized.module#UnauthorizedModule'
             },
         ]
     }
