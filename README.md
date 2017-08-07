@@ -84,6 +84,8 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Components you choose** - It already has **[Ionic](https://ionicframework.com/docs/components/)** and **[Bootstrap](http://valor-software.com/ngx-bootstrap/)** installed, but you can include any other you want.
 > > - Add **[PrimeNG](http://www.primefaces.org/primeng/)** components using this [guide](https://www.primefaces.org/primeng/#/setup) (Angular CLI Integration section)
 > > - Add **[KendoUI](http://www.telerik.com/kendo-angular-ui/components/)** components using this [guide](http://www.telerik.com/kendo-angular-ui/getting-started/)
+> - **Container (Docker)** - It already has Dockerfile to build and host the App. And includes npm `scripts` at `package.json` to manipulate the docker image and container.
+
 
 
 ## Technologies
@@ -95,6 +97,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [Boostrap](http://getbootstrap.com/)
 - [Firebase](https://firebase.google.com/)
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
+- [Docker](http://docker.io/)
 
 
 ## Requirements
@@ -134,6 +137,48 @@ npm run resources
 # (Optionally) Start the project
 npm run start
 ```
+
+
+## Container (Docker)
+
+```bash
+# Should already been cloned this repo
+
+# Build the Docker Image that Build the App
+npm run docker.build
+# You can add special parameters to the build process to use some private Registry and Proxy like:
+# npm run docker.build -- --build-arg registry=https://registry.npmjs.org/ --build-arg HTTP_PROXY=http://username:password@proxy.address:3128 --build-arg HTTPS_PROXY=http://username:password@proxy.address:3128
+
+# Create the Container that will Build the App
+npm run docker.run
+
+# Tell the Container to Build the App
+npm run docker.exec.script -- build.prod.aot
+
+# Copy the files from the Container to the 'www' folder (at host)
+npm run docker.copy
+
+# Stop (Removing) the Build Container
+npm run docker.stop
+
+# Build the Docker Image that will Host the App
+npm run docker.build.host
+
+# Host the App (using NGINX)
+npm run docker.run.host
+
+# Navigate to http://localhost:5555
+```
+
+> Docker command to Build and Host _(Recreating the Image and Containers)_:
+> ```Batchfile
+> # Remove the Images and Containers (optional)
+> docker image rm angular-pwa-seed -f
+> docker image rm angular-pwa-seed-host -f
+>
+> # Create Image, Container, Build and Host (in one line)
+> npm run docker.build && npm run docker.run && npm run docker.exec.script -- build.prod.aot && npm run docker.copy && npm run docker.stop && npm run docker.build.host && npm run docker.run.host
+> ```
 
 
 ## Running
