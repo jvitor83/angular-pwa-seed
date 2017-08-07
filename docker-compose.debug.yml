@@ -3,10 +3,10 @@ version: '2'
 
 services:
   angular-pwa-seed:
-    image: angular-pwa-seed:latest
+    image: angular-pwa-seed-host
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-build
     environment:
       NODE_ENV: development
     ports:
