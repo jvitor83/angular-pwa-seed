@@ -15,7 +15,7 @@ function genRoutingManifest(index, routes, baseUrl = '/') {
   const routesConfig = coalesceToTerminals(flattenRoutes(routes))
     .map(terminal => matcherForTerminal(terminal, baseUrl))
     .reduce(
-    (routes, matcher) => (routes[matcher.pattern] = { match: matcher.match }, routes),
+    (routes, matcher) => (routes[matcher.pattern] = { prefix: true }, routes),
     {}
     );
 
