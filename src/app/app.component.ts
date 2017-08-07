@@ -4,13 +4,15 @@ import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterConte
 import { Platform, MenuController } from 'ionic-angular';
 
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { routerTransition } from "app/fade.animations";
 
 
 
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  animations: [ routerTransition ]
 })
 export class MyApp {
 
@@ -22,6 +24,11 @@ export class MyApp {
     private zone: NgZone
   ) {
     this.initializeApp();
+  }
+
+  getState(outlet) {
+    let ret = outlet.activatedRouteData.title;
+    return ret;
   }
 
   initializeApp() {
