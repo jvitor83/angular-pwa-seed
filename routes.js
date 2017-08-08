@@ -6,8 +6,8 @@ const { genRoutingManifest } = require('./routes-2-sw-conf');
 
 const modulePath = getArgument('--module');
 const manifestPath = getArgument('--out');
-const index = getArgument('--index', '/index.html');
-const baseUrl = getArgument('--base-url', '/');
+const index = getArgument('--index', './index.html');
+const baseUrl = getArgument('--base-href', '/');
 
 console.log(`Resolving routes from ${modulePath}...`);
 
