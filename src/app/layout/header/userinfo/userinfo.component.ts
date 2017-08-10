@@ -23,6 +23,9 @@ import { Subscriber } from "rxjs/Subscriber";
 p {
     word-wrap: break-word;
 }
+[center] {
+      text-align: center !important;
+    }
   `]
 })
 export class UserinfoComponent implements OnInit {

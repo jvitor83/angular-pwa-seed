@@ -13,7 +13,9 @@ import { IonicModule, IonicPageModule } from 'ionic-angular';
     imports: [
         CommonModule,
         DashboardRoutingModule,
+        //IonicModule,
         //IonicModule.forRoot(DashboardComponent),
+        IonicPageModule.forChild(DashboardComponent),
         ChartsModule,
         LayoutModule
     ],

@@ -1,7 +1,7 @@
 import { LeftMenuService, RightMenuService } from './../../shared/services/menu.service';
 import { Router } from '@angular/router';
 import { Platform, MenuController, IonicModule, SplitPane } from 'ionic-angular';
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -31,6 +31,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class MenuComponent implements OnInit, AfterViewInit {
 
+  @Input() public showRightMenuButton?: boolean = true;
+
+  @Input() public infoAtRightMenu?: boolean = false;
 
   constructor(
     public platform: Platform,

@@ -113,6 +113,24 @@ _::-webkit-full-page-media, _:future, :root {
   height: 100% !important;
 }
 
+[end] {
+  display: flex !important;
+}
+
+// More space considering Right Button Menu
+.bar-button-menutoggle-md {
+  margin: 0px !important;
+}
+
+.toolbar-content-md > [padding] {
+  padding: 0px !important;
+}
+
+.toolbar-title-md {
+  padding: 0px !important;
+}
+//
+
 ion-menu {
   z-index: 999999 !important;
 }

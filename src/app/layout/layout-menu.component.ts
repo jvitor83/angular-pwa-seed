@@ -7,7 +7,7 @@ import { LayoutComponent } from "./layout.component";
   selector: 'seed-layout [type="menu"]',
   template:
   `
-  <seed-menu>
+  <seed-menu [infoAtRightMenu]="infoAtRightMenu" [showRightMenuButton]="showRightMenuButton" >
     <div seed-menu-items>
       <ng-content select="[menu-items]"></ng-content>
     </div>

@@ -1,17 +1,14 @@
-import { Component, OnInit }    from '@angular/core';
-import { Router }               from '@angular/router';
+import { MenuController } from 'ionic-angular';
+import { Component, OnInit, ApplicationRef, AfterViewInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
     templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-    constructor( ) {
-        console.debug('DashboardComponent constructor');
-     }
-
-    ngOnInit(): void {
-        console.debug('DashboardComponent ngOnInit');
+    constructor(public menu: MenuController, public zone: NgZone, public application: ApplicationRef) {
     }
+    
 }

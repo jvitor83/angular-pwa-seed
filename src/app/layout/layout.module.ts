@@ -13,6 +13,7 @@ import { UserinfoComponent } from './header/userinfo/userinfo.component';
 import { SysteminfoComponent } from './header/systeminfo/systeminfo.component';
 import { EnterpriseinfoComponent } from './header/enterpriseinfo/enterpriseinfo.component';
 import { TabComponent } from './tab/tab.component';
+import { InfoComponent } from "./header/info/info.component";
 
 @NgModule({
   imports: [
@@ -20,9 +21,9 @@ import { TabComponent } from './tab/tab.component';
     IonicModule,
     RouterModule
   ],
-  declarations: [TabNone, LayoutComponent, LayoutMenuComponent, LayoutTabComponent, HeaderComponent, MenuComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent, BreadcrumbsComponent],
+  declarations: [TabNone, LayoutComponent, LayoutMenuComponent, LayoutTabComponent, HeaderComponent, MenuComponent, InfoComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent, BreadcrumbsComponent],
   providers: [LeftMenuService, RightMenuService],
   exports: [LayoutComponent, LayoutMenuComponent, LayoutTabComponent, HeaderComponent, MenuComponent],
-  entryComponents: [UserinfoComponent, TabNone]
+  entryComponents: [UserinfoComponent, InfoComponent, TabNone]
 })
 export class LayoutModule { }

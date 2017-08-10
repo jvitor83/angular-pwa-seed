@@ -26,7 +26,7 @@
     <!-- when="(min-width: 1440px)" -->
     <ion-content main #content>
 
-      <seed-header>
+      <seed-header [showRightMenuButton]="showRightMenuButton" [infoAtRightMenu]="infoAtRightMenu">
       </seed-header>
 
       <div id="appcontent">
@@ -46,7 +46,8 @@
 
     </ion-content>
 
-    <ion-menu id="rightMenu" type="overlay" side="right" [content]="content">
+
+    <ion-menu *ngIf="infoAtRightMenu == true" [enabled]="infoAtRightMenu == true" id="rightMenu" type="overlay" side="right" [content]="content">
 
       <ion-header>
         <ion-toolbar>

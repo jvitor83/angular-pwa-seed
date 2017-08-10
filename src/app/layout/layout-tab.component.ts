@@ -15,7 +15,7 @@ export class TabNone { }
   selector: 'seed-layout [type="tab"]',
   template:
   `
-    <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="true">
+    <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="showRightMenuButton" [infoAtRightMenu]="false">
       <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" tabsPlacement="top">
         <ion-tab [root]="dummyTab" layout-tab *ngFor="let menuItem of menuItems; let i = index;" (ionSelect)="navigateTo(menuItem.link)" tabTitle="{{menuItem.title}}" tabIcon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
@@ -38,7 +38,7 @@ export class TabNone { }
     </ion-content>
   `,
 })
-export class LayoutTabComponent extends LayoutComponent {
+export class LayoutTabComponent extends LayoutComponent implements OnInit {
 
   @Input() showMenuItemsAtHeader?: boolean = true;
 
@@ -57,10 +57,10 @@ export class LayoutTabComponent extends LayoutComponent {
     }
   }
 
-  constructor(private router: Router, public platform: Platform) {
-    super();
-    this.dummyTab = TabNone;
+    ngOnInit(): void {
+this.dummyTab = TabNone;
   }
+
 
   navigateTo(link: string) {
     const routerLink = JSON.parse(link.replace(/'/g, '"'));

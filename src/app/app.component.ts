@@ -1,4 +1,4 @@
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
@@ -13,7 +13,7 @@ import { routerTransition } from "app/fade.animations";
 @Component({
   moduleId: module.id,
   templateUrl: './app.html',
-  animations: [ routerTransition ]
+  animations: [routerTransition]
 })
 export class MyApp {
 
@@ -22,10 +22,13 @@ export class MyApp {
     public menu: MenuController,
     public application: ApplicationRef,
     public router: Router,
-    private zone: NgZone
+    private zone: NgZone,
+    private activatedRoute: ActivatedRoute
   ) {
     this.initializeApp();
   }
+
+  @ViewChild(RouterOutlet) public outlet: RouterOutlet;
 
   getState(outlet) {
     let ret = outlet.activatedRouteData.title;
@@ -44,7 +47,18 @@ export class MyApp {
         });
       });
 
-      this.router.events.map(event => event instanceof NavigationEnd).subscribe(() => this.menu.close());
+      this.router.events.filter(event => event instanceof NavigationEnd)
+        .map(() => this.activatedRoute)
+        .subscribe((event) => {
+          this.menu.close();
+        });
+
+
+      this.outlet.activateEvents.subscribe(event => {
+        const mc = this.outlet.locationInjector.get(MenuController);
+        const hasRightMenu = mc.getMenus().length;
+        console.log("----lenght: " + hasRightMenu);
+      });
     });
   }
 

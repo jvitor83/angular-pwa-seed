@@ -12,7 +12,9 @@ abstract class MenuService {
     return this.menuSide + 'Menu';
   }
 
-  constructor(public menuController: MenuController) { }
+  constructor(public menuController: MenuController) {
+    
+  }
 
   pinToggleMenu() {
     this.isFixed = !this.isFixed;
@@ -21,7 +23,16 @@ abstract class MenuService {
 
   toggleMenu() {
     this.isFixed = false;
-    this.menuController.toggle(this.menuSideName);
+    //this.menuController.toggle(this.menuSideName);
+    const menus = this.menuController.getMenus();
+    const menusFilter = menus.filter(m => m.side == this.menuSide);
+
+    if(menusFilter && menusFilter.length > 0){
+      const menu = menusFilter[0];
+      menu.enable(true);
+      menu.toggle();
+      //this.menuController.toggle(menu.id);
+    }
   }
 
 }

@@ -1,5 +1,5 @@
 import { Network } from '@ionic-native/network';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';
 
@@ -10,7 +10,7 @@ import { UnauthorizedComponent }       from './unauthorized.component';
     imports: [
         UnauthorizedRoutingModule,
         LayoutModule,
-        IonicModule
+        IonicPageModule.forChild(UnauthorizedComponent),
     ],
     providers: [ Network ],
     declarations: [ UnauthorizedComponent ],
