@@ -12,11 +12,25 @@ import { AUTH_SERVICE, BaseAuthService } from "../../shared/services/base-auth.s
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-  name: string;
+  _name: string;
+
+  get name() {
+    if (this._name) {
+      let splittedName = this._name.split(' ');
+      if (splittedName) {
+        let initialName = splittedName[0];
+        return initialName;
+      }else{
+        return this._name;
+      }
+    }else{
+      return 'Unidentified';
+    }
+  }
 
   ngOnInit(): void {
     this.authService.auth.subscribe(user => {
-      this.name = user.identity.user.name;
+      this._name = user.identity.user.name;
     })
   }
 
