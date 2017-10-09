@@ -106,7 +106,7 @@
     "@ionic-native/splash-screen": "3.12.1",
     "@ionic-native/status-bar": "^3.4.4",
     "@ionic/storage": "2.0.1",
-    "angularfire2": "^4.0.0-rc.1",
+    "angularfire2": "5.0.0-rc.2",
     "bootstrap": "^3.3.7",
     "browser-sync": "2.17.5",
     "cheerio": "0.22.0",
