@@ -68,7 +68,7 @@
   "defaults": {
     "serve": {
       "port": 5555,
-      "host": "localhost",
+      "host": "0.0.0.0",
       "liveReload": true,
       "live-reload-port": 5578
     },
