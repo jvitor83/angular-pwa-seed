@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="angular.seed.cli.admin" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="angular.pwa.seed" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>AngularPwaSeed</name>
     <description>
 
@@ -12,22 +12,6 @@
 
     </author>
     <content src="index.html" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
-    <plugin name="cordova-plugin-browsersync" spec="https://github.com/jvitor83/cordova-plugin-browsersync" />
-    <plugin name="cordova-plugin-crosswalk-webview" spec="~2.2.0">
-        <variable name="XWALK_VERSION" value="22+" />
-        <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
-        <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
-        <variable name="XWALK_MODE" value="embedded" />
-        <variable name="XWALK_MULTIPLEAPK" value="true" />
-    </plugin>
-    <plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" spec="https://github.com/mrjoes/cordova-plugin-inappbrowserxwalk#patch-1" />
-    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
-    <plugin name="cordova-plugin-device" spec="~1.1.3" />
-    <plugin name="cordova-plugin-console" spec="~1.0.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -76,6 +60,21 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
+    <plugin name="cordova-plugin-browsersync" spec="https://github.com/jvitor83/cordova-plugin-browsersync" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="~2.2.0">
+        <variable name="XWALK_VERSION" value="22+" />
+        <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+        <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+        <variable name="XWALK_MODE" value="embedded" />
+        <variable name="XWALK_MULTIPLEAPK" value="true" />
+    </plugin>
+    <plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" spec="https://github.com/mrjoes/cordova-plugin-inappbrowserxwalk#patch-1" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
+    <plugin name="cordova-plugin-device" spec="~1.1.3" />
+    <plugin name="cordova-plugin-console" spec="~1.0.4" />
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
+    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-network-information" spec="~1.3.2" />
-    <engine name="browser" spec="~4.1.0" />
 </widget>

@@ -25,9 +25,9 @@
                     "code": 4,
                     "message": 5
                 },
-                "watching": {
+                "background": {
                     "activeOnStart": true,
-                    "beginsPattern": "NG Live Development Server is running",
+                    "beginsPattern": "NG Live Development Server",
                     "endsPattern": "^Time:"
                 }
             }

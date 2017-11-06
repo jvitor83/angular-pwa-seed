@@ -3,7 +3,7 @@ import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterConte
 
 import { Platform, MenuController } from 'ionic-angular';
 
-import { StatusBar, Splashscreen } from 'ionic-native';
+// import { StatusBar, Splashscreen } from 'ionic-native';
 import { routerTransition } from "app/fade.animations";
 
 
@@ -39,8 +39,8 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      // StatusBar.styleDefault();
+      // Splashscreen.hide();
       this.platform.resize.asObservable().subscribe((event) => {
         this.zone.run(() => {
           this.application.tick();
@@ -54,11 +54,11 @@ export class MyApp {
         });
 
 
-      this.outlet.activateEvents.subscribe(event => {
-        const mc = this.outlet.locationInjector.get(MenuController);
-        const hasRightMenu = mc.getMenus().length;
-        console.log("----lenght: " + hasRightMenu);
-      });
+      // this.outlet.activateEvents.subscribe(event => {
+      //   const mc = this.outlet.locationInjector.get(MenuController);
+      //   const hasRightMenu = mc.getMenus().length;
+      //   console.log("----lenght: " + hasRightMenu);
+      // });
     });
   }
 
