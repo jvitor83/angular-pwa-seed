@@ -15,7 +15,7 @@ import { routerTransition } from "app/fade.animations";
   templateUrl: './app.html',
   animations: [routerTransition]
 })
-export class MyApp {
+export class MyApp implements OnInit {
 
   constructor(
     public platform: Platform,
@@ -47,11 +47,7 @@ export class MyApp {
         });
       });
 
-      this.router.events.filter(event => event instanceof NavigationEnd)
-        .map(() => this.activatedRoute)
-        .subscribe((event) => {
-          this.menu.close();
-        });
+
 
 
       // this.outlet.activateEvents.subscribe(event => {
@@ -60,6 +56,20 @@ export class MyApp {
       //   console.log("----lenght: " + hasRightMenu);
       // });
     });
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.menu.close();
+      }
+    });
+
+    // this.router.events.filter(event => event instanceof NavigationEnd)
+    // .map(() => this.activatedRoute)
+    // .subscribe((event) => {
+    //   this.menu.close();
+    // });
   }
 
   closeMenu() {
