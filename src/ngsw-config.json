@@ -12,7 +12,12 @@
       "versionedFiles": [
         "/*.bundle.css",
         "/*.bundle.js",
-        "/*.chunk.js"
+        "/*.chunk.js",
+        "/*.woff2",
+        "/*.ttf",
+        "/assets/icon.png",
+        "/assets/logo.png",
+        "/scripts/**"
       ]
     }
   }, {

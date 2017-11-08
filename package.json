@@ -37,7 +37,7 @@
     "resources": "./node_modules/.bin/ionic resources && npm run resources.copy && npm run pwa.manifest && npm run config.theme",
     "resources.copy": "./node_modules/.bin/cpx \"resources/**/*\" src/assets",
     "build": "npm run ng -- build",
-    "postbuild": "node routes.js --out www/ngsw-manifest.json --module src/app/app.module.ts",
+    "postbuild_old": "node routes.js --out www/ngsw-manifest.json --module src/app/app.module.ts",
     "build.watch": "npm run build -- -w",
     "build.dev": "npm run build -- --dev",
     "build.prod": "npm run build -- --prod",
