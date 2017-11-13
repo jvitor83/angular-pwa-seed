@@ -60,6 +60,7 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <engine name="browser" spec="~5.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <plugin name="cordova-plugin-browsersync" spec="https://github.com/jvitor83/cordova-plugin-browsersync" />

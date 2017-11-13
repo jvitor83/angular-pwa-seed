@@ -82,11 +82,12 @@ $menu-wp-background: $menu-background;
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
-
+$font-path: "../../node_modules/ionic-angular/fonts";
+// $ionicons-font-path: "../../node_modules/ionic-angular/fonts";
+// @import "../../node_modules/ionic-angular/fonts/ionicons";
 $ionicons-font-path: "../../node_modules/ionicons/dist/fonts";
 @import "../../node_modules/ionicons/dist/scss/ionicons";
 
 
 // All Ionic components
-
-@import './ionic';
+@import "../../node_modules/ionic-angular/themes/ionic.components";
