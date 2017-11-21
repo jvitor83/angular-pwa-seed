@@ -59,7 +59,7 @@ import { httpFactory } from './shared/services/intercepted-http.service';
 
     LayoutModule,
 
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    environment.production ? ServiceWorkerModule.register('./ngsw-worker.js') : []
   ],
   bootstrap: [IonicApp],
   entryComponents: [

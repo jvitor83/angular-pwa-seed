@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterConte
 import { Platform, MenuController } from 'ionic-angular';
 
 // import { StatusBar, Splashscreen } from 'ionic-native';
-import { routerTransition } from "app/fade.animations";
+import { routerTransition } from './fade.animations';
 
 
 
