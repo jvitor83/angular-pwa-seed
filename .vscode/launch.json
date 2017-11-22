@@ -1,157 +1,200 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Build and Launch on Chrome",
-            "type": "chrome",
-            "request": "launch",
-            "url": "http://localhost:5555",
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}",
-            "port": 9222,
-            "userDataDir": "${workspaceRoot}/.vscode/chrome",
-            "runtimeArgs": [
-                "--new-window", //Open in new windowon
-                "--disable-session-crashed-bubble",
-                "--disable-infobars"
-            ],
-            "preLaunchTask": "start"
-	    },
-        {
-            "name": "Launch on Chrome",
-            "type": "chrome",
-            "request": "launch",
-            "url": "http://localhost:5555",
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}",
-            "port": 9222,
-            "userDataDir": "${workspaceRoot}/.vscode/chrome",
-            "runtimeArgs": [
-                "--new-window", //Open in new windowon
-                "--disable-session-crashed-bubble",
-                "--disable-infobars"
-            ],
-            "preLaunchTask": "build"
-	    },
-        {
-            "name": "Run Android on emulator",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "android",
-            "target": "emulator",
-            "port": 9222,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false,
-            "preLaunchTask": "build"
-        },
-        {
-            "name": "Run Android on device",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "android",
-            "target": "device",
-            "port": 9222,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false,
-            "preLaunchTask": "build"
-        },
-        {
-            "name": "Run iOS on device",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "ios",
-            "target": "device",
-            "port": 9220,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false,
-            "preLaunchTask": "build"
-        },
-        {
-            "name": "Attach to running android on device",
-            "type": "cordova",
-            "request": "attach",
-            "platform": "android",
-            "target": "device",
-            "port": 9222,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Attach to running iOS on device",
-            "type": "cordova",
-            "request": "attach",
-            "platform": "ios",
-            "target": "device",
-            "port": 9220,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Run iOS on simulator",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "ios",
-            "target": "emulator",
-            "port": 9220,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false,
-            "preLaunchTask": "build"
-        },
-        {
-            "name": "Attach to running android on emulator",
-            "type": "cordova",
-            "request": "attach",
-            "platform": "android",
-            "target": "emulator",
-            "port": 9222,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Attach to running iOS on simulator",
-            "type": "cordova",
-            "request": "attach",
-            "platform": "ios",
-            "target": "emulator",
-            "port": 9220,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Serve to the browser (ionic serve)",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "serve",
-            "cwd": "${workspaceRoot}",
-            "devServerAddress": "localhost",
-            "sourceMaps": true,
-            "ionicLiveReload": true
-        },
-        {
-            "name": "Simulate Android in browser",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "android",
-            "target": "chrome",
-            "simulatePort": 8000,
-            "livereload": true,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "Simulate iOS in browser",
-            "type": "cordova",
-            "request": "launch",
-            "platform": "ios",
-            "target": "chrome",
-            "simulatePort": 8000,
-            "livereload": true,
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Build and Launch on Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5555",
+      "sourceMaps": true,
+      "webRoot": "${workspaceRoot}",
+      "port": 9222,
+      "userDataDir": "${workspaceRoot}/.vscode/chrome",
+      "runtimeArgs": [
+        "--new-window", //Open in new windowon
+        "--disable-session-crashed-bubble",
+        "--disable-infobars"
+      ],
+      "preLaunchTask": "start"
+    },
+    {
+      "name": "Launch on Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5555",
+      "sourceMaps": true,
+      "webRoot": "${workspaceRoot}",
+      "port": 9222,
+      "userDataDir": "${workspaceRoot}/.vscode/chrome",
+      "runtimeArgs": [
+        "--new-window", //Open in new windowon
+        "--disable-session-crashed-bubble",
+        "--disable-infobars"
+      ]
+    },
+    {
+      "name": "Run Android on emulator",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "android",
+      "target": "emulator",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false
+    },
+    {
+      "name": "Build and Run Android on emulator",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "android",
+      "target": "emulator",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false,
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Run Android on device",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "android",
+      "target": "device",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false
+    },
+    {
+      "name": "Build and Run Android on device",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "android",
+      "target": "device",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false,
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Run iOS on device",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "ios",
+      "target": "device",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false
+    },
+    {
+      "name": "Build and Run iOS on device",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "ios",
+      "target": "device",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false,
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Attach to running android on device",
+      "type": "cordova",
+      "request": "attach",
+      "platform": "android",
+      "target": "device",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach to running iOS on device",
+      "type": "cordova",
+      "request": "attach",
+      "platform": "ios",
+      "target": "device",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Run iOS on simulator",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "ios",
+      "target": "emulator",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false
+    },
+    {
+      "name": "Build and Run iOS on simulator",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "ios",
+      "target": "emulator",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "ionicLiveReload": false,
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Attach to running android on emulator",
+      "type": "cordova",
+      "request": "attach",
+      "platform": "android",
+      "target": "emulator",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach to running iOS on simulator",
+      "type": "cordova",
+      "request": "attach",
+      "platform": "ios",
+      "target": "emulator",
+      "port": 9220,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Serve to the browser (ionic serve)",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "serve",
+      "cwd": "${workspaceRoot}",
+      "devServerAddress": "localhost",
+      "sourceMaps": true,
+      "ionicLiveReload": true
+    },
+    {
+      "name": "Simulate Android in browser",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "android",
+      "target": "chrome",
+      "simulatePort": 8000,
+      "livereload": true,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Simulate iOS in browser",
+      "type": "cordova",
+      "request": "launch",
+      "platform": "ios",
+      "target": "chrome",
+      "simulatePort": 8000,
+      "livereload": true,
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}"
+    }
+  ]
 }
