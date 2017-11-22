@@ -38,6 +38,13 @@
             "showOutput": "always",
             "isBackground": true,
             "isTestCommand": true
+        },
+        {
+          "taskName": "build",
+          "isBuildCommand": false,
+          "showOutput": "always",
+          "isBackground": false,
+          "isTestCommand": false
         }
     ]
 }

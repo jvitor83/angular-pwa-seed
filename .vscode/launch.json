@@ -30,7 +30,8 @@
                 "--new-window", //Open in new windowon
                 "--disable-session-crashed-bubble",
                 "--disable-infobars"
-            ]
+            ],
+            "preLaunchTask": "build"
 	    },
         {
             "name": "Run Android on emulator",
@@ -41,7 +42,8 @@
             "port": 9222,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false
+            "ionicLiveReload": false,
+            "preLaunchTask": "build"
         },
         {
             "name": "Run Android on device",
@@ -52,7 +54,8 @@
             "port": 9222,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false
+            "ionicLiveReload": false,
+            "preLaunchTask": "build"
         },
         {
             "name": "Run iOS on device",
@@ -63,7 +66,8 @@
             "port": 9220,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false
+            "ionicLiveReload": false,
+            "preLaunchTask": "build"
         },
         {
             "name": "Attach to running android on device",
@@ -94,7 +98,8 @@
             "port": 9220,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
-            "ionicLiveReload": false
+            "ionicLiveReload": false,
+            "preLaunchTask": "build"
         },
         {
             "name": "Attach to running android on emulator",
