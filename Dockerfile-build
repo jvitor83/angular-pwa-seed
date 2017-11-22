@@ -9,7 +9,7 @@ RUN npm config set registry ${registry}
 RUN npm i -g --unsafe-perm yarn
 RUN yarn config set registry ${registry}
 RUN npm uninstall -g ionic cordova
-RUN npm install -g --unsafe-perm @angular/cli@1.2.7 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
+RUN npm install -g --unsafe-perm @angular/cli@1.6.0-beta.2 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
 RUN cd /usr/src/app && yarn install
 WORKDIR /usr/src/app
 COPY . /usr/src/app
