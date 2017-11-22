@@ -54,7 +54,7 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
     super();
     let authentication: Oidc.UserManagerSettings = environment.authentication;
 
-    
+
     localStorage.setItem(location.host + ':environment.authentication', JSON.stringify(environment.authentication));
 
     let isCordova = OidcAuthService.isCordova();
@@ -74,6 +74,7 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
 
     this.mgr.events.addUserLoaded((e) => {
       this.currentUser = e;
+      this.loadUser(this.currentUser);
       this.application.tick();
     });
 
@@ -195,7 +196,7 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
   .then((user) => {
           console.log("signinPopup done");
           console.log(user);
-   
+
           console.log('this.userLoadededEvent.emit(user);');
           this.userLoadededEvent.emit(user);
           //console.log('this.mgr.signinPopupCallback().then(function () {');
@@ -246,5 +247,5 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
   //     console.log(err);
   //   });
   // };
-  
+
 }

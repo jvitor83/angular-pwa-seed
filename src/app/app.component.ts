@@ -3,8 +3,9 @@ import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterConte
 
 import { Platform, MenuController } from 'ionic-angular';
 
-// import { StatusBar, Splashscreen } from 'ionic-native';
 import { routerTransition } from './fade.animations';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 
@@ -23,7 +24,9 @@ export class MyApp implements OnInit {
     public application: ApplicationRef,
     public router: Router,
     private zone: NgZone,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen
   ) {
     this.initializeApp();
   }
@@ -39,8 +42,9 @@ export class MyApp implements OnInit {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      // StatusBar.styleDefault();
-      // Splashscreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+
       this.platform.resize.asObservable().subscribe((event) => {
         this.zone.run(() => {
           this.application.tick();
