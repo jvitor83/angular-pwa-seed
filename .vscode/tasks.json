@@ -25,9 +25,9 @@
                     "code": 4,
                     "message": 5
                 },
-                "watching": {
+                "background": {
                     "activeOnStart": true,
-                    "beginsPattern": "NG Live Development Server is running",
+                    "beginsPattern": "NG Live Development Server",
                     "endsPattern": "^Time:"
                 }
             }
@@ -38,6 +38,13 @@
             "showOutput": "always",
             "isBackground": true,
             "isTestCommand": true
+        },
+        {
+          "taskName": "build",
+          "isBuildCommand": false,
+          "showOutput": "always",
+          "isBackground": false,
+          "isTestCommand": false
         }
     ]
 }

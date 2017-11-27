@@ -3,8 +3,9 @@ import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterConte
 
 import { Platform, MenuController } from 'ionic-angular';
 
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { routerTransition } from "app/fade.animations";
+import { routerTransition } from './fade.animations';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 
@@ -15,7 +16,7 @@ import { routerTransition } from "app/fade.animations";
   templateUrl: './app.html',
   animations: [routerTransition]
 })
-export class MyApp {
+export class MyApp implements OnInit {
 
   constructor(
     public platform: Platform,
@@ -23,7 +24,9 @@ export class MyApp {
     public application: ApplicationRef,
     public router: Router,
     private zone: NgZone,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen
   ) {
     this.initializeApp();
   }
@@ -39,27 +42,38 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+
       this.platform.resize.asObservable().subscribe((event) => {
         this.zone.run(() => {
           this.application.tick();
         });
       });
 
-      this.router.events.filter(event => event instanceof NavigationEnd)
-        .map(() => this.activatedRoute)
-        .subscribe((event) => {
-          this.menu.close();
-        });
 
 
-      this.outlet.activateEvents.subscribe(event => {
-        const mc = this.outlet.locationInjector.get(MenuController);
-        const hasRightMenu = mc.getMenus().length;
-        console.log("----lenght: " + hasRightMenu);
-      });
+
+      // this.outlet.activateEvents.subscribe(event => {
+      //   const mc = this.outlet.locationInjector.get(MenuController);
+      //   const hasRightMenu = mc.getMenus().length;
+      //   console.log("----lenght: " + hasRightMenu);
+      // });
     });
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.menu.close();
+      }
+    });
+
+    // this.router.events.filter(event => event instanceof NavigationEnd)
+    // .map(() => this.activatedRoute)
+    // .subscribe((event) => {
+    //   this.menu.close();
+    // });
   }
 
   closeMenu() {

@@ -1,13 +1,15 @@
 
-FROM node:latest
+FROM beevelop/ionic
 ARG registry=https://registry.npmjs.org/
 LABEL Name=angular-pwa-seed Version=0.1.0
 RUN mkdir -p /usr/src/app
 COPY package.json /usr/src/app/package.json
 COPY config.xml /usr/src/app/config.xml
 RUN npm config set registry ${registry}
+RUN npm i -g --unsafe-perm yarn
 RUN yarn config set registry ${registry}
-RUN npm install -g --unsafe-perm @angular/cli@1.2.7 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
+RUN npm uninstall -g ionic cordova
+RUN npm install -g --unsafe-perm @angular/cli@1.6.0-rc.0 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
 RUN cd /usr/src/app && yarn install
 WORKDIR /usr/src/app
 COPY . /usr/src/app
