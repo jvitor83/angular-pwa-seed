@@ -12,7 +12,6 @@ import { MenuComponent } from './menu/menu.component';
 import { UserinfoComponent } from './header/userinfo/userinfo.component';
 import { SysteminfoComponent } from './header/systeminfo/systeminfo.component';
 import { EnterpriseinfoComponent } from './header/enterpriseinfo/enterpriseinfo.component';
-import { TabComponent } from './tab/tab.component';
 import { InfoComponent } from './header/info/info.component';
 import { LayoutBlankComponent } from './layout-blank.component';
 

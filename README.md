@@ -73,8 +73,10 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 > - **Simple responsive** - Choose when hide or show elements _(ex: if mobile or desktop)_.
 > > Use the directive `invisible-to="mobile"` at any element/component to make it invisible when at mobile.
 > - **Easy configuration** - Use the Angular CLI `environment.ts` for app's configuration.
-> - **Flexibe authentication/authorization** - Authentication options is already setted (with google). Just choose your Identity Provider and change the `environment.ts` config.
-> > Another option is to use `FirebaseAuthService` already implemented/configured just by using `{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }` at `providers` in `app.module.ts` (instead of `OidcAuthService`).
+> - **Flexibe authentication/authorization** - Authentication options is already setted (with google). 
+> > If you want login with your choosed OAuth2/OpenID Connect Identity Provider, just change the `environment.ts` config and use `{ provide: AUTH_SERVICE, useClass: OidcAuthService }` at `providers` in `app.module.ts` (instead of `YoloAuthService`).
+> >
+> > Another option is to use `FirebaseAuthService` already implemented/configured just by using `{ provide: AUTH_SERVICE, useClass: FirebaseAuthService }` at `providers` in `app.module.ts` (instead of `YoloAuthService`).
 > > 
 > > You can easily implement your own Authentication Service just by extending the `BaseAuthService<any>` at `base-auth.service.ts`. An sample of this approach is at `firebase-auth.service.ts`
 > >
@@ -97,6 +99,7 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 - [Boostrap](http://getbootstrap.com/)
 - [Firebase](https://firebase.google.com/)
 - [OpenID/OAuth2 Client](https://github.com/IdentityModel/oidc-client-js)
+- [OpenYolo](https://github.com/openid/OpenYOLO-Web/)
 - [Docker](http://docker.io/)
 
 
@@ -230,7 +233,7 @@ You can try multiple platform at same time using:
 - Open shell then run `npm run start.mobile`
 > _If you want to see it in a non-web emulator, then run `npm run start.cordova`_
 
-
+> > _**It is highly recommended to use [Genymotion](https://www.genymotion.com/fun-zone/) for Android Emulation.**_
 
 ## Structure
 

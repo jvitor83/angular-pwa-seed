@@ -19,7 +19,7 @@ export class AuthGuardService implements CanActivate {
             return true;
         } else {
             const uri = this.angularLocation.prepareExternalUrl(state.url);
-            localStorage.setItem(location.host + ':callback', location.origin + location.pathname + '/' + uri);
+            localStorage.setItem(location.host + ':callback', location.origin + location.pathname + uri);
             this.router.navigate(['unauthorized']);
         }
     }

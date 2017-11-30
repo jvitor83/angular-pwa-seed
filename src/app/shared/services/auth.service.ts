@@ -14,7 +14,7 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
   // }
   public identityFactory(user: Oidc.User): Identity {
 
-      const identity: Identity = {
+    const identity: Identity = {
       user: {
         id: user.profile.sub || null,
         name: user.profile.name || null,
@@ -87,34 +87,8 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
           this.userLoadededEvent.emit(user);
 
           this.loadUser(user);
-          // const principal = new Principal2(user, this.identityFactory);
-          // this.principal.next(principal);
-          //this.user = user;
-          // const auth = new Auth<Oidc.User>(
-          //   user,
-          //   (info) => {
-          //     const identity: Identity = {
-          //       user: {
-          //         id: info.profile.sub || null,
-          //         name: info.profile.name || null,
-          //         email: info.profile.email || null,
-          //         pictureUri: info.profile.picture[0] || null
-          //       },
-          //       system: {
-          //         id: info.profile.client_id || null
-          //       },
-          //       token: info.access_token || null
-          //     };
 
-          //     return identity;
-          //   }
-          // );
-          // this.auth.next(auth);
-          // let payload = Object.assign({}, user, user.profile);
-          // let authenticated = new OpenIDAuthenticated(payload);
-          // this.auth.next(authenticated);
-        }
-        else {
+        } else {
           this.loggedIn = false;
         }
       })
@@ -173,79 +147,38 @@ export class OidcAuthService extends BaseAuthService<Oidc.User> {
     return promise;
   }
 
-  // authenticate(): Promise<OpenIDAuthenticated> {
-  //   let isCordova = OidcAuthService.isCordova(this.platform);
-  //   console.log('startSigninMainWindow isCordova');
-  //   console.log(isCordova);
-
-  //   this.mgr.clearStaleState();
-
-  //   let promise: Promise<Oidc.User> = null;
-  //   if (isCordova != null && isCordova) {
-  //     promise = this.mgr.signinPopup();
-  //   } else {
-  //     promise = this.mgr.signinRedirect();
-  //   }
-  //   let promiseTransform = promise.then(user => {
-  //     return new OpenIDAuthenticated(user as any);
-  //   });
-  //   return promiseTransform;
-  // }
-
-  /*
-  .then((user) => {
-          console.log("signinPopup done");
-          console.log(user);
-
-          console.log('this.userLoadededEvent.emit(user);');
-          this.userLoadededEvent.emit(user);
-          //console.log('this.mgr.signinPopupCallback().then(function () {');
-          // this.mgr.signinPopupCallback().then(function () {
-          //   console.log("signinPopupCallback done");
-          // }).catch(function (err) {
-          //   console.log(err);
-          // });
-          this.mgr.events.load(user);
-          this.currentUser = user;
-          this.loggedIn = true;
-        }).catch(function (err) {
-          console.log(err);
-        });
-   */
-
-
-  // endSigninMainWindow() {
-  //   this.mgr.signinRedirectCallback().then(function (user) {
-  //     console.log("signed in", user);
-  //   }).catch(function (err) {
-  //     console.log(err);
-  //   });
-  // }
-
 
   logout() {
-    //this.principal.next(null);
-    super.logout();
-    return this.mgr.signoutRedirect().then(function (resp) {
-      console.log("signed out", resp);
-    }).catch(function (err) {
-      console.log(err);
-    });
-  };
-  // unauthenticate() {
-  //   return this.mgr.signoutRedirect().then(function (resp) {
-  //     console.log("signed out", resp);
-  //   }).catch(function (err) {
-  //     console.log(err);
-  //   });
-  // };
+    return this.mgr.signoutRedirect()
+      .then((resp) => {
+        console.log('signed out', resp);
+        super.logout();
+      }).catch((err) => {
+        console.log(err);
+        try {
+          if (environment.authentication.authority.indexOf('google') !== -1) {
+            this.googleRevokeAccess(this.auth.value.identity.token);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+        super.logout();
+      });
+  }
 
-  // endSignoutMainWindow() {
-  //   this.mgr.signoutRedirectCallback().then(function (resp) {
-  //     console.log("signed out", resp);
-  //   }).catch(function (err) {
-  //     console.log(err);
-  //   });
-  // };
+  googleRevokeAccess(accessToken) {
+    fetch('https://accounts.google.com/o/oauth2/revoke?token=' + accessToken,
+      {
+        mode: 'no-cors',
+        method: 'GET',
+        // body: {
+        //   token: accessToken
+        // }
+      }).then(r => {
+        console.log(r.statusText);
+      }).catch(err => {
+        console.error(err);
+      });
+  }
 
 }
