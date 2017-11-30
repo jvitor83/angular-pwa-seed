@@ -34,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AUTH_SERVICE } from './shared/services/base-auth.service';
 import { httpFactory } from './shared/services/intercepted-http.service';
+import { YoloAuthService } from './shared/services/yolo-auth.service';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { httpFactory } from './shared/services/intercepted-http.service';
     StatusBar,
     SplashScreen,
 
-    { provide: AUTH_SERVICE, useClass: OidcAuthService }, // If want to use an OpenID/OAuth2 Auth Provider (generically)
+    { provide: AUTH_SERVICE, useClass: YoloAuthService }, // If want to use Credential Management (YOLO) ONLY
+    // { provide: AUTH_SERVICE, useClass: OidcAuthService }, // If want to use an OpenID/OAuth2 Auth Provider (generically)
     // { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
 
     // AngularFireAuth, AngularFireDatabase, //Keep this if you use Firebase, otherwise comment/remove it

@@ -1,11 +1,13 @@
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
 import { routerTransition } from './fade.animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
+import { YoloAuthService } from './shared/services/yolo-auth.service';
 
 
 
@@ -26,7 +28,8 @@ export class MyApp implements OnInit {
     private zone: NgZone,
     private activatedRoute: ActivatedRoute,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    @Inject(AUTH_SERVICE) private yoloAuthService: BaseAuthService<any>
   ) {
     this.initializeApp();
   }
@@ -53,7 +56,6 @@ export class MyApp implements OnInit {
 
 
 
-
       // this.outlet.activateEvents.subscribe(event => {
       //   const mc = this.outlet.locationInjector.get(MenuController);
       //   const hasRightMenu = mc.getMenus().length;
@@ -74,6 +76,16 @@ export class MyApp implements OnInit {
     // .subscribe((event) => {
     //   this.menu.close();
     // });
+
+    this.platform.ready().then(() => {
+      // Try the autoLogin silently if the authService is YOLO
+      if (this.yoloAuthService instanceof YoloAuthService) {
+        if (!this.yoloAuthService.auth.value.isAuthenticated) {
+          this.yoloAuthService.login(false);
+        }
+      }
+
+    });
   }
 
   closeMenu() {

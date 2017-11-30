@@ -84,7 +84,7 @@ export abstract class BaseAuthService<T> {
                 id: claimsAsAny.client_id
             },
             token: claimsAsAny.access_token
-        }
+        };
     }
 
     private _auth: BehaviorSubject<Auth<T>> = new BehaviorSubject<Auth<T>>(null);
