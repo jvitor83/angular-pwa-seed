@@ -1,5 +1,5 @@
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit } from '@angular/core';
 
 import { Platform, MenuController } from 'ionic-angular';
 
@@ -10,15 +10,12 @@ import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.servi
 import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 
 
-
-
-
 @Component({
   moduleId: module.id,
   templateUrl: './app.html',
   animations: [routerTransition]
 })
-export class MyApp implements OnInit {
+export class MyApp implements OnInit, AfterViewInit {
 
   constructor(
     public platform: Platform,
@@ -65,6 +62,50 @@ export class MyApp implements OnInit {
     });
   }
 
+
+  private loadScript(scriptUrl: string) {
+    return new Promise((resolve, reject) => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = scriptUrl;
+      scriptElement.onload = resolve;
+      document.body.appendChild(scriptElement);
+    });
+  }
+
+  ngAfterViewInit() {
+    this.loadScript('https://smartlock.google.com/client').then(() => {
+      // Try the autoLogin silently if the authService is YOLO
+      if ((<any>window).googleyolo) {
+        if (this.yoloAuthService instanceof YoloBaseAuthService) {
+          if (!this.yoloAuthService.auth.value.isAuthenticated) {
+            this.yoloAuthService.login(false);
+          }
+        }
+      }
+    });
+  }
+
+
+  isCordova(platform?: Platform): boolean {
+    try {
+      const isCordovaVar = !!((<any>window).cordova);
+      let isDesktop = false;
+      if (platform != null) {
+        isDesktop = platform.is('core');
+      }
+      return isCordovaVar && (!isDesktop);
+    } catch (e) { return false; }
+  }
+
+  public get isPlatformWeb(): Boolean {
+    const isCordovaVar = this.isCordova(this.platform);
+    if (isCordovaVar != null && isCordovaVar && this.platform.is('mobileweb') === false) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -72,21 +113,14 @@ export class MyApp implements OnInit {
       }
     });
 
+
+
     // this.router.events.filter(event => event instanceof NavigationEnd)
     // .map(() => this.activatedRoute)
     // .subscribe((event) => {
     //   this.menu.close();
     // });
 
-    this.platform.ready().then(() => {
-      // Try the autoLogin silently if the authService is YOLO
-      if (this.yoloAuthService instanceof YoloBaseAuthService) {
-        if (!this.yoloAuthService.auth.value.isAuthenticated) {
-          this.yoloAuthService.login(false);
-        }
-      }
-
-    });
   }
 
   closeMenu() {
