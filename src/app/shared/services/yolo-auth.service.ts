@@ -1,13 +1,17 @@
 import { openyolo, OnDemandOpenYoloApi, Credential } from '@openid/openyolo';
 
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
-import { BaseAuthService, Auth, Identity } from './base-auth.service';
+import { BaseAuthService, Auth, Identity, AUTH_SERVICE } from './base-auth.service';
+import { BehaviorSubject } from 'rxjs';
+import { OidcAuthService } from './auth.service';
+import { FirebaseAuthService } from './firebase-auth.service';
 
 
-@Injectable()
-export class YoloAuthService extends BaseAuthService<Credential> {
+
+
+export abstract class YoloBaseAuthService<T extends BaseAuthService<any>> extends BaseAuthService<Credential> {
 
   // protected get yolo(): Promise<OnDemandOpenYoloApi> {
   //   const ret = (<OnDemandOpenYoloApi>(<any>window).googleyolo);
@@ -16,6 +20,9 @@ export class YoloAuthService extends BaseAuthService<Credential> {
 
   //   return (<any>window).onGoogleYoloLoad;
   // }
+
+
+
   protected yolo: OnDemandOpenYoloApi;
 
   protected identityFactory(user: Credential): Identity {
@@ -34,14 +41,14 @@ export class YoloAuthService extends BaseAuthService<Credential> {
     return identity;
   }
 
-
+  protected abstract get wrappedAuthService(): T;
 
   constructor() {
+    super();
+
     (<any>window).onGoogleYoloLoad = (googleyolo) => {
       this.yolo = googleyolo;
     };
-
-    super();
   }
 
 
@@ -75,7 +82,9 @@ export class YoloAuthService extends BaseAuthService<Credential> {
           case 'https://accounts.google.com':
             console.log('Google credential choosed!');
 
+            // this.authService.loadUser(credential);
             // Only leave this, if you use Google as Identity Provider
+            // (<BehaviorSubject<Auth<Credential>>>this.authService.auth).next(new Auth(credential, this.identityFactory, true));
             this.loadUser(credential);
 
             break;
@@ -111,6 +120,10 @@ export class YoloAuthService extends BaseAuthService<Credential> {
               ]
             }).catch((err) => {
               console.error(err);
+
+              // if get here, an error ocurred, then should make the login manually.
+              this.wrappedAuthService.login();
+
             });
           }
           break;
@@ -127,7 +140,7 @@ export class YoloAuthService extends BaseAuthService<Credential> {
         case "initializationError":
           // Failed to initialize. Refer to error.message for debugging.
           break;
-        case "configurationError":
+        case 'configurationError':
           // Configuration error. Refer to error.message for debugging.
           break;
         default:
@@ -142,7 +155,44 @@ export class YoloAuthService extends BaseAuthService<Credential> {
     this.yolo.disableAutoSignIn().then(() => {
       // Auto sign-in disabled.
       super.logout();
+
+      try {
+        if (this.wrappedAuthService.auth.value.isAuthenticated) {
+          this.wrappedAuthService.logout();
+        }
+      } catch (err) {
+        console.error(err);
+      }
     });
 
+  }
+}
+
+
+@Injectable()
+export class YoloOidcAuthService extends YoloBaseAuthService<OidcAuthService> {
+  private _wrappedAuthService: OidcAuthService;
+  protected get wrappedAuthService(): OidcAuthService {
+    return this._wrappedAuthService;
+  }
+
+  constructor(private authService: OidcAuthService) {
+    super();
+    const _authService = (authService as OidcAuthService);
+    this._wrappedAuthService = _authService;
+  }
+}
+
+@Injectable()
+export class YoloFirebaseAuthService extends YoloBaseAuthService<FirebaseAuthService> {
+  private _wrappedAuthService: FirebaseAuthService;
+  protected get wrappedAuthService(): FirebaseAuthService {
+    return this._wrappedAuthService;
+  }
+
+  constructor(private authService: FirebaseAuthService) {
+    super();
+    const _authService = (authService as FirebaseAuthService);
+    this._wrappedAuthService = _authService;
   }
 }

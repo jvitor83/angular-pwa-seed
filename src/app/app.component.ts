@@ -7,7 +7,7 @@ import { routerTransition } from './fade.animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
-import { YoloAuthService } from './shared/services/yolo-auth.service';
+import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 
 
 
@@ -29,7 +29,8 @@ export class MyApp implements OnInit {
     private activatedRoute: ActivatedRoute,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    @Inject(AUTH_SERVICE) private yoloAuthService: BaseAuthService<any>
+    @Inject(AUTH_SERVICE) private yoloAuthService: BaseAuthService<any>,
+    //private yoloAuthService: YoloAuthService
   ) {
     this.initializeApp();
   }
@@ -79,7 +80,7 @@ export class MyApp implements OnInit {
 
     this.platform.ready().then(() => {
       // Try the autoLogin silently if the authService is YOLO
-      if (this.yoloAuthService instanceof YoloAuthService) {
+      if (this.yoloAuthService instanceof YoloBaseAuthService) {
         if (!this.yoloAuthService.auth.value.isAuthenticated) {
           this.yoloAuthService.login(false);
         }
