@@ -6,13 +6,15 @@ import { Observable } from 'rxjs/Rx';
 import * as Oidc from 'oidc-client';
 import { environment } from '../../../environments/environment';
 import { BaseAuthService, Auth, Identity } from './base-auth.service';
+import { YoloOidcAuthService } from './yolo-auth.service';
+import { Credential } from '@openid/openyolo';
 
 @Injectable()
 export class OidcAuthService extends BaseAuthService<Oidc.User> {
   // user: () => Promise<Oidc.User> = () =>{
   //   return this.getUser();
   // }
-  public identityFactory(user: Oidc.User): Identity {
+  protected identityFactory(user: Oidc.User): Identity {
 
     const identity: Identity = {
       user: {
