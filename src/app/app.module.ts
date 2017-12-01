@@ -8,7 +8,7 @@ import {
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Platform } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
@@ -35,6 +35,27 @@ import { MenuItemComponent } from './shared/components/menu-item/menu-item.compo
 import { AUTH_SERVICE } from './shared/services/base-auth.service';
 import { httpFactory } from './shared/services/intercepted-http.service';
 import { YoloOidcAuthService } from './shared/services/yolo-auth.service';
+
+
+function isCordova(platform?: Platform): boolean {
+  try {
+    const isCordovaVar = !!((<any>window).cordova);
+    let isDesktop = false;
+    if (platform != null) {
+      isDesktop = platform.is('core');
+    }
+    return isCordovaVar && (!isDesktop);
+  } catch (e) { return false; }
+}
+
+export function authFactory(platform: Platform, yoloAuth: YoloOidcAuthService, oidcAuth: OidcAuthService) {
+  const isCordovaVar = isCordova(platform);
+  if (isCordovaVar != null && isCordovaVar && platform.is('mobileweb') === false) {
+    return oidcAuth;
+  } else {
+    return yoloAuth;
+  }
+}
 
 
 @NgModule({
@@ -79,7 +100,14 @@ import { YoloOidcAuthService } from './shared/services/yolo-auth.service';
     SplashScreen,
 
     OidcAuthService,
-    { provide: AUTH_SERVICE, useClass: YoloOidcAuthService, deps: [OidcAuthService] }, // If want to use Credential Management (YOLO) falling back to OidcAuthService
+    YoloOidcAuthService,
+
+    {
+      provide: AUTH_SERVICE,
+      useFactory: authFactory,
+      deps: [Platform, YoloOidcAuthService, OidcAuthService ]
+    }, // Dynamically choose between Yolo on web and Oidc on Hybrid
+    // { provide: AUTH_SERVICE, useClass: YoloOidcAuthService, deps: [OidcAuthService] }, // If want to use Credential Management (YOLO) falling back to OidcAuthService
     // { provide: AUTH_SERVICE, useClass: OidcAuthService }, // If want to use an OpenID/OAuth2 Auth Provider (generically)
     // { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
 
