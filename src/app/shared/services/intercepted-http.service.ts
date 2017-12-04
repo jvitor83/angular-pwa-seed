@@ -1,16 +1,30 @@
 import { Injectable, Inject, Injector } from "@angular/core";
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers, XHRBackend } from "@angular/http";
-import { Observable } from "rxjs/Rx";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/finally';
 import { BaseAuthService, AUTH_SERVICE } from "./base-auth.service";
+import { LoadingController, Loading } from "ionic-angular";
 
 @Injectable()
 export class InterceptedHttp extends Http {
-  constructor(backend: ConnectionBackend, defaultOptions: RequestOptions, @Inject(AUTH_SERVICE) protected authService: BaseAuthService<any>) {
+
+  public loading: Loading;
+
+  constructor(backend: ConnectionBackend, defaultOptions: RequestOptions,
+    @Inject(AUTH_SERVICE) protected authService: BaseAuthService<any>, public loadingCtrl: LoadingController) {
     super(backend, defaultOptions);
+    this.loading = this.loadingCtrl.create();
   }
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
-    return super.request(url, options);
+    return this.intercept(super.request(url, options));
+  }
+
+  intercept(observable: Observable<Response>): Observable<Response> {
+    this.loading.present();
+    return observable.finally(() => {
+      this.loading.dismiss();
+    });
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -62,11 +76,13 @@ export class InterceptedHttp extends Http {
 export function httpFactory(
   xhrBackend: XHRBackend,
   requestOptions: RequestOptions,
-  authenticationStateService: BaseAuthService<any>
+  authenticationStateService: BaseAuthService<any>,
+  loadingController: LoadingController
 ): Http {
   return new InterceptedHttp(
     xhrBackend,
     requestOptions,
-    authenticationStateService
+    authenticationStateService,
+    loadingController
   );
 }

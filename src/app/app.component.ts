@@ -1,13 +1,16 @@
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
 
-import { Platform, MenuController } from 'ionic-angular';
+import { Platform, MenuController, ToastController } from 'ionic-angular';
 
 import { routerTransition } from './fade.animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
 import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
+import { SwUpdate } from '@angular/service-worker';
+import { ToastOptions } from 'ionic-angular/components/toast/toast-options';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -27,6 +30,9 @@ export class MyApp implements OnInit, AfterViewInit {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     @Inject(AUTH_SERVICE) private yoloAuthService: BaseAuthService<any>,
+    @Optional() private swUpdate: SwUpdate,
+    public toastCtrl: ToastController,
+    public http: Http,
     //private yoloAuthService: YoloAuthService
   ) {
     this.initializeApp();
@@ -114,6 +120,24 @@ export class MyApp implements OnInit, AfterViewInit {
     });
 
 
+    if (this.swUpdate) {
+      this.swUpdate.available.subscribe(event => {
+
+        console.log('[App] Update available: current version is', event.current, 'available version is', event.available);
+        const snackBarRef = this.toastCtrl.create({
+          message: 'A newer version of the app is available!',
+          position: 'bottom', duration: 5000,
+          closeButtonText: 'Update', showCloseButton: true
+        });
+
+        snackBarRef.onDidDismiss(() => {
+          location.reload(true);
+        });
+
+        snackBarRef.present();
+
+      });
+    }
 
     // this.router.events.filter(event => event instanceof NavigationEnd)
     // .map(() => this.activatedRoute)

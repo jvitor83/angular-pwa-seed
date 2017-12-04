@@ -1,3 +1,4 @@
+import { LoadingController } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserModule } from '@angular/platform-browser';
@@ -116,7 +117,7 @@ export function authFactory(platform: Platform, yoloAuth: YoloOidcAuthService, o
     {
       provide: Http,
       useFactory: httpFactory,
-      deps: [XHRBackend, RequestOptions, AUTH_SERVICE]
+      deps: [XHRBackend, RequestOptions, AUTH_SERVICE, LoadingController]
     },
 
     AuthGuardService,
