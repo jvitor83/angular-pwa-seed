@@ -119,9 +119,6 @@ export class MyApp implements OnInit, AfterViewInit {
       }
     });
 
-    this.http.get('http://indisponibilidades.tjmt.jus.br/api/Indisponibilidades')
-    .finally(() => console.log('F2'))
-    .subscribe(r => console.log(r.json()));
 
     if (this.swUpdate) {
       this.swUpdate.available.subscribe(event => {
