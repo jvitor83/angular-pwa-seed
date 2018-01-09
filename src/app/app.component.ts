@@ -125,13 +125,15 @@ export class MyApp implements OnInit, AfterViewInit {
 
         console.log('[App] Update available: current version is', event.current, 'available version is', event.available);
         const snackBarRef = this.toastCtrl.create({
-          message: 'A newer version of the app is available!',
-          position: 'bottom', duration: 5000,
-          closeButtonText: 'Update', showCloseButton: true
+          message: 'A newer version of this app is available!',
+          position: 'bottom', duration: 7000,
+          closeButtonText: 'UPDATE', showCloseButton: true
         });
 
-        snackBarRef.onDidDismiss(() => {
-          location.reload(true);
+        snackBarRef.onDidDismiss((data, role) => {
+          if (role == 'close') {
+            location.reload(true);
+          }
         });
 
         snackBarRef.present();
