@@ -132,7 +132,9 @@ export class MyApp implements OnInit, AfterViewInit {
 
         snackBarRef.onDidDismiss((data, role) => {
           if (role == 'close') {
-            location.reload(true);
+            this.swUpdate.activateUpdate().then(() => {
+              location.reload(true);
+            });
           }
         });
 
