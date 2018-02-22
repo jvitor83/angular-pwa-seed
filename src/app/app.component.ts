@@ -69,26 +69,12 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
 
-  private loadScript(scriptUrl: string) {
-    return new Promise((resolve, reject) => {
-      const scriptElement = document.createElement('script');
-      scriptElement.src = scriptUrl;
-      scriptElement.onload = resolve;
-      document.body.appendChild(scriptElement);
-    });
-  }
-
   ngAfterViewInit() {
-    this.loadScript('https://smartlock.google.com/client').then(() => {
-      // Try the autoLogin silently if the authService is YOLO
-      if ((<any>window).googleyolo) {
         if (this.yoloAuthService instanceof YoloBaseAuthService) {
           if (!this.yoloAuthService.auth.value.isAuthenticated) {
             this.yoloAuthService.login(false);
           }
         }
-      }
-    });
   }
 
 
