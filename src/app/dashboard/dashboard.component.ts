@@ -13,7 +13,6 @@ let inputPhoto = document.getElementById('file-input');
 
 @Component({
     moduleId: module.id,
-    templateUrl: './dashboard.component.html',
     selector: 'my-app',
 	template: `
 	  <div>
