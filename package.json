@@ -4,8 +4,8 @@
   "license": "MIT",
   "angular-cli": {},
   "config": {
-    "name": "AngularPwaSeed",
-    "shortname": "AngularPwaSeed",
+    "name": "Dietify",
+    "shortname": "Dietify",
     "color": "#0f3a54"
   },
   "scripts": {

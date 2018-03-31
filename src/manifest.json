@@ -1,6 +1,6 @@
 {
-	"name": "AngularPwaSeed",
-	"short_name": "AngularPwaSe",
+	"name": "Dietify",
+	"short_name": "Dietify",
 	"icons": [
 		{
 			"src": "assets/pwa/icon-72x72.png",
