@@ -1,4 +1,4 @@
-@@ -2,13 +2,35 @@ import { MenuController } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { Component, OnInit, ApplicationRef, AfterViewInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
