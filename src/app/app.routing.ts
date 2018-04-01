@@ -11,7 +11,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'login',
         pathMatch: 'full',
     },
     {
@@ -20,6 +20,10 @@ export const routes: Routes = [
             title: 'Home'
         },
         children: [
+            {
+                path: 'login',
+                loadChildren: './login/login.module'
+            },
             {
                 path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
