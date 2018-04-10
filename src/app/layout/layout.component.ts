@@ -1,6 +1,7 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Platform, MenuController } from 'ionic-angular';
 import { Component, OnInit, Input, Injector, ApplicationRef, OnChanges, SimpleChanges, AfterViewInit, NgZone } from '@angular/core';
+import 'rxjs/add/operator/filter';
 
 @Component({
   moduleId: module.id,
@@ -14,7 +15,7 @@ export class LayoutComponent {
       .subscribe((event) => {
         setTimeout(() => {
 
-          
+
 
           const menuC = menuController;
 
@@ -35,7 +36,7 @@ export class LayoutComponent {
           //   leftMenu.swipeEnable(true);
           // }
 
-          
+
 
           // console.log(event);
           // console.log("hasRightMenu: " + hasRightMenu);

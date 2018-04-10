@@ -9,10 +9,12 @@
 /node_modules
 /bower_components
 /.tmp
+package-lock.json
 
 # IDEs and editors
 /.idea
 /.vscode
+.npmrc
 .project
 .classpath
 *.launch

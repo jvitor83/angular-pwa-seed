@@ -26,7 +26,7 @@ A sample is available at: https://angular-pwa-seed.netlify.com
 > 
 > At shell/cmd run this _(windows only)_:
 > ```Batchfile
-> npm i -g yarn @angular/cli@1.6.0-rc.0 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm install & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
+> npm i -g yarn @angular/cli@1.7.1 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp && git clone https://github.com/jvitor83/angular-pwa-seed && cd angular-pwa-seed && npm install & (IF DEFINED ANDROID_HOME npm run install.android) & npm run start.cordova
 > ```
 
 
@@ -107,14 +107,14 @@ Be the easiest, simplest, fastest and performative way to create a **Web(PWA)** 
 
 - **GIT**: Have installed or Install GIT: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **NODE**: Have installed or Install NODE **(6+)**: [https://nodejs.org/en/download/releases/](https://nodejs.org/en/download/releases/) 
-- **Install Global Dependencies**: `npm install --global yarn @angular/cli@1.6.0-rc.0 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp`
+- **Install Global Dependencies**: `npm install --global yarn @angular/cli@1.7.1 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp`
 - **Install Platform Requirements** _(optional if other different than web)_: See the **requirements** at **running** section according to your chosen platform. 
 
 ## Starting
 
 ```bash
 # Install global dependencies
-npm install --global yarn @angular/cli@1.6.0-rc.0 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
+npm install --global yarn @angular/cli@1.7.1 cordova@6.5.0 ionic@2.2.3 typescript sleep-ms concurrently mkdirp
 
 # Clone this repo giving your new project name
 git clone https://github.com/jvitor83/angular-pwa-seed.git [your-project-name]
@@ -147,40 +147,24 @@ npm run start
 ```bash
 # Should already been cloned this repo
 
-# Build the Docker Image that Build the App
+# Build the Docker Image
 npm run docker.build
 # You can add special parameters to the build process to use some private Registry and Proxy like:
 # npm run docker.build -- --build-arg registry=https://registry.npmjs.org/ --build-arg HTTP_PROXY=http://username:password@proxy.address:3128 --build-arg HTTPS_PROXY=http://username:password@proxy.address:3128
 
-# Create the Container that will Build the App
+# Run the Container
 npm run docker.run
 
-# Tell the Container to Build the App
-npm run docker.exec.script -- build.prod.aot
-
-# Copy the files from the Container to the 'www' folder (at host)
-npm run docker.copy
-
-# Stop (Removing) the Build Container
-npm run docker.stop
-
-# Build the Docker Image that will Host the App
-npm run docker.build.host
-
-# Host the App (using NGINX)
-npm run docker.run.host
-
-# Navigate to http://localhost:5555
+# Navigate to http://localhost
 ```
 
 > Docker command to Build and Host _(Recreating the Image and Containers)_:
 > ```Batchfile
 > # Remove the Images and Containers (optional)
 > docker image rm angular-pwa-seed -f
-> docker image rm angular-pwa-seed-host -f
 >
-> # Create Image, Container, Build and Host (in one line)
-> npm run docker.build && npm run docker.run && npm run docker.exec.script -- build.prod.aot && npm run docker.copy && npm run docker.stop && npm run docker.build.host && npm run docker.run.host
+> # Create Image and run Container
+> npm run docker.build && npm run docker.run
 > ```
 
 
