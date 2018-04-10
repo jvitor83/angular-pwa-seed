@@ -1,3 +1,5 @@
+import { IdentityService } from './../../../shared/auth/authentication/identity.service';
+import { Identity } from './../../../shared/services/base-auth.service';
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from 'ionic-angular';
@@ -6,6 +8,7 @@ import { Network } from '@ionic-native/network';
 import { AUTH_SERVICE, BaseAuthService } from "../../../shared/services/base-auth.service";
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
+import { BaseAuthenticationService, AuthenticationService } from '../../../shared/auth/authentication/base-authentication.service';
 
 
 
@@ -14,9 +17,9 @@ import { Subscriber } from "rxjs/Subscriber";
   selector: 'seed-userinfo',
   templateUrl: './userinfo.component.html',
   styles: [`
-  ion-icon { 
-    font-size: 100px; 
-    color : white; 
+  ion-icon {
+    font-size: 100px;
+    color : white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -30,7 +33,10 @@ p {
 })
 export class UserinfoComponent implements OnInit {
 
-  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private platform: Platform, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
+  constructor(
+    private authService: AuthenticationService,
+    private identityservice: IdentityService,
+    private platform: Platform, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
 
   }
 
@@ -39,9 +45,9 @@ export class UserinfoComponent implements OnInit {
   isLoggedIn;
 
   ngOnInit() {
-    this.authService.auth.subscribe(authenticated => {
-      this.name = authenticated.identity.user.name;
-      this.image = authenticated.identity.user.pictureUri;
+    this.identityservice.user.subscribe(authenticated => {
+      this.name = authenticated.name;
+      this.image = authenticated.imageURL;
       this.isLoggedIn = authenticated.isAuthenticated;
     });
     //this.authService.isAuthenticated.subscribe(isAuthenticated => this.isLoggedIn = isAuthenticated);
@@ -85,7 +91,7 @@ export class UserinfoComponent implements OnInit {
   }
 
   login() {
-    var networkState = this.network.type;
+    const networkState = this.network.type;
     if (networkState !== 'none') {
       localStorage.removeItem(location.host + ':callback');
       this.authService.login();

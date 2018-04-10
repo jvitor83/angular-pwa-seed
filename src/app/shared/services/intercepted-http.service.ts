@@ -1,88 +1,52 @@
-import { Injectable, Inject, Injector } from "@angular/core";
+import { IdentityService } from './../auth/authentication/identity.service';
+import { Injectable, Inject, Injector } from '@angular/core';
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers, XHRBackend } from "@angular/http";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
-import { BaseAuthService, AUTH_SERVICE } from "./base-auth.service";
-import { LoadingController, Loading } from "ionic-angular";
+import { LoadingController, Loading } from 'ionic-angular';
+import { OAuthIdentity, OpenIDConnectIdentity } from '../auth/authentication/identity.model';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 @Injectable()
-export class InterceptedHttp extends Http {
+export class AuthenticationHttpInterceptor implements HttpInterceptor {
 
   public loading: Loading;
 
-  constructor(backend: ConnectionBackend, defaultOptions: RequestOptions,
-    @Inject(AUTH_SERVICE) protected authService: BaseAuthService<any>, public loadingCtrl: LoadingController) {
-    super(backend, defaultOptions);
+  constructor(protected identityService: IdentityService, public loadingCtrl: LoadingController) {
     this.loading = this.loadingCtrl.create();
   }
 
-  request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.request(url, options));
-  }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  intercept(observable: Observable<Response>): Observable<Response> {
-    this.loading.present();
-    return observable.finally(() => {
-      this.loading.dismiss();
-    });
-  }
 
-  get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    url = this.updateUrl(url);
-    return super.get(url, this.getRequestOptionArgs(options));
-  }
-
-  post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    url = this.updateUrl(url);
-    return super.post(url, body, this.getRequestOptionArgs(options));
-  }
-
-  put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    url = this.updateUrl(url);
-    return super.put(url, body, this.getRequestOptionArgs(options));
-  }
-
-  delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    url = this.updateUrl(url);
-    return super.delete(url, this.getRequestOptionArgs(options));
-  }
-
-  private updateUrl(req: string) {
-    return req;
-  }
-
-  private getRequestOptionArgs(options?: RequestOptionsArgs): RequestOptionsArgs {
-    if (options == null) {
-      options = new RequestOptions();
-    }
-    if (options.headers == null) {
-      options.headers = new Headers();
+    if (!req.headers.has('Content-Type')) {
+      req.headers.append('Content-Type', 'application/json');
     }
 
-    if (!options.headers.has('Content-Type')) {
-      options.headers.append('Content-Type', 'application/json');
+
+    if (this.identityService && this.identityService.userValue && this.identityService.userValue.isAuthenticated) {
+      const token =
+        (<OAuthIdentity>this.identityService.userValue).accessToken ||
+        (<OpenIDConnectIdentity>this.identityService.userValue).idToken;
+      req.headers.append('Authorization', 'Bearer ' + token);
     }
 
-    if (this.authService && this.authService.auth && this.authService.auth.value && this.authService.auth.value.isAuthenticated) {
-      options.headers.append('Authorization', 'Bearer ' + this.authService.auth.value.identity.token);
-    }
 
-    return options;
+
+    const httpHandle = next
+    .handle(req)
+    .catch((error) => {
+        // intercept the respons error and displace it to the console
+        console.log('Error Occurred:');
+        console.log(error);
+        // return the error to the method that called it
+        return Observable.throw(error);
+    })
+    .finally(() => this.loading.dismiss());
+
+    httpHandle.subscribe(() => this.loading.present());
+
+    return httpHandle;
+
   }
-}
-
-
-
-export function httpFactory(
-  xhrBackend: XHRBackend,
-  requestOptions: RequestOptions,
-  authenticationStateService: BaseAuthService<any>,
-  loadingController: LoadingController
-): Http {
-  return new InterceptedHttp(
-    xhrBackend,
-    requestOptions,
-    authenticationStateService,
-    loadingController
-  );
 }

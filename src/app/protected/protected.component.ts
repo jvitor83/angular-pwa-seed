@@ -1,7 +1,12 @@
+import { IdentityService } from './../shared/auth/authentication/identity.service';
+import { Identity } from './../shared/services/base-auth.service';
+// import { AUTHENTICATION_SERVICE } from './../shared/auth/authentication/authentication-service.token';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
-import { BaseAuthService, AUTH_SERVICE } from "../shared/services/base-auth.service";
+//import { BaseAuthService, AUTH_SERVICE } from "../shared/services/base-auth.service";
 import { Observable } from "rxjs/Observable";
+import { BaseAuthenticationService } from '../shared/auth/authentication/base-authentication.service';
+import { OpenIDConnectIdentity } from '../shared/auth/authentication/identity.model';
 
 
 @Component({
@@ -20,16 +25,16 @@ export class ProtectedComponent implements OnInit {
   name;
 
   accessToken;
-  
-  
 
-  constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private location: Location) { }
+
+
+  constructor(private identityService: IdentityService, private location: Location) { }
 
   ngOnInit() {
-    this.authService.auth.subscribe(principal => {
-        this.name = principal.identity.user.name;
-        this.loggedIn = principal.isAuthenticated;
-        this.accessToken = principal.identity.token;
+    this.identityService.user.subscribe(principal => {
+      this.name = principal.name;
+      this.loggedIn = principal.isAuthenticated;
+      this.accessToken = (<OpenIDConnectIdentity>principal).accessToken || null;
     });
   }
   goback() {

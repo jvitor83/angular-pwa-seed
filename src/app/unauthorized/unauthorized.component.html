@@ -4,9 +4,11 @@
   <strong>Unauthorized Request!</strong>
 </div>
 <br>
-<div>
+<div *ngIf="!loggedIn;else alreadyLoggedIn">
   To login click <button ion-button small color="primary" (click)="Login()">here</button>
 </div>
+<ng-template #alreadyLoggedIn>You not have the permission to access this page!<br />Contact your System Administrator for more information!</ng-template>
+<br>
 <br>
   <span>
     To go back click <button small ion-button color="light" (click)="goback()">here</button>

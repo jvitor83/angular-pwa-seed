@@ -2,9 +2,9 @@ import { MyApp } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { AUTH_SERVICE } from './shared/services/base-auth.service';
-import { OidcAuthService } from './shared/services/auth.service';
-import { AuthGuardService } from './shared/services/auth-guard.service';
+//import { AUTH_SERVICE } from './shared/services/base-auth.service';
+//import { OidcAuthService } from './shared/services/auth.service';
+//import { AuthGuardService } from './shared/services/auth-guard.service';
 
 
 

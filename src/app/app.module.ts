@@ -1,3 +1,5 @@
+import { IdentityService } from './shared/auth/authentication/identity.service';
+
 import { LoadingController } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -33,30 +35,18 @@ import { Network } from '@ionic-native/network';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
-import { AUTH_SERVICE } from './shared/services/base-auth.service';
-import { httpFactory } from './shared/services/intercepted-http.service';
+import { AuthenticationHttpInterceptor } from './shared/services/intercepted-http.service';
 import { YoloOidcAuthService } from './shared/services/yolo-auth.service';
+import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
+import { OidcIdentityTransformationService } from './shared/auth/authentication-oidc/oidc-identity-transformation.service';
+import { InitOidcAuthenticationService, OidcAuthModule } from './shared/auth/authentication-oidc/oidc-module';
+import { AuthModule } from './shared/auth/auth.module';
+import { YoloAuthModule } from './shared/auth/authentication-yolo/yolo-module';
+import { YOLO_AUTHENTICATION_SERVICE } from './shared/auth/authentication-yolo/yolo-authentication-service.token';
+import { FirebaseAuthModule } from './shared/auth/authentication-firebase/firebase-module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
-function isCordova(platform?: Platform): boolean {
-  try {
-    const isCordovaVar = !!((<any>window).cordova);
-    let isDesktop = false;
-    if (platform != null) {
-      isDesktop = platform.is('core');
-    }
-    return isCordovaVar && (!isDesktop);
-  } catch (e) { return false; }
-}
-
-export function authFactory(platform: Platform, yoloAuth: YoloOidcAuthService, oidcAuth: OidcAuthService) {
-  const isCordovaVar = isCordova(platform);
-  if (isCordovaVar != null && isCordovaVar && platform.is('mobileweb') === false) {
-    return oidcAuth;
-  } else {
-    return yoloAuth;
-  }
-}
 
 
 @NgModule({
@@ -76,19 +66,24 @@ export function authFactory(platform: Platform, yoloAuth: YoloOidcAuthService, o
 
     IonicModule.forRoot(MyApp),
 
-    // AngularFireModule.initializeApp(environment.firebase), //Keep this if you use Firebase, otherwise comment/remove it
-    // AngularFireDatabaseModule, //Keep this if you use Firebase, otherwise comment/remove it
-    // AngularFireAuthModule, //Keep this if you use Firebase, otherwise comment/remove it
+    // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
+    // AuthModule.forRoot(YoloAuthModule.forRoot(OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE))),
+
+    // Use OpenYOLO with Firebase at First Login
+    AuthModule.forRoot(YoloAuthModule.forRoot(FirebaseAuthModule.forRoot(environment.firebase, YOLO_AUTHENTICATION_SERVICE))),
+
 
     LayoutModule,
 
-    environment.production ? ServiceWorkerModule.register('./ngsw-worker.js') : []
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp
   ],
   providers: [
+
+
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: LocationStrategy,
@@ -100,24 +95,10 @@ export function authFactory(platform: Platform, yoloAuth: YoloOidcAuthService, o
     StatusBar,
     SplashScreen,
 
-    OidcAuthService,
-    YoloOidcAuthService,
-
     {
-      provide: AUTH_SERVICE,
-      useFactory: authFactory,
-      deps: [Platform, YoloOidcAuthService, OidcAuthService ]
-    }, // Dynamically choose between Yolo on web and Oidc on Hybrid
-    // { provide: AUTH_SERVICE, useClass: YoloOidcAuthService, deps: [OidcAuthService] }, // If want to use Credential Management (YOLO) falling back to OidcAuthService
-    // { provide: AUTH_SERVICE, useClass: OidcAuthService }, // If want to use an OpenID/OAuth2 Auth Provider (generically)
-    // { provide: AUTH_SERVICE, useClass: FirebaseAuthService }, //If want to use Firebase as an Auth Provider
-
-    // AngularFireAuth, AngularFireDatabase, //Keep this if you use Firebase, otherwise comment/remove it
-
-    {
-      provide: Http,
-      useFactory: httpFactory,
-      deps: [XHRBackend, RequestOptions, AUTH_SERVICE, LoadingController]
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationHttpInterceptor,
+      multi: true
     },
 
     AuthGuardService,

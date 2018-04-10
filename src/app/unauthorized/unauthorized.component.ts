@@ -1,9 +1,12 @@
+import { AUTHENTICATION_SERVICE } from './../shared/auth/authentication/authentication-service.token';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { Network } from '@ionic-native/network';
 import { ToastController } from 'ionic-angular';
-import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
+//import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
+import { AuthenticationService } from '../shared/auth/authentication/base-authentication.service';
+import { IdentityService } from '../shared/auth/authentication/identity.service';
 
 @Component({
   moduleId: module.id,
@@ -12,9 +15,16 @@ import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.serv
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor(@Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private location: Location, private network: Network, public toastCtrl: ToastController) { }
+  loggedIn;
+
+  constructor(
+    // @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>,
+    private authService: AuthenticationService,
+    private identityService: IdentityService,
+    private location: Location, private network: Network, public toastCtrl: ToastController) { }
 
   ngOnInit() {
+    this.identityService.user.subscribe(user => this.loggedIn = user.isAuthenticated);
   }
 
   Login() {

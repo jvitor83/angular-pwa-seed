@@ -1,4 +1,6 @@
-import { BaseAuthService, AUTH_SERVICE } from './base-auth.service';
+import { IdentityService } from './../auth/authentication/identity.service';
+// import { AUTHENTICATION_SERVICE } from './../auth/authentication/authentication-service.token';
+//import { BaseAuthService, AUTH_SERVICE, Identity } from './base-auth.service';
 import { Injectable, Inject } from '@angular/core';
 import { CanActivate, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Location } from '@angular/common';
@@ -7,11 +9,13 @@ import { Location } from '@angular/common';
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-    constructor( @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>, private router: Router, private angularLocation: Location) { }
+    constructor(
+      private identityService: IdentityService,
+      private router: Router, private angularLocation: Location) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         console.log('canActivate');
 
-        const isAuthenticated = (this.authService.auth.value && this.authService.auth.value.isAuthenticated);
+        const isAuthenticated = (this.identityService.userValue.isAuthenticated);
         console.log('isAuthenticated');
         console.log(isAuthenticated);
 

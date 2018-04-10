@@ -1,3 +1,4 @@
+import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
 
@@ -6,11 +7,14 @@ import { Platform, MenuController, ToastController } from 'ionic-angular';
 import { routerTransition } from './fade.animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
-import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
+//import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
+//import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 import { SwUpdate } from '@angular/service-worker';
 import { ToastOptions } from 'ionic-angular/components/toast/toast-options';
 import { Http } from '@angular/http';
+import { AuthenticationService, ProviderAuthenticationService } from './shared/auth/authentication/base-authentication.service';
+import { IdentityService } from './shared/auth/authentication/identity.service';
+import { YoloAuthenticationService } from './shared/auth/authentication-yolo/base-yolo-authentication.service';
 
 
 @Component({
@@ -29,7 +33,9 @@ export class MyApp implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    @Inject(AUTH_SERVICE) private yoloAuthService: BaseAuthService<any>,
+    @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
+    // private authService: AuthenticationService,
+    private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
     public toastCtrl: ToastController,
     public http: Http,
@@ -79,17 +85,12 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.loadScript('https://smartlock.google.com/client').then(() => {
-      // Try the autoLogin silently if the authService is YOLO
-      if ((<any>window).googleyolo) {
-        if (this.yoloAuthService instanceof YoloBaseAuthService) {
-          if (!this.yoloAuthService.auth.value.isAuthenticated) {
-            this.yoloAuthService.login(false);
-          }
-        }
+    if (this.authenticationService instanceof YoloAuthenticationService) {
+      if (!this.identityService.userValue.isAuthenticated) {
+        this.authenticationService.login(null, false);
       }
-    });
-  }
+    }
+}
 
 
   isCordova(platform?: Platform): boolean {
