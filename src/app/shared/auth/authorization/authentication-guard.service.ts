@@ -5,7 +5,7 @@ import { IdentityService } from '../authentication/identity.service';
 import { Location } from '@angular/common';
 import { GuardService } from './guard.service';
 import 'rxjs/add/operator/catch';
-
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationGuardService extends GuardService {
@@ -22,10 +22,14 @@ export class AuthenticationGuardService extends GuardService {
     const map = this.identityService.user
       .map(user => {
         if (user.isAuthenticated) {
-          return true;
+          return this.allow();
+        } else {
+          return this.deny(state);
         }
       });
-    const ret = map.catch(() => this.deny());
-    return ret;
+    // const ret = map.catch(() => {
+    //   return this.deny();
+    // });
+    return map;
   }
 }

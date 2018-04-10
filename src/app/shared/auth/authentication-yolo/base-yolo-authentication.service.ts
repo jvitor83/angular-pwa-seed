@@ -83,25 +83,26 @@ export class YoloAuthenticationService extends BaseAuthenticationService<Credent
 
     credentialPromise.then((credentialRetrieved) => {
       if (credentialRetrieved) {
-        const transformedIdentity = this.identityTransformService.transform(credentialRetrieved);
-        this.identityService.load(transformedIdentity);
+        this.providerUser.next(credentialRetrieved);
       } else {
         console.log('No credential choosed!');
       }
     }, (error) => {
       console.log(error);
 
-      switch (error.type) {
-        case 'userCanceled':
-          // The user closed the hint selector. Depending on the desired UX,
-          // request manual sign up or do nothing.
-          break;
-        case 'noCredentialsAvailable':
-          // No hint available for the session. Depending on the desired UX,
-          // request manual sign up or do nothing.
-          if (force) {
+      if (force) {
+        switch (error.type) {
+          case 'userCanceled':
+            // The user closed the hint selector. Depending on the desired UX,
+            // request manual sign up or do nothing.
+            break;
+          case 'noCredentialsAvailable':
+            // No hint available for the session. Depending on the desired UX,
+            // request manual sign up or do nothing.
+
             this.yolo.hint(Object.assign(credentialRequestOptions, {
-              showAddAccount: true })
+              showAddAccount: true
+            })
               // {
               //   supportedAuthMethods: [
               //     // 'openyolo://id-and-password',
@@ -122,42 +123,40 @@ export class YoloAuthenticationService extends BaseAuthenticationService<Credent
               this.wrappedAuthenticationService.login();
 
             });
-          }
-          break;
-        case 'requestFailed':
-          // The request failed, most likely because of a timeout.
-          // You can retry another time if necessary.
-          break;
-        case 'operationCanceled':
-          // The operation was programmatically canceled, do nothing.
-          break;
-        case 'illegalConcurrentRequest':
-          // Another operation is pending, this one was aborted.
-          break;
-        case 'initializationError':
-          // Failed to initialize. Refer to error.message for debugging.
-          break;
-        case 'configurationError':
-          // Configuration error. Refer to error.message for debugging.
-          break;
-        default:
-        // Unknown error, do nothing.
+
+            break;
+          case 'requestFailed':
+            // The request failed, most likely because of a timeout.
+            // You can retry another time if necessary.
+            this.wrappedAuthenticationService.login();
+
+            break;
+          case 'operationCanceled':
+            // The operation was programmatically canceled, do nothing.
+            break;
+          case 'illegalConcurrentRequest':
+            // Another operation is pending, this one was aborted.
+            break;
+          case 'initializationError':
+            // Failed to initialize. Refer to error.message for debugging.
+            break;
+          case 'configurationError':
+            // Configuration error. Refer to error.message for debugging.
+            break;
+          default:
+          // Unknown error, do nothing.
+        }
       }
     });
   }
 
   public logout(): void {
-    this.yolo.disableAutoSignIn().then(() => {
-      // Auto sign-in disabled.
-      super.logout();
-
-      // try {
-      //   if (this.wrappedAuthService.auth.value.isAuthenticated) {
-      //     this.wrappedAuthService.logout();
-      //   }
-      // } catch (err) {
-      //   console.error(err);
-      // }
-    });
+    try {
+      this.wrappedAuthenticationService.logout();
+    } catch (err) {
+      console.error(err);
+    }
+    super.logout();
+    this.yolo.disableAutoSignIn();
   }
 }

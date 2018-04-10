@@ -20,15 +20,15 @@ export abstract class GuardService implements CanActivate {
 
   abstract canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Promise<boolean> | Observable<boolean>;
 
-  allow(): Observable<boolean> {
-    return Observable.of(true);
+  allow(): boolean {
+    return true;
   }
 
-  deny(): Observable<boolean> {
-    const uri = this.angularLocation.prepareExternalUrl(this.routerStateSnapshot.url);
+  deny(state: RouterStateSnapshot): boolean {
+    const uri = this.angularLocation.prepareExternalUrl(state.url);
     localStorage.setItem(location.host + ':callback', location.origin + location.pathname + uri);
     this.router.navigate(['unauthorized']);
-    return Observable.of(false);
+    return false;
   }
 
 }

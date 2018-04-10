@@ -44,7 +44,7 @@ import { AuthModule } from './shared/auth/auth.module';
 import { YoloAuthModule } from './shared/auth/authentication-yolo/yolo-module';
 import { YOLO_AUTHENTICATION_SERVICE } from './shared/auth/authentication-yolo/yolo-authentication-service.token';
 import { FirebaseAuthModule } from './shared/auth/authentication-firebase/firebase-module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -55,7 +55,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MenuItemComponent
   ],
   imports: [
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -67,10 +67,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     IonicModule.forRoot(MyApp),
 
     // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
-    // AuthModule.forRoot(YoloAuthModule.forRoot(OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE))),
+    AuthModule.forRoot(YoloAuthModule.forRoot(OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE))),
 
     // Use OpenYOLO with Firebase at First Login
-    AuthModule.forRoot(YoloAuthModule.forRoot(FirebaseAuthModule.forRoot(environment.firebase, YOLO_AUTHENTICATION_SERVICE))),
+    // AuthModule.forRoot(YoloAuthModule.forRoot(FirebaseAuthModule.forRoot(environment.firebase, YOLO_AUTHENTICATION_SERVICE))),
 
 
     LayoutModule,

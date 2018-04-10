@@ -93,7 +93,9 @@ export class UserinfoComponent implements OnInit {
   login() {
     const networkState = this.network.type;
     if (networkState !== 'none') {
-      localStorage.removeItem(location.host + ':callback');
+      if (this.router.url !== '/unauthorized') {
+        localStorage.removeItem(location.host + ':callback');
+      }
       this.authService.login();
     } else {
       this.toastCtrl.create({

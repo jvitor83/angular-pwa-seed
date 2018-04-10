@@ -25,7 +25,7 @@ export class RouteAuthorizationGuardService extends AuthorizationGuardService {
     if (permission) {
       return this.allow();
     } else {
-      return this.deny();
+      return this.deny(state);
     }
   }
 }

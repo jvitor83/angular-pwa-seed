@@ -1,5 +1,5 @@
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
-import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, NavigationStart } from '@angular/router';
 import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
 
 import { Platform, MenuController, ToastController } from 'ionic-angular';
@@ -38,7 +38,6 @@ export class MyApp implements OnInit, AfterViewInit {
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
     public toastCtrl: ToastController,
-    public http: Http,
     //private yoloAuthService: YoloAuthService
   ) {
     this.initializeApp();
@@ -114,11 +113,9 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.menu.close();
-      }
-    });
+    this.router.events
+    .filter(event => event instanceof NavigationStart)
+    .subscribe((event) => this.menu.close());
 
 
     if (this.swUpdate) {

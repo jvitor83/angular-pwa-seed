@@ -1,5 +1,4 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { environment } from './../../../../environments/environment';
 import { Injectable, Optional } from '@angular/core';
 import { IdentityService } from './../authentication/identity.service';
 import { BaseAuthenticationService } from '../authentication/base-authentication.service';
@@ -7,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { OidcIdentityTransformationService } from './oidc-identity-transformation.service';
 import * as Oidc from 'oidc-client';
 import { Platform } from 'ionic-angular';
+import { OpenIDConnectIdentity } from '../authentication/identity.model';
 
 @Injectable()
 export class OidcAuthenticationService extends BaseAuthenticationService<Oidc.User> {
@@ -54,6 +54,53 @@ export class OidcAuthenticationService extends BaseAuthenticationService<Oidc.Us
   }
 
   public login(): void {
-    this.userManager.signinRedirect();
+    const isCordova = OidcAuthenticationService.isCordova(this.platform);
+    console.log('startSigninMainWindow isCordova');
+    console.log(isCordova);
+
+    this.userManager.clearStaleState();
+
+    if (isCordova != null && isCordova) {
+      this.userManager.signinPopup().then((user) => {
+        if (user) {
+          this.providerUser.next(user);
+        }
+      });
+    } else {
+      this.userManager.signinRedirect();
+    }
+
   }
+
+  public logout() {
+    return this.userManager.signoutRedirect()
+      .then((resp) => {
+        try {
+          if (this.authenticationSettings.authority.indexOf('google') !== -1) {
+            this.googleRevokeAccess((<OpenIDConnectIdentity>this.identityService.userValue).accessToken);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      })
+      .then(() => super.logout())
+      .catch((error) => super.logout());
+
+  }
+
+  googleRevokeAccess(accessToken) {
+    fetch(this.authenticationSettings.metadata.revocation_endpoint + '?token=' + accessToken,
+      {
+        mode: 'no-cors',
+        method: 'GET',
+        // body: {
+        //   token: accessToken
+        // }
+      }).then(r => {
+        console.log(r.statusText);
+      }).catch(err => {
+        console.error(err);
+      });
+  }
+
 }
