@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../shared/auth/authentication/authentication.service';
 import { AUTHENTICATION_SERVICE } from './../shared/auth/authentication/authentication-service.token';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
@@ -5,7 +6,6 @@ import { Location } from '@angular/common';
 import { Network } from '@ionic-native/network';
 import { ToastController } from 'ionic-angular';
 //import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
-import { AuthenticationService } from '../shared/auth/authentication/base-authentication.service';
 import { IdentityService } from '../shared/auth/authentication/identity.service';
 
 @Component({

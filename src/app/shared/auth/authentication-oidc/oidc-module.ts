@@ -1,15 +1,13 @@
+import { OidcIdentityTransformationService } from './oidc-identity-transformation.service';
+import { IdentityService } from './../authentication/identity.service';
+import { OidcAuthenticationService } from './oidc-authentication.service';
 import { AUTHENTICATION_SERVICE } from './../authentication/authentication-service.token';
 import { NgModule, ModuleWithProviders, InjectionToken, ValueProvider, Inject, Injectable, Type, Optional } from "@angular/core";
-import { OidcAuthenticationService } from "./oidc-authentication.service";
-import { OidcIdentityTransformationService } from "./oidc-identity-transformation.service";
-import { IdentityService } from "../authentication/identity.service";
-import { AuthenticationService, ProviderAuthenticationService } from "../authentication/base-authentication.service";
-import { BaseAuthenticationTypeServiceProvider } from "../auth.module";
 import { YOLO_AUTHENTICATION_SERVICE } from '../authentication-yolo/yolo-authentication-service.token';
 import { Platform } from 'ionic-angular';
 
 
-export let OIDC_CONFIG = new InjectionToken<ProviderAuthenticationService>('OIDC_CONFIG');
+export const OIDC_CONFIG = new InjectionToken<Oidc.UserManagerSettings>('OIDC_CONFIG');
 
 @Injectable()
 export class OidcConfigDepHolder {
@@ -51,41 +49,4 @@ export class OidcAuthModule {
   }];
   }
 
-  // static forRoot(settings: Oidc.UserManagerSettings, policies: ReadonlyArray<Policy> = []) {
-
-
-
-  //   // return AuthModule.forRoot([
-  //   //   {
-  //   //     provide: AUTHENTICATION_SERVICE,
-  //   //     useFactory: InitOidcAuthenticationService,
-  //   //     deps: [IdentityService, OidcIdentityTransformationService]
-  //   //   },
-  //   //   OidcIdentityTransformationService,
-  //   // ]);
-
-
-
-
-
-  //   return <ModuleWithProviders>{
-  //     ngModule: OidcAuthModule,
-  //     providers: [
-  //       // AngularFireAuth, AngularFireDatabase, // Keep this if you use Firebase, otherwise comment/remove it
-
-  //       {
-  //         provide: AUTHENTICATION_SERVICE,
-  //         useFactory: InitOidcAuthenticationService,
-  //         deps: [IdentityService, OidcIdentityTransformationService]
-  //       },
-  //       OidcIdentityTransformationService,
-
-  //       AuthenticationService,
-  //       IdentityService,
-
-  //       { provide: Policies, useValue: policies },
-  //       { provide: PolicyService, useFactory: InitPolicyService, deps: [Policies] }
-  //     ]
-  //   };
-  // }
 }

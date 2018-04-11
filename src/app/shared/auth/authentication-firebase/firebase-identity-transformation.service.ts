@@ -12,7 +12,6 @@ export class FirebaseIdentityTransformationService extends IdentityTransformatio
     combinedIdentity.email = user.email || null;
     combinedIdentity.imageURL = user.photoURL || null;
     combinedIdentity.clientId = (<any>user).w || null;
-    // combinedIdentity.accessToken = (<any>user).ie || null;
     combinedIdentity.isAuthenticated = !user.isAnonymous;
     user.getIdToken().then(value => {
       combinedIdentity.idToken = value;
@@ -20,19 +19,6 @@ export class FirebaseIdentityTransformationService extends IdentityTransformatio
     user.getToken().then(token => {
       combinedIdentity.accessToken = token;
     });
-
-    // const returnIdentity = Object.assign(combinedIdentity,
-    //   {
-    //     id: user.uid,
-    //     name: user.displayName,
-    //     displayName: user.displayName,
-    //     email: user.email,
-    //     pictureUri: user.photoURL,
-    //     client_id: (<any>user).B,
-    //     type: 'federated'
-    //   });
-
-    //   returnIdentity.token = (<any>user).ie;
 
     return combinedIdentity;
   }

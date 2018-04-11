@@ -1,4 +1,4 @@
 import { InjectionToken } from '@angular/core';
-import { BaseAuthenticationService, ProviderAuthenticationService } from './base-authentication.service';
+import { ProviderAuthenticationService } from './provider-authentication.service';
 
 export let AUTHENTICATION_SERVICE = new InjectionToken<ProviderAuthenticationService>('AUTHENTICATION_SERVICE');

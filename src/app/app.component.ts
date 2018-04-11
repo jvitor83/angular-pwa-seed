@@ -12,9 +12,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SwUpdate } from '@angular/service-worker';
 import { ToastOptions } from 'ionic-angular/components/toast/toast-options';
 import { Http } from '@angular/http';
-import { AuthenticationService, ProviderAuthenticationService } from './shared/auth/authentication/base-authentication.service';
 import { IdentityService } from './shared/auth/authentication/identity.service';
 import { YoloAuthenticationService } from './shared/auth/authentication-yolo/base-yolo-authentication.service';
+import { ProviderAuthenticationService } from './shared/auth/authentication/provider-authentication.service';
 
 
 @Component({
@@ -34,11 +34,9 @@ export class MyApp implements OnInit, AfterViewInit {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
-    // private authService: AuthenticationService,
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
     public toastCtrl: ToastController,
-    //private yoloAuthService: YoloAuthService
   ) {
     this.initializeApp();
   }
@@ -46,7 +44,7 @@ export class MyApp implements OnInit, AfterViewInit {
   @ViewChild(RouterOutlet) public outlet: RouterOutlet;
 
   getState(outlet) {
-    let ret = outlet.activatedRouteData.title;
+    const ret = outlet.activatedRouteData.title;
     return ret;
   }
 
@@ -86,7 +84,7 @@ export class MyApp implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     if (this.authenticationService instanceof YoloAuthenticationService) {
       if (!this.identityService.userValue.isAuthenticated) {
-        this.authenticationService.login(null, false);
+        this.authenticationService.login(false);
       }
     }
 }

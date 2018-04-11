@@ -1,21 +1,21 @@
 import { YOLO_AUTHENTICATION_SERVICE } from './yolo-authentication-service.token';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Credential, OnDemandOpenYoloApi, TokenProvider } from '@openid/openyolo';
+import { Credential, OnDemandOpenYoloApi, TokenProvider, CredentialRequestOptions } from '@openid/openyolo';
 import { YoloIdentityTransformationService } from './yolo-identity-transformation.service';
-import {
-  BaseAuthenticationService, AuthenticationService,
-  ProviderAuthenticationService
-} from '../authentication/base-authentication.service';
 import { Injectable, Inject, Injector, ReflectiveInjector } from '@angular/core';
 import { IdentityService } from '../authentication/identity.service';
+import { YoloConfig } from './yolo-module';
+import { BaseAuthenticationService } from '../authentication/base-authentication.service';
+import { ProviderAuthenticationService } from '../authentication/provider-authentication.service';
+import { OpenYoloIdentity } from '../authentication/identity.model';
 
 @Injectable()
-export class YoloAuthenticationService extends BaseAuthenticationService<Credential> {
+export class YoloAuthenticationService extends BaseAuthenticationService<OpenYoloIdentity> {
 
   constructor(
     protected identityService: IdentityService,
     protected identityTransformService: YoloIdentityTransformationService,
-    protected authenticationSettings: [{ uri: string, clientId: string }],
+    protected authenticationSettings: Array<YoloConfig>,
     @Inject(YOLO_AUTHENTICATION_SERVICE) protected wrappedAuthenticationService: ProviderAuthenticationService,
   ) {
     super(identityService, identityTransformService);
@@ -64,7 +64,7 @@ export class YoloAuthenticationService extends BaseAuthenticationService<Credent
 
 
 
-  public login(credential?: Credential, force: boolean = true): void {
+  public login(force: boolean = true): void {
 
     const credentialRequestOptions: any = {};
     this.authenticationSettings.forEach(setting => {
@@ -72,7 +72,8 @@ export class YoloAuthenticationService extends BaseAuthenticationService<Credent
       credentialRequestOptions.supportedIdTokenProviders = credentialRequestOptions.supportedIdTokenProviders || [];
 
       (<Array<string>>credentialRequestOptions.supportedAuthMethods).push(setting.uri);
-      (<Array<TokenProvider>>credentialRequestOptions.supportedIdTokenProviders).push(setting);
+      (<Array<TokenProvider>>credentialRequestOptions.supportedIdTokenProviders)
+        .push((<TokenProvider>{ uri: setting.uri, clientId: setting.clientId }));
     });
 
     const credentialPromise = this.yoloPromise.then(() => {

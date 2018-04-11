@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../../shared/auth/authentication/authentication.service';
 import { IdentityService } from './../../../shared/auth/authentication/identity.service';
 import { Identity } from './../../../shared/services/base-auth.service';
 import { Router } from '@angular/router';
@@ -5,10 +6,8 @@ import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from 'ionic-angular';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Network } from '@ionic-native/network';
-import { AUTH_SERVICE, BaseAuthService } from "../../../shared/services/base-auth.service";
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
-import { BaseAuthenticationService, AuthenticationService } from '../../../shared/auth/authentication/base-authentication.service';
 
 
 
@@ -36,7 +35,8 @@ export class UserinfoComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private identityservice: IdentityService,
-    private platform: Platform, private popoverCtrl: PopoverController, private router: Router, private network: Network, public toastCtrl: ToastController) {
+    private platform: Platform, private popoverCtrl: PopoverController,
+    private router: Router, private network: Network, public toastCtrl: ToastController) {
 
   }
 

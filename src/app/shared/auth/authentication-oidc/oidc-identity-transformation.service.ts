@@ -18,16 +18,6 @@ export class OidcIdentityTransformationService extends IdentityTransformationSer
 
     delete user.profile;
 
-    // const returnIdentity = Object.assign(combinedIdentity,
-    //   {
-    //     id: user.profile.sub || null,
-    //     name: user.profile.name || null,
-    //     email: user.profile.email || null,
-    //     pictureUri: user.profile.picture && user.profile.picture[0] || null,
-    //     client_id: user.profile.client_id || null,
-    //     type: 'federated'
-    //   });
-
     return combinedIdentity;
   }
 }

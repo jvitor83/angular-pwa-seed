@@ -1,10 +1,10 @@
 import { Credential } from '@openid/openyolo';
 import { IdentityTransformationService } from '../authentication/identity-transformation.service';
-import { OpenIDConnectIdentity } from '../authentication/identity.model';
+import { OpenIDConnectIdentity, OpenYoloIdentity } from '../authentication/identity.model';
 import * as firebase from 'firebase/app';
 
 export class YoloIdentityTransformationService extends IdentityTransformationService<Credential, OpenIDConnectIdentity> {
-  public transform(user: Credential): OpenIDConnectIdentity {
+  public transform(user: OpenYoloIdentity): OpenIDConnectIdentity {
     const combinedIdentity = super.transform(user);
 
     combinedIdentity.id = user.id || null;

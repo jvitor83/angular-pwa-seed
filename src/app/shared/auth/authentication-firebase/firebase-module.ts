@@ -1,10 +1,10 @@
-import { NgModule, ModuleWithProviders, Type } from "@angular/core";
-import { AUTHENTICATION_SERVICE } from "../authentication/authentication-service.token";
-import { FirebaseAuthenticationService } from "./firebase-authentication.service";
-import { AngularFireModule, FirebaseAppConfig } from "angularfire2";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { FirebaseIdentityTransformationService } from "./firebase-identity-transformation.service";
+import { FirebaseAuthenticationService } from './firebase-authentication.service';
+import { FirebaseIdentityTransformationService } from './firebase-identity-transformation.service';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AUTHENTICATION_SERVICE } from './../authentication/authentication-service.token';
+import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
+import { NgModule, ModuleWithProviders, Type } from '@angular/core';
 
 
 
@@ -13,8 +13,8 @@ import { FirebaseIdentityTransformationService } from "./firebase-identity-trans
 export class FirebaseAuthModule {
   static forRoot(authenticationSettings: FirebaseAppConfig, provide = AUTHENTICATION_SERVICE) {
     return <(any[] | Type<any> | ModuleWithProviders)[]>[
-      AngularFireDatabaseModule, // Keep this if you use Firebase, otherwise comment/remove it
-      AngularFireAuthModule, // Keep this if you use Firebase, otherwise comment/remove it
+      AngularFireDatabaseModule,
+      AngularFireAuthModule,
       AngularFireModule.initializeApp(authenticationSettings),
       {
       ngModule: FirebaseAuthModule,

@@ -11,6 +11,15 @@
         Apache Cordova Team
 
     </author>
+    <universal-links>
+      <!-- If you use firebase, change here just like in environment.ts
+      More info at: https://firebase.google.com/docs/auth/web/cordova -->
+      <host name="newagent-9a87c.firebaseapp.com" scheme="https" />
+      <host name="newagent-9a87c.firebaseio.com" scheme="https">
+          <path url="/__/auth/callback"/>
+      </host>
+    </universal-links>
+    <preference name="AndroidLaunchMode" value="singleTask" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -72,4 +81,13 @@
     <preference name="xwalkMode" value="embedded" />
     <plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" spec="https://github.com/mrjoes/cordova-plugin-inappbrowserxwalk#patch-1" />
     <engine name="browser" spec="~4.1.0" />
+    <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
+    <plugin name="cordova-plugin-buildinfo" spec="~2.0.1" />
+    <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />
+    <plugin name="cordova-plugin-customurlscheme" spec="~4.3.0">
+        <variable name="URL_SCHEME" value="com.firebase.cordova" />
+        <variable name="ANDROID_SCHEME" value=" " />
+        <variable name="ANDROID_HOST" value=" " />
+        <variable name="ANDROID_PATHPREFIX" value="/" />
+    </plugin>
 </widget>

@@ -66,11 +66,25 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
     IonicModule.forRoot(MyApp),
 
-    // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
-    AuthModule.forRoot(YoloAuthModule.forRoot(OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE))),
 
-    // Use OpenYOLO with Firebase at First Login
-    // AuthModule.forRoot(YoloAuthModule.forRoot(FirebaseAuthModule.forRoot(environment.firebase, YOLO_AUTHENTICATION_SERVICE))),
+
+    // // // Use any OpenID Connect provider (with the generic client: 'OidcClient') - ex: google, microsoft, facebook, etc
+    // AuthModule.forRoot(
+    //   OidcAuthModule.forRoot(environment.authentication)
+    // ),
+
+    // // // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
+    // AuthModule.forRoot(
+    //   YoloAuthModule.forRoot(
+    //     OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE),
+    //     [{ uri: environment.authentication.authority, clientId: environment.authentication.client_id }]
+    //   )
+    // ),
+
+    // // Use OpenYOLO with Firebase at First Login
+    AuthModule.forRoot(
+      FirebaseAuthModule.forRoot(environment.firebase)
+    ),
 
 
     LayoutModule,

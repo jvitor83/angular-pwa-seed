@@ -14,9 +14,3 @@ export class IdentityTransformationService<SourceIdentity, DestinationIdentity e
   }
 }
 
-// export class JwtIdentityTransformationService extends IdentityTransformationService<any, Identity> {
-//   public transform(user: any): Identity {
-
-//   }
-
-// }
