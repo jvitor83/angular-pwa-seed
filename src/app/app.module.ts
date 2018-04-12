@@ -1,6 +1,5 @@
 import { IdentityService } from './shared/auth/authentication/identity.service';
 
-import { LoadingController } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +10,7 @@ import {
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
-import { IonicApp, IonicModule, IonicErrorHandler, Platform } from 'ionic-angular';
+import { IonicModule, Platform, LoadingController } from '@ionic/angular';
 
 import { MyApp } from './app.component';
 
@@ -22,10 +21,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
-import { FirebaseAuthService } from './shared/services/firebase-auth.service';
-
-import { OidcAuthService } from './shared/services/auth.service';
-import { AuthGuardService } from './shared/services/auth-guard.service';
 
 // Routing Module
 import { AppRoutingModule } from './app.routing';
@@ -36,7 +31,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AuthenticationHttpInterceptor } from './shared/services/intercepted-http.service';
-import { YoloOidcAuthService } from './shared/services/yolo-auth.service';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { OidcIdentityTransformationService } from './shared/auth/authentication-oidc/oidc-identity-transformation.service';
 import { InitOidcAuthenticationService, OidcAuthModule } from './shared/auth/authentication-oidc/oidc-module';
@@ -45,6 +39,7 @@ import { YoloAuthModule } from './shared/auth/authentication-yolo/yolo-module';
 import { YOLO_AUTHENTICATION_SERVICE } from './shared/auth/authentication-yolo/yolo-authentication-service.token';
 import { FirebaseAuthModule } from './shared/auth/authentication-firebase/firebase-module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { IonicNativePlugin } from '@ionic-native/core';
 
 
 
@@ -64,7 +59,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
     ChartsModule,
 
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(),
 
 
 
@@ -91,23 +86,24 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [MyApp],
   entryComponents: [
     MyApp
   ],
   providers: [
 
 
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    // { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
 
-    Network,
-    StatusBar,
-    SplashScreen,
+    // Network,
+    // StatusBar,
+    // SplashScreen,
+
 
     {
       provide: HTTP_INTERCEPTORS,
@@ -115,7 +111,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
       multi: true
     },
 
-    AuthGuardService,
+    // AuthGuardService,
 
 
     // YoloAuthService

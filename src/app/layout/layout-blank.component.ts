@@ -1,4 +1,4 @@
-import { Platform, MenuController } from 'ionic-angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

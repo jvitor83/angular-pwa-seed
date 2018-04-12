@@ -1,16 +1,16 @@
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { Platform, MenuController, ToastController } from '@ionic/angular';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, NavigationStart } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit, ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit,
+  ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
 
-import { Platform, MenuController, ToastController } from 'ionic-angular';
 
 import { routerTransition } from './fade.animations';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 //import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
 //import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 import { SwUpdate } from '@angular/service-worker';
-import { ToastOptions } from 'ionic-angular/components/toast/toast-options';
 import { Http } from '@angular/http';
 import { IdentityService } from './shared/auth/authentication/identity.service';
 import { YoloAuthenticationService } from './shared/auth/authentication-yolo/base-yolo-authentication.service';
@@ -31,8 +31,8 @@ export class MyApp implements OnInit, AfterViewInit {
     public router: Router,
     private zone: NgZone,
     private activatedRoute: ActivatedRoute,
-    public statusBar: StatusBar,
-    public splashScreen: SplashScreen,
+    // public statusBar: StatusBar,
+    // public splashScreen: SplashScreen,
     @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
@@ -52,22 +52,18 @@ export class MyApp implements OnInit, AfterViewInit {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-
-      this.platform.resize.asObservable().subscribe((event) => {
-        this.zone.run(() => {
-          this.application.tick();
-        });
-      });
+      StatusBar.styleDefault();
+      SplashScreen.hide();
+      // this.statusBar.styleDefault();
+      // this.splashScreen.hide();
 
 
-
-      // this.outlet.activateEvents.subscribe(event => {
-      //   const mc = this.outlet.locationInjector.get(MenuController);
-      //   const hasRightMenu = mc.getMenus().length;
-      //   console.log("----lenght: " + hasRightMenu);
+      // this.platform.resize.asObservable().subscribe((event) => {
+      //   this.zone.run(() => {
+      //     this.application.tick();
+      //   });
       // });
+
     });
   }
 
@@ -126,11 +122,13 @@ export class MyApp implements OnInit, AfterViewInit {
           closeButtonText: 'Update', showCloseButton: true
         });
 
-        snackBarRef.onDidDismiss(() => {
-          location.reload(true);
+        snackBarRef.then((toastElement: HTMLIonToastElement) => {
+          toastElement.onDidDismiss(det => {
+            location.reload(true);
+          });
+          toastElement.present();
         });
 
-        snackBarRef.present();
 
       });
     }

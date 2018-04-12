@@ -1,9 +1,8 @@
 import { AuthenticationService } from './../../../shared/auth/authentication/authentication.service';
 import { IdentityService } from './../../../shared/auth/authentication/identity.service';
-import { Identity } from './../../../shared/services/base-auth.service';
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
-import { PopoverController, Platform, ToastController } from 'ionic-angular';
+import { PopoverController, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Network } from '@ionic-native/network';
 import { Observable } from "rxjs/Observable";
@@ -36,7 +35,7 @@ export class UserinfoComponent implements OnInit {
     private authService: AuthenticationService,
     private identityservice: IdentityService,
     private platform: Platform, private popoverCtrl: PopoverController,
-    private router: Router, private network: Network, public toastCtrl: ToastController) {
+    private router: Router, public toastCtrl: ToastController) {
 
   }
 
@@ -91,18 +90,24 @@ export class UserinfoComponent implements OnInit {
   }
 
   login() {
-    const networkState = this.network.type;
-    if (networkState !== 'none') {
-      if (this.router.url !== '/unauthorized') {
-        localStorage.removeItem(location.host + ':callback');
+    Network.onchange().subscribe(() => {
+      const networkState = Network.type;
+      if (networkState !== 'none') {
+        if (this.router.url !== '/unauthorized') {
+          localStorage.removeItem(location.host + ':callback');
+        }
+        this.authService.login();
+      } else {
+        this.toastCtrl.create({
+          message: 'Impossible to Login without Internet connection!',
+          duration: 3000
+        }).then((toast) => {
+          toast.present();
+        });
       }
-      this.authService.login();
-    } else {
-      this.toastCtrl.create({
-        message: 'Impossible to Login without Internet connection!',
-        duration: 3000
-      }).present();
-    }
+    });
+
+
   }
 
 }

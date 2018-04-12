@@ -1,9 +1,9 @@
 {
   "name": "angular-pwa-seed",
-  "app_id": "",
-  "type": "ionic-angular",
+  "type": "angular",
   "watchPatterns": [],
   "integrations": {
     "cordova": {}
-  }
+  },
+  "pro_id": "angular-pwa-seed"
 }

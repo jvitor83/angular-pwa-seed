@@ -1,4 +1,4 @@
-import { Platform, MenuController, Item } from 'ionic-angular';
+import { Platform, MenuController, Item } from '@ionic/angular';
 import { Component, OnInit, Input, forwardRef, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import { LayoutComponent } from "./layout.component";
 import { MenuItemComponent } from "../shared/components/menu-item/menu-item.component";
@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 
 @Component({
   moduleId: module.id,
-  template: `<ion-content></ion-content>` 
+  template: `<ion-content></ion-content>`
 })
 export class TabNone { }
 
@@ -17,7 +17,8 @@ export class TabNone { }
   `
     <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="showRightMenuButton" [infoAtRightMenu]="false">
       <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" tabsPlacement="top">
-        <ion-tab [root]="dummyTab" layout-tab *ngFor="let menuItem of menuItems; let i = index;" (ionSelect)="navigateTo(menuItem.link)" tabTitle="{{menuItem.title}}" tabIcon="{{menuItem.icon}}"></ion-tab>
+        <ion-tab [component]="dummyTab" layout-tab *ngFor="let menuItem of menuItems; let i = index;"
+         (ionSelect)="navigateTo(menuItem.link)" label="{{menuItem.title}}" icon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
     </seed-header>
 
@@ -27,7 +28,8 @@ export class TabNone { }
 
     <ion-toolbar [hidden]="!showToolbarTab">
       <ion-tabs tabsLayout="icon-top" tabsPlacement="top">
-        <ion-tab [root]="dummyTab" *ngFor="let menuItem of menuItems; let i = index;" (ionSelect)="navigateTo(menuItem.link)" tabTitle="{{menuItem.title}}" tabIcon="{{menuItem.icon}}"></ion-tab>
+        <ion-tab [component]="dummyTab" *ngFor="let menuItem of menuItems; let i = index;"
+        (ionSelect)="navigateTo(menuItem.link)" label="{{menuItem.title}}" icon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
     </ion-toolbar>
 

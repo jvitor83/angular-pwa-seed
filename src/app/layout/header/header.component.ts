@@ -2,8 +2,9 @@ import { IdentityService } from './../../shared/auth/authentication/identity.ser
 import { LeftMenuService, RightMenuService } from './../../shared/services/menu.service';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { InfoComponent } from './info/info.component';
-import { PopoverController, Platform, MenuController } from 'ionic-angular';
+import { PopoverController, Platform, MenuController } from '@ionic/angular';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, AfterContentInit, ApplicationRef, NgZone, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { PopoverOptions, Popover } from '@ionic/core';
 
 
 @Component({
@@ -55,10 +56,14 @@ export class HeaderComponent implements OnInit {
   }
 
   presentUserInfoPopover(event) {
-    this.popoverController.create(UserinfoComponent).present({ ev: event });
+    const popover = new Popover();
+    popover.component = UserinfoComponent;
+    this.popoverController.create(popover).then(element => element.present());
   }
   presentInfoPopover(event) {
-    this.popoverController.create(InfoComponent).present({ ev: event });
+    const popover = new Popover();
+    popover.component = InfoComponent;
+    this.popoverController.create(popover).then(element => element.present());
   }
 
 }

@@ -1,4 +1,4 @@
-import { IonicPageModule } from 'ionic-angular';
+// import { IonicPageModule } from '@ionic/angular';
 import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';
 import { CommonModule }                 from '@angular/common';
@@ -11,7 +11,7 @@ import { ProtectedComponent }       from './protected.component';
     imports: [
         CommonModule,
         ProtectedRoutingModule,
-        IonicPageModule.forChild(ProtectedComponent),
+        // IonicPageModule.forChild(ProtectedComponent),
         LayoutModule
     ],
     declarations: [ ProtectedComponent ],

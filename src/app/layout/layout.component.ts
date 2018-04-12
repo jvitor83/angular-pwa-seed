@@ -1,5 +1,5 @@
 import { Router, NavigationEnd } from '@angular/router';
-import { Platform, MenuController } from 'ionic-angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { Component, OnInit, Input, Injector, ApplicationRef, OnChanges, SimpleChanges, AfterViewInit, NgZone } from '@angular/core';
 import 'rxjs/add/operator/filter';
 
@@ -9,7 +9,8 @@ import 'rxjs/add/operator/filter';
 })
 export class LayoutComponent {
 
-  constructor(public router: Router, public injector: Injector, public zone: NgZone, public platform: Platform, public menuController: MenuController, public application: ApplicationRef) {
+  constructor(public router: Router, public injector: Injector, public zone: NgZone,
+    public platform: Platform, public menuController: MenuController, public application: ApplicationRef) {
 
     this.router.events.filter(event => event instanceof NavigationEnd)
       .subscribe((event) => {
@@ -19,30 +20,30 @@ export class LayoutComponent {
 
           const menuC = menuController;
 
-          menuC.getMenus().forEach(m => m.enable(true));
+          menuC.getMenus().then((menus: Array<HTMLIonMenuElement>) => {
+            menus.forEach(m => m.disabled = false);
 
-          const menus = menuC.getMenus();
-          const hasRightMenu = menus.filter(m => {
-            const bool = m.isRightSide && m.enabled;
-            return bool;
-          }).length > 0;
+            const hasRightMenu = menus.filter(m => {
+              const bool = (m.side === 'right') && (!m.disabled);
+              return bool;
+            }).length > 0;
 
-          // //Configure LeftMenu (fix)
-          // const leftMenu = menus.filter(m => {
-          //   const bool = !m.isRightSide;
-          //   return bool;
-          // })[0];
-          // if (leftMenu) {
-          //   leftMenu.swipeEnable(true);
-          // }
-
+            // //Configure LeftMenu (fix)
+            // const leftMenu = menus.filter(m => {
+            //   const bool = !m.isRightSide;
+            //   return bool;
+            // })[0];
+            // if (leftMenu) {
+            //   leftMenu.swipeEnable(true);
+            // }
 
 
-          // console.log(event);
-          // console.log("hasRightMenu: " + hasRightMenu);
-          this.showRightMenuButton = hasRightMenu;
-          this.application.tick();
 
+            // console.log(event);
+            // console.log("hasRightMenu: " + hasRightMenu);
+            this.showRightMenuButton = hasRightMenu;
+            this.application.tick();
+          });
         }, 100);
       });
   }

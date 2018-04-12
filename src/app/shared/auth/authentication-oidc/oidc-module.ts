@@ -4,7 +4,7 @@ import { OidcAuthenticationService } from './oidc-authentication.service';
 import { AUTHENTICATION_SERVICE } from './../authentication/authentication-service.token';
 import { NgModule, ModuleWithProviders, InjectionToken, ValueProvider, Inject, Injectable, Type, Optional } from "@angular/core";
 import { YOLO_AUTHENTICATION_SERVICE } from '../authentication-yolo/yolo-authentication-service.token';
-import { Platform } from 'ionic-angular';
+import { Platform } from '@ionic/angular';
 
 
 export const OIDC_CONFIG = new InjectionToken<Oidc.UserManagerSettings>('OIDC_CONFIG');

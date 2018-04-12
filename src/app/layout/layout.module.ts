@@ -4,7 +4,7 @@ import { LeftMenuService, RightMenuService } from './../shared/services/menu.ser
 import { BreadcrumbsComponent } from './../shared/components/breadcrumb.component';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { IonicModule, Item } from 'ionic-angular';
+import { IonicModule, Item } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
@@ -21,7 +21,9 @@ import { LayoutBlankComponent } from './layout-blank.component';
     IonicModule,
     RouterModule
   ],
-  declarations: [TabNone, LayoutComponent, LayoutBlankComponent, LayoutMenuComponent, LayoutTabComponent, HeaderComponent, MenuComponent, InfoComponent, UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent, BreadcrumbsComponent],
+  declarations: [TabNone, LayoutComponent, LayoutBlankComponent, LayoutMenuComponent,
+    LayoutTabComponent, HeaderComponent, MenuComponent, InfoComponent,
+    UserinfoComponent, SysteminfoComponent, EnterpriseinfoComponent, BreadcrumbsComponent],
   providers: [LeftMenuService, RightMenuService],
   exports: [LayoutComponent, LayoutMenuComponent, LayoutBlankComponent, LayoutTabComponent, HeaderComponent, MenuComponent],
   entryComponents: [UserinfoComponent, InfoComponent, TabNone]

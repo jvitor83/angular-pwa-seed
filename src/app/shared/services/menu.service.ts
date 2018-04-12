@@ -1,4 +1,4 @@
-import { MenuController, SplitPane } from 'ionic-angular';
+import { MenuController, SplitPane } from '@ionic/angular';
 import { Injectable, ElementRef, ApplicationRef } from '@angular/core';
 
 
@@ -13,7 +13,7 @@ abstract class MenuService {
   }
 
   constructor(public menuController: MenuController) {
-    
+
   }
 
   pinToggleMenu() {
@@ -24,15 +24,19 @@ abstract class MenuService {
   toggleMenu() {
     this.isFixed = false;
     //this.menuController.toggle(this.menuSideName);
-    const menus = this.menuController.getMenus();
-    const menusFilter = menus.filter(m => m.side == this.menuSide);
+    const menusPromise = this.menuController.getMenus();
+    menusPromise.then((menus: Array<HTMLIonMenuElement>) => {
+      const menusFilter = menus.filter(m => m.side === this.menuSide);
+      if (menusFilter && menusFilter.length > 0) {
+        const menu = menusFilter[0];
+        menu.disabled = false;
+        menu.toggle();
+        //this.menuController.toggle(menu.id);
+      }
+    });
 
-    if(menusFilter && menusFilter.length > 0){
-      const menu = menusFilter[0];
-      menu.enable(true);
-      menu.toggle();
-      //this.menuController.toggle(menu.id);
-    }
+
+
   }
 
 }

@@ -1,6 +1,6 @@
 import { LeftMenuService, RightMenuService } from './../../shared/services/menu.service';
 import { Router } from '@angular/router';
-import { Platform, MenuController, IonicModule, SplitPane } from 'ionic-angular';
+import { Platform, MenuController, IonicModule, SplitPane } from '@ionic/angular';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer, ApplicationRef, AfterContentInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 

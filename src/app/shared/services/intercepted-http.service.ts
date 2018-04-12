@@ -1,19 +1,21 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/finally';
 import { IdentityService } from './../auth/authentication/identity.service';
 import { Injectable, Inject, Injector } from '@angular/core';
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers, XHRBackend } from "@angular/http";
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/finally';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingController } from '@ionic/angular';
 import { OAuthIdentity, OpenIDConnectIdentity } from '../auth/authentication/identity.model';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 @Injectable()
 export class AuthenticationHttpInterceptor implements HttpInterceptor {
 
-  public loading: Loading;
+  public loading: HTMLIonLoadingElement;
 
   constructor(protected identityService: IdentityService, public loadingCtrl: LoadingController) {
-    this.loading = this.loadingCtrl.create();
+    this.loadingCtrl.create().then(ele => this.loading = ele);
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -40,7 +42,7 @@ export class AuthenticationHttpInterceptor implements HttpInterceptor {
         console.log('Error Occurred:');
         console.log(error);
         // return the error to the method that called it
-        return Observable.throw(error);
+        return Observable.throwError(error);
     })
     .finally(() => this.loading.dismiss());
 

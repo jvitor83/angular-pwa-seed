@@ -12,12 +12,10 @@
 
     </author>
     <universal-links>
-      <!-- If you use firebase, change here just like in environment.ts
-      More info at: https://firebase.google.com/docs/auth/web/cordova -->
-      <host name="newagent-9a87c.firebaseapp.com" scheme="https" />
-      <host name="newagent-9a87c.firebaseio.com" scheme="https">
-          <path url="/__/auth/callback"/>
-      </host>
+        <host name="newagent-9a87c.firebaseapp.com" scheme="https" />
+        <host name="newagent-9a87c.firebaseio.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
     </universal-links>
     <preference name="AndroidLaunchMode" value="singleTask" />
     <content src="index.html" />

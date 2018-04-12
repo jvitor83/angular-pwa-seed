@@ -5,7 +5,7 @@ import { BaseAuthenticationService } from '../authentication/base-authentication
 import { Observable } from 'rxjs/Observable';
 import { OidcIdentityTransformationService } from './oidc-identity-transformation.service';
 import * as Oidc from 'oidc-client';
-import { Platform } from 'ionic-angular';
+import { Platform } from '@ionic/angular';
 import { OpenIDConnectIdentity } from '../authentication/identity.model';
 
 @Injectable()
