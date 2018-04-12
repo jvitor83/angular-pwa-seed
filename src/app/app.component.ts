@@ -19,6 +19,7 @@ import { ProviderAuthenticationService } from './shared/auth/authentication/prov
 
 @Component({
   moduleId: module.id,
+  selector: 'ion-app',
   templateUrl: './app.html',
   animations: [routerTransition]
 })
@@ -49,22 +50,23 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      SplashScreen.hide();
-      // this.statusBar.styleDefault();
-      // this.splashScreen.hide();
+
+    // this.platform.ready().then(() => {
+    //   // Okay, so the platform is ready and our plugins are available.
+    //   // Here you can do any higher level native things you might need.
+    //   StatusBar.styleDefault();
+    //   SplashScreen.hide();
+    //   // this.statusBar.styleDefault();
+    //   // this.splashScreen.hide();
 
 
-      // this.platform.resize.asObservable().subscribe((event) => {
-      //   this.zone.run(() => {
-      //     this.application.tick();
-      //   });
-      // });
+    //   // this.platform.resize.asObservable().subscribe((event) => {
+    //   //   this.zone.run(() => {
+    //   //     this.application.tick();
+    //   //   });
+    //   // });
 
-    });
+    // });
   }
 
 
