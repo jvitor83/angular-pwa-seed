@@ -32,34 +32,34 @@
                 "output": "scripts"
               },
               {
-                "glob": "**/*",
-                "input": "src/favicon.ico",
-                "output": "favicon.ico"
+                "glob": "**/favicon.ico",
+                "input": "src",
+                "output": "/"
               },
               {
-                "glob": "**/*",
-                "input": "src/callback.html",
-                "output": "callback.html"
+                "glob": "**/callback.html",
+                "input": "src",
+                "output": "/"
               },
               {
-                "glob": "**/*",
-                "input": "src/silentrefreshframe.html",
-                "output": "silentrefreshframe.html"
+                "glob": "**/silentrefreshframe.html",
+                "input": "src",
+                "output": "/"
               },
               {
-                "glob": "**/*",
-                "input": "src/service-worker.js",
-                "output": "service-worker.js"
+                "glob": "**/service-worker.js",
+                "input": "src",
+                "output": "/"
               },
               {
-                "glob": "**/*",
-                "input": "src/web.config",
-                "output": "web.config"
+                "glob": "**/web.config",
+                "input": "src",
+                "output": "/"
               },
               {
-                "glob": "**/*",
-                "input": "src/manifest.json",
-                "output": "manifest.json"
+                "glob": "**/manifest.json",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
