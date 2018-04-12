@@ -1,5 +1,4 @@
 import { IdentityService } from './../shared/auth/authentication/identity.service';
-import { Identity } from './../shared/services/base-auth.service';
 // import { AUTHENTICATION_SERVICE } from './../shared/auth/authentication/authentication-service.token';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';

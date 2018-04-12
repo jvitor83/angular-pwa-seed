@@ -1,6 +1,5 @@
 import { AuthenticationService } from './../../../shared/auth/authentication/authentication.service';
 import { IdentityService } from './../../../shared/auth/authentication/identity.service';
-import { Identity } from './../../../shared/services/base-auth.service';
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from 'ionic-angular';

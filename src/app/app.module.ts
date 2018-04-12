@@ -22,10 +22,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
-import { FirebaseAuthService } from './shared/services/firebase-auth.service';
-
-import { OidcAuthService } from './shared/services/auth.service';
-import { AuthGuardService } from './shared/services/auth-guard.service';
 
 // Routing Module
 import { AppRoutingModule } from './app.routing';
@@ -36,7 +32,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AuthenticationHttpInterceptor } from './shared/services/intercepted-http.service';
-import { YoloOidcAuthService } from './shared/services/yolo-auth.service';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { OidcIdentityTransformationService } from './shared/auth/authentication-oidc/oidc-identity-transformation.service';
 import { InitOidcAuthenticationService, OidcAuthModule } from './shared/auth/authentication-oidc/oidc-module';
@@ -115,7 +110,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
       multi: true
     },
 
-    AuthGuardService,
+    // AuthGuardService,
 
 
     // YoloAuthService
