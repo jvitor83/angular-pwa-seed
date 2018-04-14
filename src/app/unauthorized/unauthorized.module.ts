@@ -1,4 +1,4 @@
-import { Network } from '@ionic-native/network';
+// import { Network } from '@ionic-native/network/ngx';
 // import { IonicPageModule } from '@ionic/angular';
 import { LayoutModule } from './../layout/layout.module';
 import { NgModule }                 from '@angular/core';

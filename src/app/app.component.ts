@@ -1,13 +1,15 @@
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Platform, MenuController, ToastController } from '@ionic/angular';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, NavigationStart } from '@angular/router';
-import { Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit,
-  ApplicationRef, NgZone, Inject, AfterViewInit, Optional } from '@angular/core';
+import {
+  Component, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterContentInit,
+  ApplicationRef, NgZone, Inject, AfterViewInit, Optional
+} from '@angular/core';
 
 
 import { routerTransition } from './fade.animations';
-import { StatusBar } from '@ionic-native/status-bar';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 //import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
 //import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 import { SwUpdate } from '@angular/service-worker';
@@ -32,8 +34,8 @@ export class MyApp implements OnInit, AfterViewInit {
     public router: Router,
     private zone: NgZone,
     private activatedRoute: ActivatedRoute,
-    // public statusBar: StatusBar,
-    // public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
     @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
@@ -50,23 +52,29 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   initializeApp() {
+    try {
+      if (this.platform && this.platform.ready) {
+        const platformReadyPromise = this.platform.ready();
+        if (platformReadyPromise && platformReadyPromise.then) {
+          platformReadyPromise.then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
 
-    // this.platform.ready().then(() => {
-    //   // Okay, so the platform is ready and our plugins are available.
-    //   // Here you can do any higher level native things you might need.
-    //   StatusBar.styleDefault();
-    //   SplashScreen.hide();
-    //   // this.statusBar.styleDefault();
-    //   // this.splashScreen.hide();
+            // this.platform.resize.asObservable().subscribe((event) => {
+            //   this.zone.run(() => {
+            //     this.application.tick();
+            //   });
+            // });
 
+          });
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
 
-    //   // this.platform.resize.asObservable().subscribe((event) => {
-    //   //   this.zone.run(() => {
-    //   //     this.application.tick();
-    //   //   });
-    //   // });
-
-    // });
   }
 
 
@@ -85,7 +93,7 @@ export class MyApp implements OnInit, AfterViewInit {
         this.authenticationService.login(false);
       }
     }
-}
+  }
 
 
   isCordova(platform?: Platform): boolean {
@@ -110,8 +118,8 @@ export class MyApp implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.router.events
-    .filter(event => event instanceof NavigationStart)
-    .subscribe((event) => this.menu.close());
+      .filter(event => event instanceof NavigationStart)
+      .subscribe((event) => this.menu.close());
 
 
     if (this.swUpdate) {

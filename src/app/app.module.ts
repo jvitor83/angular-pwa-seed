@@ -26,9 +26,9 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AppRoutingModule } from './app.routing';
 
 import { LayoutModule } from './layout/layout.module';
-import { Network } from '@ionic-native/network';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AuthenticationHttpInterceptor } from './shared/services/intercepted-http.service';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
@@ -68,18 +68,26 @@ import { IonicNativePlugin } from '@ionic-native/core';
     //   OidcAuthModule.forRoot(environment.authentication)
     // ),
 
-    // // // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
+    // // Use OpenYOLO with any OpenID Connect provider (using generic client: 'OidcClient') at First Login
+    AuthModule.forRoot(
+      YoloAuthModule.forRoot(
+        OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE),
+        [{ uri: environment.authentication.authority, clientId: environment.authentication.client_id }]
+      )
+    ),
+
+    // // // Use Firebase at Login
     // AuthModule.forRoot(
-    //   YoloAuthModule.forRoot(
-    //     OidcAuthModule.forRoot(environment.authentication, YOLO_AUTHENTICATION_SERVICE),
-    //     [{ uri: environment.authentication.authority, clientId: environment.authentication.client_id }]
-    //   )
+    //   FirebaseAuthModule.forRoot(environment.firebase)
     // ),
 
-    // // Use OpenYOLO with Firebase at First Login
-    AuthModule.forRoot(
-      FirebaseAuthModule.forRoot(environment.firebase)
-    ),
+    // // // Use OpenYOLO with Firebase at First Login
+    // AuthModule.forRoot(
+    //   YoloAuthModule.forRoot(
+    //     FirebaseAuthModule.forRoot(environment.firebase, YOLO_AUTHENTICATION_SERVICE),
+    //     [{ uri: environment.firebase.authDomain, clientId: environment.firebase.projectId }]
+    //   )
+    // ),
 
 
     LayoutModule,
@@ -100,9 +108,9 @@ import { IonicNativePlugin } from '@ionic-native/core';
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
 
-    // Network,
-    // StatusBar,
-    // SplashScreen,
+    Network,
+    StatusBar,
+    SplashScreen,
 
 
     {

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Network } from '@ionic-native/network';
+import { Network } from '@ionic-native/network/ngx';
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
 
@@ -35,7 +35,9 @@ export class UserinfoComponent implements OnInit {
     private authService: AuthenticationService,
     private identityservice: IdentityService,
     private platform: Platform, private popoverCtrl: PopoverController,
-    private router: Router, public toastCtrl: ToastController) {
+    private router: Router, public toastCtrl: ToastController,
+    private network: Network,
+  ) {
 
   }
 
@@ -90,8 +92,8 @@ export class UserinfoComponent implements OnInit {
   }
 
   login() {
-    Network.onchange().subscribe(() => {
-      const networkState = Network.type;
+    this.network.onchange().subscribe(() => {
+      const networkState = this.network.type;
       if (networkState !== 'none') {
         if (this.router.url !== '/unauthorized') {
           localStorage.removeItem(location.host + ':callback');
