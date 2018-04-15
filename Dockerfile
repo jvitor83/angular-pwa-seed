@@ -1,7 +1,7 @@
 # BUILD
 FROM beevelop/ionic AS build
 ARG registry=https://registry.npmjs.org/
-ARG base-href=./
+ARG base_href=./
 ARG target=production
 LABEL Name=angular-pwa-seed Version=0.1.0
 # RUN npm uninstall -g ionic cordova
@@ -24,10 +24,13 @@ WORKDIR /usr/src
 # RUN ng test --progress false --single-run
 
 
-RUN npm run build -- --base-href ${base-href} --target=${target}
-# RUN npm run resources
-# RUN npm run install.android
-# RUN npm run cordova build android --release
+RUN npm run build -- --base-href ${base_href} --target=${target}
+
+# RUN yes | /opt/android/tools/bin/sdkmanager --licenses
+# RUN npm run cordova -- build android --release
+# docker cp angular-pwa-seed-container:/usr/src/platforms/android/build/outputs/apk/android-armv7-debug.apk .
+# docker cp angular-pwa-seed-container:/usr/src/platforms/android/build/outputs/apk/android-x86-debug.apk .
+
 
 # PUBLISH / RUN
 FROM nginx AS publish
