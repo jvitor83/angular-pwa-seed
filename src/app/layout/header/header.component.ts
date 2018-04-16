@@ -4,7 +4,6 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
 import { InfoComponent } from './info/info.component';
 import { PopoverController, Platform, MenuController } from '@ionic/angular';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, AfterContentInit, ApplicationRef, NgZone, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { PopoverOptions, Popover } from '@ionic/core';
 
 
 @Component({
@@ -55,15 +54,15 @@ export class HeaderComponent implements OnInit {
     this.rightMenuService.toggleMenu();
   }
 
-  presentUserInfoPopover(event) {
-    const popover = new Popover();
-    popover.component = UserinfoComponent;
-    this.popoverController.create(popover).then(element => element.present());
+  async presentUserInfoPopover(event) {
+    const popoverOptions = { component: UserinfoComponent, ev: event };
+    const popover = this.popoverController.create(popoverOptions);
+    return popover.then(popoverElement => popoverElement.present());
   }
-  presentInfoPopover(event) {
-    const popover = new Popover();
-    popover.component = InfoComponent;
-    this.popoverController.create(popover).then(element => element.present());
+  async presentInfoPopover(event) {
+    const popoverOptions = { component: InfoComponent, ev: event };
+    const popover = this.popoverController.create(popoverOptions);
+    return popover.then(popoverElement => popoverElement.present());
   }
 
 }

@@ -6,7 +6,7 @@ abstract class MenuService {
 
   public isFixed = true;
 
-  public abstract menuSide: 'left' | 'right';
+  public abstract menuSide: 'start' | 'end';
 
   private get menuSideName() {
     return this.menuSide + 'Menu';
@@ -45,7 +45,7 @@ abstract class MenuService {
 
 @Injectable()
 export class LeftMenuService extends MenuService {
-  public menuSide: 'left' | 'right' = 'left';
+  public menuSide: 'start' | 'end' = 'start';
 
   constructor(public menuController: MenuController) {
     super(menuController);
@@ -54,7 +54,7 @@ export class LeftMenuService extends MenuService {
 
 @Injectable()
 export class RightMenuService extends MenuService {
-  public menuSide: 'left' | 'right' = 'right';
+  public menuSide: 'start' | 'end' = 'end';
 
   constructor(public menuController: MenuController) {
     super(menuController);

@@ -24,7 +24,7 @@ export class LayoutComponent {
             menus.forEach(m => m.disabled = false);
 
             const hasRightMenu = menus.filter(m => {
-              const bool = (m.side === 'right') && (!m.disabled);
+              const bool = (m.side === 'end') && (!m.disabled);
               return bool;
             }).length > 0;
 
