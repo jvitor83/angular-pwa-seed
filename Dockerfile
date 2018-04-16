@@ -35,8 +35,9 @@ RUN npm run build -- --base-href ${base_href} --target=${target}
 # BUILD ANDROID
 # --------------------------------------
 RUN npm run cordova -- build android --release
-# docker cp angular-pwa-seed-container:/usr/src/platforms/android/build/outputs/apk/android-armv7-debug.apk .
-# docker cp angular-pwa-seed-container:/usr/src/platforms/android/build/outputs/apk/android-x86-debug.apk .
+# When the image is running 'npm run docker.run' them you can copy the APKs using the commands bellow or just by downloading the APKs at 'http://localhost/android/android-x86-debug.apk'
+# docker cp angular-pwa-seed-container:/usr/share/nginx/html/android/android-armv7-debug.apk .
+# docker cp angular-pwa-seed-container:/usr/share/nginx/html/android/android-x86-debug.apk .
 
 
 # PUBLISH / RUN
@@ -47,9 +48,11 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 RUN rm -rf /usr/share/nginx/html/*
 ## From 'build' stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=build /usr/src/www /usr/share/nginx/html
+# Copy the APKs generated, to the running image (allow to download the APK at url: 'http://localhost/android/android-x86-debug.apk')
+COPY --from=build /usr/src/platforms/android/build/outputs/apk /usr/share/nginx/html/android
 EXPOSE 80 443
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
 
 # TO RUN
-# docker run -p 80:80 --name angular-pwa-seed-container --rm -i -t angular-pwa-seed bash
+# docker run -p 80:80 -p 443:443 --name angular-pwa-seed-container --rm -i -t angular-pwa-seed bash
