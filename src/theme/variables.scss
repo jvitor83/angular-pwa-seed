@@ -1,7 +1,7 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
-@import "../../node_modules/@ionic/angular/dist/themes/ionic.globals";
-@import "../../node_modules/@ionic/angular/dist/themes/ionic.theme.default";
+@import "../../node_modules/@ionic/angular/dist/themes/ionic.build.default";
+//@import "../../node_modules/@ionic/angular/dist/themes/ionic.theme.default";
 
 @import "./theme";
 // Shared Variables
@@ -76,18 +76,18 @@ $menu-wp-background: $menu-background;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "../../node_modules/@ionic/angular/dist/themes/ionic.theme.default";
+// @import "../../node_modules/@ionic/angular/dist/themes/ionic.theme.default";
 
 
-// Ionicons
-// --------------------------------------------------
-// The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/v2/ionicons/
-$font-path: "../../node_modules/@ionic/angular/fonts";
-// $ionicons-font-path: "../../node_modules/@ionic/angular/fonts";
-// @import "../../node_modules/@ionic/angular/fonts/ionicons";
-$ionicons-font-path: "../../node_modules/ionicons/dist/fonts";
-@import "../../node_modules/ionicons/dist/scss/ionicons";
+// // Ionicons
+// // --------------------------------------------------
+// // The premium icon font for Ionic. For more info, please see:
+// // http://ionicframework.com/docs/v2/ionicons/
+// $font-path: "../../node_modules/@ionic/angular/fonts";
+// // $ionicons-font-path: "../../node_modules/@ionic/angular/fonts";
+// // @import "../../node_modules/@ionic/angular/fonts/ionicons";
+// $ionicons-font-path: "../../node_modules/ionicons/dist/fonts";
+// @import "../../node_modules/ionicons/dist/scss/ionicons";
 
 
 // All Ionic components

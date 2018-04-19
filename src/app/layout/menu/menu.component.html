@@ -1,5 +1,5 @@
 <ion-split-pane #splitPaneLeftMenu [when]="whenSplitPaneShow(768)">
-  <ion-menu id="leftMenu" side="left" type="overlay">
+  <ion-menu id="leftMenu" side="start" type="overlay">
 
     <ion-header>
       <ion-toolbar>
@@ -47,7 +47,7 @@
     </ion-content>
 
 
-    <ion-menu *ngIf="infoAtRightMenu == true" [disabled]="infoAtRightMenu != true" id="rightMenu" type="overlay" side="right">
+    <ion-menu *ngIf="infoAtRightMenu == true" [disabled]="infoAtRightMenu != true" id="rightMenu" type="overlay" side="end">
 
       <ion-header>
         <ion-toolbar>
