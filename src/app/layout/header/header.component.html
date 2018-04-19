@@ -1,6 +1,6 @@
 
   <ion-toolbar>
-  <button *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="leftMenu">
+  <button *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="startMenu">
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -30,7 +30,7 @@
       </button>
     </div>
 
-      <button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="rightMenu">
+      <button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="endMenu">
         <ion-icon name="more"></ion-icon>
       </button>
 

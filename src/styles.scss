@@ -74,7 +74,18 @@ ion-menu ion-content {
 .split-pane-visible > .split-pane-side {//[side=left]
     max-width: 250px !important;
     min-width: 250px !important;
+    order: 0 !important; // temporary fix???
 }
+
+.split-pane-visible>.split-pane-side[side=end] {
+  border-left: 1px solid rgba(var(--ion-item-md-border-color-rgb,var(--ion-item-border-color-rgb,0,0,0)),.13);
+  border-right: 0px;
+}
+.split-pane-visible>.split-pane-side[side=start] {
+  border-left: 0px;
+  border-right: 1px solid rgba(var(--ion-item-md-border-color-rgb,var(--ion-item-border-color-rgb,0,0,0)),.13);
+}
+
 
 ion-title {
   display: inline-block;
