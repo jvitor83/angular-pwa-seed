@@ -2,13 +2,11 @@
   <ion-menu id="leftMenu" side="start" type="overlay">
 
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="primary">
         <ion-title>Pages</ion-title>
-        <span>
-          <a class="right" invisible-to="mobile" (click)="fixMenu()">
-            <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
-        </a>
-        </span>
+        <ion-item slot="end" invisible-to="mobile" (click)="fixMenu()">
+          <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
+        </ion-item>
       </ion-toolbar>
     </ion-header>
 
@@ -50,12 +48,10 @@
     <ion-menu *ngIf="infoAtRightMenu == true" [disabled]="infoAtRightMenu != true" id="rightMenu" type="overlay" side="end">
 
       <ion-header>
-        <ion-toolbar>
-          <span>
-            <a class="left" invisible-to="mobile" (click)="fixRightMenu()">
+        <ion-toolbar color="primary">
+            <ion-item slot="start" invisible-to="mobile" (click)="fixRightMenu()">
               <span [@rightMenuState]="rightMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
-          </a>
-          </span>
+            </ion-item>
 
           <ion-title>Info/Settings</ion-title>
 

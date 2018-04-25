@@ -1,4 +1,3 @@
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Platform, MenuController, ToastController } from '@ionic/angular';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet, NavigationStart } from '@angular/router';
@@ -9,7 +8,6 @@ import {
 
 
 import { routerTransition } from './fade.animations';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 //import { AUTH_SERVICE, BaseAuthService } from './shared/services/base-auth.service';
 //import { YoloBaseAuthService } from './shared/services/yolo-auth.service';
 import { SwUpdate } from '@angular/service-worker';
@@ -17,6 +15,10 @@ import { Http } from '@angular/http';
 import { IdentityService } from './shared/auth/authentication/identity.service';
 import { YoloAuthenticationService } from './shared/auth/authentication-yolo/base-yolo-authentication.service';
 import { ProviderAuthenticationService } from './shared/auth/authentication/provider-authentication.service';
+
+
+import { Plugins, StatusBarStyle } from '@capacitor/core';
+const { SplashScreen, StatusBar } = Plugins;
 
 
 @Component({
@@ -34,8 +36,6 @@ export class MyApp implements OnInit, AfterViewInit {
     public router: Router,
     private zone: NgZone,
     private activatedRoute: ActivatedRoute,
-    public statusBar: StatusBar,
-    public splashScreen: SplashScreen,
     @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
@@ -59,8 +59,8 @@ export class MyApp implements OnInit, AfterViewInit {
           platformReadyPromise.then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
+            SplashScreen.hide();
+            StatusBar.setStyle({ style: StatusBarStyle.Dark });
 
             // this.platform.resize.asObservable().subscribe((event) => {
             //   this.zone.run(() => {

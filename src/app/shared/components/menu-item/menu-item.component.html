@@ -1,7 +1,5 @@
-<a routerLinkActive="active" (click)="navigateTo(link)" ion-item>
-  <div *ngIf="!!icon">
-    <ion-icon name="{{icon}}"></ion-icon>
-  </div>
-  <label *ngIf="!!title">{{title}}</label>
+<ion-item button routerLinkActive="active" (click)="navigateTo(link)">
+  <ion-icon *ngIf="!!icon" slot="start" name="{{icon}}"></ion-icon>
+  <ion-label *ngIf="!!title">{{title}}</ion-label>
   <ng-content></ng-content>
-</a>
+</ion-item>

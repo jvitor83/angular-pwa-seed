@@ -1,39 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
 
-  <ion-toolbar>
-  <button *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="startMenu">
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-menu-toggle auto-hide="false">
+      <ion-buttons slot="start">
+        <ion-menu-button class="left" color="primary" *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="startMenu">
+          <ion-icon name="menu"></ion-icon>
+        </ion-menu-button>
 
-  <span padding>
-  <img src="assets/icon.png" height="35" width="35" />
-  <ion-title>AngularPwaSeed</ion-title>
-  </span>
 
-  <!--<button mobile-hidden ion-button>
+
+        <span>
+          <img class="left" src="assets/icon.png" height="35" width="35" />
+          <ion-title class="right">AngularPwaSeed</ion-title>
+        </span>
+
+        <!--<button mobile-hidden ion-button>
         <ion-icon name="search"></ion-icon>
         Search
     </button>-->
-
-  <ng-content></ng-content>
-
-  <ion-buttons end>
+      </ion-buttons>
+    </ion-menu-toggle>
 
 
-    <div *ngIf="!infoAtRightMenu">
-      <button ion-button (click)="presentUserInfoPopover($event)">
-        <ion-icon name="person"></ion-icon>
-        <span invisible-to="mobile">{{name}}</span>
-      </button>
+    <ng-content></ng-content>
 
-      <button ion-button (click)="presentInfoPopover($event)">
-        <ion-icon name="information-circle"></ion-icon>
-      </button>
-    </div>
+    <ion-buttons slot="end">
 
-      <button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="endMenu">
+
+      <div *ngIf="!infoAtRightMenu">
+        <ion-menu-button ion-button (click)="presentUserInfoPopover($event)">
+          <ion-icon name="person"></ion-icon>
+          <span invisible-to="mobile">{{name}}</span>
+        </ion-menu-button>
+
+        <ion-menu-button ion-button (click)="presentInfoPopover($event)">
+          <ion-icon name="information-circle"></ion-icon>
+        </ion-menu-button>
+      </div>
+
+      <ion-menu-button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="endMenu">
         <ion-icon name="more"></ion-icon>
-      </button>
+      </ion-menu-button>
 
 
-  </ion-buttons>
-</ion-toolbar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -26,9 +26,6 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AppRoutingModule } from './app.routing';
 
 import { LayoutModule } from './layout/layout.module';
-import { Network } from '@ionic-native/network/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
 import { AuthenticationHttpInterceptor } from './shared/services/intercepted-http.service';
 import { AUTHENTICATION_SERVICE } from './shared/auth/authentication/authentication-service.token';
@@ -39,7 +36,6 @@ import { YoloAuthModule } from './shared/auth/authentication-yolo/yolo-module';
 import { YOLO_AUTHENTICATION_SERVICE } from './shared/auth/authentication-yolo/yolo-authentication-service.token';
 import { FirebaseAuthModule } from './shared/auth/authentication-firebase/firebase-module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { IonicNativePlugin } from '@ionic-native/core';
 
 
 
@@ -107,10 +103,6 @@ import { IonicNativePlugin } from '@ionic-native/core';
       useClass: HashLocationStrategy // This strategy with base-href './' allow to move the app to any subsite and works
       // useClass: PathLocationStrategy // Only if passed the --base-href argument at build & the server has url rewrite to index.html
     },
-
-    Network,
-    StatusBar,
-    SplashScreen,
 
 
     {

@@ -24,6 +24,7 @@ abstract class MenuService {
   toggleMenu() {
     this.isFixed = false;
     //this.menuController.toggle(this.menuSideName);
+
     const menusPromise = this.menuController.getMenus();
     menusPromise.then((menus: Array<HTMLIonMenuElement>) => {
       const menusFilter = menus.filter(m => m.side === this.menuSide);
@@ -31,6 +32,7 @@ abstract class MenuService {
         const menu = menusFilter[0];
         menu.disabled = false;
         menu.toggle();
+
         //this.menuController.toggle(menu.id);
       }
     });

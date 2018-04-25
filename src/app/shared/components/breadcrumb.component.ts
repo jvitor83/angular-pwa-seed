@@ -6,7 +6,7 @@ import 'rxjs/add/operator/filter';
     moduleId: module.id,
     selector: 'breadcrumbs',
     template: `
-    <ion-toolbar class="breadcrumbbar">
+    <ion-toolbar color="primary" class="breadcrumbbar">
         <ion-title>
             <ol>
                 <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs" let-last = last>

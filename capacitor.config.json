@@ -1,0 +1,6 @@
+{
+  "appId": "angular.pwa.seed",
+  "appName": "angular-pwa-seed",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

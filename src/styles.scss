@@ -2,13 +2,13 @@
 
 @import "./theme/theme";
 
-body{
-  background-color: #eaeaea;
-}
+// body{
+//   background-color: #eaeaea;
+// }
 
-ion-menu ion-content {
-  background-color: transparent !important;
-}
+// ion-menu ion-content {
+//   background-color: transparent !important;
+// }
 
 .scroll {
   overflow-y: auto !important;
@@ -133,6 +133,10 @@ _::-webkit-full-page-media, _:future, :root {
   margin: 0px !important;
 }
 
+.toolbar-content {
+   display: contents;
+}
+
 .toolbar-content-md > [padding] {
   padding: 0px !important;
 }
@@ -142,16 +146,16 @@ _::-webkit-full-page-media, _:future, :root {
 }
 //
 
-ion-menu {
-  z-index: 999999 !important;
-}
+// ion-menu {
+//   z-index: 999999 !important;
+// }
 
-seed-menu-item ion-label ion-icon {
-    float: left;
-}
-seed-menu-item :hover {
-    cursor: pointer;
-}
+// seed-menu-item ion-label ion-icon {
+//     float: left;
+// }
+// seed-menu-item :hover {
+//     cursor: pointer;
+// }
 
 .right{
   float: right;

@@ -3,10 +3,14 @@ import { AUTHENTICATION_SERVICE } from './../shared/auth/authentication/authenti
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { Network } from '@ionic-native/network/ngx';
 import { ToastController } from '@ionic/angular';
 //import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
 import { IdentityService } from '../shared/auth/authentication/identity.service';
+
+import { Plugins, NetworkStatus } from '@capacitor/core';
+
+const { Network } = Plugins;
+
 
 @Component({
   moduleId: module.id,
@@ -22,7 +26,6 @@ export class UnauthorizedComponent implements OnInit {
     private authService: AuthenticationService,
     private identityService: IdentityService,
     private location: Location, public toastCtrl: ToastController,
-    private network: Network
   ) { }
 
   ngOnInit() {
@@ -30,10 +33,9 @@ export class UnauthorizedComponent implements OnInit {
   }
 
   Login() {
-    this.network.onchange().subscribe(() => {
-      const networkState = this.network.type;
+    Network.addListener('networkStatusChange', (status: NetworkStatus) => {
+      const networkState = status.connectionType;
       if (networkState !== 'none') {
-
         this.authService.login();
       } else {
         this.toastCtrl.create({
@@ -41,7 +43,6 @@ export class UnauthorizedComponent implements OnInit {
           duration: 3000
         }).then(ele => ele.present());
       }
-
     });
 
   }
