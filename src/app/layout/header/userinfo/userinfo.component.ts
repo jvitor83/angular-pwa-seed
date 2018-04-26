@@ -7,9 +7,8 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Subscriber } from "rxjs/Subscriber";
 
-import { Plugins, NetworkStatus } from '@capacitor/core';
+import { Network } from '@ionic-native/network/ngx';
 
-const { Network } = Plugins;
 
 
 
@@ -38,7 +37,7 @@ export class UserinfoComponent implements OnInit {
     private authService: AuthenticationService,
     private identityservice: IdentityService,
     private platform: Platform, private popoverCtrl: PopoverController,
-    private router: Router, public toastCtrl: ToastController,
+    private router: Router, private network: Network, public toastCtrl: ToastController,
   ) {
 
   }
@@ -95,24 +94,22 @@ export class UserinfoComponent implements OnInit {
 
   login() {
 
-    Network.addListener('networkStatusChange', (status: NetworkStatus) => {
-      const networkState = status.connectionType;
-      if (networkState !== 'none') {
-        if (this.router.url !== '/unauthorized') {
-          localStorage.removeItem(location.host + ':callback');
-        }
-        this.authService.login();
-      } else {
-        this.toastCtrl.create({
-          message: 'Impossible to Login without Internet connection!',
-          duration: 3000
-        }).then((toast) => {
-          toast.present();
-        });
+    const networkState = this.network.type;
+    if (networkState !== 'none') {
+      if (this.router.url !== '/unauthorized') {
+        localStorage.removeItem(location.host + ':callback');
       }
-    });
-
-
+      this.authService.login();
+    } else {
+      this.toastCtrl.create({
+        message: 'Impossible to Login without Internet connection!',
+        duration: 3000
+      }).then((toast) => {
+        toast.present();
+      });
+    }
   }
+
+
 
 }

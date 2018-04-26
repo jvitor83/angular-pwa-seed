@@ -7,9 +7,7 @@ import { ToastController } from '@ionic/angular';
 //import { AUTH_SERVICE, BaseAuthService } from "../shared/services/base-auth.service";
 import { IdentityService } from '../shared/auth/authentication/identity.service';
 
-import { Plugins, NetworkStatus } from '@capacitor/core';
-
-const { Network } = Plugins;
+import { Network } from '@ionic-native/network/ngx';
 
 
 @Component({
@@ -25,7 +23,7 @@ export class UnauthorizedComponent implements OnInit {
     // @Inject(AUTH_SERVICE) private authService: BaseAuthService<any>,
     private authService: AuthenticationService,
     private identityService: IdentityService,
-    private location: Location, public toastCtrl: ToastController,
+    private location: Location, private network: Network, public toastCtrl: ToastController,
   ) { }
 
   ngOnInit() {
@@ -33,17 +31,17 @@ export class UnauthorizedComponent implements OnInit {
   }
 
   Login() {
-    Network.addListener('networkStatusChange', (status: NetworkStatus) => {
-      const networkState = status.connectionType;
-      if (networkState !== 'none') {
-        this.authService.login();
-      } else {
-        this.toastCtrl.create({
-          message: 'Impossible to Login without Internet connection!',
-          duration: 3000
-        }).then(ele => ele.present());
-      }
-    });
+    const networkState = this.network.type;
+    if (networkState !== 'none') {
+      this.authService.login();
+    } else {
+      this.toastCtrl.create({
+        message: 'Impossible to Login without Internet connection!',
+        duration: 3000
+      }).then((toast) => {
+        toast.present();
+      });
+    }
 
   }
   goback() {

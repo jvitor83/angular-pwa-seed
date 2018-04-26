@@ -16,9 +16,8 @@ import { IdentityService } from './shared/auth/authentication/identity.service';
 import { YoloAuthenticationService } from './shared/auth/authentication-yolo/base-yolo-authentication.service';
 import { ProviderAuthenticationService } from './shared/auth/authentication/provider-authentication.service';
 
-
-import { Plugins, StatusBarStyle } from '@capacitor/core';
-const { SplashScreen, StatusBar } = Plugins;
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 
 @Component({
@@ -36,6 +35,8 @@ export class MyApp implements OnInit, AfterViewInit {
     public router: Router,
     private zone: NgZone,
     private activatedRoute: ActivatedRoute,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
     @Inject(AUTHENTICATION_SERVICE) private authenticationService: ProviderAuthenticationService,
     private identityService: IdentityService,
     @Optional() private swUpdate: SwUpdate,
@@ -59,8 +60,10 @@ export class MyApp implements OnInit, AfterViewInit {
           platformReadyPromise.then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
-            SplashScreen.hide();
-            StatusBar.setStyle({ style: StatusBarStyle.Dark });
+            // SplashScreen.hide();
+            // StatusBar.setStyle({ style: StatusBarStyle.Dark });
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
 
             // this.platform.resize.asObservable().subscribe((event) => {
             //   this.zone.run(() => {

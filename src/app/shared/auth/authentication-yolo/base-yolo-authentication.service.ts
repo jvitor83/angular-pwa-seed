@@ -89,6 +89,10 @@ export class YoloAuthenticationService extends BaseAuthenticationService<OpenYol
         console.log('No credential choosed!');
       }
     }, (error) => {
+      if (error.type === 'error' && error.srcElement.nodeName === 'SCRIPT') {
+        // failed to load the script
+        this.wrappedAuthenticationService.login();
+      }
       console.log(error);
 
       if (force) {

@@ -36,6 +36,9 @@ import { YoloAuthModule } from './shared/auth/authentication-yolo/yolo-module';
 import { YOLO_AUTHENTICATION_SERVICE } from './shared/auth/authentication-yolo/yolo-authentication-service.token';
 import { FirebaseAuthModule } from './shared/auth/authentication-firebase/firebase-module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Network } from '@ionic-native/network/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 
 
@@ -96,6 +99,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
   ],
   providers: [
 
+    Network,
+    StatusBar,
+    SplashScreen,
 
     // { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
