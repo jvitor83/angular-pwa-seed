@@ -19,10 +19,10 @@ import { ProviderAuthenticationService } from './shared/auth/authentication/prov
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
-
+export const ComponentName = 'ion-app';
 @Component({
   moduleId: module.id,
-  selector: 'ion-app',
+  selector: ComponentName,
   templateUrl: './app.html',
   animations: [routerTransition]
 })

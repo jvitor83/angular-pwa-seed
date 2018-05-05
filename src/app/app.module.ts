@@ -1,6 +1,6 @@
 import { IdentityService } from './shared/auth/authentication/identity.service';
 
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, Injector } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { IonicModule, Platform, LoadingController } from '@ionic/angular';
 
-import { MyApp } from './app.component';
+import { MyApp, ComponentName } from './app.component';
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -39,6 +39,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Network } from '@ionic-native/network/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+
+import { createCustomElement } from '@angular/elements';
 
 
 
@@ -123,4 +126,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     // YoloAuthService
   ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) { }
+  ngDoBootstrap() {
+    const AppElement = createCustomElement(MyApp, { injector: this.injector });
+    customElements.define(ComponentName, AppElement);
+  }
+}

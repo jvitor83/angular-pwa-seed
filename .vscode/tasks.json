@@ -9,7 +9,7 @@
   "echoCommand": true,
   "tasks": [
     {
-      "taskName": "start",
+      "taskName": "serve",
       "isBuildCommand": true,
       "showOutput": "always",
       "isBackground": true,
@@ -38,23 +38,6 @@
       "command": "npm run lint",
       "isBackground": true,
       "problemMatcher": "$tsc"
-    },
-    {
-      "taskName": "serve",
-      "isBuildCommand": false,
-      "showOutput": "always",
-      "isBackground": true,
-      "isTestCommand": false,
-      "problemMatcher": {
-        "owner": "angular-cli",
-        "fileLocation": "relative",
-        "base": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": "Angular Live Development Server",
-          "endsPattern": "^Time:"
-        }
-      }
     }
   ]
 }
