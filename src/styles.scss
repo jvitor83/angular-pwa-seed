@@ -104,25 +104,26 @@ _::-webkit-full-page-media, _:future, :root {
 
 
 [layout-tabs] {
-  position: absolute;
-  display: inline-block;
-  left: inherit;
-  max-width: inherit !important;
-  background-color: $theme-color !important;
+  position: relative !important;
+  // display: inline-block;
+  //left: inherit;
+  max-width: max-content !important;
+  overflow: visible !important;
+  background-color: --ion-color-primary !important;
 }
 [layout-tabs] > .tabbar {
   width: auto !important;
 }
 [layout-tabs] .tabbar > a {
   min-width: 125px !important;
-  background-color: $background-color;
+  //background-color: $background-color;
 }
 [layout-tab]  .content {
   background-color: transparent !important;
 }
-.tabbar{
-  height: 100% !important;
-}
+// .tabbar{
+//   height: 100% !important;
+// }
 
 [end] {
   display: flex !important;

@@ -15,7 +15,7 @@
         "--disable-session-crashed-bubble",
         "--disable-infobars"
       ],
-      "preLaunchTask": "start"
+      "preLaunchTask": "serve"
     },
     {
       "name": "Launch on Chrome",

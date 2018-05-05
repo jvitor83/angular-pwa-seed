@@ -1,4 +1,4 @@
-<seed-layout type="menu" [infoAtRightMenu]="true">
+<seed-layout type="menu">
 
   <!-- Link to routes -->
   <div menu-items>
@@ -7,6 +7,10 @@
   </div>
 
 
+  
+    <!-- <ion-router-outlet main></ion-router-outlet> -->
+  
+  
   <main [@routerTransition]="getState(o)">
     <router-outlet #o="outlet"></router-outlet>
   </main>
