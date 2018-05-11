@@ -7,13 +7,18 @@
   </div>
 
 
-  
-    <!-- <ion-router-outlet main></ion-router-outlet> -->
-  
-  
-  <main [@routerTransition]="getState(o)">
-    <router-outlet #o="outlet"></router-outlet>
+
+  <!-- This way the router animations is the one defined by ion-router-outlet -->
+  <main>
+      <ion-router-outlet main></ion-router-outlet>
   </main>
+
+
+  <!-- This way the router animations can be the one at fade.animations.ts -->
+<!--
+  <main [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+  </main> -->
 
 
 </seed-layout>

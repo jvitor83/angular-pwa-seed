@@ -27,6 +27,21 @@
   font-size: 16px;
 }
 
+main {
+  position: relative;
+  margin: 16px !important;
+  padding: 0px !important;
+}
+
+.ion-page, ion-app, ion-nav, ion-router-outlet, ion-tab, ion-tabs {
+  overflow: inherit !important;
+}
+
+
+// Fix for transparent pin
+.item {
+  background-color: transparent !important;
+}
 /*
 @media all and (max-width: 768px) {
    [mobile-hidden] {
@@ -91,16 +106,16 @@ ion-title {
   display: inline-block;
 }
 
-/* Fix for Safari on Tablets/Desktops */
-_::-webkit-full-page-media, _:future, :root {
-  ion-split-pane > ion-split-pane > ion-content > .scroll-content {
-    position: relative !important;
-  }
-}
-/* Fix for IPad Air 2 */
-.split-pane-visible>.split-pane-visible {
-  display: -webkit-flex !important;
-}
+// /* Fix for Safari on Tablets/Desktops */
+// _::-webkit-full-page-media, _:future, :root {
+//   ion-split-pane > ion-split-pane > ion-content > .scroll-content {
+//     position: relative !important;
+//   }
+// }
+// /* Fix for IPad Air 2 */
+// .split-pane-visible>.split-pane-visible {
+//   display: -webkit-flex !important;
+// }
 
 
 [layout-tabs] {
