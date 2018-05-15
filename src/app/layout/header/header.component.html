@@ -26,17 +26,17 @@
 
 
       <div *ngIf="!infoAtRightMenu">
-        <ion-menu-button [autoHide]="'false'" ion-button (click)="presentUserInfoPopover($event)">
+        <ion-button ion-button (click)="presentUserInfoPopover($event)">
           <ion-icon name="person"></ion-icon>
           <span invisible-to="mobile">{{name}}</span>
-        </ion-menu-button>
+        </ion-button>
 
-        <ion-menu-button [autoHide]="'false'" ion-button (click)="presentInfoPopover($event)">
+        <ion-button ion-button (click)="presentInfoPopover($event)">
           <ion-icon name="information-circle"></ion-icon>
-        </ion-menu-button>
+        </ion-button>
       </div>
 
-      <ion-menu-button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" menuToggle="endMenu">
+      <ion-menu-button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" [menu]="'endMenu'" [autoHide]="'false'" >
         <ion-icon name="more"></ion-icon>
       </ion-menu-button>
 

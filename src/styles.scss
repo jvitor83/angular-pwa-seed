@@ -2,6 +2,10 @@
 
 @import "./theme/theme";
 
+seed-layout {
+  display: contents;
+}
+
 // body{
 //   background-color: #eaeaea;
 // }
@@ -102,9 +106,9 @@ main {
 }
 
 
-ion-title {
-  display: inline-block;
-}
+// ion-title {
+//   display: inline-block;
+// }
 
 // /* Fix for Safari on Tablets/Desktops */
 // _::-webkit-full-page-media, _:future, :root {
@@ -120,9 +124,9 @@ ion-title {
 
 [layout-tabs] {
   position: relative !important;
-  // display: inline-block;
+  display: contents;
   //left: inherit;
-  max-width: max-content !important;
+  //max-width: max-content !important;
   overflow: visible !important;
   background-color: --ion-color-primary !important;
 }
@@ -135,6 +139,7 @@ ion-title {
 }
 [layout-tab]  .content {
   background-color: transparent !important;
+
 }
 // .tabbar{
 //   height: 100% !important;
@@ -149,17 +154,17 @@ ion-title {
   margin: 0px !important;
 }
 
-.toolbar-content {
-   display: contents;
-}
+// .toolbar-content {
+//    display: contents;
+// }
 
-.toolbar-content-md > [padding] {
-  padding: 0px !important;
-}
+// .toolbar-content-md > [padding] {
+//   padding: 0px !important;
+// }
 
-.toolbar-title-md {
-  padding: 0px !important;
-}
+// .toolbar-title-md {
+//   padding: 0px !important;
+// }
 //
 
 // ion-menu {

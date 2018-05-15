@@ -4,9 +4,11 @@
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Pages</ion-title>
-        <ion-item slot="end" invisible-to="mobile" (click)="fixMenu()">
+        <ion-buttons slot="end">
+        <ion-item slot="end" class="right" invisible-to="mobile" (click)="fixMenu()">
           <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
         </ion-item>
+      </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
@@ -59,13 +61,13 @@
       <ion-content>
         <ion-list>
           <ion-item>
-            <seed-userinfo></seed-userinfo>
+            <seed-userinfo center style="width: 100%"></seed-userinfo>
+          </ion-item>
+          <ion-item >
+            <seed-systeminfo center style="width: 100%"></seed-systeminfo>
           </ion-item>
           <ion-item>
-            <seed-systeminfo></seed-systeminfo>
-          </ion-item>
-          <ion-item>
-            <seed-enterpriseinfo></seed-enterpriseinfo>
+            <seed-enterpriseinfo center style="width: 100%"></seed-enterpriseinfo>
           </ion-item>
         </ion-list>
       </ion-content>

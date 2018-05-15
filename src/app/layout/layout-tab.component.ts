@@ -15,8 +15,9 @@ export class TabNone { }
   selector: 'seed-layout [type="tab"]',
   template:
   `
+    <ion-header>
     <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="showRightMenuButton" [infoAtRightMenu]="false">
-      <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" tabsPlacement="top">
+      <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" >
         <ion-tab [component]="dummyTab" layout-tab *ngFor="let menuItem of menuItems; let i = index;"
          (ionSelect)="navigateTo(menuItem.link)" label="{{menuItem.title}}" icon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
@@ -27,16 +28,14 @@ export class TabNone { }
     </div>
 
     <ion-toolbar [hidden]="!showToolbarTab">
-      <ion-tabs tabsLayout="icon-top" tabsPlacement="top">
+      <ion-tabs tabsLayout="icon-top" >
         <ion-tab [component]="dummyTab" *ngFor="let menuItem of menuItems; let i = index;"
         (ionSelect)="navigateTo(menuItem.link)" label="{{menuItem.title}}" icon="{{menuItem.icon}}"></ion-tab>
       </ion-tabs>
     </ion-toolbar>
-
+    </ion-header>
     <ion-content main #content>
-      <div padding>
         <ng-content></ng-content>
-      </div>
     </ion-content>
   `,
 })
