@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { style } from '@angular/animations';
 import { PopoverController, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Observable } from "rxjs/Observable";
-import { Subscriber } from "rxjs/Subscriber";
+import { Observable, Subscriber } from "rxjs";
 
 import { Network } from '@ionic-native/network/ngx';
 

@@ -1,5 +1,5 @@
 import { IdentityTransformationService } from './identity-transformation.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ProviderAuthenticationService } from './provider-authentication.service';
 import { IdentityService } from './identity.service';

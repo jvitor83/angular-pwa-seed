@@ -1,8 +1,8 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Injectable, Optional } from '@angular/core';
 import { IdentityService } from './../authentication/identity.service';
 import { BaseAuthenticationService } from '../authentication/base-authentication.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { OidcIdentityTransformationService } from './oidc-identity-transformation.service';
 import * as Oidc from 'oidc-client';
 import { Platform } from '@ionic/angular';

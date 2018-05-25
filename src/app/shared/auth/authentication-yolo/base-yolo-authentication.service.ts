@@ -1,5 +1,5 @@
 import { YOLO_AUTHENTICATION_SERVICE } from './yolo-authentication-service.token';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Credential, OnDemandOpenYoloApi, TokenProvider, CredentialRequestOptions } from '@openid/openyolo';
 import { YoloIdentityTransformationService } from './yolo-identity-transformation.service';
 import { Injectable, Inject, Injector, ReflectiveInjector } from '@angular/core';

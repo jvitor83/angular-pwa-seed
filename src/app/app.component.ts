@@ -18,6 +18,7 @@ import { ProviderAuthenticationService } from './shared/auth/authentication/prov
 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { filter } from 'rxjs/operators';
 
 export const ComponentName = 'ion-app';
 @Component({
@@ -120,8 +121,7 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.router.events
-      .filter(event => event instanceof NavigationStart)
+    this.router.events.pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event) => this.menu.close());
 
 

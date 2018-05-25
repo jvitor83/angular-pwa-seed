@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 
 @Component({
     moduleId: module.id,
@@ -43,7 +43,7 @@ export class BreadcrumbsComponent implements OnInit {
     breadcrumbs: Array<Object>;
     constructor(private router: Router, private route: ActivatedRoute) { }
     ngOnInit(): void {
-        this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
+        this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
             this.breadcrumbs = [];
             let currentRoute = this.route.root,
                 url = '';

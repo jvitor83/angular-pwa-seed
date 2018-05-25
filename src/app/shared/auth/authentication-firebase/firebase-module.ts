@@ -3,7 +3,7 @@ import { FirebaseIdentityTransformationService } from './firebase-identity-trans
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AUTHENTICATION_SERVICE } from './../authentication/authentication-service.token';
-import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { NgModule, ModuleWithProviders, Type } from '@angular/core';
 import { FirebaseOptions } from '@firebase/app-types';
 

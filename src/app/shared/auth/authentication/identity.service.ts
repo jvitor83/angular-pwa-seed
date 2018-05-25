@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Identity } from './identity.model';
 import { Injectable, ApplicationRef, NgZone } from '@angular/core';
 

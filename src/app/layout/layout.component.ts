@@ -1,7 +1,7 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Platform, MenuController } from '@ionic/angular';
 import { Component, OnInit, Input, Injector, ApplicationRef, OnChanges, SimpleChanges, AfterViewInit, NgZone, AfterContentInit, AfterViewChecked } from '@angular/core';
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +16,7 @@ export class LayoutComponent implements AfterViewInit {
   constructor(public router: Router, public injector: Injector, public zone: NgZone,
     public platform: Platform, public menuController: MenuController, public application: ApplicationRef) {
 
-    this.router.events.filter(event => event instanceof NavigationEnd)
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event) => {
         this.rightMenuButton(menuController);
       });

@@ -1,6 +1,6 @@
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export abstract class GuardService implements CanActivate {
 

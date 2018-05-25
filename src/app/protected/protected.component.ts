@@ -3,7 +3,7 @@ import { IdentityService } from './../shared/auth/authentication/identity.servic
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 //import { BaseAuthService, AUTH_SERVICE } from "../shared/services/base-auth.service";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { BaseAuthenticationService } from '../shared/auth/authentication/base-authentication.service';
 import { OpenIDConnectIdentity } from '../shared/auth/authentication/identity.model';
 

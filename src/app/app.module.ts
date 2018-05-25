@@ -18,7 +18,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { environment } from '../environments/environment';
 
-import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 

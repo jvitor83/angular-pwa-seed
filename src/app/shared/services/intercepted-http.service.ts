@@ -1,13 +1,15 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/finally';
+// import { Observable } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+// import 'rxjs/add/operator/catch';
+// import 'rxjs/add/observable/throw';
+// import 'rxjs/add/operator/finally';
 import { IdentityService } from './../auth/authentication/identity.service';
 import { Injectable, Inject, Injector } from '@angular/core';
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers, XHRBackend } from "@angular/http";
 import { LoadingController } from '@ionic/angular';
 import { OAuthIdentity, OpenIDConnectIdentity } from '../auth/authentication/identity.model';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationHttpInterceptor implements HttpInterceptor {
@@ -36,15 +38,16 @@ export class AuthenticationHttpInterceptor implements HttpInterceptor {
 
 
     const httpHandle = next
-    .handle(req)
-    .catch((error) => {
+      .handle(req)
+      .pipe(catchError((error) => {
         // intercept the respons error and displace it to the console
         console.log('Error Occurred:');
         console.log(error);
         // return the error to the method that called it
-        return Observable.throwError(error);
-    })
-    .finally(() => this.loading.dismiss());
+        return Observable.throw(error);
+      }),
+        finalize(() => this.loading.dismiss())
+      );
 
     httpHandle.subscribe(() => this.loading.present());
 
