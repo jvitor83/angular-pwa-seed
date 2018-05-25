@@ -20,5 +20,6 @@
 "angulardoc.fileFilter": [
     "**/!(*.*spec).ts"
 ],
-"angulardoc.lastSync": 0
+"angulardoc.lastSync": 0,
+"git.ignoreLimitWarning": true
 }

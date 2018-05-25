@@ -10,7 +10,7 @@ import {
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
-import { IonicModule, Platform, LoadingController } from '@ionic/angular';
+import { IonicModule, Platform, LoadingController, IonicRouteStrategy } from '@ionic/angular';
 
 import { MyApp, ComponentName } from './app.component';
 
@@ -42,6 +42,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 
 import { createCustomElement } from '@angular/elements';
+import { RouteReuseStrategy } from '@angular/router';
 
 
 
@@ -120,16 +121,14 @@ import { createCustomElement } from '@angular/elements';
       multi: true
     },
 
-    // AuthGuardService,
 
-
-    // YoloAuthService
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ]
 })
 export class AppModule {
-  constructor(private injector: Injector) { }
-  ngDoBootstrap() {
-    const AppElement = createCustomElement(MyApp, { injector: this.injector });
-    customElements.define(ComponentName, AppElement);
-  }
+  // constructor(private injector: Injector) { }
+  // ngDoBootstrap() {
+  //   const AppElement = createCustomElement(MyApp, { injector: this.injector });
+  //   customElements.define(ComponentName, AppElement);
+  // }
 }

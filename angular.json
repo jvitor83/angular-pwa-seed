@@ -4,7 +4,10 @@
   "projects": {
     "app": {
       "root": "",
+      "sourceRoot": "src",
       "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,6 +29,7 @@
                 "input": "node_modules/@ionic/angular/dist/ionic",
                 "output": "./ionic"
               },
+
               {
                 "glob": "**/*",
                 "input": "src/scripts",
@@ -188,5 +192,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "app"
 }

@@ -15,11 +15,9 @@ export class FirebaseIdentityTransformationService extends IdentityTransformatio
     combinedIdentity.isAuthenticated = !user.isAnonymous;
     user.getIdToken().then(value => {
       combinedIdentity.idToken = value;
+      combinedIdentity.accessToken = value;
     });
-    user.getToken().then(token => {
-      combinedIdentity.accessToken = token;
-    });
-
+    
     return combinedIdentity;
   }
 }

@@ -54,31 +54,10 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   initializeApp() {
-    try {
-      if (this.platform && this.platform.ready) {
-        const platformReadyPromise = this.platform.ready();
-        if (platformReadyPromise && platformReadyPromise.then) {
-          platformReadyPromise.then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            // SplashScreen.hide();
-            // StatusBar.setStyle({ style: StatusBarStyle.Dark });
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-
-            // this.platform.resize.asObservable().subscribe((event) => {
-            //   this.zone.run(() => {
-            //     this.application.tick();
-            //   });
-            // });
-
-          });
-        }
-      }
-    } catch (err) {
-      console.error(err);
-    }
-
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
   }
 
 
