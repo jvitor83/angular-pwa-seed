@@ -19,6 +19,7 @@ import { ProviderAuthenticationService } from './shared/auth/authentication/prov
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { filter } from 'rxjs/operators';
+import { timer } from 'rxjs';
 
 export const ComponentName = 'ion-app';
 @Component({
@@ -61,6 +62,17 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
 
+  updateNetworkStatusUI() {
+    if (navigator.onLine) {
+      // You might be online
+      (document.querySelector("body") as any).style = "";
+    } else {
+      // 100% Sure you are offline
+      (document.querySelector("body") as any).style = "filter: grayscale(0.8)";
+    }
+  }
+
+
   private loadScript(scriptUrl: string) {
     return new Promise((resolve, reject) => {
       const scriptElement = document.createElement('script');
@@ -100,11 +112,17 @@ export class MyApp implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+
+    this.updateNetworkStatusUI();
+    window.addEventListener("online", this.updateNetworkStatusUI);
+    window.addEventListener("offline", this.updateNetworkStatusUI);
+
+
     this.router.events.pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event) => this.menu.close());
 
 
-    if (this.swUpdate) {
+    if (this.swUpdate && this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(event => {
 
         console.log('[App] Update available: current version is', event.current, 'available version is', event.available);
@@ -113,31 +131,45 @@ export class MyApp implements OnInit, AfterViewInit {
           position: 'bottom', duration: 5000,
           closeButtonText: 'Update', showCloseButton: true
         });
-
         snackBarRef.then((toastElement: HTMLIonToastElement) => {
           toastElement.onDidDismiss(det => {
-            location.reload(true);
+            this.swUpdate.activateUpdate().then(() => {
+              location.reload(true);
+            });
           });
           toastElement.present();
         });
 
-
       });
+
+      this.swUpdate.activated.subscribe(event => {
+        console.log('[App] Old version was', event.previous);
+        console.log('[App] New version is', event.current);
+      });
+
+      // Why zone outside? See https://github.com/angular/angular/issues/20970#issuecomment-353093686
+      this.zone.runOutsideAngular(() => {
+        const timeToCheckUpdate = 1 * 60 * 1000;
+        timer(1 * 1000, timeToCheckUpdate).subscribe(value => {
+          this.zone.run(() => {
+            this.swUpdate.checkForUpdate()
+              .then(() => {
+                console.log('[App] checkForUpdate completed!')
+              })
+              .catch(err => {
+                console.error(err);
+              });
+          });
+        });
+      });
+
+      // this.router.events.filter(event => event instanceof NavigationEnd)
+      // .map(() => this.activatedRoute)
+      // .subscribe((event) => {
+      //   this.menu.close();
+      // });
+
     }
 
-    // this.router.events.filter(event => event instanceof NavigationEnd)
-    // .map(() => this.activatedRoute)
-    // .subscribe((event) => {
-    //   this.menu.close();
-    // });
-
   }
-
-  closeMenu() {
-    // close the menu when clicking a link from the menu
-    // this.menu.close();
-    // navigate to the new page if it is not the current page
-    // this.nav.setRoot(page.component);
-  }
-
 }

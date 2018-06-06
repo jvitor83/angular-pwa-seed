@@ -45,8 +45,6 @@ import { createCustomElement } from '@angular/elements';
 import { RouteReuseStrategy } from '@angular/router';
 
 
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -126,9 +124,9 @@ import { RouteReuseStrategy } from '@angular/router';
   ]
 })
 export class AppModule {
-  // constructor(private injector: Injector) { }
-  // ngDoBootstrap() {
-  //   const AppElement = createCustomElement(MyApp, { injector: this.injector });
-  //   customElements.define(ComponentName, AppElement);
-  // }
+  constructor(private injector: Injector) { }
+  ngDoBootstrap() {
+    const AppElement = createCustomElement(MyApp, { injector: this.injector });
+    customElements.define(ComponentName, AppElement);
+  }
 }
