@@ -82,12 +82,28 @@ export class MyApp implements OnInit, AfterViewInit {
     });
   }
 
+
   ngAfterViewInit() {
     if (this.authenticationService instanceof YoloAuthenticationService) {
       if (!this.identityService.userValue.isAuthenticated) {
         this.authenticationService.login(false);
       }
     }
+  }
+
+  install() {
+    console.log('install fired!');
+    this.installPromptEvent.prompt();
+    // Wait for the user to respond to the prompt
+    this.installPromptEvent.userChoice.then((choice) => {
+      if (choice.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+      // Clear the saved prompt since it can't be used again
+      this.installPromptEvent = null;
+    });
   }
 
 
@@ -111,8 +127,36 @@ export class MyApp implements OnInit, AfterViewInit {
     }
   }
 
+
+  installPromptEvent;
+
   ngOnInit(): void {
 
+    // if is not localhost
+    if (!(location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")) {
+      // if is not in https
+      if (location.protocol != 'https:') {
+        // redirect to https (pwa requirement)
+        location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+      }
+    }
+
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      console.log('beforeinstallprompt fired!');
+      // Prevent Chrome <= 67 from automatically showing the prompt
+      // event.preventDefault();
+
+      // Stash the event so it can be triggered later.
+      this.installPromptEvent = event;
+
+      // Update the install UI to notify the user app can be installed
+      // (doing that by the btnInstall that is displayed if there a installPromptEvent instance)
+      //(<any>document.querySelector('#btnInstall')).disabled = false;
+    });
+
+
+    // When connection become offline, then put the entire app with grayscale (0.8)
     this.updateNetworkStatusUI();
     window.addEventListener("online", this.updateNetworkStatusUI);
     window.addEventListener("offline", this.updateNetworkStatusUI);

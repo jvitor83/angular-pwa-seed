@@ -2,6 +2,12 @@
 
   <!-- Link to routes -->
   <div menu-items>
+
+    <ion-item color="primary" #btnInstall [hidden]="!installPromptEvent" button (click)="install()">
+      <ion-icon name="download"></ion-icon>
+      <ion-label>Install App</ion-label>
+    </ion-item>
+
     <seed-menu-item link="['/dashboard']" title="Dashboard" icon="analytics"></seed-menu-item>
     <seed-menu-item link="['/protected']" title="Protected"></seed-menu-item>
   </div>
@@ -10,12 +16,12 @@
 
   <!-- This way the router animations is the one defined by ion-router-outlet -->
   <main>
-      <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet main></ion-router-outlet>
   </main>
 
 
   <!-- This way the router animations can be the one at fade.animations.ts -->
-<!--
+  <!--
   <main [@routerTransition]="getState(o)">
       <router-outlet #o="outlet"></router-outlet>
   </main> -->
