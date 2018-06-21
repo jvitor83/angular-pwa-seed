@@ -15,7 +15,7 @@
         "/*.ttf",
         "/assets/icon.png",
         "/assets/logo.png",
-        "/ionic/**",
+        "/svg/**",
         "/scripts/**"
       ]
     }

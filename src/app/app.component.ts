@@ -21,7 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { filter } from 'rxjs/operators';
 import { timer } from 'rxjs';
 
-export const ComponentName = 'ion-app';
+export const ComponentName = 'app-root';
 @Component({
   moduleId: module.id,
   selector: ComponentName,
