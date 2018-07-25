@@ -5,9 +5,9 @@
       <ion-toolbar color="primary">
         <ion-title>Pages</ion-title>
         <ion-buttons slot="end">
-        <ion-item slot="end" class="right" invisible-to="mobile" (click)="fixMenu()">
+        <ion-button color="light" slot="end" class="right" invisible-to="mobile" (click)="fixMenu()">
           <span [@leftMenuState]="leftMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
-        </ion-item>
+        </ion-button>
       </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -49,9 +49,9 @@
 
       <ion-header>
         <ion-toolbar color="primary">
-            <ion-item slot="start" invisible-to="mobile" (click)="fixRightMenu()">
+            <ion-button color="light" fill="clear" slot="start" invisible-to="mobile" (click)="fixRightMenu()">
               <span [@rightMenuState]="rightMenuState" class="glyphicon glyphicon-pushpin toolbar-title-md" aria-hidden="true"></span>
-            </ion-item>
+            </ion-button>
 
           <ion-title>Info/Settings</ion-title>
 

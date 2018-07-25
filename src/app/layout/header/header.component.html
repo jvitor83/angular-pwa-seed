@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar color="primary">
 
-      <ion-buttons slot="start">
-        <ion-menu-button [autoHide]="'false'" class="left" color="primary" *ngIf="showLeftMenuButton" ion-button icon-only (click)="toggleMenu()" menuToggle="startMenu">
-          <ion-icon name="menu"></ion-icon>
-        </ion-menu-button>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button [autoHide]="'false'" class="left" color="light" *ngIf="showLeftMenuButton" (click)="toggleMenu()" menuToggle="startMenu">
 
+      </ion-menu-button> -->
+      <ion-menu-toggle *ngIf="showLeftMenuButton" (click)="toggleMenu()" [menu]="'startMenu'" [autoHide]="'false'">
+          <ion-button >
+            <ion-icon slot="icon-only" name="menu"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
 
+      <span>
+        <img class="left" src="assets/icon.png" height="35" width="35" />
+        <ion-title class="left">AngularPwaSeed</ion-title>
+      </span>
 
-        <span>
-          <img class="left" src="assets/icon.png" height="35" width="35" />
-          <ion-title class="left">AngularPwaSeed</ion-title>
-        </span>
-
-        <!--<button mobile-hidden ion-button>
+      <!--<button mobile-hidden ion-button>
         <ion-icon name="search"></ion-icon>
         Search
     </button>-->
-      </ion-buttons>
+    </ion-buttons>
 
 
     <ng-content></ng-content>
@@ -36,10 +39,14 @@
         </ion-button>
       </div>
 
-      <ion-menu-button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" [menu]="'endMenu'" [autoHide]="'false'" >
+      <!-- <ion-menu-button *ngIf="showRightMenuButton" ion-button icon-only (click)="toggleRightMenu()" [menu]="'endMenu'" [autoHide]="'false'" >
         <ion-icon name="more"></ion-icon>
-      </ion-menu-button>
-
+      </ion-menu-button> -->
+      <ion-menu-toggle *ngIf="showRightMenuButton" (click)="toggleRightMenu()" [menu]="'endMenu'" [autoHide]="'false'">
+        <ion-button >
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
 
     </ion-buttons>
   </ion-toolbar>
