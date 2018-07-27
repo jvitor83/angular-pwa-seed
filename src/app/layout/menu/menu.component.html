@@ -1,5 +1,5 @@
 <ion-split-pane #splitPaneLeftMenu [when]="whenSplitPaneShow(768)">
-  <ion-menu id="leftMenu" side="start" type="overlay">
+  <ion-menu (ionOpen)="menuChanged()" (ionClose)="menuChanged()" (ionMenuChange)="menuChanged()" #leftMenu side="start" type="overlay">
 
     <ion-header>
       <ion-toolbar color="primary">
@@ -22,7 +22,7 @@
 
 
 
-  <ion-split-pane main [when]="whenRightSplitPaneShow(768)">
+  <ion-split-pane #splitPaneRightMenu main [when]="whenRightSplitPaneShow(768)">
     <!-- when="(min-width: 1440px)" -->
     <ion-content main #content>
 
@@ -45,7 +45,7 @@
     </ion-content>
 
 
-    <ion-menu *ngIf="infoAtRightMenu == true" [disabled]="infoAtRightMenu != true" id="rightMenu" type="overlay" side="end">
+    <ion-menu (ionOpen)="menuChanged()" (ionClose)="menuChanged()" (ionMenuChange)="menuChanged()" #rightMenu *ngIf="infoAtRightMenu == true" [disabled]="infoAtRightMenu != true" id="rightMenu" type="overlay" side="end" >
 
       <ion-header>
         <ion-toolbar color="primary">

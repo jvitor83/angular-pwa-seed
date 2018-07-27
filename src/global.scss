@@ -107,7 +107,7 @@ main {
 }
 
 
-.split-pane-visible > .split-pane-side {//[side=left]
+.split-pane-visible > .split-pane-side {//[side=start]
     max-width: 250px !important;
     min-width: 250px !important;
     order: 0 !important; // temporary fix???

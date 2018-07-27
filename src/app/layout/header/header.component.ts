@@ -50,10 +50,20 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu() {
     this.leftMenuService.toggleMenu();
+    // if (this.leftMenuService.isFixed) {
+    //   this.leftMenuService.pinToggleMenu();
+    // } else {
+    //   this.leftMenuService.toggleMenu();
+    // }
   }
 
   toggleRightMenu() {
     this.rightMenuService.toggleMenu();
+    // if (this.rightMenuService.isFixed) {
+    //   this.rightMenuService.pinToggleMenu();
+    // } else {
+    //   this.rightMenuService.toggleMenu();
+    // }
   }
 
   async presentUserInfoPopover(event) {
