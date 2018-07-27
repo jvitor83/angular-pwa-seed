@@ -26,7 +26,7 @@ export const ComponentName = 'app-root';
   moduleId: module.id,
   selector: ComponentName,
   templateUrl: './app.html',
-  animations: [routerTransition]
+  //animations: [routerTransition]
 })
 export class MyApp implements OnInit, AfterViewInit {
 

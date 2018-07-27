@@ -1,4 +1,4 @@
-<ion-item button routerLinkActive="active" (click)="navigateTo(link)">
+<ion-item button [routerDirection]="'root'" routerLinkActive="active" (click)="navigateTo(link)">
   <ion-icon *ngIf="!!icon" slot="start" name="{{icon}}"></ion-icon>
   <ion-label *ngIf="!!title">{{title}}</ion-label>
   <ng-content></ng-content>
