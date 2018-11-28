@@ -15,6 +15,7 @@ export class TabNone { }
   selector: 'seed-layout [type="tab"]',
   template:
   `
+    <div *ngIf="visible; else hidden">
     <ion-header>
     <seed-header [showLeftMenuButton]="false" [showRightMenuButton]="showRightMenuButton" [infoAtRightMenu]="false">
       <ion-tabs [hidden]="showToolbarTab" layout-tabs tabsLayout="icon-top" >
@@ -35,8 +36,10 @@ export class TabNone { }
     </ion-toolbar>
     </ion-header>
     <ion-content main #content>
-        <ng-content></ng-content>
+        <ng-content *ngTemplateOutlet="hidden"></ng-content>
     </ion-content>
+    </div>
+    <ng-template #hidden><ng-content></ng-content></ng-template>
   `,
 })
 export class LayoutTabComponent extends LayoutComponent implements OnInit {

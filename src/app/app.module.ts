@@ -43,12 +43,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { createCustomElement } from '@angular/elements';
 import { RouteReuseStrategy } from '@angular/router';
+import { LayoutService } from './layout/layout.service';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    MenuItemComponent
+    MenuItemComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -100,7 +102,7 @@ import { RouteReuseStrategy } from '@angular/router';
     MyApp
   ],
   providers: [
-
+    LayoutService,
     Network,
     StatusBar,
     SplashScreen,

@@ -7,12 +7,13 @@ import { LayoutComponent } from "./layout.component";
   selector: 'seed-layout [type="menu"]',
   template:
   `
-  <seed-menu [infoAtRightMenu]="infoAtRightMenu" [showRightMenuButton]="showRightMenuButton" >
+  <seed-menu *ngIf="visible; else hidden" [infoAtRightMenu]="infoAtRightMenu" [showRightMenuButton]="showRightMenuButton" >
     <div seed-menu-items>
       <ng-content select="[menu-items]"></ng-content>
     </div>
-    <ng-content></ng-content>
+    <ng-content *ngTemplateOutlet="hidden"></ng-content>
   </seed-menu>
+  <ng-template #hidden><ng-content></ng-content></ng-template>
   `
 })
 export class LayoutMenuComponent extends LayoutComponent {

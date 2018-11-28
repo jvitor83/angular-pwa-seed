@@ -1,7 +1,8 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Platform, MenuController } from '@ionic/angular';
-import { Component, OnInit, Input, Injector, ApplicationRef, OnChanges, SimpleChanges, AfterViewInit, NgZone, AfterContentInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, Injector, ApplicationRef, OnChanges, SimpleChanges, AfterViewInit, NgZone, AfterContentInit, AfterViewChecked, ContentChildren, QueryList, ElementRef, Directive, HostBinding } from '@angular/core';
 import { filter } from 'rxjs/operators';
+import { LayoutService } from './layout.service';
 
 @Component({
   moduleId: module.id,
@@ -9,16 +10,24 @@ import { filter } from 'rxjs/operators';
 })
 export class LayoutComponent implements AfterViewInit {
 
+  @Input() protected visible: boolean = true;
+
   ngAfterViewInit(): void {
     this.rightMenuButton(this.menuController);
+    this.layoutService.visible.subscribe(visible => this.visible = visible);
   }
 
+
   constructor(public router: Router, public injector: Injector, public zone: NgZone,
-    public platform: Platform, public menuController: MenuController, public application: ApplicationRef) {
+    public platform: Platform, public menuController: MenuController, public application: ApplicationRef,
+    public layoutService: LayoutService) {
+
+      
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event) => {
         this.rightMenuButton(menuController);
+
       });
   }
 
